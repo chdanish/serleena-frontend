@@ -21,7 +21,11 @@ module.exports = function(config){
 
       browsers : ['PhantomJS'],
 
-      reporters: ['progress'],
+      reporters: ['junit'],
+      junitReporter: {
+        outputFile: 'test-results.xml',
+        suite: ''
+      },
 
       preprocessors: {
 
@@ -29,6 +33,7 @@ module.exports = function(config){
 
       plugins : [
           'karma-jasmine',
-          'karma-phantomjs-launcher'
+          'karma-phantomjs-launcher',
+          'karma-junit-reporter'
       ]
 })}
