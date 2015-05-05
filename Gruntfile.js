@@ -69,7 +69,14 @@ module.exports = function(grunt){
 				}
 			}
 		},
-
+		zip: {
+			'./serleena-frontend.zip': [
+				'bower_components/angular/angular.min.js',
+				'bower_components/angular-route/angular-route.min.js',
+				'dist/testangular.js',
+				'index.html',
+			]
+		},
 		notify: {
 			concat: {
 				options: {
@@ -85,6 +92,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-notify');
 
     grunt.registerTask('default', ['watch']);
