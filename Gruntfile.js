@@ -71,8 +71,9 @@ module.exports = function(grunt){
 		},
 		zip: {
 			'./serleena-frontend.zip': [
-				'bower_components/angular/angular.min.js',
-				'bower_components/angular-route/angular-route.min.js',
+				'bower_components/angular/angular.js',
+				'bower_components/angular-route/angular-route.js',
+				'app/**',
 				'dist/testangular.js',
 				'index.html',
 			]
