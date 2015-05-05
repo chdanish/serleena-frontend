@@ -29,6 +29,7 @@
 module.exports = function(config){
     config.set({
       basePath : './',
+      singleRun: true,
 
       files : [
         // file di Angular
@@ -51,8 +52,7 @@ module.exports = function(config){
 
       reporters: ['junit'],
       junitReporter: {
-        outputFile: 'test-results.xml',
-        suite: ''
+        outputFile: 'test-results.xml'
       },
 
       preprocessors: {
