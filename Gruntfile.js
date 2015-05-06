@@ -48,6 +48,7 @@ module.exports = function(grunt){
 					'bower_components/angular-route/angular-route.js',
 					'bower_components/bootstrap/dist/css/bootstrap.css',
 					'app/**',
+					'assets/**',
 					'dist/testangular.js',
 					'index.html',
 				],
