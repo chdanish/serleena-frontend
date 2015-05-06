@@ -77,5 +77,7 @@ module.exports = function(grunt){
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
+    grunt.registerTask('deploy', ['zip:deploy']);
+    grunt.registerTask('coverage', ['zip:coverage']);
 
 };
