@@ -70,13 +70,20 @@ module.exports = function(grunt){
 			}
 		},
 		zip: {
-			'./serleena-frontend.zip': [
-				'bower_components/angular/angular.js',
-				'bower_components/angular-route/angular-route.js',
-				'app/**',
-				'dist/testangular.js',
-				'index.html',
-			]
+			deploy: {
+				src: [
+					'bower_components/angular/angular.js',
+					'bower_components/angular-route/angular-route.js',
+					'app/**',
+					'dist/testangular.js',
+					'index.html',
+				],
+				dest: './serleena-frontend.zip'
+			},
+			coverage: {
+				src: ['coverage/**'],
+				dest: './coverage.zip'
+			}
 		},
 		notify: {
 			concat: {
