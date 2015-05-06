@@ -50,18 +50,23 @@ module.exports = function(config){
 
       browsers : ['PhantomJS'],
 
-      reporters: ['junit'],
+      reporters: ['junit', 'coverage'],
       junitReporter: {
         outputFile: 'test-results.xml'
       },
+      coverageReporter: {
+        type : 'html',
+        dir : 'coverage/'
+      },
 
       preprocessors: {
-
+        'dist/testangular.js': 'coverage'
       },
 
       plugins : [
           'karma-jasmine',
           'karma-phantomjs-launcher',
-          'karma-junit-reporter'
+          'karma-junit-reporter',
+          'karma-coverage'
       ]
 })}
