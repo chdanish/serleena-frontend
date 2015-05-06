@@ -30,7 +30,7 @@ angular
 	.module('testModule', []);
 
 angular
-	.module('testAngular', [
+	.module('serleenaFrontend', [
 		'ngRoute',
 		'testModule'
 	]).config(configApp);

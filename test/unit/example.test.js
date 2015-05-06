@@ -33,7 +33,7 @@ describe("An example test", function() {
 });
 
 describe('TestController', function() {
-  beforeEach(module('testAngular'));
+  beforeEach(module('serleenaFrontend'));
 
   var $controller;
 
