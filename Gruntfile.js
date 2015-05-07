@@ -30,7 +30,7 @@ module.exports = function(grunt){
 
 	var testangular_files = [
 		'./app/config/appconfiguration.js',
-		'./app/test/test.controller.js'
+		'./app/authentication/login.controller.js'
 	];
 
 	grunt.initConfig({
