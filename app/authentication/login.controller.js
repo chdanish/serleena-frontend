@@ -26,8 +26,7 @@
  *****************************************************************************/
 
 
-angular.module('testModule', []).controller('TestController', TestController);
+angular.module('authentication').controller('LoginController', LoginController);
 
 function TestController ($scope){
-	$scope.name = "AngularJS";
 }

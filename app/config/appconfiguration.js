@@ -43,9 +43,12 @@
  */
 
 angular
+	.module('authentication', []);
+
+angular
 	.module('serleenaFrontend', [
 		'ngRoute',
-		'testModule'
+		'authentication'
 	]).config(AppConfiguration);
 
 /**
@@ -67,8 +70,8 @@ function AppConfiguration($routeProvider){
 	var setRoutes = function(){
 		$routeProvider
 			.when("/", {
-				templateUrl: 'app/test/test.html',
-				controller: 'TestController'
+				templateUrl: 'app/authentication/login.view.html',
+				controller: 'LoginController'
 			});
 	}();
 }
