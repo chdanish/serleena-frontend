@@ -41,7 +41,7 @@ module.exports = function(config){
         'dist/testangular.js',
 
         // test
-        'test/unit/*.js'
+        //'test/unit/*.js'
       ],
 
       autoWatch : false,
