@@ -6,3 +6,9 @@ body {
 footer {
 	margin-top: -1.2em;
 }
+
+#welcome-panel {
+	background-image: url('../img/welcome-serleena-cloud.jpg');
+	background-size: cover;
+	background-position: center center;
+}
