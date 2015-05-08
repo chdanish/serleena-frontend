@@ -1,5 +1,5 @@
 /**
-   * Name: LoginController
+   * Name: AuthService
    * Package: Authentication
    * Author: Matteo Lisotto
    * Date: 2015-05-08
@@ -10,16 +10,16 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('authentication').service('AuthService', AuthService);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe singleton che implementa la comunicazione con il backend per le
+  * richieste relative all’autenticazione.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function AuthService() {
 }
