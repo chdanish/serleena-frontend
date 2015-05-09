@@ -44,7 +44,15 @@
 
 angular.module('authentication').controller('LoginController', LoginController);
 
-
+/**
+ * Classe che gestisce il login al portale
+ *
+ * @constructor
+ * @param {Scope} $scope - L'oggetto ViewModel del controller.
+ *
+ * @author Antonio Cavestro <antonio.cavestro@gmail.com>
+ * @version 0.1
+ */
 function LoginController ($scope){
 
 }
