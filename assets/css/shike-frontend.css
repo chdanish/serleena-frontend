@@ -3,6 +3,22 @@ body {
 	margin: 0 auto;
 }
 
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+.jumbotron h1 {
+	font-size: 42px;
+}
+
+.jumbotron p {
+	font-size: 18px;
+}
+
 footer {
 	margin-top: -1.2em;
 }
