@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: SyncExperiencesService
+   * Package: Synchronization
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -37,17 +37,15 @@
    * 0.0.1        Matteo Lisotto   2015-05-08    Create file
    *
    */
-
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('synchronization').service('SyncExperiencesService', SyncExperiencesService);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe singleton che gestisce le chiamate al backend relative al pairing.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function SyncExperiencesService() {
 }

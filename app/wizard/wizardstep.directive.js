@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: WizardStepDirective
+   * Package: Wizard
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -38,16 +38,16 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('wizard').directive('WizardStepDirective', WizardStepDirective);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe che realizza il componente grafico di un passaggio di una generica
+  * procedura guidata.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function WizardStepDirective() {
 }

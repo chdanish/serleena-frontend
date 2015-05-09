@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: ExperienceListController
+   * Package: Experience
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -37,11 +37,12 @@
    * 0.0.1        Matteo Lisotto   2015-05-08    Create file
    *
    */
-
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('experience').controller('ExperienceListController',
+					ExperienceListController);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe che gestisce il popolamento e gli eventi utente di
+  * ExperienceListView.
   *
   * @author Matteo Lisotto
   * @version 0.1
@@ -49,5 +50,6 @@ angular.module('authentication').controller('LoginController', LoginController);
   * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+
+function ExperienceListController($scope) {
 }

@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: MapDirective
+   * Package: Map
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -38,16 +38,15 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('map').directive('MapDirective', MapDirective);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe che realizza il componente grafico di una generica mappa.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function MapDirective() {
 }

@@ -28,9 +28,8 @@
 
 module.exports = function(grunt){
 
-	var testangular_files = [
-		'./app/config/appconfiguration.js',
-		'./app/authentication/login.controller.js'
+    var serleenafrontend_files = [
+	        './app/**/*.js'
 	];
 
 	grunt.initConfig({
@@ -40,13 +39,13 @@ module.exports = function(grunt){
 				separator: ';',
 			},
 			angular: {
-				src: testangular_files,
-				dest: './dist/testangular.js',
+				src: serleenafrontend_files,
+				dest: './dist/serleenafrontend.js',
 			}
 		},
 		jshint: {
 			angular: {
-				src: testangular_files
+				src: serleenafrontend_files
 			}
 		},
 		uglify: {
@@ -55,13 +54,13 @@ module.exports = function(grunt){
 			},
 			frontend: {
 				files: {
-				  './dist/testangular.js': './dist/testangular.js',
+				  './dist/serleenafrontend.js': './dist/serleenafrontend.js',
 				}
 			}
 		},
 		watch: {
 			angular: {
-				files: testangular_files,
+				files: serleenafrontend_files,
 				//tasks: ['concat:angular','uglify:frontend'],
 				tasks: ['concat:angular', 'jshint:angular', 'notify:concat'],
 				options: {
@@ -77,7 +76,7 @@ module.exports = function(grunt){
 					'bower_components/bootstrap/dist/css/bootstrap.css',
 					'app/**',
 					'assets/**',
-					'dist/testangular.js',
+					'dist/serleenafrontend.js',
 					'index.html',
 				],
 				dest: './serleena-frontend.zip'

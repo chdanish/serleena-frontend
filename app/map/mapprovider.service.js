@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: MapProvider
+   * Package: Map
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -38,16 +38,17 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('map').service('MapProvider', MapProvider);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe singleton che realizza un’astrazione del servizio con cui interagire
+  * con il gestore alla mappa, in modo da disaccoppiarlo dal resto
+  * dell’applicazione.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function MapProvider() {
 }

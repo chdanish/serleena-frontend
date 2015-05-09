@@ -27,7 +27,7 @@
 
 
 /**
-   * Name: LoginController
+   * Name: LogoutController
    * Package: Authentication
    * Author: Matteo Lisotto
    * Date: 2015-05-08
@@ -38,10 +38,10 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('authentication').controller('LogoutController', LogoutController);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe per la gestione della disconnessione di un utente.
   *
   * @author Matteo Lisotto
   * @version 0.1
@@ -49,5 +49,5 @@ angular.module('authentication').controller('LoginController', LoginController);
   * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function LogoutController($scope) {
 }

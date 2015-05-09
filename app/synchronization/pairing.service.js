@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: PairingService
+   * Package: Synchronization
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -38,16 +38,15 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('synchronization').service('PairingService', PairingService);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe singleton che gestisce le chiamate al backend relative al pairing.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function PairingService() {
 }

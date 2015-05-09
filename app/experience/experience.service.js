@@ -27,8 +27,8 @@
 
 
 /**
-   * Name: LoginController
-   * Package: Authentication
+   * Name: ExperienceService
+   * Package: Experience
    * Author: Matteo Lisotto
    * Date: 2015-05-08
    *
@@ -38,16 +38,16 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('experience').service('ExperienceService', ExperienceService);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe singleton che implementa la comunicazione con il backend per le
+  * richieste relative alle esperienze.
   *
   * @author Matteo Lisotto
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function ExperienceService() {
 }
