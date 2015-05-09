@@ -50,58 +50,8 @@ function AuthService($http, BACKEND_URL) {
       callback(false, data);
     });
   };
-  /**
-   * Implementa la comunicazione con il server per effetturare la registrazione
-   * utente.
-   * @function registerUser
-   * @memberOf AuthService
-   * @instance
-   * @param {String} email
-   * @param {String} password
-   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
-   * backend
-   */
-  var registerUser = function(email, password, callback){
-    $http({
-      url: BACKEND_URL + "/user",
-      method: 'POST',
-      data: {
-        email: email,
-        password: password
-      }
-    }).success(function(data, status, headers, config){
-      callback(true, data);
-    }).error(function(data, status, headers, config){
-      callback(false, data);
-    });
-  };
-  /**
-   * Implementa la comunicazione con il server per effetturare il recupero della
-   * password utente.
-   * @function recoverUser
-   * @memberOf AuthService
-   * @instance
-   * @param {String} email
-   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
-   * backend
-   */
-  var recoverUser = function(email, callback){
-    $http({
-      url: BACKEND_URL + "/user/recover",
-      method: 'PUT',
-      data: {
-        email: email
-      },
-    }).success(function(data, status, headers, config){
-      callback(true, data);
-    }).error(function(data, status, headers, config){
-      callback(false, data);
-    });
-  };
 
   return {
-    loginUser: loginUser,
-    registerUser: registerUser,
-    recoverUser: recoverUser
+    loginUser: loginUser
   };
 }
