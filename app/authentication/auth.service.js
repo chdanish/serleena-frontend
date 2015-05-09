@@ -72,9 +72,32 @@ function AuthService($http, BACKEND_URL) {
       callback(false, data);
     });
   };
+  /**
+   * Implementa la comunicazione con il server per effetturare il recupero della
+   * password utente.
+   * @function recoverUser
+   * @memberOf AuthService
+   * @param {String} email
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var recoverUser = function(email, callback){
+    $http({
+      url: BACKEND_URL + "/user/recover",
+      method: 'PUT',
+      data: {
+        email: email
+      },
+    }).success(function(data, status, headers, config){
+      callback(true, data);
+    }).error(function(data, status, headers, config){
+      callback(false, data);
+    });
+  };
 
   return {
     loginUser: loginUser,
     registerUser: registerUser,
+    recoverUser: recoverUser
   };
 }
