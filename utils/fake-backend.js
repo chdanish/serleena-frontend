@@ -26,33 +26,41 @@
  *****************************************************************************/
 
 
-/**
- * Name: login.controller.js
- * Package: Authentication
- * Author: Antonio Cavestro
- * Date: 2015-05-09
- *
- * History:
- * Version    Programmer  		Date        Changes
- * 0.0.1  	Antonio Cavestro  	2015-05-09	Create file
- *
- */
+var express = require('express');
+var app = express();
 
-/**
- * @namespace Authentication
- */
+// Serve a disabilitare il CORS
+app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
+  res.header("Access-Control-Allow-Headers",
+  	"Origin, X-Requested-With, Content-Type, Accept, X-CustomToken");
+  if ('OPTIONS' == req.method){
+    return res.sendStatus(200);
+  }
+  next();
+});
 
-angular.module('authentication').controller('LoginController', LoginController);
+app.get('/user/token', function (req, res) {
+  console.log(req);
+  res.send("32fdb64818a41ec4aad07493090a9d047cab08d8");
+});
 
-/**
- * Classe che gestisce il login al portale
- *
- * @constructor
- * @param {Scope} $scope - L'oggetto ViewModel del controller.
- *
- * @author Antonio Cavestro <antonio.cavestro@gmail.com>
- * @version 0.1
- */
-function LoginController ($scope){
+app.post('/user', function (req, res) {
+  console.log(req);
+  res.send("ACK");
+});
 
-}
+app.put('/user/recovery', function (req, res) {
+  console.log(req);
+  res.send("ACK");
+});
+
+var server = app.listen(3000, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Fake serleena Backend listening at http://%s:%s', host, port);
+
+});
