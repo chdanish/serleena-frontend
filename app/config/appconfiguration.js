@@ -34,9 +34,9 @@
  *
  * History:
  * Version    Programmer  		Date        Changes
- * 0.0.1      Antonio Cavestro  	2015-05-06  Create file
- * 0.0.2      Matteo Lisotto            2015-05-08  Add modules and update 
- *                                                  dependences on serleenaFrontend
+ * 0.0.1      Antonio Cavestro 	2015-05-06  Crea file
+ * 0.0.2      Matteo Lisotto	2015-05-08  Aggiungi moduli e aggiorna
+ *                                          dipendenze di serleenaFrontend
  *
  */
 
