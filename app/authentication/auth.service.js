@@ -58,6 +58,7 @@ function AuthService($http, BACKEND_URL) {
    * Implementa la comunicazione con il server per effetturare il login utente.
    * @function loginUser
    * @memberOf AuthService
+   * @instance
    * @param {String} email
    * @param {String} password
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
@@ -81,6 +82,7 @@ function AuthService($http, BACKEND_URL) {
    * utente.
    * @function registerUser
    * @memberOf AuthService
+   * @instance
    * @param {String} email
    * @param {String} password
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
@@ -105,6 +107,7 @@ function AuthService($http, BACKEND_URL) {
    * password utente.
    * @function recoverUser
    * @memberOf AuthService
+   * @instance
    * @param {String} email
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
    * backend
