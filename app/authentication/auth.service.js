@@ -54,4 +54,30 @@ angular.module('authentication').service('AuthService', AuthService);
   */
 
 function AuthService($http, BACKEND_URL) {
+  /**
+   * Implementa la comunicazione con il server per effetturare il login utente.
+   * @function loginUser
+   * @memberOf AuthService
+   * @param {String} email
+   * @param {String} password
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var loginUser = function(email, password, callback){
+    $http({
+      url: BACKEND_URL + "/user/token",
+      method: 'GET',
+      headers: {
+        'X-CustomToken': email + "+" + password
+      },
+    }).success(function(data, status, headers, config){
+      callback(true, data);
+    }).error(function(data, status, headers, config){
+      callback(false, data);
+    });
+  };
+
+  return {
+    loginUser: loginUser,
+  };
 }
