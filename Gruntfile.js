@@ -29,7 +29,13 @@
 module.exports = function(grunt){
 
     var serleenafrontend_files = [
-	        './app/**/*.js'
+	        './app/config/*.js',
+	        './app/authentication/*.js',
+	        './app/map/*.js',
+	        './app/wizard/*.js',
+	        './app/experience/*.js',
+	        './app/synchronization/*.js',
+	        './app/telemetry/*.js',
 	];
 
 	grunt.initConfig({
