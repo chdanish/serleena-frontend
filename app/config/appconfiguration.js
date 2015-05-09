@@ -40,6 +40,9 @@ angular
 	        'wizard'
 	]).config(AppConfiguration);
 
+angular.module('serleenaFrontend')
+	.value('BACKEND_URL', 'http://api.hitchhikers.info');
+
 /**
  * Classe che contiene la configurazione dell'applicazione.
  *
