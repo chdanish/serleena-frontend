@@ -17,11 +17,16 @@
  */
 
 angular
-        .module('authentication', [])
-        .module('experience', [])
-        .module('map', [])
-        .module('synchronization', [])
-        .module('telemetry', [])
+        .module('authentication', []);
+angular
+        .module('experience', []);
+angular
+        .module('map', []);
+angular
+        .module('synchronization', []);
+angular
+        .module('telemetry', []);
+angular
         .module('wizard', []);
 
 angular
