@@ -1,5 +1,5 @@
 /**
-   * Name: LoginController
+   * Name: RegisterController
    * Package: Authentication
    * Author: Matteo Lisotto
    * Date: 2015-05-08
@@ -10,10 +10,11 @@
    *
    */
 
-angular.module('authentication').controller('LoginController', LoginController);
+angular.module('authentication').controller('RegisterController', RegisterController);
 
 /**
-  * Classe per la gestione dell’autenticazione dell’utente.
+  * Classe che gestisce gli eventi di ExperienceListView e la validazione dei
+  * dati inseriti dall’utente.
   *
   * @author Matteo Lisotto
   * @version 0.1
@@ -21,5 +22,5 @@ angular.module('authentication').controller('LoginController', LoginController);
   * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function TestController ($scope){
+function RegisterController($scope) {
 }
