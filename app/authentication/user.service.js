@@ -19,7 +19,11 @@ angular.module('authentication').service('UserService', UserService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * XMLHttpRequest (Ajax)
+  * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
+  * configurazione)
   */
 
-function UserService() {
+function UserService($http, BACKEND_URL) {
 }
