@@ -22,11 +22,13 @@ angular.module('authentication').service('AuthService', AuthService);
   * @constructor
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
+  * @param {Provider} $cookies - Facade di AngularJS per la gestione dei
+  * cookie
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
   * configurazione)
   */
 
-function AuthService($http, BACKEND_URL) {
+function AuthService($http, $cookies, BACKEND_URL) {
   /**
    * Implementa la comunicazione con il server per effetturare il login utente.
    * @function loginUser
