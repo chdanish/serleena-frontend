@@ -96,7 +96,13 @@ function AuthService($http, $cookies, BACKEND_URL) {
     $rootScope.userLogged = false;
     callback();
   };
-
+  /**
+   * Verifica se l'utente è autenticato.
+   * @function isLogged
+   * @memberOf AuthService
+   * @instance
+   * @returns {Boolean}
+   */
   var isLogged = function(){
     if (typeof $cookies.serleena_user != "undefined"){
       return false;
