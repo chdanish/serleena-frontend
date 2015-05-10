@@ -54,7 +54,14 @@ function AuthService($http, $cookies, BACKEND_URL) {
       callback(false, data);
     });
   };
-
+  /**
+   * Effettua il logout dell'utente.
+   * @function logoutUser
+   * @memberOf AuthService
+   * @instance
+   * @param {function} callback - Funzione da invocare dopo aver effettuato il
+   * logout
+   */
   var logoutUser = function(callback){
     delete $cookies.serleena_user;
     delete $cookies.serleena_token;
