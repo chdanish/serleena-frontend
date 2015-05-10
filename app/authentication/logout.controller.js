@@ -35,6 +35,7 @@
    * History:
    * Version      Programmer       Date          Changes
    * 0.0.1        Matteo Lisotto   2015-05-08    Crea file
+   * 0.0.2        Antonio Cavestro 2015-05-10    Aggiungi funzione di logout
    *
    */
 
@@ -53,4 +54,9 @@ angular.module('authentication').controller('LogoutController', LogoutController
   */
 function LogoutController($scope, $location, AuthService) {
 
+  $scope.logoutUser = function(){
+    AuthService.logoutUser(function(){
+      $location.path("#/");
+    });
+  };
 }
