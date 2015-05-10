@@ -69,9 +69,14 @@ function AuthService($http, $cookies, BACKEND_URL) {
     return true;
   };
 
+  var authRequest = function(callback){
+    callback($cookies.get("serleena_token"));
+  };
+
   return {
     loginUser: loginUser,
     logoutUser: logoutUser,
-    isLogged: isLogged
+    isLogged: isLogged,
+    authRequest: authRequest
   };
 }
