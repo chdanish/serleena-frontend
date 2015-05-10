@@ -57,7 +57,12 @@ angular.module('authentication').controller('LogoutController', LogoutController
   * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
   */
 function LogoutController($scope, $location, AuthService) {
-
+  /**
+   * Effettua logout utente.
+   * @function logoutUser
+   * @memberOf LogoutController
+   * @instance
+   */
   $scope.logoutUser = function(){
     AuthService.logoutUser(function(){
       $location.path("#/");
