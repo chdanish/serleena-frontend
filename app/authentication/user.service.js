@@ -104,7 +104,6 @@ function UserService($http, BACKEND_URL) {
   };
 
   return {
-    loginUser: loginUser,
     registerUser: registerUser,
     recoverUser: recoverUser
   };
