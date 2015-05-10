@@ -39,6 +39,10 @@
    *
    */
 
+/**
+ * @namespace Authentication
+ */
+
 angular.module('authentication').controller('LogoutController', LogoutController);
 
 /**
