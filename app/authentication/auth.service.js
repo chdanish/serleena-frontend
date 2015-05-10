@@ -90,8 +90,16 @@ function AuthService($http, $cookies, BACKEND_URL) {
     callback();
   };
 
+  var isLogged = function(){
+    if (typeof $cookies.serleena_user != "undefined"){
+      return false;
+    }
+    return true;
+  };
+
   return {
     loginUser: loginUser,
-    logoutUser: logoutUser
+    logoutUser: logoutUser,
+    isLogged: isLogged
   };
 }
