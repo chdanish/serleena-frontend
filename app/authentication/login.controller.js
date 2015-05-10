@@ -55,4 +55,6 @@ angular.module('authentication').controller('LoginController', LoginController);
  */
 function LoginController ($scope, $location, AuthService){
 
+	$scope.email = "";
+	$scope.password = "";
 }
