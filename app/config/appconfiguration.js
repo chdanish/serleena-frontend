@@ -65,6 +65,10 @@ function AppConfiguration($routeProvider){
 			.when("/", {
 				templateUrl: 'app/authentication/login.view.html',
 				controller: 'LoginController'
+			})
+			.when("/logout", {
+				templateUrl: 'app/authentication/logout.view.html',
+				controller: 'LogoutController'
 			});
 	}();
 }
