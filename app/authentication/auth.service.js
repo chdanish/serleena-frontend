@@ -47,7 +47,9 @@ function AuthService($http, $cookies, BACKEND_URL) {
         'X-CustomToken': email + "+" + password
       },
     }).success(function(data, status, headers, config){
-      callback(true, data);
+      $cookies.serleena_user = email;
+      $cookies.serleena_token = data;
+      callback(true, null);
     }).error(function(data, status, headers, config){
       callback(false, data);
     });
