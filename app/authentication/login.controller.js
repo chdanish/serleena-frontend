@@ -25,6 +25,6 @@ angular.module('authentication').controller('LoginController', LoginController);
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.1
  */
-function LoginController ($scope){
+function LoginController ($scope, $location, AuthService){
 
 }
