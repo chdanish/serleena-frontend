@@ -109,7 +109,16 @@ function AuthService($http, $cookies, BACKEND_URL) {
     }
     return true;
   };
-
+  /**
+   * Passa alla funzione callback il valore del token di autenticazione
+   * dell'utente, permettendo a chi la invoca di effettuare richieste
+   * autenticate al backend.
+   * @function authRequest
+   * @memberOf AuthService
+   * @instance
+   * @param {function} callback - Funzione da invocare e a cui passare il valore
+   * del token di autenticazione.
+   */
   var authRequest = function(callback){
     callback($cookies.get("serleena_token"));
   };
