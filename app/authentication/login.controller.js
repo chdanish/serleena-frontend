@@ -57,4 +57,24 @@ function LoginController ($scope, $location, AuthService){
 
 	$scope.email = "";
 	$scope.password = "";
+
+	 /**
+	 * Effettua il login utente.
+	 * @function loginUser
+	 * @memberOf LoginController
+	 * @instance
+	 */
+	$scope.loginUser = function(){
+		AuthService.loginUser($scope.email, $scope.password, function(ok, data){
+			if(ok){
+				// il cookie lo gestisce AuthService, devo solo fare il redirect
+				// alla dashboard
+				$location.path("/dashboard");
+			} else {
+				$scope.errorMessage = "Accesso fallito :(";
+				$scope.showError = true;
+			}
+		});
+	};
+
 }
