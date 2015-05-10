@@ -46,8 +46,11 @@ angular.module('authentication').controller('LogoutController', LogoutController
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Provider} $location - Oggetto che si occupa di gestire l'indirizzo
+  * corrente dell'applicazione.
+  * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
   */
+function LogoutController($scope, $location, AuthService) {
 
-function LogoutController($scope) {
 }
