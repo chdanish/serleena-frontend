@@ -83,7 +83,15 @@ function AuthService($http, $cookies, BACKEND_URL) {
     });
   };
 
+  var logoutUser = function(callback){
+    delete $cookies.serleena_user;
+    delete $cookies.serleena_token;
+    $rootScope.userLogged = false;
+    callback();
+  };
+
   return {
-    loginUser: loginUser
+    loginUser: loginUser,
+    logoutUser: logoutUser
   };
 }
