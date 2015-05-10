@@ -45,7 +45,7 @@
  */
 
 angular
-        .module('authentication', []);
+        .module('authentication', ['ngCookies']);
 angular
         .module('experience', []);
 angular
