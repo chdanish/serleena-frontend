@@ -97,6 +97,10 @@ function AppConfiguration($routeProvider){
 			.when("/logout", {
 				templateUrl: 'app/authentication/logout.view.html',
 				controller: 'LogoutController'
+			})
+			.when("/recoverpassword", {
+				templateUrl: 'app/authentication/passwordrecovery.view.html',
+				controller: 'PasswordRecoveryController'
 			});
 	}();
 }
