@@ -52,11 +52,13 @@ angular.module('authentication').service('AuthService', AuthService);
   * XMLHttpRequest (Ajax)
   * @param {Provider} $cookies - Facade di AngularJS per la gestione dei
   * cookie
+  * @param {Scope} $rootScope - ViewModel globale per salvare se l'utente è
+  * autenticato o meno.
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
   * configurazione)
   */
 
-function AuthService($http, $cookies, BACKEND_URL) {
+function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
   /**
    * Implementa la comunicazione con il server per effetturare il login utente.
    * @function loginUser
@@ -77,6 +79,7 @@ function AuthService($http, $cookies, BACKEND_URL) {
     }).success(function(data, status, headers, config){
       $cookies.serleena_user = email;
       $cookies.serleena_token = data;
+      $rootScope.userLogged = true;
       callback(true, null);
     }).error(function(data, status, headers, config){
       callback(false, data);
@@ -91,6 +94,7 @@ function AuthService($http, $cookies, BACKEND_URL) {
    * logout
    */
   var logoutUser = function(callback){
+
     delete $cookies.serleena_user;
     delete $cookies.serleena_token;
     $rootScope.userLogged = false;
