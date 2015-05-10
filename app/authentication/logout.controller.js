@@ -15,7 +15,7 @@ angular.module('authentication').controller('LogoutController', LogoutController
 /**
   * Classe per la gestione della disconnessione di un utente.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
