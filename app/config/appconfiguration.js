@@ -66,7 +66,8 @@ angular
 	        'synchronization',
 	        'telemetry',
 	        'wizard'
-	]).config(AppConfiguration);
+	]).config(AppConfiguration)
+	.run(AppInit);
 
 angular.module('serleenaFrontend')
 	.value('BACKEND_URL', 'http://api.hitchhikers.info');
@@ -94,4 +95,8 @@ function AppConfiguration($routeProvider){
 				controller: 'LoginController'
 			});
 	}();
+}
+
+function AppInit($rootScope, AuthService){
+	$rootScope.userLogged = AuthService.isLogged();
 }
