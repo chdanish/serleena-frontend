@@ -27,7 +27,23 @@ angular.module('authentication').controller('LoginController', LoginController);
  */
 function LoginController ($scope, $location, AuthService){
 
+	/**
+	 * Email utente
+	 *
+	 * @name email
+	 * @type String
+	 * @memberOf LoginController
+	 * @instance
+	 */
 	$scope.email = "";
+	/**
+	 * Password utente
+	 *
+	 * @name password
+	 * @type String
+	 * @memberOf LoginController
+	 * @instance
+	 */
 	$scope.password = "";
 
 	 /**
