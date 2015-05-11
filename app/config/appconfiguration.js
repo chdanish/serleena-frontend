@@ -34,9 +34,9 @@
  *
  * History:
  * Version    Programmer  		Date        Changes
- * 0.0.1      Antonio Cavestro  	2015-05-06  Create file
- * 0.0.2      Matteo Lisotto            2015-05-08  Add modules and update 
- *                                                  dependences on serleenaFrontend
+ * 0.0.1      Antonio Cavestro 	2015-05-06  Crea file
+ * 0.0.2      Matteo Lisotto	2015-05-08  Aggiungi moduli e aggiorna
+ *                                          dipendenze di serleenaFrontend
  *
  */
 
@@ -45,7 +45,7 @@
  */
 
 angular
-        .module('authentication', []);
+        .module('authentication', ['ngCookies']);
 angular
         .module('experience', []);
 angular
@@ -66,7 +66,8 @@ angular
 	        'synchronization',
 	        'telemetry',
 	        'wizard'
-	]).config(AppConfiguration);
+	]).config(AppConfiguration)
+	.run(AppInit);
 
 angular.module('serleenaFrontend')
 	.value('BACKEND_URL', 'http://api.hitchhikers.info');
@@ -86,12 +87,26 @@ function AppConfiguration($routeProvider){
 	 * @private
 	 * @function setRoutes
 	 * @memberOf AppConfiguration
+	 * @instance
 	 */
 	var setRoutes = function(){
 		$routeProvider
 			.when("/", {
 				templateUrl: 'app/authentication/login.view.html',
 				controller: 'LoginController'
+			})
+			.when("/logout", {
+				templateUrl: 'app/authentication/logout.view.html',
+				controller: 'LogoutController'
+			})
+			.when("/recoverpassword", {
+				templateUrl: 'app/authentication/passwordrecovery.view.html',
+				controller: 'PasswordRecoveryController'
+			})
+			.when("/register", {
+				templateUrl: 'app/authentication/register.view.html',
+				controller: 'RegisterController'
 			});
 	}();
+
 }

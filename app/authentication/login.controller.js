@@ -34,7 +34,7 @@
  *
  * History:
  * Version    Programmer  		Date        Changes
- * 0.0.1  	Antonio Cavestro  	2015-05-09	Create file
+ * 0.0.1  	Antonio Cavestro  	2015-05-09	Crea file
  *
  */
 
@@ -53,6 +53,44 @@ angular.module('authentication').controller('LoginController', LoginController);
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.1
  */
-function LoginController ($scope){
+function LoginController ($scope, $location, AuthService){
+
+	/**
+	 * Email utente
+	 *
+	 * @name email
+	 * @type String
+	 * @memberOf LoginController
+	 * @instance
+	 */
+	$scope.email = "";
+	/**
+	 * Password utente
+	 *
+	 * @name password
+	 * @type String
+	 * @memberOf LoginController
+	 * @instance
+	 */
+	$scope.password = "";
+
+	 /**
+	 * Effettua il login utente.
+	 * @function loginUser
+	 * @memberOf LoginController
+	 * @instance
+	 */
+	$scope.loginUser = function(){
+		AuthService.loginUser($scope.email, $scope.password, function(ok, data){
+			if(ok){
+				// il cookie lo gestisce AuthService, devo solo fare il redirect
+				// alla dashboard
+				$location.path("/dashboard");
+			} else {
+				$scope.errorMessage = "Accesso fallito :(";
+				$scope.showError = true;
+			}
+		});
+	};
 
 }
