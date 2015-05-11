@@ -55,4 +55,22 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   */
 
 function RegisterController($scope, UserService) {
+  /**
+   * Email utente
+   *
+   * @name email
+   * @type String
+   * @memberOf RegisterController
+   * @instance
+   */
+  $scope.email = "";
+  /**
+   * Password utente
+   *
+   * @name password
+   * @type String
+   * @memberOf RegisterController
+   * @instance
+   */
+  $scope.password = "";
 }
