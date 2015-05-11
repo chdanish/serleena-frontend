@@ -7,7 +7,7 @@
  * impostare globalmente se l'utente è autenticato o meno.
  * @param {Provider} $location - Facade di AngularJS con il quale interagire
  * per gestire la history del browser e gli indirizzi.
- @ param {Service} AuthService - Gestore dell'autenticazione.
+ * @param {Service} AuthService - Gestore dell'autenticazione.
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.1
