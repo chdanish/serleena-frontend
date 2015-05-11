@@ -90,4 +90,22 @@ function RegisterController($scope, UserService) {
    * @memberOf RegisterController
    * @instance
    */
+  $scope.registerUser = function(){
+    UserService.registerUser($scope.email, $scope.password, function(ok, data) {
+      if(ok){
+        // Passa al pairing
+        $scope.done = true;
+        $scope.enableNext = true;
+        // jshint multistr:true
+        $scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
+                            dispositivo a serleena Cloud";
+        $scope.msgType = "success";
+      } else {
+        // errore
+        $scope.done = true;
+        $scope.msgText = "Errore nella registrazione :(";
+        $scope.msgType = "danger";
+      }
+    });
+  };
 }
