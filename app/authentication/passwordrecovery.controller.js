@@ -57,4 +57,13 @@ angular.module('authentication').controller('PasswordRecoveryController',
   */
 
 function PasswordRecoveryController($scope, UserService) {
+  /**
+   * Email utente
+   *
+   * @name email
+   * @type String
+   * @memberOf PasswordRecoveryController
+   * @instance
+   */
+  $scope.email = "";
 }
