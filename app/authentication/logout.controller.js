@@ -52,8 +52,8 @@ angular.module('authentication').controller('LogoutController', LogoutController
   * @version 0.1
   * @constructor
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
-  * @param {Provider} $location - Oggetto che si occupa di gestire l'indirizzo
-  * corrente dell'applicazione.
+  * @param {Provider} $location - Facade di AngularJS con il quale interagire
+  * per gestire la history del browser e gli indirizzi.
   * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
   */
 function LogoutController($scope, $location, AuthService) {
