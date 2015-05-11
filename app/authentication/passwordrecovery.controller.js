@@ -66,4 +66,22 @@ function PasswordRecoveryController($scope, UserService) {
    * @instance
    */
   $scope.msgText = "";
+  /**
+   * Innesca la chiamata al backend per il recupero della password utente.
+   * @function recoverPassword
+   * @memberOf PasswordRecoveryController
+   * @instance
+   */
+  $scope.recoverPassword = function(){
+    UserService.recoverUser($scope.email, function(ok, data){
+      $scope.done = true;
+      if(ok){
+        $scope.msgType = "primary";
+        $scope.msgText = "Richiesta di recupero password inoltrata!";
+      } else {
+        $scope.msgType = "danger";
+        $scope.msgText = "Errore nella richiesta :(";
+      }
+    });
+  };
 }
