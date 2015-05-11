@@ -29,7 +29,7 @@
 /**
    * Name: RegisterController
    * Package: Authentication
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    * Date: 2015-05-08
    *
    * History:
@@ -44,7 +44,7 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * Classe che gestisce gli eventi di ExperienceListView e la validazione dei
   * dati inseriti dall’utente.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
