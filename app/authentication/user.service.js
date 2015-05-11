@@ -63,7 +63,7 @@ function UserService($http, BACKEND_URL) {
    */
   var recoverUser = function(email, callback){
     $http({
-      url: BACKEND_URL + "/user/recover",
+      url: BACKEND_URL + "/user/recovery",
       method: 'PUT',
       data: {
         email: email
