@@ -50,5 +50,5 @@ angular.module('authentication').controller('PasswordRecoveryController',
   * @param{scope} model che contiene i dati dell'applicazione.
   */
 
-function PasswordRecoveryController($scope) {
+function PasswordRecoveryController($scope, UserService) {
 }
