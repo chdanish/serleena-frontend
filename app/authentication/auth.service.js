@@ -112,7 +112,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
    * @returns {Boolean}
    */
   var isLogged = function(){
-    if (typeof $cookies.serleena_user != "undefined"){
+    if (typeof $cookies.serleena_user == "undefined"){
       return false;
     }
     return true;
