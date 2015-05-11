@@ -109,6 +109,6 @@ function AppConfiguration($routeProvider){
 	}();
 }
 
-function AppInit($rootScope, AuthService){
+function AppInit($rootScope, $location, AuthService){
 	$rootScope.userLogged = AuthService.isLogged();
 }
