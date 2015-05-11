@@ -1,7 +1,7 @@
 /**
    * Name: PasswordRecoveryController
    * Package: Authentication
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    * Date: 2015-05-08
    *
    * History:
@@ -16,7 +16,7 @@ angular.module('authentication').controller('PasswordRecoveryController',
 /**
   * Classe che gestisce la procedura di recupero della password utente.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
