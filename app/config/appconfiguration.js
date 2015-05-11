@@ -73,6 +73,10 @@ function AppConfiguration($routeProvider){
 			.when("/recoverpassword", {
 				templateUrl: 'app/authentication/passwordrecovery.view.html',
 				controller: 'PasswordRecoveryController'
+			})
+			.when("/register", {
+				templateUrl: 'app/authentication/register.view.html',
+				controller: 'RegisterController'
 			});
 	}();
 }
