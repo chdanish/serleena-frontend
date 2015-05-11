@@ -38,16 +38,22 @@
    *
    */
 
+/**
+ * @namespace Authentication
+ */
+
 angular.module('authentication').controller('PasswordRecoveryController',
 					    PasswordRecoveryController);
 
 /**
-  * Classe che gestisce la procedura di recupero della password utente.
+  * Controller che gestisce la procedura di recupero della password utente.
   *
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Service} UserService - Oggetto che gestisce la comunicazione con
+  * il backend per quanto riguarda le informazioni utente.
   */
 
 function PasswordRecoveryController($scope, UserService) {
