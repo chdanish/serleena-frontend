@@ -65,7 +65,7 @@ function LogoutController($scope, $location, AuthService) {
    */
   $scope.logoutUser = function(){
     AuthService.logoutUser(function(){
-      $location.path("#/");
+      $location.path("/");
     });
   };
 }
