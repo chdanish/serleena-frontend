@@ -6,20 +6,38 @@
    *
    * History:
    * Version      Programmer       Date          Changes
-   * 0.0.1        Matteo Lisotto   2015-05-08    Create file
+   * 0.0.1        Matteo Lisotto   2015-05-08    Crea file
+   * 0.0.2        Antonio Cavestro 2015-05-10    Aggiungi funzione di logout
    *
    */
+
+/**
+ * @namespace Authentication
+ */
 
 angular.module('authentication').controller('LogoutController', LogoutController);
 
 /**
   * Classe per la gestione della disconnessione di un utente.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Provider} $location - Facade di AngularJS con il quale interagire
+  * per gestire la history del browser e gli indirizzi.
+  * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
   */
-
-function LogoutController($scope) {
+function LogoutController($scope, $location, AuthService) {
+  /**
+   * Effettua logout utente.
+   * @function logoutUser
+   * @memberOf LogoutController
+   * @instance
+   */
+  $scope.logoutUser = function(){
+    AuthService.logoutUser(function(){
+      $location.path("/");
+    });
+  };
 }

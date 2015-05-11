@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<p class="panel-title">Registrazione</p>
+			</div>
+			<div class="panel-body">
+				<div class="alert alert-{{msgType}}" ng-show="done">
+					<p>{{msgText}}</p>
+				</div>
+				<form ng-hide="enableNext">
+					<div class="form-group">
+						<label for="registerEmail">Indirizzo Email</label>
+						<input type="email" name="registerEmail"
+							ng-model="email" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="registerPassword">Password</label>
+						<input type="password" name="registerPassword"
+							ng-model="password" class="form-control" />
+					</div>
+					<a href="#/" class="btn btn-default">Annulla</a>
+					<button class="btn btn-primary" ng-click="registerUser()">
+						Registrati
+					</button>
+				</form>
+				<a href="#/device/pair" class="btn btn-primary"
+					ng-show="enableNext">
+					Abbina dispositivo
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

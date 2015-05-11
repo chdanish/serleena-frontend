@@ -6,9 +6,14 @@
    *
    * History:
    * Version      Programmer       Date          Changes
-   * 0.0.1        Matteo Lisotto   2015-05-08    Create file
+   * 0.0.1        Matteo Lisotto   2015-05-08    Crea file
+   * 0.0.2        Antonio Cavestro 2015-05-09    Prima implementazione metodi
    *
    */
+
+/**
+ * @namespace Authentication
+ */
 
 angular.module('authentication').service('AuthService', AuthService);
 
@@ -21,11 +26,15 @@ angular.module('authentication').service('AuthService', AuthService);
   * @constructor
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
+  * @param {Provider} $cookies - Facade di AngularJS per la gestione dei
+  * cookie
+  * @param {Scope} $rootScope - ViewModel globale per salvare se l'utente è
+  * autenticato o meno.
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
   * configurazione)
   */
 
-function AuthService($http, BACKEND_URL) {
+function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
   /**
    * Implementa la comunicazione con il server per effetturare il login utente.
    * @function loginUser
@@ -44,63 +53,60 @@ function AuthService($http, BACKEND_URL) {
         'X-CustomToken': email + "+" + password
       },
     }).success(function(data, status, headers, config){
-      callback(true, data);
+      $cookies.serleena_user = email;
+      $cookies.serleena_token = data;
+      $rootScope.userLogged = true;
+      callback(true, null);
     }).error(function(data, status, headers, config){
       callback(false, data);
     });
   };
   /**
-   * Implementa la comunicazione con il server per effetturare la registrazione
-   * utente.
-   * @function registerUser
+   * Effettua il logout dell'utente.
+   * @function logoutUser
    * @memberOf AuthService
    * @instance
-   * @param {String} email
-   * @param {String} password
-   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
-   * backend
+   * @param {function} callback - Funzione da invocare dopo aver effettuato il
+   * logout
    */
-  var registerUser = function(email, password, callback){
-    $http({
-      url: BACKEND_URL + "/user",
-      method: 'POST',
-      data: {
-        email: email,
-        password: password
-      }
-    }).success(function(data, status, headers, config){
-      callback(true, data);
-    }).error(function(data, status, headers, config){
-      callback(false, data);
-    });
+  var logoutUser = function(callback){
+
+    delete $cookies.serleena_user;
+    delete $cookies.serleena_token;
+    $rootScope.userLogged = false;
+    callback();
   };
   /**
-   * Implementa la comunicazione con il server per effetturare il recupero della
-   * password utente.
-   * @function recoverUser
+   * Verifica se l'utente è autenticato.
+   * @function isLogged
    * @memberOf AuthService
    * @instance
-   * @param {String} email
-   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
-   * backend
+   * @returns {Boolean}
    */
-  var recoverUser = function(email, callback){
-    $http({
-      url: BACKEND_URL + "/user/recover",
-      method: 'PUT',
-      data: {
-        email: email
-      },
-    }).success(function(data, status, headers, config){
-      callback(true, data);
-    }).error(function(data, status, headers, config){
-      callback(false, data);
-    });
+  var isLogged = function(){
+    if (typeof $cookies.serleena_user == "undefined"){
+      return false;
+    }
+    return true;
+  };
+  /**
+   * Passa alla funzione callback il valore del token di autenticazione
+   * dell'utente, permettendo a chi la invoca di effettuare richieste
+   * autenticate al backend.
+   * @function authRequest
+   * @memberOf AuthService
+   * @instance
+   * @param {function} callback - Funzione da invocare e a cui passare il valore
+   * del token di autenticazione.
+   */
+  var authRequest = function(callback){
+    callback($cookies.get("serleena_token"));
   };
 
   return {
     loginUser: loginUser,
-    registerUser: registerUser,
-    recoverUser: recoverUser
+    logoutUser: logoutUser,
+    isLogged: isLogged,
+    authRequest: authRequest
   };
 }
