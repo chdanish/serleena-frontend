@@ -87,6 +87,7 @@ function AppConfiguration($routeProvider){
 	 * @private
 	 * @function setRoutes
 	 * @memberOf AppConfiguration
+	 * @instance
 	 */
 	var setRoutes = function(){
 		$routeProvider
