@@ -38,4 +38,32 @@ function PasswordRecoveryController($scope, UserService) {
    * @instance
    */
   $scope.email = "";
+  /**
+   * Flag di completamento
+   *
+   * @name done
+   * @type Boolean
+   * @memberOf PasswordRecoveryController
+   * @default false
+   * @instance
+   */
+  $scope.done = false;
+  /**
+   * Tipo di messaggio di ritorno all'utente
+   *
+   * @name msgType
+   * @type String
+   * @memberOf PasswordRecoveryController
+   * @instance
+   */
+  $scope.msgType = "";
+  /**
+   * Testo del messaggio di ritorno all'utente
+   *
+   * @name msgText
+   * @type String
+   * @memberOf PasswordRecoveryController
+   * @instance
+   */
+  $scope.msgText = "";
 }
