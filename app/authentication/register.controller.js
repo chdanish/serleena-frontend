@@ -73,4 +73,49 @@ function RegisterController($scope, UserService) {
    * @instance
    */
   $scope.password = "";
+  /**
+   * Flag di completamento della registrazione
+   *
+   * @name done
+   * @type Boolean
+   * @default false
+   * @memberOf RegisterController
+   * @instance
+   */
+  $scope.done = false;
+  /**
+   * Flag dell'esito positivo della registrazione
+   *
+   * @name enableNext
+   * @type Boolean
+   * @default false
+   * @memberOf RegisterController
+   * @instance
+   */
+  $scope.enableNext = false;
+  /**
+   * Tipo di messaggio di output verso la vista
+   *
+   * @name msgType
+   * @type String
+   * @memberOf RegisterController
+   * @instance
+   */
+  $scope.msgType = "";
+  /**
+   * Messaggio di output verso la vista
+   *
+   * @name msgText
+   * @type String
+   * @memberOf RegisterController
+   * @instance
+   */
+  $scope.msgText = "";
+
+  /**
+   * Effettua registrazione utente.
+   * @function registerUser
+   * @memberOf RegisterController
+   * @instance
+   */
 }
