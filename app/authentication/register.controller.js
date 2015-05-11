@@ -38,6 +38,10 @@
    *
    */
 
+/**
+ * @namespace Authentication
+ */
+
 angular.module('authentication').controller('RegisterController', RegisterController);
 
 /**
