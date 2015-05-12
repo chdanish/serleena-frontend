@@ -100,6 +100,9 @@ module.exports = function(grunt){
 		shell: {
 			docs: {
 				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d docs/',
+			},
+			docsxml: {
+				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d console -t templates/haruki -q format=xml > docs.xml',
 			}
 		},
 		notify: {
