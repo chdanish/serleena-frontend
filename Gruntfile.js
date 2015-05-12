@@ -68,7 +68,7 @@ module.exports = function(grunt){
 			angular: {
 				files: serleenafrontend_files,
 				tasks: ['concat:angular', 'jshint:angular', 'notify:concat',
-						'jsdoc:official'],
+						'shell:docs'],
 				options: {
 					livereload: true
 				}
@@ -97,13 +97,9 @@ module.exports = function(grunt){
 				dest: './docs.zip'
 			}
 		},
-		jsdoc: {
-			official: {
-				src: 'app/**/*.js',
-				dest: 'docs/',
-				options: {
-					private: true
-				}
+		shell: {
+			docs: {
+				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d docs/',
 			}
 		},
 		notify: {
@@ -123,7 +119,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
