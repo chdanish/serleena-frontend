@@ -67,8 +67,8 @@ module.exports = function(grunt){
 		watch: {
 			angular: {
 				files: serleenafrontend_files,
-				//tasks: ['concat:angular','uglify:frontend'],
-				tasks: ['concat:angular', 'jshint:angular', 'notify:concat'],
+				tasks: ['concat:angular', 'jshint:angular', 'notify:concat',
+						'jsdoc:official'],
 				options: {
 					livereload: true
 				}
