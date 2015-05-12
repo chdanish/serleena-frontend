@@ -78,6 +78,10 @@ function AppConfiguration($routeProvider){
 			.when("/register", {
 				templateUrl: 'app/authentication/register.view.html',
 				controller: 'RegisterController'
+			})
+			.when("/dashboard", {
+				templateUrl: 'app/experience/experiencelist.view.html',
+				controller: 'ExperienceListController'
 			});
 	}();
 
