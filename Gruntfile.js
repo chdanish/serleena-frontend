@@ -39,8 +39,8 @@ module.exports = function(grunt){
 		watch: {
 			angular: {
 				files: serleenafrontend_files,
-				//tasks: ['concat:angular','uglify:frontend'],
-				tasks: ['concat:angular', 'jshint:angular', 'notify:concat'],
+				tasks: ['concat:angular', 'jshint:angular', 'notify:concat',
+						'shell:docs'],
 				options: {
 					livereload: true
 				}
@@ -63,6 +63,18 @@ module.exports = function(grunt){
 			coverage: {
 				src: ['coverage/**'],
 				dest: './coverage.zip'
+			},
+			docs: {
+				src: ['docs/**'],
+				dest: './docs.zip'
+			}
+		},
+		shell: {
+			docs: {
+				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d docs/',
+			},
+			docsxml: {
+				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d console -t templates/haruki -q format=xml > docs.xml',
 			}
 		},
 		notify: {
@@ -82,10 +94,12 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
     grunt.registerTask('deploy', ['zip:deploy']);
     grunt.registerTask('coverage', ['zip:coverage']);
+    grunt.registerTask('docs', ['shell:docs', 'shell:docsxml']);
 
 };
