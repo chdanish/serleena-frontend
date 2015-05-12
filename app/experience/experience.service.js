@@ -29,7 +29,7 @@
 /**
    * Name: ExperienceService
    * Package: Experience
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    * Date: 2015-05-08
    *
    * History:
@@ -44,7 +44,7 @@ angular.module('experience').service('ExperienceService', ExperienceService);
   * Classe singleton che implementa la comunicazione con il backend per le
   * richieste relative alle esperienze.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
