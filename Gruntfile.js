@@ -91,6 +91,10 @@ module.exports = function(grunt){
 			coverage: {
 				src: ['coverage/**'],
 				dest: './coverage.zip'
+			},
+			docs: {
+				src: ['docs/**'],
+				dest: './docs.zip'
 			}
 		},
 		jsdoc: {
