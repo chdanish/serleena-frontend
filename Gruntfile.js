@@ -128,6 +128,6 @@ module.exports = function(grunt){
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
     grunt.registerTask('deploy', ['zip:deploy']);
     grunt.registerTask('coverage', ['zip:coverage']);
-    grunt.registerTask('docs', ['shell:docs', 'shell:docsxml']);
+    grunt.registerTask('docs', ['shell:docs', 'zip:docs', 'shell:docsxml']);
 
 };
