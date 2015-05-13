@@ -13,7 +13,9 @@ angular.module('experience').controller('ExperienceListController',
 
 /**
   * Classe che gestisce il popolamento e gli eventi utente di
-  * ExperienceListView.
+  * ExperienceListView. Il costruttore recupera le informazioni da
+  * ExperienceService e popola l'oggetto $scope con cui poi verrà aggiornata la
+  * vista.
   *
   * @author Antonio Cavestro
   * @version 0.1
