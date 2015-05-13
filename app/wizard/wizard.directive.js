@@ -29,7 +29,7 @@
 /**
    * Name: WizardDirective
    * Package: Wizard
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -42,7 +42,7 @@ angular.module('wizard').directive('WizardDirective', WizardDirective);
 /**
   * Classe che realizza il componente grafico di una generica procedura guidata.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */

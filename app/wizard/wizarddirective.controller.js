@@ -29,7 +29,7 @@
 /**
    * Name: WizardDirectiveController
    * Package: Wizard
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer          Changes
@@ -42,7 +42,7 @@ angular.module('wizard').controller('WizardDirectiveController', WizardDirective
 /**
   * Classe che gestisce una generica procedura guidata.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
