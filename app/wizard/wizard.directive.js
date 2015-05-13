@@ -9,7 +9,7 @@
    *
    */
 
-angular.module('wizard').directive('WizardDirective', WizardDirective);
+angular.module('wizard').directive('hhWizard', WizardDirective);
 
 /**
   * Classe che realizza il componente grafico di una generica procedura guidata.
