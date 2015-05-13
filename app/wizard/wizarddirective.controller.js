@@ -17,7 +17,7 @@ angular.module('wizard').controller('WizardDirectiveController', WizardDirective
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
   */
 
 function WizardDirectiveController($scope) {
