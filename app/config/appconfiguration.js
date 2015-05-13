@@ -47,7 +47,7 @@
 angular
         .module('authentication', ['ngCookies']);
 angular
-        .module('experience', []);
+        .module('experience', ['wizard']);
 angular
         .module('map', []);
 angular
@@ -65,7 +65,6 @@ angular
 	        'map',
 	        'synchronization',
 	        'telemetry',
-	        'wizard'
 	]).config(AppConfiguration)
 	.run(AppInit);
 
