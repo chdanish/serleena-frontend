@@ -48,4 +48,15 @@ angular.module('wizard').directive('WizardDirective', WizardDirective);
   */
 
 function WizardDirective() {
+  var directive = {
+    restrict: 'E',
+    controller: 'WizardDirectiveController',
+    transclude: true,
+    replace: true,
+    templateUrl: 'app/wizard/wizarddirective.view.html',
+    link: function (scope, iElement, iAttrs) {
+      scope.steps[scope.currentStepIndex].currentStep = true;
+    }
+  };
+  return directive;
 }
