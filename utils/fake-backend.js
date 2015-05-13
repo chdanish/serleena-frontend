@@ -6,7 +6,7 @@ app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
   res.header("Access-Control-Allow-Headers",
-  	"Origin, X-Requested-With, Content-Type, Accept, X-CustomToken");
+  	"Origin, X-Requested-With, Content-Type, Accept, X-CustomToken, X-AuthToken");
   if ('OPTIONS' == req.method){
     return res.sendStatus(200);
   }
