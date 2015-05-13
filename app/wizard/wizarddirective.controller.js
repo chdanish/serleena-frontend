@@ -67,4 +67,15 @@ function WizardDirectiveController($scope) {
    * @instance
    */
   $scope.currentStepIndex = 0;
+  /**
+   * Inserisce uno step nell'array di step.
+   *
+   * @function registerStep
+   * @memberOf WizardDirectiveController
+   * @instance
+   * @param {Scope} step - Step da aggiungere.
+   */
+  this.registerStep = function(step){
+    $scope.steps.push(step);
+  };
 }
