@@ -2,11 +2,10 @@
  * Name: login.controller.js
  * Package: Authentication
  * Author: Antonio Cavestro
- * Date: 2015-05-09
  *
  * History:
- * Version    Programmer  		Date        Changes
- * 0.0.1  	Antonio Cavestro  	2015-05-09	Crea file
+ * Version    Programmer  	        Changes
+ * 0.0.1      Antonio Cavestro 		Crea file
  *
  */
 
