@@ -153,4 +153,17 @@ function WizardDirectiveController($scope) {
       toggleStep($scope.currentStepIndex - 1);
     }
   };
+  /**
+   * Funzione invocata dalla vista quando il pulsante di completamento del
+   * wizard è stato premuto. Invia un segnale di completamento al controller
+   * superiore nella gerarchia.
+   *
+   * @function completeWizard
+   * @memberOf WizardDirectiveController
+   * @instance
+   */
+  $scope.completeWizard = function(){
+    //emit
+    $scope.$emit('hhWizardCompleted', $scope.currentStepIndex);
+  };
 }
