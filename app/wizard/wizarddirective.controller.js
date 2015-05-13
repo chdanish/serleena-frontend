@@ -40,6 +40,20 @@ function WizardDirectiveController($scope) {
    */
   $scope.currentStepIndex = 0;
   /**
+   * Passa ad un altro step.
+   *
+   * @function toggleStep
+   * @memberOf WizardDirectiveController
+   * @instance
+   * @private
+   * @param {Number} index - Indice dello step a cui deve passare.
+   */
+  var toggleStep = function(index){
+    $scope.steps[$scope.currentStepIndex].currentStep = false;
+    $scope.currentStepIndex = index;
+    $scope.steps[$scope.currentStepIndex].currentStep = true;
+  };
+  /**
    * Inserisce uno step nell'array di step.
    *
    * @function registerStep
@@ -82,5 +96,33 @@ function WizardDirectiveController($scope) {
    */
   $scope.isFinal = function() {
     return $scope.currentStepIndex == ($scope.steps.length - 1);
+  };
+  /**
+   * Passa allo step successivo e invia un segnale al controller superiore nella
+   * gerarchia.
+   *
+   * @function nextStep
+   * @memberOf WizardDirectiveController
+   * @instance
+   */
+  $scope.nextStep = function(){
+    if ($scope.hasNext()){
+      toggleStep($scope.currentStepIndex + 1);
+    }
+    //emit
+    $scope.$emit('hhWizardNextStep', $scope.currentStepIndex);
+  };
+  /**
+   * Passa allo step precedente e invia un segnale al controller superiore nella
+   * gerarchia.
+   *
+   * @function previousStep
+   * @memberOf WizardDirectiveController
+   * @instance
+   */
+  $scope.previousStep = function(){
+    if ($scope.hasPrevious()){
+      toggleStep($scope.currentStepIndex - 1);
+    }
   };
 }
