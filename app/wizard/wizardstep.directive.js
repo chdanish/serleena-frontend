@@ -37,7 +37,7 @@
    *
    */
 
-angular.module('wizard').directive('WizardStepDirective', WizardStepDirective);
+angular.module('wizard').directive('hhWizardStep', WizardStepDirective);
 
 /**
   * Classe che realizza il componente grafico di un passaggio di una generica
@@ -49,4 +49,17 @@ angular.module('wizard').directive('WizardStepDirective', WizardStepDirective);
   */
 
 function WizardStepDirective() {
+  var directive = {
+    require: '^hhWizard',
+    restrict: 'E',
+    transclude: true,
+    replace: true,
+    scope: true,
+    templateUrl: 'app/wizard/wizardstepdirective.view.html',
+    link: function (scope, iElement, iAttrs, wizardController) {
+      wizardController.registerStep(scope);
+    }
+  };
+
+  return directive;
 }
