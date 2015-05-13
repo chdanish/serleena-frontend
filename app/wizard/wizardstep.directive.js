@@ -1,7 +1,7 @@
 /**
    * Name: WizardStepDirective
    * Package: Wizard
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -15,7 +15,7 @@ angular.module('wizard').directive('WizardStepDirective', WizardStepDirective);
   * Classe che realizza il componente grafico di un passaggio di una generica
   * procedura guidata.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
