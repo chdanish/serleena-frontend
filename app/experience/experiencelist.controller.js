@@ -29,7 +29,7 @@
 /**
    * Name: ExperienceListController
    * Package: Experience
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    * Date: 2015-05-08
    *
    * History:
@@ -44,7 +44,7 @@ angular.module('experience').controller('ExperienceListController',
   * Classe che gestisce il popolamento e gli eventi utente di
   * ExperienceListView.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
