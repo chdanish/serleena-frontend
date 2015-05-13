@@ -37,7 +37,7 @@
    *
    */
 
-angular.module('map').directive('MapDirective', MapDirective);
+angular.module('map').directive('hhMap', MapDirective);
 
 /**
   * Classe che realizza il componente grafico di una generica mappa.
