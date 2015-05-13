@@ -46,9 +46,11 @@ angular.module('experience').controller('ExperienceListController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Service} ExperienceService - Servizio di comunicazione con il
+  * backend per la gestione delle esperienze
   */
 
 
-function ExperienceListController($scope) {
+function ExperienceListController($scope, ExperienceService) {
 }
