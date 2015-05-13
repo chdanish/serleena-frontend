@@ -109,6 +109,10 @@ function AppConfiguration($routeProvider){
 			.when("/dashboard", {
 				templateUrl: 'app/experience/experiencelist.view.html',
 				controller: 'ExperienceListController'
+			})
+			.when("/dashboard/experiences/new", {
+				templateUrl: 'app/experience/experiencewizard.view.html',
+				controller: 'ExperienceWizardController'
 			});
 	}();
 
