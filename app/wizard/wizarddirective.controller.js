@@ -50,4 +50,37 @@ function WizardDirectiveController($scope) {
   this.registerStep = function(step){
     $scope.steps.push(step);
   };
+  /**
+   * Verifica che esista uno step successivo a quello corrente.
+   *
+   * @function hasNext
+   * @memberOf WizardDirectiveController
+   * @instance
+   * @returns Boolean
+   */
+  $scope.hasNext = function(){
+    return $scope.currentStepIndex < ($scope.steps.length - 1);
+  };
+  /**
+   * Verifica che esista uno step precedente a quello corrente.
+   *
+   * @function hasPrevious
+   * @memberOf WizardDirectiveController
+   * @instance
+   * @returns Boolean
+   */
+  $scope.hasPrevious = function() {
+    return $scope.currentStepIndex > 0;
+  };
+  /**
+   * Verifica che lo step corrente sia l'ultimo del wizard.
+   *
+   * @function hasNext
+   * @memberOf WizardDirectiveController
+   * @instance
+   * @returns Boolean
+   */
+  $scope.isFinal = function() {
+    return $scope.currentStepIndex == ($scope.steps.length - 1);
+  };
 }
