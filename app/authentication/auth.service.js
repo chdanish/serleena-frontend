@@ -100,7 +100,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
    * del token di autenticazione.
    */
   var authRequest = function(callback){
-    callback($cookies.get("serleena_token"));
+    callback($cookies.serleena_token);
   };
 
   return {

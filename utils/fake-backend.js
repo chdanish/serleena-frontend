@@ -6,7 +6,7 @@ app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
   res.header("Access-Control-Allow-Headers",
-  	"Origin, X-Requested-With, Content-Type, Accept, X-CustomToken");
+  	"Origin, X-Requested-With, Content-Type, Accept, X-CustomToken, X-AuthToken");
   if ('OPTIONS' == req.method){
     return res.sendStatus(200);
   }
@@ -26,6 +26,28 @@ app.post('/user', function (req, res) {
 app.put('/user/recovery', function (req, res) {
   console.log(req);
   res.send("ACK");
+});
+
+app.get('/experiences', function (req, res) {
+  console.log(req);
+  //var exp = {experiences: []};
+  var exp = {
+    experiences: [
+      {
+        id: 1,
+        name: "Esperienza 1"
+      },
+      {
+        id: 2,
+        name: "Esperienza 2"
+      },
+      {
+        id: 3,
+        name: "Esperienza 3"
+      }
+    ]
+  };
+  res.send(JSON.stringify(exp));
 });
 
 var server = app.listen(3000, function () {
