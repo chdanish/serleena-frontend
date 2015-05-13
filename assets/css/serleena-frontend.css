@@ -23,6 +23,11 @@ footer {
 	margin-top: 1.5em;
 }
 
+.vspace {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 #welcome-panel {
 	background-image: url('../img/welcome-serleena-cloud.jpg');
 	background-size: cover;
