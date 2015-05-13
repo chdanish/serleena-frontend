@@ -28,6 +28,28 @@ app.put('/user/recovery', function (req, res) {
   res.send("ACK");
 });
 
+app.get('/experiences', function (req, res) {
+  console.log(req);
+  //var exp = {experiences: []};
+  var exp = {
+    experiences: [
+      {
+        id: 1,
+        name: "Esperienza 1"
+      },
+      {
+        id: 2,
+        name: "Esperienza 2"
+      },
+      {
+        id: 3,
+        name: "Esperienza 3"
+      }
+    ]
+  };
+  res.send(JSON.stringify(exp));
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
