@@ -49,4 +49,22 @@ angular.module('wizard').controller('WizardDirectiveController', WizardDirective
   */
 
 function WizardDirectiveController($scope) {
+  /**
+   * Array di oggetti $scope dei vari step.
+   *
+   * @name steps
+   * @type Array
+   * @memberOf WizardDirectiveController
+   * @instance
+   */
+  $scope.steps = [];
+  /**
+   * Indice dello step corrente.
+   *
+   * @name currentStepIndex
+   * @type Number
+   * @memberOf WizardDirectiveController
+   * @instance
+   */
+  $scope.currentStepIndex = 0;
 }
