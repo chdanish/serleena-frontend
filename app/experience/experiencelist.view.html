@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h1>Esperienze</h1>
+			<a href="#dashboard/experiences/new" class="btn btn-primary">
+				Crea nuova esperienza
+			</a>
+		</div>
+	</div>
+	<div class="row vspace" ng-show="showAlert">
+		<div class="col-md-8">
+			<div class="alert alert-info" ng-show="noExperiences">
+				<p>
+					Non hai ancora un'esperienza! Creane una! :)
+				</p>
+			</div>
+			<div class="alert alert-danger" ng-show="error">
+				<p>{{errorMsg}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="row vspace" ng-show="showAlert">
+		<div class="col-md-11">
+			<img src="assets/img/marvin.gif"
+				class="img-responsive center-block"/>
+		</div>
+	</div>
+	<div class="row vspace" ng-hide="showAlert">
+		<div class="col-md-5 col-md-offset-3">
+			<table class="table">
+				<tr>
+					<th>Nome</th>
+					<th>Operazioni</th>
+				</tr>
+				<tr ng-repeat="exp in experiences">
+					<td>
+						<a ng-href="#dashboard/experiences/{{exp.id}}">
+							{{exp.name}}
+						</a>
+					</td>
+					<td align="right">
+						<a ng-href="#dashboard/experiences/{{exp.id}}/edit"
+							class="btn btn-warning">Modifica</a>
+						<a ng-href="#dashboard/experiences/{{exp.id}}/delete"
+							class="btn btn-danger">Elimina</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
