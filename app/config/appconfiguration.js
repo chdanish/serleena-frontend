@@ -30,13 +30,12 @@
  * Name: appconfiguration.js
  * Package: App
  * Author: Antonio Cavestro
-
  *
  * History:
- * Version    Programmer  	  Changes
- * 0.0.1      Antonio Cavestro 	  Crea file
- * 0.0.2      Matteo Lisotto	  Aggiungi moduli e aggiorna dipendenze 
- *                                di serleenaFrontend
+ * Version    Programmer  		Changes
+ * 0.0.1      Antonio Cavestro 	Crea file
+ * 0.0.2      Matteo Lisotto	Aggiungi moduli e aggiorna dipendenze di
+ *								serleenaFrontend
  *
  */
 
