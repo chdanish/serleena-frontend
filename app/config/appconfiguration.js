@@ -15,33 +15,6 @@
  * @namespace Configuration
  */
 
-angular
-        .module('authentication', ['ngCookies']);
-angular
-        .module('experience', ['wizard']);
-angular
-        .module('map', []);
-angular
-        .module('synchronization', []);
-angular
-        .module('telemetry', []);
-angular
-        .module('wizard', []);
-
-angular
-	.module('serleenaFrontend', [
-		'ngRoute',
-	        'authentication',
-	        'experience',
-	        'map',
-	        'synchronization',
-	        'telemetry',
-	]).config(AppConfiguration)
-	.run(AppInit);
-
-angular.module('serleenaFrontend')
-	.value('BACKEND_URL', 'http://api.hitchhikers.info');
-
 /**
  * Classe che contiene la configurazione dell'applicazione.
  *
