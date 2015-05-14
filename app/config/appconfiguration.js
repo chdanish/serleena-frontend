@@ -24,7 +24,7 @@
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.1
  */
-function AppConfiguration($routeProvider){
+function AppConfiguration($routeProvider, MapProvider){
 	/**
 	 * Configura le route dell'applicazione.
 	 * @private
