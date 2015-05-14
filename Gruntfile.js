@@ -29,9 +29,14 @@
 module.exports = function(grunt){
 
     var serleenafrontend_files = [
-	        './app/config/*.js',
+	        './app/config/app.js',
+	        './app/map/map.provider.js',
+	        './app/config/appconfiguration.js',
+	        './app/config/appinit.js',
 	        './app/authentication/*.js',
-	        './app/map/*.js',
+	        './app/map/map.directive.js',
+	        './app/map/googlemaps.service.js',
+	        './app/map/serleenadata.service.js',
 	        './app/wizard/*.js',
 	        './app/experience/*.js',
 	        './app/synchronization/*.js',
