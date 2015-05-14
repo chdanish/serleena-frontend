@@ -10,10 +10,10 @@ module.exports = function(config){
         'bower_components/angular-mocks/angular-mocks.js',
 
         // file di serleena
-        'dist/testangular.js',
+        'dist/serleenafrontend.js',
 
         // test
-        //'test/unit/*.js'
+        'test/unit/**/*.js'
       ],
 
       autoWatch : false,
@@ -32,7 +32,7 @@ module.exports = function(config){
       },
 
       preprocessors: {
-        'dist/testangular.js': 'coverage'
+        'dist/serleenafrontend.js': 'coverage'
       },
 
       plugins : [
