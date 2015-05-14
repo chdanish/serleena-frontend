@@ -1,17 +1,21 @@
 <div class="wizard">
-	<div class="wizard-steps-container" ng-transclude>
+	<div ng-transclude>
 
 	</div>
-	<!-- TODO un giorno implementeremo anche il previous,
-	ma non è questo il giorno -->
-	<!--<button class="wizard-previous" ng-show="hasPrevious()"
-		ng-click="previousStep()">Indietro</button>-->
-	<button class="wizard-next btn btn-default" ng-show="hasNext()"
-		ng-click="nextStep()">
-		Avanti
-	</button>
-	<button class="wizard-complete btn btn-primary" ng-show="isFinal()"
-		ng-click="completeWizard()">
-		Salva
-	</button>
+	<div class="row vspace">
+		<div class="col-md-3 col-md-offset-4">
+			<!-- TODO un giorno implementeremo anche il previous,
+			ma non è questo il giorno -->
+			<!--<button class="wizard-previous" ng-show="hasPrevious()"
+				ng-click="previousStep()">Indietro</button>-->
+			<button class="wizard-next btn btn-default btn-block" ng-show="hasNext()"
+				ng-click="nextStep()">
+				Avanti
+			</button>
+			<button class="wizard-complete btn btn-primary btn-block" ng-show="isFinal()"
+				ng-click="completeWizard()">
+				Salva
+			</button>
+		</div>
+	</div>
 </div>
