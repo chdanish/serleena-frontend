@@ -48,4 +48,16 @@ angular.module('map').directive('hhMap', MapDirective);
   */
 
 function MapDirective() {
+  var directive = {
+    restrict: 'E',
+    controller: 'ExperienceWizardController',
+    scope: {},
+    replace: true,
+    template: '<div></div>',
+    link: function(scope, element){
+      scope.linkMap(element[0].id);
+    }
+  };
+
+  return directive;
 }
