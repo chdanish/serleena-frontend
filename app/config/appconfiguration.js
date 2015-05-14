@@ -36,6 +36,7 @@
  * 0.0.1      Antonio Cavestro 	Crea file
  * 0.0.2      Matteo Lisotto	Aggiungi moduli e aggiorna dipendenze di
  *								serleenaFrontend
+ * 0.0.3	  Antonio Cavestro 	Aggiungi configurazione mappe
  *
  */
 
@@ -50,7 +51,7 @@
  * @param {Provider} $routeProvider - Il gestore delle route di AngularJS
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
- * @version 0.1
+ * @version 0.2
  */
 function AppConfiguration($routeProvider, MapProvider){
 	/**
@@ -86,6 +87,16 @@ function AppConfiguration($routeProvider, MapProvider){
 				templateUrl: 'app/experience/experiencewizard.view.html',
 				controller: 'ExperienceWizardController'
 			});
+	}();
+	/**
+	 * Configura il gestore delle mappe.
+	 * @private
+	 * @function setMapType
+	 * @memberOf AppConfiguration
+	 * @instance
+	 */
+	var setMapType = function(){
+		MapProvider.setMapType("GoogleMaps");
 	}();
 
 }
