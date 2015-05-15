@@ -50,7 +50,7 @@ module.exports = function(config){
 
       browsers : ['PhantomJS'],
 
-      reporters: ['junit', 'coverage'],
+      reporters: ['progress', 'junit', 'coverage'],
       junitReporter: {
         outputFile: 'test-results.xml'
       },
