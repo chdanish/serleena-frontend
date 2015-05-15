@@ -18,9 +18,11 @@ angular.module('experience').controller('ExperienceWizardController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Provider} Map - Provider che fornisce l'instanza del gestore della
+  * mappa.
   */
 
 
-function ExperienceWizardController($scope) {
+function ExperienceWizardController($scope, Map) {
 }
