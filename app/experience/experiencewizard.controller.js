@@ -57,4 +57,19 @@ function ExperienceWizardController($scope, Map) {
   var linkMap = function(event, elementId) {
     $scope.mapTagId = elementId;
   };
+  /**
+   * Funzione da eseguire dopo il completamento dello step di inserimento del
+   * nome esperienza. Essa visualizza la mappa e disegna il rettangolo con cui
+   * selezionare il perimetro.
+   *
+   * @function afterInsertName
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @private
+   */
+  var afterInsertName= function(){
+    $scope.showMap = true;
+    $scope.map = Map.initMap($scope.mapTagId);
+    Map.drawPerimeter($scope.map);
+  };
 }
