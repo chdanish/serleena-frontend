@@ -100,9 +100,6 @@ module.exports = function(grunt){
 		shell: {
 			docs: {
 				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d docs/',
-			},
-			docsxml: {
-				command: 'node node_modules/jsdoc/jsdoc.js -p app/**/*.js -d console -t templates/haruki -q format=xml > docs.xml',
 			}
 		},
 		notify: {
@@ -128,6 +125,6 @@ module.exports = function(grunt){
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
     grunt.registerTask('deploy', ['zip:deploy']);
     grunt.registerTask('coverage', ['zip:coverage']);
-    grunt.registerTask('docs', ['shell:docs', 'zip:docs', 'shell:docsxml']);
+    grunt.registerTask('docs', ['shell:docs', 'zip:docs']);
 
 };

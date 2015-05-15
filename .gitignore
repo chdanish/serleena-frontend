@@ -7,3 +7,5 @@ coverage/
 out
 docs
 docs.xml
+docsxml
+xml-js
