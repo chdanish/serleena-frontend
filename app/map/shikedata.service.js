@@ -1,7 +1,7 @@
 /**
    * Name: SerleenaDataService
    * Package: Map
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -16,7 +16,7 @@ angular.module('map').service('SerleenaDataService', SerleenaDataService);
   * interrogare la base dati su informazioni geografiche (sentieri e punti
   * d’interesse).
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
