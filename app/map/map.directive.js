@@ -27,7 +27,7 @@ function MapDirective() {
     replace: true,
     template: '<div></div>',
     link: function(scope, element){
-      scope.linkMap(element[0].id);
+      scope.$emit('hhMapLink', element[0].id);
     }
   };
 
