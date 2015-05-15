@@ -65,8 +65,34 @@ function GoogleMapsService() {
       mapTypeControl: false
     });
   };
+  /**
+   * Disegna sulla mappa un rettangolo editabile per selezionare il perimetro
+   * dell'esperienza.
+   * @function drawPerimeter
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @returns {Object} rectangle - Rettangolo disegnato.
+   */
+  var drawPerimeter= function(map){
+    return new google.maps.Rectangle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 1,
+      fillOpacity: 0,
+      map: map,
+      bounds: new google.maps.LatLngBounds(
+        new google.maps.LatLng(45.276413, 11.650587),
+        new google.maps.LatLng(45.281726, 11.655550)
+      ),
+      editable: true,
+      draggable: true,
+      geodesic: true
+    });
+  };
 
   return {
-    initMap: initMap
+    initMap: initMap,
+    drawPerimeter: drawPerimeter
   };
 }
