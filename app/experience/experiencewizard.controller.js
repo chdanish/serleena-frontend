@@ -62,4 +62,13 @@ function ExperienceWizardController($scope, Map) {
    * @instance
    */
   $scope.expName = "";
+  /**
+   * Id del tag html di MapDirective
+   *
+   * @name mapTagId
+   * @type String
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.mapTagId = "";
 }
