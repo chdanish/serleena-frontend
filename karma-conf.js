@@ -7,6 +7,7 @@ module.exports = function(config){
         // file di Angular
         'bower_components/angular/angular.js',
         'bower_components/angular-route/angular-route.js',
+        'bower_components/angular-cookies/angular-cookies.js',    
         'bower_components/angular-mocks/angular-mocks.js',
 
         // file di serleena
