@@ -29,7 +29,7 @@
 /**
    * Name: ExperienceWizardController
    * Package: Experience
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer          Changes
@@ -43,7 +43,7 @@ angular.module('experience').controller('ExperienceWizardController',
   * Classe che gestisce la procedura guidata di creazione e modifica di
   * un’esperienza.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
