@@ -72,4 +72,5 @@ function ExperienceWizardController($scope, Map) {
     $scope.map = Map.initMap($scope.mapTagId);
     Map.drawPerimeter($scope.map);
   };
+  $scope.$on('hhMapLink', linkMap);
 }
