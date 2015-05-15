@@ -53,4 +53,13 @@ angular.module('experience').controller('ExperienceWizardController',
 
 
 function ExperienceWizardController($scope, Map) {
+  /**
+   * Nome dell'esperienza
+   *
+   * @name expName
+   * @type String
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.expName = "";
 }
