@@ -43,4 +43,18 @@ function ExperienceWizardController($scope, Map) {
    * @instance
    */
   $scope.mapTagId = "";
+  /**
+   * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
+   * ottenere l'Id di quest'ultima.
+   *
+   * @function linkMap
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @private
+   * @param {Object} event - Evento che è stato lanciato (hhMapLink)
+   * @param {String} elementId - Id del tag html di MapDirective.
+   */
+  var linkMap = function(event, elementId) {
+    $scope.mapTagId = elementId;
+  };
 }
