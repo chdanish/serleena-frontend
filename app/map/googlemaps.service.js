@@ -62,9 +62,36 @@ function GoogleMapsService() {
       geodesic: true
     });
   };
+  /**
+   * Finalizza il perimetro rendendolo non più modificabile.
+   * @function closePerimeter
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} rectangle - Rettangolo da rendere non modificabile.
+   * @returns {Object} recBound - Oggetto contenente le coordinate nord-est e
+   * sud-ovest del perimetro.
+   */
+  var closePerimeter = function(map, rectangle){
+    var recBound = rectangle.getBounds();
+    map.fitBounds(recBound);
+    rectangle.setOptions({
+      editable: false,
+      draggable: false,
+      strokeColor: '#000000'
+    });
+
+    var ne = recBound.getNorthEast();
+    var sw = recBound.getSouthWest();
+    return {
+      ne: [ne.lat(), ne.lng()],
+      sw: [sw.lat(), sw.lng()]
+    };
+  };
 
   return {
     initMap: initMap,
-    drawPerimeter: drawPerimeter
+    drawPerimeter: drawPerimeter,
+    closePerimeter: closePerimeter
   };
 }
