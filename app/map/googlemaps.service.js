@@ -48,4 +48,25 @@ angular.module('map').service('GoogleMapsService', GoogleMapsService);
   */
 
 function GoogleMapsService() {
+  /**
+   * Inizializza la mappa.
+   * @function initMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {String} mapId - ID della mappa nel DOM.
+   * @returns {Object} map - Oggetto mappa di Google Maps.
+   */
+  var initMap = function(mapId){
+    return new google.maps.Map( document.getElementById(mapId),{
+      center: { lat: 45.279642, lng: 11.652564},
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.TERRAIN,
+      streetViewControl: false,
+      mapTypeControl: false
+    });
+  };
+
+  return {
+    initMap: initMap
+  };
 }
