@@ -1,12 +1,21 @@
 #!/bin/sh
-if [ ! -d "docsxml" ]; then
-	mkdir docsxml
+if [ ! -d "xml-js" ]; then
+	mkdir xml-js
 fi
 packages=$(cd app; ls -d *);
 for package in $packages
 	do
-		if [ ! -f "docsxml/$package.xml" ]; then
-			touch docsxml/$package.xml
+		if [ ! -d "xml-js/$package" ]; then
+			mkdir xml-js/$package
 		fi
-		node node_modules/jsdoc/jsdoc.js -p app/$package/*.js -d console -t templates/haruki -q format=xml > docsxml/$package.xml
+		echo "xml-js/$package";
+		classes=$(cd app/$package; ls *.js);
+		for class in $classes
+			do
+				if [ ! -f "xml-js/$package/$class.xml" ]; then
+					touch xml-js/$package/$class.xml
+				fi
+				echo "xml-js/$package/$class.xml";
+				node node_modules/jsdoc/jsdoc.js -p app/$package/$class -d console -t templates/haruki -q format=xml > xml-js/$package/$class.xml
+			done
 	done
