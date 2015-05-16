@@ -74,15 +74,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.currentTrackIndex = -1;
   /**
-   * Nome del percorso corrente
-   *
-   * @name currentTrackName
-   * @type Number
-   * @memberOf ExperienceWizardController
-   * @instance
-   */
-  $scope.currentTrackName = -1;
-  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
