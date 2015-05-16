@@ -149,6 +149,33 @@ function GoogleMapsService() {
       map: map
     });
   };
+  /**
+   * Disegna un sentiero.
+   * @function drawPath
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {String} name - Nome del sentiero.
+   * @param {Array} points - Array di oggetti punti, entrambi costituiti da
+   * un attributo "lat" per la latitudine, e un attributo "lng" per la
+   * longitudine.
+   */
+  var drawPath = function(map, name, points){
+    var lineSymbol = {
+      path: 'M 0,-1 0,1',
+      strokeOpacity: 1,
+      scale: 4
+    };
+    var gmapPoints = [];
+    points.forEach(function(p){
+      gmapPoints.push(new google.maps.LatLng(p.lat, p.lng));
+    });
+    drawLine(map, gmapPoints, '#994C00', 0, [{
+      icon: lineSymbol,
+      offset: '0',
+      repeat: '20px'
+    }]);
+  };
 
   return {
     initMap: initMap,
