@@ -56,6 +56,15 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.showTracks = false;
   /**
+   * Array di percorsi
+   *
+   * @name tracks
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.tracks = [];
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
