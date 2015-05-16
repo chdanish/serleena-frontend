@@ -176,6 +176,31 @@ function GoogleMapsService() {
       repeat: '20px'
     }]);
   };
+  /**
+   * Disegna un marker
+   * @function drawMarker
+   * @memberOf GoogleMapsService
+   * @instance
+   * @private
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} position - Oggetto google.maps.LatLng che rappresenta la
+   * posizione del marker
+   * @param {Object} icon - Oggetto che rappresenta l'icona del marker.
+   * La documentazione di Gooogle Maps API v3 specifica che esso può essere di
+   * tre tipi distinti: String, google.maps.Icon oppure google.maps.Symbol.
+   * @param {Boolean} draggable - Flag che indica se il marker può essere
+   * spostato nella mappa oppure no.
+   * @param {String} title - Nome del marker
+   */
+  var drawMarker = function(map, position, icon, draggable, title){
+    return new google.maps.Marker({
+      position: position,
+      icon: icon,
+      title: title,
+      draggable: draggable,
+      map: map
+    });
+  };
 
   return {
     initMap: initMap,
