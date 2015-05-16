@@ -123,6 +123,24 @@ app.get('/paths/:from/:to', function (req, res){
   res.send(JSON.stringify(paths));
 });
 
+app.get('/poi/:from/:to', function (req, res){
+  var poi = {
+    poi: [
+      {
+        name: "POI A",
+        lat: 45.280063,
+        lng: 11.654495
+      },
+      {
+        name: "POI B",
+        lat: 45.281597,
+        lng: 11.653035
+      }
+    ]
+  };
+  res.send(JSON.stringify(poi));
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
