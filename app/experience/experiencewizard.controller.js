@@ -100,7 +100,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
   var afterInsertName= function(){
     $scope.showMap = true;
     $scope.map = Map.initMap($scope.mapTagId);
-    Map.drawPerimeter($scope.map);
+    $scope.rectangle = Map.drawPerimeter($scope.map);
   };
   $scope.$on('hhMapLink', linkMap);
 }
