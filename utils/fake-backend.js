@@ -78,6 +78,51 @@ app.get('/experiences', function (req, res) {
   res.send(JSON.stringify(exp));
 });
 
+app.get('/paths/:from/:to', function (req, res){
+  var paths = {
+    paths: [
+      {
+        name: "Sentiero del monte Cinto",
+        points: [
+          {
+            lat: 45.276413,
+            lng: 11.650587
+          },
+          {
+            lat: 45.275977,
+            lng: 11.652806
+          },
+          {
+            lat: 45.276257,
+            lng: 11.654908
+          },
+          {
+            lat: 45.277573,
+            lng: 11.654297
+          },
+          {
+            lat: 45.278192,
+            lng: 11.655213
+          },
+          {
+            lat: 45.279032,
+            lng: 11.655626
+          },
+          {
+            lat: 45.280266,
+            lng: 11.655875
+          },
+          {
+            lat: 45.281726,
+            lng: 11.655550
+          }
+        ]
+      }
+    ]
+  };
+  res.send(JSON.stringify(paths));
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
