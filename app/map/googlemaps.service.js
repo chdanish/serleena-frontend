@@ -98,7 +98,10 @@ function GoogleMapsService() {
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Object} rectangle - Rettangolo da rendere non modificabile.
    * @returns {Object} recBound - Oggetto contenente le coordinate nord-est e
-   * sud-ovest del perimetro.
+   * sud-ovest del perimetro. Esso è organizzato con due attributi, "ne" per il
+   * punto a nord-est e "sw" per il punto a sud-ovest, entrambi oggetti che
+   * contengono un attributo "lat" per la latitudine e un attributo "lng" per la
+   * longitudine.
    */
   var closePerimeter = function(map, rectangle){
     var recBound = rectangle.getBounds();
@@ -112,8 +115,14 @@ function GoogleMapsService() {
     var ne = recBound.getNorthEast();
     var sw = recBound.getSouthWest();
     return {
-      ne: [ne.lat(), ne.lng()],
-      sw: [sw.lat(), sw.lng()]
+      ne: {
+        lat: ne.lat(),
+        lng: ne.lng()
+      },
+      sw: {
+        lat: sw.lat(),
+        lng: sw.lng()
+      }
     };
   };
 
