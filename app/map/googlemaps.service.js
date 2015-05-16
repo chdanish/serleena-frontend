@@ -201,10 +201,31 @@ function GoogleMapsService() {
       map: map
     });
   };
+  /**
+   * Disegna un punto d'interesse
+   * @function drawPOI
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Number} lat - Latitudine del punto.
+   * @param {Number} lng - Longitudine del punto.
+   * @param {String} name - Nome del punto d'interesse.
+   */
+  var drawPOI = function(map, lat, lng, name){
+    drawMarker(map, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      strokeColor: 'red',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, false, name);
+  };
 
   return {
     initMap: initMap,
     drawPerimeter: drawPerimeter,
-    closePerimeter: closePerimeter
+    closePerimeter: closePerimeter,
+    drawPath: drawPath,
+    drawPOI: drawPOI
   };
 }
