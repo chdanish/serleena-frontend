@@ -74,5 +74,26 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
     $scope.map = Map.initMap($scope.mapTagId);
     $scope.rectangle = Map.drawPerimeter($scope.map);
   };
+  /**
+   * Funzione da eseguire dopo il completamento dello step di definizione del
+   * perimetro esperienza. Essa finalizza il perimetro e disegna i sentieri
+   * caricati dal backend.
+   *
+   * @function afterPerimeterChoose
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @private
+   */
+  var afterPerimeterChoose = function(){
+    $scope.perimeter = Map.closePerimeter($scope.map, $scope.rectangle);
+    SerleenaDataService.getPaths($scope.perimeter.ne, $scope.perimeter.sw,
+      function(ok, paths){
+        if(ok){
+          paths.forEach(function(path){
+            Map.drawPath($scope.map, path.name, path.points);
+          });
+        }
+      });
+  };
   $scope.$on('hhMapLink', linkMap);
 }
