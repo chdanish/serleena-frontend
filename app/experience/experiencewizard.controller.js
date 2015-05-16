@@ -49,10 +49,12 @@ angular.module('experience').controller('ExperienceWizardController',
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Provider} Map - Provider che fornisce l'instanza del gestore della
   * mappa.
+  * @param {Service} SerleenaDataService - Servizio per ottenere dati geografici
+  * dal database del backend.
   */
 
 
-function ExperienceWizardController($scope, Map) {
+function ExperienceWizardController($scope, Map, SerleenaDataService) {
   /**
    * Nome dell'esperienza
    *
