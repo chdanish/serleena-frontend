@@ -80,4 +80,36 @@ function SerleenaDataService($http, BACKEND_URL) {
       callback(false, data);
     });
   };
+  /**
+   * Metodo per ottenere la lista dei punti d'interesse in un determinato
+   * perimetro.
+   *
+   * @function getPOIs
+   * @memberOf SerleenaDataService
+   * @instance
+   * @param {Object} from - oggetto che rappresenta il punto a nord-est
+   * dell'area di cui si vuole conoscere i punti d'interesse, con un attributo
+   * "lat" per la latitudine e un attributo "lng" per la longitudine.
+   * @param {Object} to - oggetto che rappresenta il punto a sud-ovest
+   * dell'area di cui si vuole conoscere i punti d'interesse, con un attributo
+   * "lat" per la latitudine e un attributo "lng" per la longitudine.
+   * @param {function} callback - funzione da invocare alla ricezione della
+   * risposta dal backend e a cui passare i dati ricevuti.
+   */
+  var getPOIs = function(from, to, callback){
+    $http({
+      url: BACKEND_URL + "/poi/" + from.lat + ";" + from.lng + "/" + to.lat +
+                                                                  ";" + to.lng,
+      method: 'GET'
+    }).success(function(data){
+      callback(true, data.poi);
+    }).error(function(data){
+      callback(false, data);
+    });
+  };
+
+  return {
+    getPaths: getPaths,
+    getPOIs: getPOIs
+  };
 }
