@@ -46,6 +46,16 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.mapTagId = "";
   /**
+   * Flag per la visualizzazione delle informazioni relativi ai percorsi.
+   *
+   * @name showTracks
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.showTracks = false;
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
@@ -94,6 +104,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
           });
         }
       });
+    $scope.showTracks = true;
   };
   $scope.$on('hhMapLink', linkMap);
 }
