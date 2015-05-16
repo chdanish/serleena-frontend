@@ -125,6 +125,30 @@ function GoogleMapsService() {
       }
     };
   };
+  /**
+   * Disegna una linea.
+   * @function drawLine
+   * @memberOf GoogleMapsService
+   * @instance
+   * @private
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Array} path - Array di oggetti google.maps.LatLng che rappresenta
+   * l'insieme dei punti che costituiscono la linea.
+   * @param {String} color - Colore della linea in formato esadecimale.
+   * @param {Number} opacity - Numero che rappresenta l'opacità della linea, da
+   * 0.0 (trasparente) a 1.0 (nessuna opacità).
+   * @param {Array} icons - Array di oggetti google.maps.IconSequence che
+   * rappresenta l'insieme dei simboli con cui comporre la linea.
+   */
+  var drawLine = function (map, path, color, opacity, icons){
+    return new google.maps.Polyline({
+      path: path,
+      strokeColor: color,
+      strokeOpacity: opacity,
+      icons: icons,
+      map: map
+    });
+  };
 
   return {
     initMap: initMap,
