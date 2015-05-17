@@ -112,6 +112,8 @@ function GoogleMapsService() {
    * 0.0 (trasparente) a 1.0 (nessuna opacità).
    * @param {Array} icons - Array di oggetti google.maps.IconSequence che
    * rappresenta l'insieme dei simboli con cui comporre la linea.
+   * @returns {google.maps.Polyline} - Un riferimento all'oggetto che
+   * rappresenta la linea disegnata.
    */
   var drawLine = function (map, path, color, opacity, icons){
     if (icons === null){
