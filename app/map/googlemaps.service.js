@@ -224,6 +224,18 @@ function GoogleMapsService() {
       scale: 3
     }, true);
   };
+  /**
+   * Disegna un checkpoint di un percorso a partire da un oggetto
+   * google.maps.Marker esistente.
+   * @function drawCheckpointFromObject
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Marker} pointObj - Oggetto marker da disegnare.
+   */
+  var drawCheckpointFromObject = function(map, pointObj){
+    pointObj.setMap(map);
+  };
 
   return {
     initMap: initMap,
@@ -232,5 +244,6 @@ function GoogleMapsService() {
     drawPath: drawPath,
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
+    drawCheckpointFromObject: drawCheckpointFromObject,
   };
 }
