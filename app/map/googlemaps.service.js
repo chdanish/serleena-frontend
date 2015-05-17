@@ -203,6 +203,8 @@ function GoogleMapsService() {
    * @param {Boolean} draggable - Flag che indica se il marker può essere
    * spostato nella mappa oppure no.
    * @param {String} title - Nome del marker
+   * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
+   * marker nella mappa.
    */
   var drawMarker = function(map, position, icon, draggable, title){
     return new google.maps.Marker({
