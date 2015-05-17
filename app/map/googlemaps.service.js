@@ -264,6 +264,24 @@ function GoogleMapsService() {
   var drawCheckpointFromObject = function(map, pointObj){
     pointObj.setMap(map);
   };
+  /**
+   * Ottiene la posizione di un marker generico.
+   * @function getMarkerPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @private
+   * @param {google.maps.Marker} marker - Oggetto marker di cui ottenere le
+   * dimensioni.
+   * @returns {Object} - Oggetto che contiene un attributo "lat" con la
+   * latitudine e un attributo "lng" con la longitudine.
+   */
+  var getMarkerPosition = function(marker){
+    var p = marker.getPosition();
+    return {
+      lat: p.lat(),
+      lng: p.lng()
+    };
+  };
 
   return {
     initMap: initMap,
