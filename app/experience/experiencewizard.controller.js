@@ -84,6 +84,17 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.showTracks = false;
   /**
+   * Flag per la visualizzazione delle informazioni relative alla selezione dei
+   * punti d'interesse.
+   *
+   * @name showPOISelection
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.showPOISelection = false;
+  /**
    * Array di percorsi
    *
    * @name tracks
