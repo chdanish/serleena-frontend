@@ -320,6 +320,18 @@ function GoogleMapsService() {
   var removeTrackFromMap = function(track){
     removeLineFromMap(track);
   };
+  /**
+   * Rimuove un marker dalla mappa.
+   * @function removeMarkerFromMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @private
+   * @param {google.maps.Marker} marker - Oggetto che rappresenta il
+   * marker da rimuovere.
+   */
+  var removeMarkerFromMap = function(marker){
+    removeComponentFromMap(marker);
+  };
 
   return {
     initMap: initMap,
