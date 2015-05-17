@@ -74,6 +74,16 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.currentTrackIndex = -1;
   /**
+   * Indice del precedente percorso selezionato.
+   *
+   * @name previousTrackIndex
+   * @type Number
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @default -1
+   */
+  $scope.previousTrackIndex = -1;
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
