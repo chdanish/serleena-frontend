@@ -234,12 +234,31 @@ function GoogleMapsService() {
       scale: 3
     }, false, name);
   };
+  /**
+   * Disegna un checkpoint di un percorso.
+   * @function drawCheckpoint
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
+   * costituisce un checkpoint.
+   */
+  var drawCheckpoint = function(map){
+    return drawMarker(map, map.getCenter(), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'yellow',
+      strokeColor: 'yellow',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, true);
+  };
 
   return {
     initMap: initMap,
     drawPerimeter: drawPerimeter,
     closePerimeter: closePerimeter,
     drawPath: drawPath,
-    drawPOI: drawPOI
+    drawPOI: drawPOI,
+    drawCheckpoint: drawCheckpoint,
   };
 }
