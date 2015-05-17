@@ -104,6 +104,7 @@ function GoogleMapsService() {
    * longitudine.
    */
   var closePerimeter = function(map, rectangle){
+    // TODO Bisognerebbe pure disabilitare zoom e drag della mappa
     var recBound = rectangle.getBounds();
     map.fitBounds(recBound);
     rectangle.setOptions({
