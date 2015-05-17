@@ -282,6 +282,19 @@ function GoogleMapsService() {
       lng: p.lng()
     };
   };
+  /**
+   * Ottiene la posizione di un checkpoint.
+   * @function getCheckpointPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {google.maps.Marker} checkpoint - Oggetto marker che rappresenta il
+   * checkpoint di cui ottenere le dimensioni.
+   * @returns {Object} - Oggetto che contiene un attributo "lat" con la
+   * latitudine e un attributo "lng" con la longitudine.
+   */
+  var getCheckpointPosition = function(checkpoint){
+    return getMarkerPosition(checkpoint);
+  };
 
   return {
     initMap: initMap,
@@ -291,5 +304,6 @@ function GoogleMapsService() {
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
     drawCheckpointFromObject: drawCheckpointFromObject,
+    getCheckpointPosition: getCheckpointPosition,
   };
 }
