@@ -295,6 +295,24 @@ function GoogleMapsService() {
   var getCheckpointPosition = function(checkpoint){
     return getMarkerPosition(checkpoint);
   };
+  /**
+   * Disegna un percorso.
+   * @function drawTrack
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} points - Array di oggetti che contengono un attributo "lat"
+   * con la latitudine e un attributo "lng" con la longitudine.
+   * @returns {google.maps.Polyline} - Oggetto rappresentante il percorso
+   * disegnato.
+   */
+  var drawTrack = function(map, points){
+    var latlngs = [];
+    points.forEach(function(p){
+      latlngs.push(new google.maps.LatLng(p.lat, p.lng));
+    });
+    return drawLine(map, points, 'yellow', 0.7, null);
+  };
 
   return {
     initMap: initMap,
@@ -305,5 +323,6 @@ function GoogleMapsService() {
     drawCheckpoint: drawCheckpoint,
     drawCheckpointFromObject: drawCheckpointFromObject,
     getCheckpointPosition: getCheckpointPosition,
+    drawTrack: drawTrack,
   };
 }
