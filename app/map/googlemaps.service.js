@@ -285,6 +285,18 @@ function GoogleMapsService() {
     });
     return drawLine(map, points, 'yellow', 0.7, null);
   };
+  /**
+   * Rimuove un generico componente dalla mappa.
+   * @function removeComponentFromMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @private
+   * @param {google.maps.MVCObject} component - Oggetto che rappresenta il
+   * componente da rimuovere.
+   */
+  var removeComponentFromMap = function (component){
+    component.setMap(null);
+  };
 
   return {
     initMap: initMap,
