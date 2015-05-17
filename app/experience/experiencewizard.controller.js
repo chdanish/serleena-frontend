@@ -99,6 +99,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    * @type Number
    * @memberOf ExperienceWizardController
    * @instance
+   * @default -1
    */
   $scope.currentTrackIndex = -1;
   /**
