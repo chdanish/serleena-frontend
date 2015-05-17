@@ -297,6 +297,18 @@ function GoogleMapsService() {
   var removeComponentFromMap = function (component){
     component.setMap(null);
   };
+  /**
+   * Rimuove una linea dalla mappa.
+   * @function removeLineFromMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @private
+   * @param {google.maps.Polyline} line - Oggetto che rappresenta la
+   * linea da rimuovere.
+   */
+  var removeLineFromMap = function(line){
+    removeComponentFromMap(line);
+  };
 
   return {
     initMap: initMap,
