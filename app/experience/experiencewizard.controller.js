@@ -96,6 +96,15 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.previousTrackIndex = -1;
   /**
+   * Array di punti d'interesse
+   *
+   * @name poi
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.poi = [];
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
