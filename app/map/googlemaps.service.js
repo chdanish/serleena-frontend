@@ -309,6 +309,17 @@ function GoogleMapsService() {
   var removeLineFromMap = function(line){
     removeComponentFromMap(line);
   };
+  /**
+   * Rimuove un percorso dalla mappa.
+   * @function removeTrackFromMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {google.maps.Polyline} track - Oggetto che rappresenta il percorso
+   * da rimuovere.
+   */
+  var removeTrackFromMap = function(track){
+    removeLineFromMap(track);
+  };
 
   return {
     initMap: initMap,
@@ -320,5 +331,6 @@ function GoogleMapsService() {
     drawCheckpointFromObject: drawCheckpointFromObject,
     getCheckpointPosition: getCheckpointPosition,
     drawTrack: drawTrack,
+    removeTrackFromMap: removeTrackFromMap,
   };
 }
