@@ -142,13 +142,22 @@ function GoogleMapsService() {
    * rappresenta l'insieme dei simboli con cui comporre la linea.
    */
   var drawLine = function (map, path, color, opacity, icons){
-    return new google.maps.Polyline({
-      path: path,
-      strokeColor: color,
-      strokeOpacity: opacity,
-      icons: icons,
-      map: map
-    });
+    if (icons === null){
+      return new google.maps.Polyline({
+        path: path,
+        strokeColor: color,
+        strokeOpacity: opacity,
+        map: map
+      });
+    } else {
+      return new google.maps.Polyline({
+        path: path,
+        strokeColor: color,
+        strokeOpacity: opacity,
+        icons: icons,
+        map: map
+      });
+    }
   };
   /**
    * Disegna un sentiero.
