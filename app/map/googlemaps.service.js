@@ -332,6 +332,17 @@ function GoogleMapsService() {
   var removeMarkerFromMap = function(marker){
     removeComponentFromMap(marker);
   };
+  /**
+   * Rimuove un checkpoint dalla mappa.
+   * @function removeCheckpointFromMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {google.maps.Marker} point - Oggetto che rappresenta il checkpoint
+   * da rimuovere.
+   */
+  var removeCheckpointFromMap = function(point){
+    removeMarkerFromMap(point);
+  };
 
   return {
     initMap: initMap,
@@ -344,5 +355,6 @@ function GoogleMapsService() {
     getCheckpointPosition: getCheckpointPosition,
     drawTrack: drawTrack,
     removeTrackFromMap: removeTrackFromMap,
+    removeCheckpointFromMap: removeCheckpointFromMap,
   };
 }
