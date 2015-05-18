@@ -405,5 +405,29 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.previousTrackIndex = $scope.currentTrackIndex;
     $scope.currentTrackIndex = -1;
   };
+  /**
+   * Funzione invocata dalla vista per aggiungere un nuovo punto utente
+   *
+   * @function addNewCustomPoint
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.addNewCustomPoint = function(){
+    $scope.customPoints.push({
+      marker: Map.drawCustomPoint($scope.map)
+    });
+  };
+  /**
+   * Funzione invocata dalla vista per cancellare uno specifico punto utente.
+   *
+   * @function deleteCustomPoint
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del punto utente da eliminare.
+   */
+  $scope.deleteCustomPoint = function(index){
+    Map.removeCustomPointFromMap($scope.customPoints[index].marker);
+    $scope.customPoints.splice(index, 1);
+  };
   $scope.$on('hhMapLink', linkMap);
 }
