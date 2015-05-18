@@ -357,5 +357,18 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       $scope.previousTrackIndex--;
     }
   };
+  /**
+   * Funzione invocata dalla vista per aggiungere un nuovo checkpoint al
+   * percorso corrente.
+   *
+   * @function addNewCheckpoint
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.addNewCheckpoint = function(){
+    var c = Map.drawCheckpoint($scope.map);
+    $scope.tracks[$scope.currentTrackIndex].checkMarkers
+        .push(c);
+  };
   $scope.$on('hhMapLink', linkMap);
 }
