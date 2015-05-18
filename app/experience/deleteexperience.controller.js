@@ -33,4 +33,14 @@ function DeleteExperienceController($scope, $routeParams){
      * @instance
      */
 	$scope.experienceId = $routeParams.experienceId;
+	/**
+     * Flag per determinare se è stata effettuata la richiesta di cancellazione.
+     *
+     * @name deleteRequested
+     * @type Boolean
+     * @default false
+     * @memberOf DeleteExperienceController
+     * @instance
+     */
+	$scope.deleteRequested = false;
 }
