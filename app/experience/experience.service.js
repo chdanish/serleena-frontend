@@ -8,6 +8,8 @@
    * 0.0.1        Matteo Lisotto   Create file
    * 0.0.2        Antonio Cavestro Aggiunto metodo per ottenere la lista delle
    *                               esperienze
+   * 0.0.3        Antonio Cavestro Aggiunto metodo per salvare un'esperienza.
+   * 0.0.4        Antonio Cavestro Aggiunto metodo per cancellare un'esperienza.
    *
    */
 
@@ -95,9 +97,34 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
       });
     });
   };
+  /**
+   * Implementa la comunicazione con il server per cancellare un'esperienza.
+   * @function deleteExperience
+   * @memberOf ExperienceService
+   * @instance
+   * @param {Number} experienceId - Id dell'esperienza da cancellare.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var deleteExperience = function(experienceId, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'DELETE',
+        url: BACKEND_URL + "/experiences/" + experienceId,
+        headers: {
+          'X-AuthToken': token
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
 
   return {
     getExperienceList: getExperienceList,
-    saveExperience: saveExperience
+    saveExperience: saveExperience,
+    deleteExperience: deleteExperience
   };
 }
