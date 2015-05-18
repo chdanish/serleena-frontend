@@ -31,6 +31,16 @@ angular.module('experience').controller('ExperienceWizardController',
 function ExperienceWizardController($scope, Map, SerleenaDataService,
     ExperienceService) {
   /**
+   * Flag per la visualizzazione del wizard.
+   *
+   * @name showWizard
+   * @type Boolean
+   * @default true
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.showWizard = true;
+  /**
    * Nome dell'esperienza
    *
    * @name expName
