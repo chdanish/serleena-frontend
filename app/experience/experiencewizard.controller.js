@@ -157,6 +157,15 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.poi = [];
   /**
+   * Array di punti utente
+   *
+   * @name customPoints
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.customPoints = [];
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
