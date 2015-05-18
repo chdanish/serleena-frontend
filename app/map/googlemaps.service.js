@@ -316,6 +316,19 @@ function GoogleMapsService() {
     return getMarkerPosition(checkpoint);
   };
   /**
+   * Ottiene la posizione di un punto utente.
+   * @function getCustomPointPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {google.maps.Marker} customPoint - Oggetto marker che rappresenta il
+   * punto utente di cui ottenere la posizione.
+   * @returns {Object} - Oggetto che contiene un attributo "lat" con la
+   * latitudine e un attributo "lng" con la longitudine.
+   */
+  var getCustomPointPosition = function(customPoint){
+    return getMarkerPosition(customPoint);
+  };
+  /**
    * Disegna un percorso.
    * @function drawTrack
    * @memberOf GoogleMapsService
@@ -424,6 +437,7 @@ function GoogleMapsService() {
     drawCheckpointFromObject: drawCheckpointFromObject,
     drawCustomPoint: drawCustomPoint,
     getCheckpointPosition: getCheckpointPosition,
+    getCustomPointPosition: getCustomPointPosition,
     drawTrack: drawTrack,
     removeTrackFromMap: removeTrackFromMap,
     removeCheckpointFromMap: removeCheckpointFromMap,
