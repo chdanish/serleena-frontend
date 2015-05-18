@@ -49,9 +49,11 @@ angular.module("experience").controller("DeleteExperienceController",
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} $routeParams - Service che gestisce il recupero dei
   * parametri passati via url.
+  * @param {Service} ExperienceService - Service che gestisce la comunicazione
+  * con il backend per quanto riguarda la gestione delle esperienze.
   */
 
-function DeleteExperienceController($scope, $routeParams){
+function DeleteExperienceController($scope, $routeParams, ExperienceService){
 	/**
      * Id dell'esperienza da cancellare.
      *
