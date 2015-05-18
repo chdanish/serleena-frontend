@@ -295,5 +295,31 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       checkpoints: [],
     });
   };
+  /**
+   * Funzione invocata dalla vista per abilitare la visualizzazione
+   * dell'interfaccia per rinominare un percorso.
+   *
+   * @function showTrackRename
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del percorso a cui abilitare il cambio
+   * del nome.
+   */
+  $scope.showTrackRename = function(index){
+    $scope.tracks[index].showRename = true;
+  };
+  /**
+   * Funzione invocata dalla vista per disabilitare la visualizzazione
+   * dell'interfaccia per rinominare un percorso.
+   *
+   * @function closeTrackRename
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del percorso a cui disabilitare il cambio
+   * del nome.
+   */
+  $scope.closeTrackRename = function(index){
+    $scope.tracks[index].showRename = false;
+  };
   $scope.$on('hhMapLink', linkMap);
 }
