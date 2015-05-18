@@ -206,5 +206,33 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       });
     $scope.showTracks = true;
   };
+  /**
+   * Funzione da eseguire dopo il completamento dello step di creazione dei
+   * percorsi. Essa rimuove le informazioni sui percorsi dalla mappa, carica i
+   * punti d'interesse compresi nel perimetro e li visualizza sulla mappa.
+   *
+   * @function afterTracksCreation
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @private
+   */
+  var afterTracksCreation = function() {
+    $scope.showTracks = false;
+    $scope.showPOISelection = true;
+    if($scope.previousTrackIndex != -1){
+      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+    }
+    var poiFrom = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
+    var poiTo = $scope.perimeter.sw.lat + ";" + $scope.perimeter.sw.lng;
+    SerleenaDataService.getPOIs(poiFrom, poiTo, function(ok, poi){
+      if(ok){
+        $scope.poi = poi;
+        $scope.poi.forEach(function(p){
+          p.selected = false;
+          p.marker = Map.drawPOI($scope.map, p.lat, p.lng, p.name);
+        });
+      }
+    });
+  };
   $scope.$on('hhMapLink', linkMap);
 }
