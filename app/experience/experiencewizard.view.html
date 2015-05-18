@@ -1,0 +1,175 @@
+<hh-wizard class="container" ng-show="showWizard">
+	<div class="row">
+		<div class="col-md-8">
+			<h1>Crea una nuova esperienza</h1>
+			<hh-wizard-step>
+				<p class="lead">Passo 1 di 5: Inserisci il nome dell'esperienza</p>
+			</hh-wizard-step>
+			<hh-wizard-step>
+				<p class="lead">Passo 2 di 5: Definisci un perimetro per l'esperienza</p>
+			</hh-wizard-step>
+			<hh-wizard-step>
+				<p class="lead">Passo 3 di 5: Aggiungi percorsi</p>
+			</hh-wizard-step>
+			<hh-wizard-step>
+				<p class="lead">Passo 4 di 5: Aggiungi punti d'interesse</p>
+			</hh-wizard-step>
+			<hh-wizard-step>
+				<p class="lead">Passo 5 di 5: Aggiungi punti personalizzati</p>
+			</hh-wizard-step>
+		</div>
+	</div>
+	<div class="row" ng-hide="showMap">
+		<div class="col-md-5 col-md-offset-3">
+			<input type="text" class="form-control" placeholder="Esperienza"
+				ng-model="expName"/>
+		</div>
+	</div>
+	<div class="row" ng-show="showMap">
+		<div class="col-md-9 col-md-offset-1">
+			<hh-map id="map-wizard"></hh-map>
+		</div>
+	</div>
+	<div class="row vspace" ng-show="showTracks">
+		<div class="col-md-5">
+			<div class="panel panel-default" id="panel-tracks">
+				<div class="panel-heading">
+					<p class="panel-title">Percorsi definiti</p>
+					<button class="btn btn-default btn-xs" ng-click="addNewTrack()"
+						ng-disabled="currentTrackIndex != -1">
+						Aggiungi nuovo
+					</button>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li ng-repeat="track in tracks" class="list-group-item"
+							ng-dblclick="showTrackRename($index)">
+							{{track.name}}
+							<div class="btn-group">
+								<button class="btn btn-primary btn-xs"
+									ng-click="editTrack($index)"
+									ng-disabled="currentTrackIndex != -1">
+									Checkpoint
+								</button>
+								<button class="btn btn-danger btn-xs"
+									ng-click="deleteTrack($index)"
+									ng-disabled="currentTrackIndex != -1">
+									Cancella
+								</button>
+							</div>
+							<form ng-submit="closeTrackRename($index)"
+								 ng-show="track.showRename">
+								<input type="text" ng-model="track.name" />
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="panel panel-default" id="panel-checkpoints">
+				<div class="panel-heading">
+					<p class="panel-title">
+						Checkpoint
+					</p>
+					<div class="btn-group" ng-show="currentTrackIndex != -1">
+						<button class="btn btn-default btn-xs"
+							ng-click="addNewCheckpoint()">
+							Aggiungi nuovo
+						</button>
+						<button class="btn btn-primary btn-xs" ng-click="saveCheckpoints()">
+							Salva
+						</button>
+					</div>
+
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li ng-repeat="point in tracks[currentTrackIndex].checkMarkers"
+							class="list-group-item">
+							Checkpoint #{{$index}}
+							<div class="btn-group">
+								<button class="btn btn-danger btn-xs"
+									ng-click="deleteCheckpoint($index)">
+									Cancella
+								</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row vspace" ng-show="showPOISelection">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="panel-title">
+						Punti d'interesse disponibili nel perimetro
+					</p>
+				</div>
+				<div class="panel-body">
+					<table class="table table-hover">
+						<tr>
+							<th>Aggiungi</th>
+							<th>Nome</th>
+						</tr>
+						<tr ng-repeat="p in poi">
+							<td>
+								<input type="checkbox" ng-model="p.selected" />
+							</td>
+							<td>{{p.name}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row vspace" ng-show="showCustomPointSelection">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="panel panel-default" id="panel-custompoints">
+				<div class="panel-heading">
+					<p class="panel-title">Punti personalizzati</p>
+					<div class="btn-group">
+						<button class="btn btn-default btn-xs"
+							ng-click="addNewCustomPoint()">
+							Aggiungi nuovo
+						</button>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li ng-repeat="point in customPoints"
+							class="list-group-item">
+							Punto personalizzato #{{$index}}
+							<div class="btn-group">
+								<button class="btn btn-danger btn-xs"
+									ng-click="deleteCustomPoint($index)">
+									Cancella
+								</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</hh-wizard>
+<div class="container" ng-hide="showWizard">
+	<div class="row">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="panel panel-{{saveType}}">
+				<div class="panel-heading">
+					<p class="panel-title">Salvataggio esperienza</p>
+				</div>
+				<div class="panel-body">
+					<p>{{saveMsg}}</p>
+					<a href="#/" class="btn btn-default"
+						ng-show="saveType == 'success'">
+						Torna alla dashboard
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

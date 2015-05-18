@@ -27,27 +27,37 @@
 
 
 /**
-   * Name: MapProvider
-   * Package: Map
-   * Author: Matteo Lisotto
-   *
-   * History:
-   * Version      Programmer         Changes
-   * 0.0.1        Matteo Lisotto     Create file
-   *
-   */
+ * Name: app.js
+ * Package: App
+ * Author: Antonio Cavestro
+ *
+ * History:
+ * Version    Programmer  		Changes
+ * 0.0.1      Antonio Cavestro 	2015-05-06  Crea file
+ *
+ */
+angular
+        .module('authentication', ['ngCookies']);
+angular
+        .module('experience', ['wizard', 'map']);
+angular
+        .module('map', []);
+angular
+        .module('synchronization', []);
+angular
+        .module('telemetry', []);
+angular
+        .module('wizard', []);
 
-angular.module('map').service('MapProvider', MapProvider);
+angular
+	.module('serleenaFrontend', [
+		'ngRoute',
+	        'authentication',
+	        'experience',
+	        'synchronization',
+	        'telemetry',
+	]).config(AppConfiguration)
+	.run(AppInit);
 
-/**
-  * Classe singleton che realizza un’astrazione del servizio con cui interagire
-  * con il gestore alla mappa, in modo da disaccoppiarlo dal resto
-  * dell’applicazione.
-  *
-  * @author Matteo Lisotto
-  * @version 0.1
-  * @constructor
-  */
-
-function MapProvider() {
-}
+angular.module('serleenaFrontend')
+	.value('BACKEND_URL', 'http://api.hitchhikers.info');
