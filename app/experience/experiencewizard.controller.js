@@ -416,5 +416,20 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     afterTracksCreation,
     afterPOISelection
   ];
+  /**
+   * Funzione invocata al passaggio a uno step successivo, ossia in risposta
+   * all'evento "hhWizardNextStep".
+   *
+   * @function onWizardNextStep
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Object} event - Evento che provoca l'invocazione della funzione
+   * (hhWizardNextStep).
+   * @param {Number} step - Indice dello step successivo.
+   */
+  var onWizardNextStep = function(event, step){
+    steps[step-1]();
+  };
   $scope.$on('hhMapLink', linkMap);
+  $scope.$on('hhWizardNextStep', onWizardNextStep);
 }
