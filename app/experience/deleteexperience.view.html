@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="panel panel-warning" ng-hide="deleteRequested">
+				<div class="panel-heading">
+					<p class="panel-title">Cancellazione esperienza</p>
+				</div>
+				<div class="panel-body">
+					<p>
+						Sei sicuro di voler cancellare l'esperienza?
+						L'operazione non potrà essere annullata.
+					</p>
+					<a href="#/" class="btn btn-default">Annulla</a>
+					<button class="btn btn-danger" ng-click="deleteExperience()">
+						Cancella definitivamente
+					</button>
+				</div>
+			</div>
+			<div class="panel panel-{{responseType}}" ng-show="deleteRequested">
+				<div class="panel-heading">
+					<p class="panel-title">Esito cancellazione</p>
+				</div>
+				<div class="panel-body">
+					<p>{{responseMsg}}</p>
+					<a href="#/" class="btn btn-default">Torna alla dashboard</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
