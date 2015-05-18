@@ -308,7 +308,7 @@ function GoogleMapsService() {
    * @memberOf GoogleMapsService
    * @instance
    * @param {google.maps.Marker} checkpoint - Oggetto marker che rappresenta il
-   * checkpoint di cui ottenere le dimensioni.
+   * checkpoint di cui ottenere la posizione.
    * @returns {Object} - Oggetto che contiene un attributo "lat" con la
    * latitudine e un attributo "lng" con la longitudine.
    */
