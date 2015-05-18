@@ -63,4 +63,24 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
      * @instance
      */
 	$scope.responseMsg = "";
+	/**
+	 * Funzione invocata dalla vista per confermare la cancellazione
+	 * dell'esperienza.
+	 *
+	 * @function deleteExperience
+	 * @memberOf DeleteExperienceController
+	 * @instance
+	 */
+	$scope.deleteExperience = function(){
+		ExperienceService.deleteExperience($scope.experienceId, function(ok, data){
+			$scope.deleteRequested = true;
+			if(ok){
+				$scope.responseType = "success";
+				$scope.responseMsg = "Esperienza cancellata.";
+			} else {
+				$scope.responseType = "danger";
+				$scope.responseMsg = "Errore nella cancellazione dell'esperienza. :(";
+			}
+		});
+	};
 }
