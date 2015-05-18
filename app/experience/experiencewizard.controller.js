@@ -138,6 +138,24 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.customPoints = [];
   /**
+   * Esito del salvataggio da passare alla vista.
+   *
+   * @name saveType
+   * @type String
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.saveType = "";
+  /**
+   * Messaggio di conferma o errore del salvataggio esperienza.
+   *
+   * @name saveMsg
+   * @type String
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.saveMsg = "";
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
