@@ -53,8 +53,51 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
       });
     });
   };
+  /**
+   * Implementa la comunicazione con il server per il salvataggio di una nuova
+   * esperienza
+   * @function saveExperience
+   * @memberOf ExperienceService
+   * @instance
+   * @param {String} name - Nome dell'esperienza
+   * @param {Array} tracks - Array di percorsi
+   * @param {String} from - Coordinata del punto a nord-est del perimetro
+   * dell'esperienza, espressa nella forma "latitudine;longitudine".
+   * @param {String} to - Coordinata del punto a sud-ovest del perimetro
+   * dell'esperienza, espressa nella forma "latitudine;longitudine".
+   * @param {Array} POI - Array dei punti d'interesse selezionati per
+   * l'esperienza.
+   * @param {Array} customPoints - Array dei punti utente creati per
+   * l'esperienza.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var saveExperience = function(name, tracks, from, to, POI, customPoints, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'POST',
+        url: BACKEND_URL + "/experiences",
+        headers: {
+          'X-AuthToken': token
+        },
+        data: {
+          name: name,
+          tracks: tracks,
+          from: from,
+          to: to,
+          points_of_interest: POI,
+          user_points: customPoints
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
 
   return {
-    getExperienceList: getExperienceList
+    getExperienceList: getExperienceList,
+    saveExperience: saveExperience
   };
 }

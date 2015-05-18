@@ -2,47 +2,19 @@
  * Name: appconfiguration.js
  * Package: App
  * Author: Antonio Cavestro
-
  *
  * History:
- * Version    Programmer  	  Changes
- * 0.0.1      Antonio Cavestro 	  Crea file
- * 0.0.2      Matteo Lisotto	  Aggiungi moduli e aggiorna dipendenze 
- *                                di serleenaFrontend
+ * Version    Programmer  		Changes
+ * 0.0.1      Antonio Cavestro 	Crea file
+ * 0.0.2      Matteo Lisotto	Aggiungi moduli e aggiorna dipendenze di
+ *								serleenaFrontend
+ * 0.0.3	  Antonio Cavestro 	Aggiungi configurazione mappe
  *
  */
 
 /**
  * @namespace Configuration
  */
-
-angular
-        .module('authentication', ['ngCookies']);
-angular
-        .module('experience', []);
-angular
-        .module('map', []);
-angular
-        .module('synchronization', []);
-angular
-        .module('telemetry', []);
-angular
-        .module('wizard', []);
-
-angular
-	.module('serleenaFrontend', [
-		'ngRoute',
-	        'authentication',
-	        'experience',
-	        'map',
-	        'synchronization',
-	        'telemetry',
-	        'wizard'
-	]).config(AppConfiguration)
-	.run(AppInit);
-
-angular.module('serleenaFrontend')
-	.value('BACKEND_URL', 'http://api.hitchhikers.info');
 
 /**
  * Classe che contiene la configurazione dell'applicazione.
@@ -51,9 +23,9 @@ angular.module('serleenaFrontend')
  * @param {Provider} $routeProvider - Il gestore delle route di AngularJS
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
- * @version 0.1
+ * @version 0.2
  */
-function AppConfiguration($routeProvider){
+function AppConfiguration($routeProvider, MapProvider){
 	/**
 	 * Configura le route dell'applicazione.
 	 * @private
@@ -82,7 +54,21 @@ function AppConfiguration($routeProvider){
 			.when("/dashboard", {
 				templateUrl: 'app/experience/experiencelist.view.html',
 				controller: 'ExperienceListController'
+			})
+			.when("/dashboard/experiences/new", {
+				templateUrl: 'app/experience/experiencewizard.view.html',
+				controller: 'ExperienceWizardController'
 			});
+	}();
+	/**
+	 * Configura il gestore delle mappe.
+	 * @private
+	 * @function setMapType
+	 * @memberOf AppConfiguration
+	 * @instance
+	 */
+	var setMapType = function(){
+		MapProvider.setMapType("GoogleMaps");
 	}();
 
 }

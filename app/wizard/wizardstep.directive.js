@@ -1,7 +1,7 @@
 /**
    * Name: WizardStepDirective
    * Package: Wizard
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -9,16 +9,29 @@
    *
    */
 
-angular.module('wizard').directive('WizardStepDirective', WizardStepDirective);
+angular.module('wizard').directive('hhWizardStep', WizardStepDirective);
 
 /**
   * Classe che realizza il componente grafico di un passaggio di una generica
   * procedura guidata.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
 
 function WizardStepDirective() {
+  var directive = {
+    require: '^hhWizard',
+    restrict: 'E',
+    transclude: true,
+    replace: true,
+    scope: true,
+    templateUrl: 'app/wizard/wizardstepdirective.view.html',
+    link: function (scope, iElement, iAttrs, wizardController) {
+      wizardController.registerStep(scope);
+    }
+  };
+
+  return directive;
 }
