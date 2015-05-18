@@ -321,5 +321,23 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   $scope.closeTrackRename = function(index){
     $scope.tracks[index].showRename = false;
   };
+  /**
+   * Funzione invocata dalla vista per abilitare la gestione dei checkpoint
+   * relativi a un percorso, impostando quest'ultimo come percorso corrente.
+   *
+   * @function editTrack
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del percorso di cui gestire i checkpoint.
+   */
+  $scope.editTrack = function(index){
+    $scope.currentTrackIndex = index;
+    if($scope.previousTrackIndex != -1){
+      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+      $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
+        Map.drawCheckpointFromObject($scope.map, m);
+      });
+    }
+  };
   $scope.$on('hhMapLink', linkMap);
 }
