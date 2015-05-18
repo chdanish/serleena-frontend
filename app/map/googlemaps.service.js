@@ -196,9 +196,11 @@ function GoogleMapsService() {
    * @param {Number} lat - Latitudine del punto.
    * @param {Number} lng - Longitudine del punto.
    * @param {String} name - Nome del punto d'interesse.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
+   * punto d'interesse nella mappa.
    */
   var drawPOI = function(map, lat, lng, name){
-    drawMarker(map, new google.maps.LatLng(lat, lng), {
+    return drawMarker(map, new google.maps.LatLng(lat, lng), {
       path: google.maps.SymbolPath.CIRCLE,
       fillColor: 'red',
       strokeColor: 'red',
