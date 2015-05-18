@@ -279,5 +279,21 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     });
     $scope.showCustomPointSelection = true;
   };
+  /**
+   * Funzione invocata dalla vista per aggiungere un nuovo percorso all'array
+   * dedicato.
+   *
+   * @function addNewTrack
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.addNewTrack = function(){
+    $scope.tracks.push({
+      name: "Nuovo percorso",
+      showRename: true,
+      checkMarkers: [],
+      checkpoints: [],
+    });
+  };
   $scope.$on('hhMapLink', linkMap);
 }
