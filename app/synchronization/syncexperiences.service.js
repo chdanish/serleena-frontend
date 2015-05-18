@@ -1,7 +1,7 @@
 /**
    * Name: SyncExperiencesService
    * Package: Synchronization
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -13,7 +13,7 @@ angular.module('synchronization').service('SyncExperiencesService', SyncExperien
 /**
   * Classe singleton che gestisce le chiamate al backend relative al pairing.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
