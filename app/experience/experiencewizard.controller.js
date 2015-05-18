@@ -311,5 +311,23 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       });
     }
   };
+  /**
+   * Funzione invocata dalla vista per eliminare un percorso dall'array
+   * dedicato.
+   *
+   * @function deleteTrack
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del percorso da eliminare.
+   */
+  $scope.deleteTrack = function(index){
+    if($scope.previousTrackIndex == index){
+      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+    }
+    $scope.tracks.splice(index, 1);
+    if(index < $scope.previousTrackIndex){
+      $scope.previousTrackIndex--;
+    }
+  };
   $scope.$on('hhMapLink', linkMap);
 }
