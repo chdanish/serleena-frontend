@@ -58,6 +58,10 @@ function AppConfiguration($routeProvider, MapProvider){
 			.when("/dashboard/experiences/new", {
 				templateUrl: 'app/experience/experiencewizard.view.html',
 				controller: 'ExperienceWizardController'
+			}).
+			when("/dashboard/experiences/:experienceId/delete", {
+				templateUrl: 'app/experience/deleteexperience.view.html',
+				controller: 'DeleteExperienceController'
 			});
 	}();
 	/**
