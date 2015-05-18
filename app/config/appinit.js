@@ -25,8 +25,7 @@ function AppInit($rootScope, $location, AuthService){
 			'/': '/dashboard'
 		};
 		var userForbiddenRoutes = {
-			'/dashboard/': '/',
-			'/dashboard/experiences/new': '/'
+			'/dashboard': '/'
 		};
 		var nextPath = $location.path();
 		var redirect;
@@ -34,7 +33,11 @@ function AppInit($rootScope, $location, AuthService){
 		if ($rootScope.userLogged){
 			redirect = userLoggedRedirectRoutes[nextPath];
 		} else {
-			redirect = userForbiddenRoutes[nextPath];
+			for(var before in userForbiddenRoutes){
+				if(nextPath.indexOf(before) != -1){
+					redirect = userForbiddenRoutes[before];
+				}
+			}
 		}
 
 		if (typeof redirect != 'undefined'){
