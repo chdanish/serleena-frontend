@@ -429,5 +429,20 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     Map.removeCustomPointFromMap($scope.customPoints[index].marker);
     $scope.customPoints.splice(index, 1);
   };
+  /**
+   * Array di funzioni da eseguire al passaggio di ogni step.
+   *
+   * @name steps
+   * @type Array
+   * @private
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  var steps = [
+    afterInsertName,
+    afterPerimeterChoose,
+    afterTracksCreation,
+    afterPOISelection
+  ];
   $scope.$on('hhMapLink', linkMap);
 }
