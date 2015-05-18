@@ -458,6 +458,52 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   var onWizardNextStep = function(event, step){
     steps[step-1]();
   };
+  /**
+   * Funzione invocata alla fine del wizard, ossia in risposta all'evento
+   * "hhWizardCompleted". Si occupa di salvare l'esperienza tramite chiamata a
+   * ExperienceService.
+   *
+   * @function onWizardCompleted
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  var onWizardCompleted = function(){
+    var from = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
+    var to = $scope.perimeter.sw.lat + ";" + $scope.perimeter.sw.lng;
+    var cleanTracks = [];
+    $scope.tracks.forEach(function(t){
+      cleanTracks.push({
+        name: t.name,
+        checkpoints: t.checkpoints
+      });
+    });
+    var selectedPOIs = [];
+    $scope.poi.forEach(function(p){
+      if(p.selected){
+        selectedPOIs.push(p.id);
+      }
+    });
+    var selectedCustomPoints = [];
+    $scope.customPoints.forEach(function(p){
+      selectedCustomPoints.push(Map.getCustomPointPosition(p.marker));
+    });
+
+    ExperienceService.saveExperience($scope.name, cleanTracks, from, to,
+      selectedPOIs, selectedCustomPoints, function(ok, data){
+
+      $scope.showWizard = false;
+
+      if(ok){
+        $scope.saveType = "success";
+        $scope.saveMsg = "Esperienza salvata con successo!";
+      } else {
+        $scope.saveType = "danger";
+        $scope.saveMsg = "Errore nel salvataggio dell'esperienza :(";
+      }
+    });
+  };
+
   $scope.$on('hhMapLink', linkMap);
   $scope.$on('hhWizardNextStep', onWizardNextStep);
+  $scope.$on('hhWizardCompleted', onWizardCompleted);
 }
