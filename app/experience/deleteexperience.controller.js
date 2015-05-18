@@ -43,4 +43,13 @@ function DeleteExperienceController($scope, $routeParams){
      * @instance
      */
 	$scope.deleteRequested = false;
+	/**
+     * Variabile che indica il tipo di risposta ottenuta dal backend.
+     *
+     * @name responseType
+     * @type String
+     * @memberOf DeleteExperienceController
+     * @instance
+     */
+	$scope.responseType = "";
 }
