@@ -53,7 +53,8 @@ function AppInit($rootScope, $location, AuthService){
 			'/': '/dashboard'
 		};
 		var userForbiddenRoutes = {
-			'/dashboard': '/'
+			'/dashboard/': '/',
+			'/dashboard/experiences/new': '/'
 		};
 		var nextPath = $location.path();
 		var redirect;
