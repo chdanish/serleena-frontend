@@ -52,5 +52,13 @@ angular.module("experience").controller("DeleteExperienceController",
   */
 
 function DeleteExperienceController($scope, $routeParams){
-
+	/**
+     * Id dell'esperienza da cancellare.
+     *
+     * @name experienceId
+     * @type Number
+     * @memberOf DeleteExperienceController
+     * @instance
+     */
+	$scope.experienceId = $routeParams.experienceId;
 }
