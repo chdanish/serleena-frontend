@@ -127,11 +127,13 @@ app.get('/poi/:from/:to', function (req, res){
   var poi = {
     poi: [
       {
+        id: "sfklsdfjklsdf",
         name: "POI A",
         lat: 45.280063,
         lng: 11.654495
       },
       {
+        id: "!vjkldfjghksdlfjvsdlk",
         name: "POI B",
         lat: 45.281597,
         lng: 11.653035
