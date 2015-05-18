@@ -147,6 +147,10 @@ app.post('/experiences', function(req, res){
   res.sendStatus(200);
 });
 
+app.delete('/experiences/:id', function(req, res){
+  res.sendStatus(200);
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
