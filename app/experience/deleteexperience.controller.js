@@ -6,6 +6,7 @@
    * History:
    * Version      Programmer          Changes
    * 0.0.1        Antonio Cavestro    Create file
+   * 0.0.2		  Antonio Cavestro	  Implementa classe
    *
    */
 
