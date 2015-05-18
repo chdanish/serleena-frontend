@@ -52,4 +52,13 @@ function DeleteExperienceController($scope, $routeParams){
      * @instance
      */
 	$scope.responseType = "";
+	/**
+     * Variabile che contiene il messaggio ottenuto dal backend.
+     *
+     * @name responseType
+     * @type String
+     * @memberOf DeleteExperienceController
+     * @instance
+     */
+	$scope.responseMsg = "";
 }
