@@ -342,5 +342,19 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.tracks[$scope.currentTrackIndex].checkMarkers
         .push(c);
   };
+  /**
+   * Funzione invocata dalla vista per cancellare uno specifico checkpoint dal
+   * percorso corrente.
+   *
+   * @function deleteCheckpoint
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del checkpoint da eliminare.
+   */
+  $scope.deleteCheckpoint = function(index){
+    Map.removeCheckpointFromMap($scope.tracks[$scope.currentTrackIndex]
+      .checkMarkers[index]);
+    $scope.tracks[$scope.currentTrackIndex].checkMarkers.splice(index, 1);
+  };
   $scope.$on('hhMapLink', linkMap);
 }
