@@ -37,3 +37,26 @@ footer {
 p#welcome-text {
 	margin-right: 7em;
 }
+
+#map-wizard {
+	height: 300px;
+}
+
+#panel-tracks .panel-title,
+#panel-checkpoints .panel-title,
+#panel-custompoints .panel-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+#panel-tracks .btn-group,
+#panel-checkpoints .btn-group,
+#panel-custompoints .btn-group {
+	float: right;
+}
+
+#panel-checkpoints .btn-group button,
+#panel-tracks .btn-group button {
+	margin-left: 3px;
+	margin-right: 3px;
+}
