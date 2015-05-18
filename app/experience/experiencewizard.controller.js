@@ -234,5 +234,22 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       }
     });
   };
+  /**
+   * Funzione da eseguire dopo il completamento dello step di selezione dei
+   * punti d'interesse. Essa rimuove le informazioni sui punti dalla mappa, e
+   * abilita la visualizzazione dell'interfaccia di creazione dei punti utente.
+   *
+   * @function afterPOISelection
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @private
+   */
+  var afterPOISelection = function(){
+    $scope.showPOISelection = false;
+    $scope.poi.forEach(function(p){
+      Map.removePOIFromMap(p.marker);
+    });
+    $scope.showCustomPointSelection = true;
+  };
   $scope.$on('hhMapLink', linkMap);
 }
