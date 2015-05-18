@@ -356,5 +356,26 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       .checkMarkers[index]);
     $scope.tracks[$scope.currentTrackIndex].checkMarkers.splice(index, 1);
   };
+  /**
+   * Funzione invocata dalla vista per salvare i checkpoint del percorso
+   * corrente ed uscire dalla gestione di quest'ultimo.
+   *
+   * @function saveCheckpoints
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Number} index - Indice del checkpoint da eliminare.
+   */
+  $scope.saveCheckpoints = function(){
+    $scope.tracks[$scope.currentTrackIndex].checkpoints = [];
+    $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
+      $scope.tracks[$scope.currentTrackIndex].checkpoints.push(Map.getCheckpointPosition(m));
+      Map.removeCheckpointFromMap(m);
+    });
+
+    $scope.tracks[$scope.currentTrackIndex].trackDraw = Map.drawTrack($scope.map,
+      $scope.tracks[$scope.currentTrackIndex].checkpoints);
+    $scope.previousTrackIndex = $scope.currentTrackIndex;
+    $scope.currentTrackIndex = -1;
+  };
   $scope.$on('hhMapLink', linkMap);
 }
