@@ -45,7 +45,13 @@ angular.module('synchronization').service('SyncExperiencesService', SyncExperien
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * XMLHttpRequest (Ajax)
+  * @param {Service} AuthService - Servizio di gestione dell'autenticazione
+  * utente, necessario per l'uso del token con cui firmare le richieste.
+  * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
+  * configurazione)
   */
 
-function SyncExperiencesService() {
+function SyncExperiencesService($http, AuthService, BACKEND_URL) {
 }
