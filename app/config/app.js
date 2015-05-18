@@ -11,7 +11,7 @@
 angular
         .module('authentication', ['ngCookies']);
 angular
-        .module('experience', ['wizard']);
+        .module('experience', ['wizard', 'map']);
 angular
         .module('map', []);
 angular
@@ -26,7 +26,6 @@ angular
 		'ngRoute',
 	        'authentication',
 	        'experience',
-	        'map',
 	        'synchronization',
 	        'telemetry',
 	]).config(AppConfiguration)
