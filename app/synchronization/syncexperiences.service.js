@@ -39,7 +39,8 @@
 angular.module('synchronization').service('SyncExperiencesService', SyncExperiencesService);
 
 /**
-  * Classe singleton che gestisce le chiamate al backend relative al pairing.
+  * Classe singleton che gestisce le chiamate al backend relative alla gestione
+  * della lista delle esperienze da sincronizzare.
   *
   * @author Antonio Cavestro
   * @version 0.1
