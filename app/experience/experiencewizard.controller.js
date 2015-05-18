@@ -51,10 +51,13 @@ angular.module('experience').controller('ExperienceWizardController',
   * mappa.
   * @param {Service} SerleenaDataService - Servizio per ottenere dati geografici
   * dal database del backend.
+  * @param {Service} ExperienceService - Servizio per comunicare al backend
+  * operazioni da svolgere relativamente alla gestione delle esperienze.
   */
 
 
-function ExperienceWizardController($scope, Map, SerleenaDataService) {
+function ExperienceWizardController($scope, Map, SerleenaDataService,
+    ExperienceService) {
   /**
    * Nome dell'esperienza
    *
