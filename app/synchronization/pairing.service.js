@@ -17,7 +17,11 @@ angular.module('synchronization').service('PairingService', PairingService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * XMLHttpRequest (Ajax)
+  * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
+  * configurazione)
   */
 
-function PairingService() {
+function PairingService($http, BACKEND_URL) {
 }
