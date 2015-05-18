@@ -402,6 +402,17 @@ function GoogleMapsService() {
   var removePOIFromMap = function(point){
     removeMarkerFromMap(point);
   };
+  /**
+   * Rimuove un punto utente dalla mappa.
+   * @function removeCustomPointFromMap
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {google.maps.Marker} point - Oggetto che rappresenta il punto
+   * utente da rimuovere.
+   */
+  var removeCustomPointFromMap = function(point){
+    removeMarkerFromMap(point);
+  };
 
   return {
     initMap: initMap,
@@ -416,6 +427,7 @@ function GoogleMapsService() {
     drawTrack: drawTrack,
     removeTrackFromMap: removeTrackFromMap,
     removeCheckpointFromMap: removeCheckpointFromMap,
-    removePOIFromMap: removePOIFromMap
+    removePOIFromMap: removePOIFromMap,
+    removeCustomPointFromMap: removeCustomPointFromMap
   };
 }
