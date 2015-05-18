@@ -267,6 +267,24 @@ function GoogleMapsService() {
     pointObj.setMap(map);
   };
   /**
+   * Disegna un punto utente
+   * @function drawCustomPoint
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
+   * punto d'interesse nella mappa.
+   */
+  var drawCustomPoint = function(map){
+    return drawMarker(map, map.getCenter(), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      strokeColor: 'red',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, true);
+  };
+  /**
    * Ottiene la posizione di un marker generico.
    * @function getMarkerPosition
    * @memberOf GoogleMapsService
@@ -393,6 +411,7 @@ function GoogleMapsService() {
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
     drawCheckpointFromObject: drawCheckpointFromObject,
+    drawCustomPoint: drawCustomPoint,
     getCheckpointPosition: getCheckpointPosition,
     drawTrack: drawTrack,
     removeTrackFromMap: removeTrackFromMap,
