@@ -95,6 +95,17 @@ function ExperienceWizardController($scope, Map, SerleenaDataService) {
    */
   $scope.showPOISelection = false;
   /**
+   * Flag per la visualizzazione delle informazioni relative alla selezione dei
+   * punti utente.
+   *
+   * @name showCustomPointSelection
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.showCustomPointSelection = false;
+  /**
    * Array di percorsi
    *
    * @name tracks
