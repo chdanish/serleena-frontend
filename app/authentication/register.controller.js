@@ -94,13 +94,23 @@ function RegisterController($scope, UserService, AuthService) {
   $scope.registerUser = function(){
     UserService.registerUser($scope.email, $scope.password, function(ok, data) {
       if(ok){
-        // Passa al pairing
-        $scope.done = true;
-        $scope.enableNext = true;
-        // jshint multistr:true
-        $scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
-                            dispositivo a serleena Cloud";
-        $scope.msgType = "success";
+        //Autenticati
+        AuthService.loginUser($scope.email, $scope.password, function(ok, data){
+          if(ok){
+            // Passa al pairing
+            $scope.done = true;
+            $scope.enableNext = true;
+            // jshint multistr:true
+            $scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
+                                dispositivo a serleena Cloud";
+            $scope.msgType = "success";
+          } else {
+            $scope.done = true;
+            $scope.msgText = "Registrazione avvenuta ma non è stato possibile \
+                              autenticare l'utente. Contattare un amminsitratore :(";
+            $scope.msgType = "danger";
+          }
+        });
       } else {
         // errore
         $scope.done = true;
