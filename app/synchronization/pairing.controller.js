@@ -60,4 +60,34 @@ function PairingController($scope, PairingService) {
    * @instance
    */
   $scope.tempToken = "";
+  /**
+   * Flag che indica se la View deve visualizzare un messaggio di successo.
+   *
+   * @name showSuccess
+   * @type Boolean
+   * @default false
+   * @memberOf PairingController
+   * @instance
+   */
+  $scope.showSuccess = false;
+  /**
+   * Flag che indica se la View deve visualizzare un messaggio di errore.
+   *
+   * @name showError
+   * @type Boolean
+   * @default false
+   * @memberOf PairingController
+   * @instance
+   */
+  $scope.showError = false;
+  /**
+   * Variabile utilizzata dalla View per stabilire il testo del messaggio
+   * di errore da visualizzare.
+   *
+   * @name errorMsg
+   * @type String
+   * @memberOf PairingController
+   * @instance
+   */
+  $scope.errorMsg = "";
 }
