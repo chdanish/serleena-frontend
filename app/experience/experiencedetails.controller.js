@@ -54,4 +54,13 @@ angular.module('experience').controller('ExperienceDetailsController',
   */
 
 function ExperienceDetailsController($scope, $routeParams, ExperienceService) {
+  /**
+   * Indice dell'esperienza di cui visualizzare i dettagli.
+   *
+   * @name experienceId
+   * @type Number
+   * @memberOf ExperienceDetailsController
+   * @instance
+   */
+  $scope.experienceId = $routeParams.experienceId;
 }
