@@ -37,6 +37,7 @@
  * 0.0.2      Matteo Lisotto	Aggiungi moduli e aggiorna dipendenze di
  *								serleenaFrontend
  * 0.0.3	  Antonio Cavestro 	Aggiungi configurazione mappe
+ * 0.0.4	  Antonio Cavestro  Migliora gestione url backend
  *
  */
 
@@ -53,7 +54,8 @@
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.2
  */
-function AppConfiguration($routeProvider, MapProvider){
+function AppConfiguration($routeProvider, MapProvider, DEBUG, BACKEND_URL,
+	PRODUCTION_BACKEND_URL, DEVELOP_BACKEND_URL, $httpProvider){
 	/**
 	 * Configura le route dell'applicazione.
 	 * @private
@@ -109,6 +111,22 @@ function AppConfiguration($routeProvider, MapProvider){
 	 */
 	var setMapType = function(){
 		MapProvider.setMapType("GoogleMaps");
+	}();
+
+	/**
+	 * Configura l'indirizzo del backend.
+	 * @private
+	 * @function setBackendURL
+	 * @memberOf AppConfiguration
+	 * @instance
+	 */
+	var setBackendURL = function(){
+		if(DEBUG){
+			BACKEND_URL = DEVELOP_BACKEND_URL;
+			delete $httpProvider.defaults.headers.common['X-Requested-With'];
+		} else {
+			BACKEND_URL = PRODUCTION_BACKEND_URL;
+		}
 	}();
 
 }
