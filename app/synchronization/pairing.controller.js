@@ -17,8 +17,10 @@ angular.module('synchronization').controller('PairingController', PairingControl
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Service} PairingService - Servizio che gestisce la comunicazione con
+  * il backend relativa alla gestione dell'accoppiamento con serleena.
   */
 
-function PairingController($scope) {
+function PairingController($scope, PairingService) {
 }
