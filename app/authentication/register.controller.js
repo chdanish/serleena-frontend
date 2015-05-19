@@ -35,6 +35,8 @@
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Crea file
    * 0.0.2        Antonio Cavestro     Aggiungi metodo di registrazione
+   * 0.0.3        Antonio Cavestro     Aggiungi login automatico dopo
+   *                                   registrazione
    *
    */
 
@@ -52,9 +54,10 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * @constructor
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} UserService - Servizio che gestisce le informazioni utente.
+  * @param {Service} AuthService - Servizio che gestisce l'autenticazione utente.
   */
 
-function RegisterController($scope, UserService) {
+function RegisterController($scope, UserService, AuthService) {
   /**
    * Email utente
    *
@@ -121,13 +124,23 @@ function RegisterController($scope, UserService) {
   $scope.registerUser = function(){
     UserService.registerUser($scope.email, $scope.password, function(ok, data) {
       if(ok){
-        // Passa al pairing
-        $scope.done = true;
-        $scope.enableNext = true;
-        // jshint multistr:true
-        $scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
-                            dispositivo a serleena Cloud";
-        $scope.msgType = "success";
+        //Autenticati
+        AuthService.loginUser($scope.email, $scope.password, function(ok, data){
+          if(ok){
+            // Passa al pairing
+            $scope.done = true;
+            $scope.enableNext = true;
+            // jshint multistr:true
+            $scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
+                                dispositivo a serleena Cloud";
+            $scope.msgType = "success";
+          } else {
+            $scope.done = true;
+            $scope.msgText = "Registrazione avvenuta ma non è stato possibile \
+                              autenticare l'utente. Contattare un amminsitratore :(";
+            $scope.msgType = "danger";
+          }
+        });
       } else {
         // errore
         $scope.done = true;

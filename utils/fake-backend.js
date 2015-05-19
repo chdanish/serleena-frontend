@@ -178,6 +178,10 @@ app.put('/data/sync', function(req, res){
   res.sendStatus(200);
 });
 
+app.put('/users/pair', function(req, res){
+  res.sendStatus(200);
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;

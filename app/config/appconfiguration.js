@@ -94,6 +94,10 @@ function AppConfiguration($routeProvider, MapProvider){
 			.when("/dashboard/sync", {
 				templateUrl: 'app/synchronization/syncexperiences.view.html',
 				controller: 'SyncExperiencesController'
+			})
+			.when("/dashboard/pair", {
+				templateUrl: 'app/synchronization/pairing.view.html',
+				controller: 'PairingController'
 			});
 	}();
 	/**

@@ -29,11 +29,12 @@
 /**
    * Name: PairingService
    * Package: Synchronization
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
+   * 0.0.2        Antonio Cavestro     Implementa metodo pairDevice
    *
    */
 
@@ -42,10 +43,48 @@ angular.module('synchronization').service('PairingService', PairingService);
 /**
   * Classe singleton che gestisce le chiamate al backend relative al pairing.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * XMLHttpRequest (Ajax)
+  * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
+  * configurazione)
+  * @param {Service} AuthService - Service che gestisce la comunicazione con il
+  * backend relativa all'autenticazione utente.
   */
 
-function PairingService() {
+function PairingService($http, BACKEND_URL, AuthService) {
+  /**
+   * Implementa la chiamata al backend per il pair del dispositivo.
+   * @function pairDevice
+   * @memberOf PairingService
+   * @instance
+   * @param {String} tempToken - Token temporaneo proveniente dall'applicazione
+   * serleena.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var pairDevice = function(tempToken, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'PUT',
+        url: BACKEND_URL + "/users/pair",
+        headers: {
+          'X-AuthToken': token
+        },
+        data: {
+          temp_token: tempToken
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
+
+  return {
+    pairDevice: pairDevice
+  };
 }
