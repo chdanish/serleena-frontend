@@ -18,8 +18,12 @@ angular.module('experience').controller('ExperienceDetailsController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Service} $routeParams - Service che gestisce il recupero dei
+  * parametri passati via url.
+  * @param {Service} ExperienceService - Service che gestisce la comunicazione
+  * con il backend per quanto riguarda la gestione delle esperienze.
   */
 
-function ExperienceDetailsController($scope) {
+function ExperienceDetailsController($scope, $routeParams, ExperienceService) {
 }
