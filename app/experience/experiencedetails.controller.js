@@ -1,7 +1,7 @@
 /**
    * Name: ExperienceDetailsController
    * Package: Experience
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -15,7 +15,7 @@ angular.module('experience').controller('ExperienceDetailsController',
   * Classe per la gestione della visualizzazione dei dettagli relativi a
   * un’esperienza.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
