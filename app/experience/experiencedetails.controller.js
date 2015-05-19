@@ -35,4 +35,13 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService) {
    * @instance
    */
   $scope.experienceId = $routeParams.experienceId;
+  /**
+   * Oggetto contenente le informazioni dell'esperienza.
+   *
+   * @name experience
+   * @type Object
+   * @memberOf ExperienceDetailsController
+   * @instance
+   */
+  $scope.experience = {};
 }
