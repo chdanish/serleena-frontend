@@ -26,48 +26,43 @@
  *****************************************************************************/
 
 
-module.exports = function(config){
-    config.set({
-      basePath : './',
-      singleRun: true,
+/**
+  * Name: LoginControllerTest
+  * Package: Authentication
+  * Author: Matteo Lisotto <matteo.lisotto@gmail.com>
+  *
+  * History
+  * Version    Programmer        Changes
+  * 1.0.0      Matteo Lisotto    Crea file e test per LoginController
+  *
+  */
 
-      files : [
-        // file di Angular
-        'bower_components/angular/angular.js',
-        'bower_components/angular-route/angular-route.js',
-        'bower_components/angular-cookies/angular-cookies.js',    
-        'bower_components/angular-mocks/angular-mocks.js',
+describe ('LogoutController Test', function () {
+    var $scope, location, authService;
 
-        // file di serleena
-        'dist/serleenafrontend.js',
+    beforeEach(function () {
+	angular.mock.module('ngCookies');
+	module('authentication');
+    });
 
-        // test
-        'test/unit/**/*.js'
-      ],
+    beforeEach(inject(function($controller) {
+	$scope = {};
+	location = jasmine.createSpyObj('location', ['path']);
 
-      autoWatch : false,
+	authService = jasmine.createSpyObj('AuthService', ['logoutUser']);
+	authService.logoutUser.and.callFake(function () {
+	    location.path('/');
+	});
 
-      frameworks: ['jasmine'],
+	$controller('LogoutController', {
+	    $scope: $scope,
+	    $location: location,
+	    AuthService: authService
+	});
+    }));
 
-      browsers : ['PhantomJS'],
-
-      reporters: ['progress', 'junit', 'coverage'],
-      junitReporter: {
-        outputFile: 'test-results.xml'
-      },
-      coverageReporter: {
-        type : 'html',
-        dir : 'coverage/'
-      },
-
-      preprocessors: {
-        'dist/serleenafrontend.js': 'coverage'
-      },
-
-      plugins : [
-          'karma-jasmine',
-          'karma-phantomjs-launcher',
-          'karma-junit-reporter',
-          'karma-coverage'
-      ]
-})}
+    it('Test', function () {
+	$scope.logoutUser();
+	expect(location.path).toHaveBeenCalledWith('/');
+    });
+});
