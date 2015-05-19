@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="panel panel-default" ng-hide="showError || showSuccess">
+				<div class="panel-heading">
+					<p class="panel-title">Accoppiamento con serleena</p>
+				</div>
+				<div class="panel-body">
+					<form>
+						<div class="form-group">
+							<label for="temptoken">
+								Inserisci il codice temporaneo visualizzato su
+								serleena
+							</label>
+							<input type="text" name="temptoken"
+								class="form-control" placeholder="Token"
+								ng-model="tempToken" />
+						</div>
+						<button class="btn btn-primary" ng-click="pairDevice()">
+							Esegui
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="panel panel-success" ng-show="showSuccess">
+				<div class="panel-heading">
+					<p class="panel-title">Accoppiamento avvenuto</p>
+				</div>
+				<div class="panel-body">
+					<p>Accoppiamento avvenuto con successo!</p>
+					<a href="#/dashboard" class="btn btn-default">
+						Vai alla dashboard
+					</a>
+				</div>
+			</div>
+			<div class="panel panel-danger" ng-show="showError">
+				<div class="panel-heading">
+					<p class="panel-title">Errore</p>
+				</div>
+				<div class="panel-body">
+					<p>{{errorMsg}}</p>
+					<button class="btn btn-default" ng-click="retry()">
+						Riprova
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
