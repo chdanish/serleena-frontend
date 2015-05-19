@@ -25,4 +25,14 @@ angular.module('synchronization').controller('SyncExperiencesController',
   */
 
 function SyncExperiencesController($scope, SyncExperiencesService) {
+  /**
+   * Array contenente le esperienze con le informazioni relative all'effettiva
+   * o meno abilitazione alla sincronizzazione.
+   *
+   * @name experiences
+   * @type Array
+   * @memberOf SyncExperiencesController
+   * @instance
+   */
+  $scope.experiences = [];
 }
