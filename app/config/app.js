@@ -32,4 +32,13 @@ angular
 	.run(AppInit);
 
 angular.module('serleenaFrontend')
-	.value('BACKEND_URL', 'http://api.hitchhikers.info');
+	.constant("DEBUG", false);
+
+angular.module('serleenaFrontend')
+	.constant("PRODUCTION_BACKEND_URL", 'http://api.hitchhikers.info');
+
+angular.module('serleenaFrontend')
+	.constant('DEVELOP_BACKEND_URL', "http://localhost:3000");
+
+angular.module('serleenaFrontend')
+	.value('BACKEND_URL', '');
