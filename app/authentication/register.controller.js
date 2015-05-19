@@ -52,9 +52,10 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * @constructor
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} UserService - Servizio che gestisce le informazioni utente.
+  * @param {Service} AuthService - Servizio che gestisce l'autenticazione utente.
   */
 
-function RegisterController($scope, UserService) {
+function RegisterController($scope, UserService, AuthService) {
   /**
    * Email utente
    *
