@@ -7,6 +7,8 @@
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Crea file
    * 0.0.2        Antonio Cavestro     Aggiungi metodo di registrazione
+   * 0.0.3        Antonio Cavestro     Aggiungi login automatico dopo
+   *                                   registrazione
    *
    */
 
