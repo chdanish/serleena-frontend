@@ -26,4 +26,31 @@ angular.module('synchronization').service('SyncExperiencesService', SyncExperien
   */
 
 function SyncExperiencesService($http, AuthService, BACKEND_URL) {
+  /**
+   * Implementa la comunicazione con il server per ottenere la lista delle
+   * esperienze da sincronizzare.
+   * @function getSyncList
+   * @memberOf SyncExperiencesService
+   * @instance
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var getSyncList = function(callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'GET',
+        url: BACKEND_URL + "/data/sync",
+        headers: {
+          'X-AuthToken': token
+        }
+      }).success(function(data){
+        callback(true, data.experiences);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
+  return {
+    getSyncList: getSyncList,
+  };
 }
