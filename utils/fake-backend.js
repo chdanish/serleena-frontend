@@ -174,7 +174,7 @@ app.get('/data/sync', function(req, res){
   res.send(exp);
 });
 
-app.post('/data/sync', function(req, res){
+app.put('/data/sync', function(req, res){
   res.sendStatus(200);
 });
 
