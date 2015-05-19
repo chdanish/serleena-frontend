@@ -50,7 +50,37 @@ function SyncExperiencesService($http, AuthService, BACKEND_URL) {
       });
     });
   };
+  /**
+   * Implementa la comunicazione con il server per salvare la lista di
+   * sincronizzazione aggiornata.
+   * @function setSyncList
+   * @memberOf SyncExperiencesService
+   * @instance
+   * @param {Array} newList - Lista di sincronizzazione aggiornata.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var setSyncList = function(newList, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'PUT',
+        url: BACKEND_URL + "/data/sync",
+        headers: {
+          'X-AuthToken': token
+        },
+        data: {
+          exp_list: newList
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
+
   return {
     getSyncList: getSyncList,
+    setSyncList: setSyncList
   };
 }
