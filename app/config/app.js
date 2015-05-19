@@ -41,4 +41,4 @@ angular.module('serleenaFrontend')
 	.constant('DEVELOP_BACKEND_URL', "http://localhost:3000");
 
 angular.module('serleenaFrontend')
-	.value('BACKEND_URL', '');
+	.value('BACKEND_URL', "");

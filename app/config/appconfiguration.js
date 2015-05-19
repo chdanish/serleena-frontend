@@ -26,8 +26,8 @@
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.2
  */
-function AppConfiguration($routeProvider, MapProvider, DEBUG, BACKEND_URL,
-	PRODUCTION_BACKEND_URL, DEVELOP_BACKEND_URL, $httpProvider){
+function AppConfiguration($routeProvider, MapProvider, DEBUG,
+	PRODUCTION_BACKEND_URL, DEVELOP_BACKEND_URL, $httpProvider, $provide){
 	/**
 	 * Configura le route dell'applicazione.
 	 * @private
@@ -94,10 +94,10 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG, BACKEND_URL,
 	 */
 	var setBackendURL = function(){
 		if(DEBUG){
-			BACKEND_URL = DEVELOP_BACKEND_URL;
+			$provide.value("BACKEND_URL", DEVELOP_BACKEND_URL);
 			delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		} else {
-			BACKEND_URL = PRODUCTION_BACKEND_URL;
+			$provide.value("BACKEND_URL", PRODUCTION_BACKEND_URL);
 		}
 	}();
 
