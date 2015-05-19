@@ -63,4 +63,34 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    * @instance
    */
   $scope.experiences = [];
+  /**
+   * Flag per abilitare o meno la visualizzazione dei messaggi nella vista.
+   *
+   * @name showMsg
+   * @type Boolean
+   * @default false
+   * @memberOf SyncExperiencesController
+   * @instance
+   */
+  $scope.showMsg = false;
+  /**
+   * Stringa contenente la tipologia di messaggio che la vista deve
+   * visualizzare.
+   *
+   * @name msgType
+   * @type String
+   * @memberOf SyncExperiencesController
+   * @instance
+   */
+  $scope.msgType = "";
+  /**
+   * Stringa contenente il testo del messaggio che la vista deve
+   * visualizzare.
+   *
+   * @name msgText
+   * @type String
+   * @memberOf SyncExperiencesController
+   * @instance
+   */
+  $scope.msgText = "";
 }
