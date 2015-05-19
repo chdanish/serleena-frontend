@@ -1,7 +1,7 @@
 /**
    * Name: SyncExperiencesController
    * Package: Synchronization
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer          Changes
@@ -15,7 +15,7 @@ angular.module('synchronization').controller('SyncExperiencesController',
   * Classe che gestisce la procedura di visualizzazione e modifica della lista
   * di sincronizzazione delle esperienze.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
