@@ -49,7 +49,9 @@ angular.module('synchronization').service('PairingService', PairingService);
   * XMLHttpRequest (Ajax)
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
   * configurazione)
+  * @param {Service} AuthService - Service che gestisce la comunicazione con il
+  * backend relativa all'autenticazione utente.
   */
 
-function PairingService($http, BACKEND_URL) {
+function PairingService($http, BACKEND_URL, AuthService) {
 }
