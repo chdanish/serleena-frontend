@@ -7,13 +7,14 @@ module.exports = function(config){
         // file di Angular
         'bower_components/angular/angular.js',
         'bower_components/angular-route/angular-route.js',
+        'bower_components/angular-cookies/angular-cookies.js',    
         'bower_components/angular-mocks/angular-mocks.js',
 
         // file di serleena
-        'dist/testangular.js',
+        'dist/serleenafrontend.js',
 
         // test
-        //'test/unit/*.js'
+        'test/unit/**/*.js'
       ],
 
       autoWatch : false,
@@ -22,7 +23,7 @@ module.exports = function(config){
 
       browsers : ['PhantomJS'],
 
-      reporters: ['junit', 'coverage'],
+      reporters: ['progress', 'junit', 'coverage'],
       junitReporter: {
         outputFile: 'test-results.xml'
       },
@@ -32,7 +33,7 @@ module.exports = function(config){
       },
 
       preprocessors: {
-        'dist/testangular.js': 'coverage'
+        'dist/serleenafrontend.js': 'coverage'
       },
 
       plugins : [
