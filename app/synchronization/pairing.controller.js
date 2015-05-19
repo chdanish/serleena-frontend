@@ -51,4 +51,13 @@ angular.module('synchronization').controller('PairingController', PairingControl
   */
 
 function PairingController($scope, PairingService) {
+  /**
+   * Token temporaneo
+   *
+   * @name tempToken
+   * @type String
+   * @memberOf PairingController
+   * @instance
+   */
+  $scope.tempToken = "";
 }
