@@ -154,6 +154,57 @@ app.put('/users/pair', function(req, res){
   res.sendStatus(200);
 });
 
+app.get('/experiences/:id', function(req, res){
+  var exp = {
+    name: "Esperienza XYZ",
+    perimeter: {
+      ne: {
+        lat: 45.284005,
+        lng: 11.645359
+      },
+      sw: {
+        lat: 45.272599,
+        lng: 11.660111
+      }
+    },
+    poi: [
+      {
+        id: "!vjkldfjghksdlfjvsdlk",
+        name: "POI B",
+        lat: 45.281597,
+        lng: 11.653035
+      },
+      {
+        id: "!fkòlfkòdk",
+        name: "POI C",
+        lat: 45.276457,
+        lng: 11.653136
+      }
+    ],
+    userpoints: [
+      {
+        lat: 45.280063,
+        lng: 11.654495
+      },
+    ],
+    tracks: [
+      {
+        id: 1,
+        name: "Percorso A"
+      },
+      {
+        id: 2,
+        name: "Percorso B"
+      },
+      {
+        id: 3,
+        name: "Percorso C"
+      }
+    ]
+  };
+  res.send(JSON.stringify(exp));
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
