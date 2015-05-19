@@ -1,7 +1,7 @@
 /**
    * Name: PairingController
    * Package: Synchronization
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -14,7 +14,7 @@ angular.module('synchronization').controller('PairingController', PairingControl
 /**
   * Classe che gestisce la procedura di pairing.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   * @param{scope} model che contiene i dati dell'applicazione.
