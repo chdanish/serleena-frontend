@@ -64,4 +64,21 @@ function PairingController($scope, PairingService, $route) {
    * @instance
    */
   $scope.errorMsg = "";
+  /**
+   * Metodo invocato dalla vista per eseguire l'accoppiamento.
+   *
+   * @function pairDevice
+   * @memberOf PairingController
+   * @instance
+   */
+  $scope.pairDevice = function(){
+    PairingService.pairDevice($scope.tempToken, function(ok, data){
+      if(ok){
+        $scope.showSuccess = true;
+      } else {
+        $scope.showError = true;
+        $scope.errorMsg = "Errore durante la procedura di accoppiamento :(";
+      }
+    });
+  };
 }
