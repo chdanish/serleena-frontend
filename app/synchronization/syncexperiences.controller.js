@@ -13,7 +13,8 @@ angular.module('synchronization').controller('SyncExperiencesController',
 					     SyncExperiencesController);
 /**
   * Classe che gestisce la procedura di visualizzazione e modifica della lista
-  * di sincronizzazione delle esperienze.
+  * di sincronizzazione delle esperienze. Il costruttore popola l'array delle
+  * esperienze che viene visualizzato nella vista.
   *
   * @author Antonio Cavestro
   * @version 0.1
@@ -65,4 +66,14 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    * @instance
    */
   $scope.msgText = "";
+
+  SyncExperiencesService.getSyncList(function(ok, data){
+    if(ok){
+      $scope.experiences = data;
+    } else {
+      $scope.showMsg = true;
+      $scope.msgType = "danger";
+      $scope.msgText = "Impossibile caricare la lista di sincronizzazione :(";
+    }
+  });
 }
