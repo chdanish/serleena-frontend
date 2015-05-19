@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-7 col-md-offset-2">
+			<div class="panel panel-default" ng-hide="showMsg">
+				<div class="panel-heading">
+					<p class="panel-title">Lista di sincronizzazione</p>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<tr>
+							<th>Da Sincronizzare</th>
+							<th>Esperienza</th>
+						</tr>
+						<tr ng-repeat="e in experiences">
+							<td>
+								<input type="checkbox" ng-model="e.selected" />
+							</td>
+							<td>{{e.name}}</td>
+						</tr>
+					</table>
+					<div class="text-center">
+						<a href="#/" class="btn btn-default">Annulla</a>
+						<button class="btn btn-primary" ng-click="saveList()">
+							Salva
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-{{msgType}}" ng-show="showMsg">
+				<div class="panel-heading">
+					<p class="panel-title">Esito</p>
+				</div>
+				<div class="panel-body">
+					<p>{{msgText}}</p>
+					<a href="#/" class="btn btn-default">
+						Torna alla dashboard
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
