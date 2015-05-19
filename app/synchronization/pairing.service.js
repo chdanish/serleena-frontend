@@ -26,4 +26,36 @@ angular.module('synchronization').service('PairingService', PairingService);
   */
 
 function PairingService($http, BACKEND_URL, AuthService) {
+  /**
+   * Implementa la chiamata al backend per il pair del dispositivo.
+   * @function pairDevice
+   * @memberOf PairingService
+   * @instance
+   * @param {String} tempToken - Token temporaneo proveniente dall'applicazione
+   * serleena.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var pairDevice = function(tempToken, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'PUT',
+        url: BACKEND_URL + "/users/pair",
+        headers: {
+          'X-AuthToken': token
+        },
+        data: {
+          temp_token: tempToken
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
+
+  return {
+    pairDevice: pairDevice
+  };
 }
