@@ -123,6 +123,33 @@ app.delete('/experiences/:id', function(req, res){
   res.sendStatus(200);
 });
 
+app.get('/data/sync', function(req, res){
+  var exp = {
+    experiences: [
+      {
+        id: 1,
+        name: "Esperienza 1",
+        selected: true
+      },
+      {
+        id: 2,
+        name: "Esperienza 2",
+        selected: false
+      },
+      {
+        id: 3,
+        name: "Esperienza 3",
+        selected: true
+      }
+    ]
+  };
+  res.send(exp);
+});
+
+app.put('/data/sync', function(req, res){
+  res.sendStatus(200);
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
