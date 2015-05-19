@@ -104,4 +104,23 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
       $scope.msgText = "Impossibile caricare la lista di sincronizzazione :(";
     }
   });
+  /**
+   * Funzione invocata dalla vista per eseguire l'aggiornamento della lista di
+   * sincronizzazione.
+   * @function saveList
+   * @memberOf SyncExperiencesController
+   * @instance
+   */
+  $scope.saveList = function(){
+    SyncExperiencesService.setSyncList($scope.experiences, function(ok, data){
+      $scope.showMsg = true;
+      if(ok){
+        $scope.msgType = "success";
+        $scope.msgText = "Lista aggiornata!";
+      } else {
+        $scope.msgType = "danger";
+        $scope.msgText = "Errore nell'aggiornamento della lista :(";
+      }
+    });
+  };
 }
