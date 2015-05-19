@@ -109,4 +109,14 @@ function PairingController($scope, PairingService, $route) {
       }
     });
   };
+  /**
+   * Metodo invocato dalla vista per ricominciare la procedura di accoppiamento.
+   *
+   * @function retry
+   * @memberOf PairingController
+   * @instance
+   */
+  $scope.retry = function(){
+    $route.reload();
+  };
 }
