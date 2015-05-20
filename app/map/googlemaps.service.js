@@ -29,11 +29,12 @@
 /**
    * Name: GoogleMapsService
    * Package: Map
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
+   * 0.0.2        Antonio Cavestro     Implementa file secondo DP
    *
    */
 
@@ -42,7 +43,7 @@ angular.module('map').service('GoogleMapsService', GoogleMapsService);
 /**
   * Classe singleton che implementa la comunicazione con le API di Google Maps.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
@@ -64,6 +65,33 @@ function GoogleMapsService() {
       streetViewControl: false,
       mapTypeControl: false
     });
+  };
+  /**
+   * Inizializza la mappa a partire dal perimetro dato.
+   * @function initMapFromPerimeter
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {String} mapId - ID della mappa nel DOM.
+   * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @param {Object} sw - Oggetto che rappresenta il punto a sud-ovest del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @returns {Object} map - Oggetto mappa di Google Maps.
+   */
+  var initMapFromPerimeter = function(mapId, ne, sw){
+    var perimeter = new google.maps.LatLngBounds(
+        new google.maps.LatLng(ne.lat, ne.lng),
+        new google.maps.LatLng(sw.lat, sw.lng));
+    var map = new google.maps.Map( document.getElementById(mapId),{
+      center: perimeter.getCenter(),
+      mapTypeId: google.maps.MapTypeId.TERRAIN,
+      streetViewControl: false,
+      mapTypeControl: false
+    });
+    map.fitBounds(perimeter);
+    return map;
   };
   /**
    * Disegna sulla mappa un rettangolo editabile per selezionare il perimetro
@@ -255,6 +283,26 @@ function GoogleMapsService() {
     }, true);
   };
   /**
+   * Disegna un checkpoint a partire da una posizione data.
+   * @function drawCheckpointFromPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Number} lat - Latitudine del checkpoint.
+   * @param {Number} lng - Longitudine del checkpoint.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
+   * costituisce un checkpoint.
+   */
+  var drawCheckpointFromPosition = function(map, lat, lng){
+    return drawMarker(map, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'yellow',
+      strokeColor: 'yellow',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, false);
+  };
+  /**
    * Disegna un checkpoint di un percorso a partire da un oggetto
    * google.maps.Marker esistente.
    * @function drawCheckpointFromObject
@@ -283,6 +331,26 @@ function GoogleMapsService() {
       strokeOpacity: 0.7,
       scale: 3
     }, true);
+  };
+  /**
+   * Disegna un punto utente a partire da una coppia di coordinate
+   * @function drawCustomPointFromPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Number} lat - Latitudine del punto utente.
+   * @param {Number} lng - Longitudine del punto utente.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
+   * punto d'interesse nella mappa.
+   */
+  var drawCustomPointFromPosition = function(map, lat, lng){
+    return drawMarker(map, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      strokeColor: 'red',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, false);
   };
   /**
    * Ottiene la posizione di un marker generico.
@@ -429,13 +497,16 @@ function GoogleMapsService() {
 
   return {
     initMap: initMap,
+    initMapFromPerimeter: initMapFromPerimeter,
     drawPerimeter: drawPerimeter,
     closePerimeter: closePerimeter,
     drawPath: drawPath,
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
+    drawCheckpointFromPosition: drawCheckpointFromPosition,
     drawCheckpointFromObject: drawCheckpointFromObject,
     drawCustomPoint: drawCustomPoint,
+    drawCustomPointFromPosition: drawCustomPointFromPosition,
     getCheckpointPosition: getCheckpointPosition,
     getCustomPointPosition: getCustomPointPosition,
     drawTrack: drawTrack,

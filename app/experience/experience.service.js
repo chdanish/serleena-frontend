@@ -38,6 +38,8 @@
    *                               esperienze
    * 0.0.3        Antonio Cavestro Aggiunto metodo per salvare un'esperienza.
    * 0.0.4        Antonio Cavestro Aggiunto metodo per cancellare un'esperienza.
+   * 0.0.5        Antonio Cavestro Aggiunto metodo per ottenere info esperienza
+   *                               e info percorso.
    *
    */
 
@@ -149,10 +151,65 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
       });
     });
   };
+  /**
+   * Implementa la comunicazione con il server per ottenere le informazioni
+   * relative a una specifica esperienza.
+   * @function getExperienceDetails
+   * @memberOf ExperienceService
+   * @instance
+   * @param {Number} experienceId - Id dell'esperienza di cui ottenere
+   * informazioni.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var getExperienceDetails = function(experienceId, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'GET',
+        url: BACKEND_URL + "/experiences/" + experienceId,
+        headers: {
+          'X-AuthToken': token
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
+  /**
+   * Implementa la comunicazione con il server per ottenere le informazioni
+   * relative a uno specifico percorso.
+   * @function getTrackDetails
+   * @memberOf ExperienceService
+   * @instance
+   * @param {Number} experienceId - Id dell'esperienza a cui appartiene il
+   * percorso di cui ottenere informazioni.
+   * @param {Number} trackId - Id del percorso di cui ottenere informazioni.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var getTrackDetails = function(experienceId, trackId, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'GET',
+        url: BACKEND_URL + "/experiences/" + experienceId + "/tracks/" + trackId,
+        headers: {
+          'X-AuthToken': token
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
 
   return {
     getExperienceList: getExperienceList,
     saveExperience: saveExperience,
-    deleteExperience: deleteExperience
+    deleteExperience: deleteExperience,
+    getExperienceDetails: getExperienceDetails,
+    getTrackDetails: getTrackDetails
   };
 }
