@@ -69,11 +69,22 @@ module.exports = function(grunt){
 				}
 			}
 		},
+		karma: {
+			unit: {
+				configFile: 'karma-conf.js',
+				background: true,
+				singleRun: false
+			},
+			continuous: {
+				configFile: 'karma-conf.js',
+				singleRun: true
+			}
+		},
 		watch: {
 			angular: {
 				files: serleenafrontend_files,
 				tasks: ['concat:angular', 'jshint:angular', 'shell:docs',
-					'notify:concat'],
+					'karma:unit:run', 'notify:concat'],
 				options: {
 					livereload: true
 				}
@@ -125,11 +136,14 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-zip');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
+    grunt.registerTask('test', ['karma:continuous']);
     grunt.registerTask('deploy', ['zip:deploy']);
     grunt.registerTask('coverage', ['zip:coverage']);
     grunt.registerTask('docs', ['shell:docs', 'zip:docs']);
+    grunt.registerTask('test', ['karma:continuous']);
 
 };
