@@ -10,7 +10,7 @@
   */
 
 describe('registerController Test', function () {
-    var $scope, userService;
+    var $scope, userService, authService;
 
     beforeEach(function() {
 	angular.mock.module('ngCookies');
@@ -21,26 +21,32 @@ describe('registerController Test', function () {
 	$scope = {};
 
 	userService = jasmine.createSpyObj('UserService', ['registerUser']);
-	userService.registerUser.and.callFake(function (email, pwd){
+	userService.registerUser.and.callFake(function (email, pwd, callback) {
 	    $scope.done = true;
-	    if (email.indexOf('@') > -1 && pwd == 'pwd') {
-		$scope.enableNext = true;
-		$scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
-                            dispositivo a serleena Cloud";
-		$scope.msgType = "success";
+	    if (email.indexOf('@') > -1 && (pwd == 'pwd'|| pwd == 'notLogged')){
+		callback(true, '');
 	    } else {
-		$scope.msgText = "Errore nella registrazione :(";
-		$scope.msgType = "danger";
+		callback(false, '');
 	    }
-	});    
+	});
+
+	authService = jasmine.createSpyObj('AuthService', ['loginUser']);
+	authService.loginUser.and.callFake(function (email, password, callback){
+	    if (email == 'test@test.it' && password == 'pwd') {
+		callback(true, '')
+	    } else {
+		callback(false, '');
+	    }
+	});
 
 	$controller('RegisterController', {
 	    $scope : $scope,
-	    UserService: userService
+	    UserService: userService,
+	    AuthService: authService
 	});
     }));
 
-    it('Successfully registerUser', function () {
+    it('Successfully registerUser and logged', function () {
 	expect($scope.done).toBe(false);
 	expect($scope.enableNext).toBe(false);
 	expect($scope.email).toBe('');
@@ -57,10 +63,31 @@ describe('registerController Test', function () {
 	expect($scope.email).toBe('test@test.it');
 	expect($scope.password).toBe('pwd');
 	expect($scope.msgText).toBe('Registrazione effettuata! Prosegui abbinando il tuo \
-                            dispositivo a serleena Cloud');
+                                dispositivo a serleena Cloud');
 	expect($scope.msgType).toBe('success');
     });
-    
+
+    it('Successfully registerUser but not logged', function () {
+	expect($scope.done).toBe(false);
+	expect($scope.enableNext).toBe(false);
+	expect($scope.email).toBe('');
+	expect($scope.password).toBe('');
+	expect($scope.msgText).toBe('');
+	expect($scope.msgType).toBe('');
+
+	$scope.email = 'test@test.it';
+	$scope.password = 'notLogged';
+	$scope.registerUser();
+
+	expect($scope.done).toBe(true);
+	expect($scope.enableNext).toBe(false);
+	expect($scope.email).toBe('test@test.it');
+	expect($scope.password).toBe('notLogged');
+	expect($scope.msgText).toBe("Registrazione avvenuta ma non è stato possibile \
+                              autenticare l'utente. Contattare un amminsitratore :(");
+	expect($scope.msgType).toBe('danger');
+    });
+
     it('Wrong email registerUser', function () {
 	expect($scope.done).toBe(false);
 	expect($scope.enableNext).toBe(false);
@@ -90,16 +117,15 @@ describe('registerController Test', function () {
 	expect($scope.msgType).toBe('');
 
 	$scope.email = 'test@test.it';
-	$scope.password = 'pwda';
+	$scope.password = 'wrong';
 	$scope.registerUser();
 
 	expect($scope.done).toBe(true);
 	expect($scope.enableNext).toBe(false);
 	expect($scope.email).toBe('test@test.it');
-	expect($scope.password).toBe('pwda');
+	expect($scope.password).toBe('wrong');
 	expect($scope.msgText).toBe('Errore nella registrazione :(');
 	expect($scope.msgType).toBe('danger');
     });
 
 });
-						 
