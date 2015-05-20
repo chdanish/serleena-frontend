@@ -41,7 +41,10 @@ angular.module('experience').controller('ExperienceDetailsController',
 					ExperienceDetailsController);
 /**
   * Classe per la gestione della visualizzazione dei dettagli relativi a
-  * un’esperienza.
+  * un’esperienza. Nel costruttore carica tramite ExperienceService le
+  * informazioni relative all'esperienza e tutti i percorsi ad essa associati.
+  * Inoltre, disegna le varie informazioni sulle relative mappe, in base alla
+  * loro tipologia.
   *
   * @author Antonio Cavestro
   * @version 0.1
@@ -113,4 +116,27 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    * @instance
    */
   $scope.currentCheckpoints = [];
+
+  ExperienceService.getExperienceDetails($scope.experienceId, function(ok, data){
+    if(ok){
+      $scope.experience = data;
+      for (var m in $scope.maps){
+        $scope.maps[m].map = Map.initMapFromPerimeter($scope.maps[m].id,
+          $scope.experience.perimeter.ne, $scope.experience.perimeter.sw);
+      }
+      $scope.experience.poi.forEach(function(p){
+        Map.drawPOI($scope.maps.poi.map, p.lat, p.lng, p.name);
+      });
+      $scope.experience.userpoints.forEach(function(p){
+        Map.drawCustomPointFromPosition($scope.maps.points.map, p.lat, p.lng);
+      });
+      $scope.experience.tracks.forEach(function(t){
+        ExperienceService.getTrackDetails($scope.experienceId, t.id, function(ok, data){
+          if (ok){
+            t.checkpoints = data;
+          }
+        });
+      });
+    }
+  });
 }
