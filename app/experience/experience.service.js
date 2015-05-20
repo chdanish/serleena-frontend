@@ -38,7 +38,8 @@
    *                               esperienze
    * 0.0.3        Antonio Cavestro Aggiunto metodo per salvare un'esperienza.
    * 0.0.4        Antonio Cavestro Aggiunto metodo per cancellare un'esperienza.
-   * 0.0.5        Antonio Cavestro Aggiunto metodo per ottenere info esperienza.
+   * 0.0.5        Antonio Cavestro Aggiunto metodo per ottenere info esperienza
+   *                               e info percorso.
    *
    */
 
