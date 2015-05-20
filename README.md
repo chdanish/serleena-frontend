@@ -23,6 +23,10 @@ Per eseguire tutti i test:
 
 	karma start karma-conf.js
 	
+## Utilizzo del frontend
+
+Il frontend deve essere accessibile attraverso un webserver, come Apache o Nginx, requisito di sistema richiesto per poter eseguire correttamente le chiamate REST.
+	
 ## Utilizzo del fake backend
 
 Il fake backend si trova nella cartella *utils*. Per avviarlo:
@@ -34,7 +38,7 @@ Esso si mette in ascolto sulla porta 3000.
 
 ### Configurazione del frontend per l'uso del fake backend
 
-Aprire il file *app/app.js* e individuare questa sezione di codice:
+Aprire il file *app/config/app.js* e individuare questa sezione di codice:
 
 	angular.module('serleenaFrontend')
 		.constant("DEBUG", false);
