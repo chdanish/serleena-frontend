@@ -51,9 +51,12 @@ angular.module('experience').controller('ExperienceDetailsController',
   * parametri passati via url.
   * @param {Service} ExperienceService - Service che gestisce la comunicazione
   * con il backend per quanto riguarda la gestione delle esperienze.
+  * @param {Provider} Map - Provider che fornisce l'instanza del gestore della
+  * mappa.
   */
 
-function ExperienceDetailsController($scope, $routeParams, ExperienceService) {
+function ExperienceDetailsController($scope, $routeParams, ExperienceService,
+    Map) {
   /**
    * Indice dell'esperienza di cui visualizzare i dettagli.
    *
