@@ -135,4 +135,33 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
         Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.lat, c.lng));
     });
   };
+  /**
+   * Funzione invocata alla creazione delle varie directive MapDirective
+   * presenti nella vista, tramite evento "hhMapLink". Essa salva l'Id delle
+   * suddette, in modo che possano essere inizializzate all'ottenimento dei dati
+   * dell'esperienza provenienti dal backend.
+   * @function linkMaps
+   * @memberOf ExperienceDetailsController
+   * @private
+   * @instance
+   * @param {Object} event - Evento che è stato lanciato (hhMapLink)
+   * @param {String} elementId - Id del tag html di MapDirective.
+   */
+  var linkMaps = function(event, id){
+    if(id == "map-details-poi"){
+      $scope.maps.poi = {
+        id: id
+      };
+    } else if (id == "map-details-points"){
+      $scope.maps.points = {
+        id: id
+      };
+    } else if (id == "map-details-tracks"){
+      $scope.maps.tracks = {
+        id: id
+      };
+    }
+  };
+
+  $scope.$on('hhMapLink', linkMaps);
 }
