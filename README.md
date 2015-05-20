@@ -23,6 +23,10 @@ Per eseguire tutti i test:
 
 	karma start karma-conf.js
 	
+## Utilizzo del frontend
+
+Il frontend deve essere accessibile attraverso un webserver, come Apache o Nginx, requisito di sistema richiesto per poter eseguire correttamente le chiamate REST.
+	
 ## Utilizzo del fake backend
 
 Il fake backend si trova nella cartella *utils*. Per avviarlo:
