@@ -154,6 +154,95 @@ app.put('/users/pair', function(req, res){
   res.sendStatus(200);
 });
 
+app.get('/experiences/:id', function(req, res){
+  var exp = {
+    name: "Esperienza XYZ",
+    perimeter: {
+      ne: {
+        lat: 45.284005,
+        lng: 11.645359
+      },
+      sw: {
+        lat: 45.272599,
+        lng: 11.660111
+      }
+    },
+    poi: [
+      {
+        id: "!vjkldfjghksdlfjvsdlk",
+        name: "POI B",
+        lat: 45.281597,
+        lng: 11.653035
+      },
+      {
+        id: "!fkòlfkòdk",
+        name: "POI C",
+        lat: 45.276457,
+        lng: 11.653136
+      }
+    ],
+    userpoints: [
+      {
+        lat: 45.280063,
+        lng: 11.654495
+      },
+    ],
+    tracks: [
+      {
+        id: 1,
+        name: "Percorso A"
+      },
+      {
+        id: 2,
+        name: "Percorso B"
+      },
+      {
+        id: 3,
+        name: "Percorso C"
+      }
+    ]
+  };
+  res.send(JSON.stringify(exp));
+});
+
+app.get('/experiences/:eid/tracks/:tid', function(req, res){
+  var c = [
+    {
+      lat: 45.276413,
+      lng: 11.650587
+    },
+    {
+      lat: 45.275977,
+      lng: 11.652806
+    },
+    {
+      lat: 45.276257,
+      lng: 11.654908
+    },
+    {
+      lat: 45.277573,
+      lng: 11.654297
+    },
+    {
+      lat: 45.278192,
+      lng: 11.655213
+    },
+    {
+      lat: 45.279032,
+      lng: 11.655626
+    },
+    {
+      lat: 45.280266,
+      lng: 11.655875
+    },
+    {
+      lat: 45.281726,
+      lng: 11.655550
+    }
+  ];
+  res.send(c);
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;

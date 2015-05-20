@@ -1,11 +1,12 @@
 /**
    * Name: MapDirective
    * Package: Map
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
+   * 0.0.2        Antonio Cavestro     Implementa directive secondo DP
    *
    */
 
@@ -14,7 +15,7 @@ angular.module('map').directive('hhMap', MapDirective);
 /**
   * Classe che realizza il componente grafico di una generica mappa.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
@@ -22,7 +23,6 @@ angular.module('map').directive('hhMap', MapDirective);
 function MapDirective() {
   var directive = {
     restrict: 'E',
-    controller: 'ExperienceWizardController',
     scope: {},
     replace: true,
     template: '<div></div>',
