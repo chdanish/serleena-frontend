@@ -1,7 +1,7 @@
 /**
    * Name: GoogleMapsService
    * Package: Map
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -14,7 +14,7 @@ angular.module('map').service('GoogleMapsService', GoogleMapsService);
 /**
   * Classe singleton che implementa la comunicazione con le API di Google Maps.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
