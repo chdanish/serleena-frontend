@@ -111,4 +111,28 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
       });
     }
   });
+  /**
+   * Funzione invocata dalla vista per visualizzare le informazioni relative a
+   * uno specifico percorso.
+   * @function showTrack
+   * @memberOf ExperienceDetailsController
+   * @instance
+   * @param {Number} index - Indice del percorso da visualizzare.
+   */
+  $scope.showTrack = function(index){
+    if ($scope.currentTrackDraw !== null){
+      Map.removeTrackFromMap($scope.currentTrackDraw);
+      $scope.currentCheckpoints.forEach(function(c){
+        Map.removeCheckpointFromMap(c);
+      });
+      $scope.currentCheckpoints = [];
+    }
+    $scope.currentTrackIndex = index;
+    $scope.currentTrackDraw = Map.drawTrack($scope.maps.tracks.map,
+      $scope.experience.tracks[index].checkpoints);
+    $scope.experience.tracks[$scope.currentTrackIndex].checkpoints.forEach(function(c){
+      $scope.currentCheckpoints.push(
+        Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.lat, c.lng));
+    });
+  };
 }
