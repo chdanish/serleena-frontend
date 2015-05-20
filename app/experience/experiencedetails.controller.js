@@ -75,4 +75,42 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    * @instance
    */
   $scope.experience = {};
+  /**
+   * Oggetto contenente le varie mappe visualizzate.
+   *
+   * @name maps
+   * @type Object
+   * @memberOf ExperienceDetailsController
+   * @instance
+   */
+  $scope.maps = {};
+  /**
+   * Indice del percorso attualmente visualizzato.
+   *
+   * @name currentTrackIndex
+   * @type Number
+   * @default -1
+   * @memberOf ExperienceDetailsController
+   * @instance
+   */
+  $scope.currentTrackIndex = -1;
+  /**
+   * Oggetto mappa del percorso attualmente visualizzato.
+   *
+   * @name currentTrackDraw
+   * @type Object
+   * @memberOf ExperienceDetailsController
+   * @instance
+   */
+  $scope.currentTrackDraw = null;
+  /**
+   * Array contenente i checkpoint creati dalla mappa e appartenenti al
+   * percorso attualmente visualizzato.
+   *
+   * @name currentCheckpoints
+   * @type Array
+   * @memberOf ExperienceDetailsController
+   * @instance
+   */
+  $scope.currentCheckpoints = [];
 }
