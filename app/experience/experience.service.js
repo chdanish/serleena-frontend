@@ -148,11 +148,39 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
       });
     });
   };
+  /**
+   * Implementa la comunicazione con il server per ottenere le informazioni
+   * relative a uno specifico percorso.
+   * @function getTrackDetails
+   * @memberOf ExperienceService
+   * @instance
+   * @param {Number} experienceId - Id dell'esperienza a cui appartiene il
+   * percorso di cui ottenere informazioni.
+   * @param {Number} trackId - Id del percorso di cui ottenere informazioni.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var getTrackDetails = function(experienceId, trackId, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'GET',
+        url: BACKEND_URL + "/experiences/" + experienceId + "/tracks/" + trackId,
+        headers: {
+          'X-AuthToken': token
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
 
   return {
     getExperienceList: getExperienceList,
     saveExperience: saveExperience,
     deleteExperience: deleteExperience,
-    getExperienceDetails: getExperienceDetails
+    getExperienceDetails: getExperienceDetails,
+    getTrackDetails: getTrackDetails
   };
 }
