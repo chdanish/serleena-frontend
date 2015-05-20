@@ -1,0 +1,104 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>{{experience.name}}</h1>
+			<div class="btn-group" id="exp-details-btn">
+				<a ng-href="#/dashboard/experiences/{{experienceId}}/edit"
+					class="btn btn-warning">
+					Modifica
+				</a>
+				<a ng-href="#/dashboard/experiences/{{experienceId}}/delete"
+					class="btn btn-danger">
+					Cancella
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-4">
+			<h2>Punti d'interesse</h2>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-5">
+			<div class="panel panel-default">
+				<ul class="list-group">
+					<li ng-repeat="p in experience.poi" class="list-group-item">
+						{{p.name}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<hh-map id="map-details-poi"></hh-map>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-4">
+			<h2>Punti personalizzati</h2>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-5">
+			<div class="panel panel-default">
+				<ul class="list-group">
+					<li ng-repeat="p in experience.userpoints"
+						class="list-group-item">
+						Punto personalizzato #{{$index}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<hh-map id="map-details-points"></hh-map>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-4">
+			<h2>Percorsi</h2>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-9 col-md-offset-1">
+			<hh-map id="map-details-tracks"></hh-map>
+		</div>
+	</div>
+	<div class="row vspace">
+		<div class="col-md-5">
+			<div class="panel panel-default" id="panel-details-tracks">
+				<div class="panel-heading">
+					<p class="panel-title">Percorsi</p>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li ng-repeat="t in experience.tracks"
+							class="list-group-item">
+							{{t.name}}
+							<div class="btn-group">
+								<button class="btn btn-primary btn-xs"
+									ng-click="showTrack($index)">
+									Visualizza
+								</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="panel-title">Checkpoint</p>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group" ng-show="currentTrackIndex != -1">
+						<li class="list-group-item"
+							ng-repeat="c in experience.tracks[currentTrackIndex].checkpoints">
+							Checkpoint #{{$index}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

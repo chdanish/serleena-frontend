@@ -38,7 +38,8 @@ p#welcome-text {
 	margin-right: 7em;
 }
 
-#map-wizard {
+#map-wizard,
+#map-details-tracks {
 	height: 300px;
 }
 
@@ -51,12 +52,19 @@ p#welcome-text {
 
 #panel-tracks .btn-group,
 #panel-checkpoints .btn-group,
-#panel-custompoints .btn-group {
+#panel-custompoints .btn-group,
+#panel-details-tracks .btn-group {
 	float: right;
 }
 
 #panel-checkpoints .btn-group button,
-#panel-tracks .btn-group button {
+#panel-tracks .btn-group button,
+#exp-details-btn a {
 	margin-left: 3px;
 	margin-right: 3px;
+}
+
+#map-details-poi,
+#map-details-points {
+	height: 200px;
 }
