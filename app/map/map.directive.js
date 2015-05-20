@@ -29,7 +29,7 @@
 /**
    * Name: MapDirective
    * Package: Map
-   * Author: Matteo Lisotto
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -42,7 +42,7 @@ angular.module('map').directive('hhMap', MapDirective);
 /**
   * Classe che realizza il componente grafico di una generica mappa.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
