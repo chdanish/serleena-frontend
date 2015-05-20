@@ -38,6 +38,33 @@ function GoogleMapsService() {
     });
   };
   /**
+   * Inizializza la mappa a partire dal perimetro dato.
+   * @function initMapFromPerimeter
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {String} mapId - ID della mappa nel DOM.
+   * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @param {Object} sw - Oggetto che rappresenta il punto a sud-ovest del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @returns {Object} map - Oggetto mappa di Google Maps.
+   */
+  var initMapFromPerimeter = function(mapId, ne, sw){
+    var perimeter = new google.maps.LatLngBounds(
+        new google.maps.LatLng(ne.lat, ne.lng),
+        new google.maps.LatLng(sw.lat, sw.lng));
+    var map = new google.maps.Map( document.getElementById(mapId),{
+      center: perimeter.getCenter(),
+      mapTypeId: google.maps.MapTypeId.TERRAIN,
+      streetViewControl: false,
+      mapTypeControl: false
+    });
+    map.fitBounds(perimeter);
+    return map;
+  };
+  /**
    * Disegna sulla mappa un rettangolo editabile per selezionare il perimetro
    * dell'esperienza.
    * @function drawPerimeter
@@ -401,6 +428,7 @@ function GoogleMapsService() {
 
   return {
     initMap: initMap,
+    initMapFromPerimeter: initMapFromPerimeter,
     drawPerimeter: drawPerimeter,
     closePerimeter: closePerimeter,
     drawPath: drawPath,
