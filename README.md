@@ -34,7 +34,7 @@ Esso si mette in ascolto sulla porta 3000.
 
 ### Configurazione del frontend per l'uso del fake backend
 
-Aprire il file *app/app.js* e individuare questa sezione di codice:
+Aprire il file *app/config/app.js* e individuare questa sezione di codice:
 
 	angular.module('serleenaFrontend')
 		.constant("DEBUG", false);
