@@ -346,7 +346,11 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       if(ok){
         $scope.poi = poi;
         $scope.poi.forEach(function(p){
-          p.selected = false;
+          if($scope.editMode){
+              p.selected = hasPOI($scope.editExperiencePoi, p);
+          } else {
+            p.selected = false;
+          }
           p.marker = Map.drawPOI($scope.map, p.lat, p.lng, p.name);
         });
       }
