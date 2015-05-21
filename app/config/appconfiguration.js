@@ -93,6 +93,10 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 				templateUrl: 'app/experience/experiencedetails.view.html',
 				controller: 'ExperienceDetailsController'
 			})
+			.when("/dashboard/experiences/:experienceId/edit", {
+				templateUrl: 'app/experience/experiencewizard.view.html',
+				controller: 'ExperienceWizardController'
+			})
 			.when("/dashboard/experiences/:experienceId/delete", {
 				templateUrl: 'app/experience/deleteexperience.view.html',
 				controller: 'DeleteExperienceController'
