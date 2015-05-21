@@ -286,7 +286,13 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   var afterInsertName= function(){
     $scope.showMap = true;
     $scope.map = Map.initMap($scope.mapTagId);
-    $scope.rectangle = Map.drawPerimeter($scope.map);
+    if ($scope.editMode){
+      $scope.rectangle = Map.drawPerimeterFromBounds($scope.map,
+        $scope.perimeter.ne, $scope.perimeter.sw);
+    } else {
+      $scope.rectangle = Map.drawPerimeter($scope.map);
+    }
+    $scope.showEditPerimeter = true;
   };
   /**
    * Funzione da eseguire dopo il completamento dello step di definizione del
