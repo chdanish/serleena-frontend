@@ -41,7 +41,9 @@ angular.module('experience').controller('ExperienceWizardController',
 					ExperienceWizardController);
 /**
   * Classe che gestisce la procedura guidata di creazione e modifica di
-  * un’esperienza.
+  * un’esperienza. Nel costruttore verifica se è stato invocato per modificare
+  * un'esperienza, nel qual caso carica i dati dal backend con essi popola i
+  * suoi attributi.
   *
   * @author Antonio Cavestro
   * @version 0.1
@@ -234,6 +236,30 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @instance
    */
    $scope.editExperienceCustomPoints = [];
+
+  if($routeParams.hasOwnProperty("experienceId")){
+    $scope.editMode = true;
+    $scope.editExperienceId = $routeParams.experienceId;
+    ExperienceService.getExperienceDetails($scope.editExperienceId, function(ok, exp){
+      if(ok){
+        $scope.expName = exp.name;
+        exp.tracks.forEach(function(t){
+          t.checkMarkers = [];
+          ExperienceService.getTrackDetails(exp.id, t.id, function(ok, checkpoints){
+            checkpoints.forEach(function(c){
+              t.checkMarkers.push(Map.createEditableCheckpointFromPosition(c.lat, c.lng));
+            });
+            $scope.tracks.push(t);
+          });
+        });
+        $scope.perimeter = exp.perimeter;
+        $scope.editExperiencePoi = exp.poi;
+        $scope.editExperienceCustomPoints = exp.userpoints;
+      }
+    });
+   }
+
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
