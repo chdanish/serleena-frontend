@@ -149,6 +149,22 @@ function GoogleMapsService() {
       geodesic: true
     });
   };
+  /**
+   * Abilita la modifica del perimetro.
+   * @function enablePerimeterEditing
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} rectangle - Rettangolo da rendere modificabile.
+   */
+  var enablePerimeterEditing = function(rectangle){
+    rectangle.setOptions({
+      editable: true,
+      draggable: true,
+      strokeColor: '#FF0000'
+    });
+  };
+  /**
    * Finalizza il perimetro rendendolo non più modificabile.
    * @function closePerimeter
    * @memberOf GoogleMapsService
@@ -572,6 +588,7 @@ function GoogleMapsService() {
     drawPerimeter: drawPerimeter,
     drawPerimeterFromBounds: drawPerimeterFromBounds,
     closePerimeter: closePerimeter,
+    enablePerimeterEditing: enablePerimeterEditing,
     drawPath: drawPath,
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
