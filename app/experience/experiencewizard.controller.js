@@ -408,6 +408,20 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       });
     }
   };
+  /**
+   * Funzione invocata dalla vista per disabilitare la modalità di modifica
+   * esperienza a partire dal perimetro, cancellare eventuali dati precaricati
+   * e continuare il wizard come se fosse in atto la creazione di una nuova
+   * esperienza.
+   *
+   * @function disableEditMode
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.disableEditMode = function(){
+    Map.enablePerimeterEditing($scope.rectangle);
+    $scope.tracks = [];
+    $scope.editMode = false;
   };
   /**
    * Funzione invocata dalla vista per aggiungere un nuovo percorso all'array
