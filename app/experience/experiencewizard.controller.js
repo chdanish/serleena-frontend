@@ -476,8 +476,10 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.editTrack = function(index){
     $scope.currentTrackIndex = index;
-    if($scope.previousTrackIndex != -1){
-      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+    if($scope.previousTrackIndex != -1 || $scope.editMode){
+      if (!$scope.editMode){
+        Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+      }
       $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
         Map.drawCheckpointFromObject($scope.map, m);
       });
