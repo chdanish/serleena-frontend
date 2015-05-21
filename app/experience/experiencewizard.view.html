@@ -19,6 +19,22 @@
 			</hh-wizard-step>
 		</div>
 	</div>
+	<div class="row vpsace" ng-show="editMode && showEditPerimeter">
+		<div class="col-md-9 col-md-offset-1">
+			<div class="alert alert-warning">
+				La modifica del perimetro comporta l'annullamento di tutte le
+				informazioni già salvate nell'esperienza. Se vuoi effettivamente
+				modificarlo, premi il pulsante Modifica.
+				<br />
+				<br />
+				<div class="text-center">
+					<button class="btn btn-warning" ng-click="disableEditMode()">
+						Modifica
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row" ng-hide="showMap">
 		<div class="col-md-5 col-md-offset-3">
 			<input type="text" class="form-control" placeholder="Esperienza"

@@ -6,6 +6,8 @@
    * History:
    * Version      Programmer          Changes
    * 0.0.1        Matteo Lisotto      Create file
+   * 0.0.2        Antonio Cavestro    Implementa creazione esperienza
+   * 0.0.3        Antonio Cavestro    Implementa modifica esperienza
    *
    */
 
@@ -13,7 +15,9 @@ angular.module('experience').controller('ExperienceWizardController',
 					ExperienceWizardController);
 /**
   * Classe che gestisce la procedura guidata di creazione e modifica di
-  * un’esperienza.
+  * un’esperienza. Nel costruttore verifica se è stato invocato per modificare
+  * un'esperienza, nel qual caso carica i dati dal backend con essi popola i
+  * suoi attributi.
   *
   * @author Antonio Cavestro
   * @version 0.1
@@ -25,11 +29,13 @@ angular.module('experience').controller('ExperienceWizardController',
   * dal database del backend.
   * @param {Service} ExperienceService - Servizio per comunicare al backend
   * operazioni da svolgere relativamente alla gestione delle esperienze.
+  * @param {Service} $routeParams - Servizio di AngularJS per ottenere parametri
+  * relativi alla route che ha attivato il controller.
   */
 
 
 function ExperienceWizardController($scope, Map, SerleenaDataService,
-    ExperienceService) {
+    ExperienceService, $routeParams) {
   /**
    * Flag per la visualizzazione del wizard.
    *
@@ -58,6 +64,16 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @instance
    */
   $scope.mapTagId = "";
+  /**
+   * Flag per la visualizzazione della schermata di gestione del percorso.
+   *
+   * @name showEditPerimeter
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.showEditPerimeter = false;
   /**
    * Flag per la visualizzazione delle informazioni relativi ai percorsi.
    *
@@ -156,6 +172,68 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.saveMsg = "";
   /**
+   * Flag che stabilisce se il controller sta creando una nuova esperienza o se
+   * ne sta modificando una esistente.
+   *
+   * @name editMode
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.editMode = false;
+  /**
+   * Codice identificativo di un'esperienza da modificare.
+   *
+   * @name editExperienceId
+   * @type Number
+   * @default -1
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+   $scope.editExperienceId = -1;
+   /**
+   * Punti d'interesse relativi all'esperienza da modificare.
+   *
+   * @name editExperiencePoi
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+   $scope.editExperiencePoi = [];
+   /**
+   * Punti utente relativi all'esperienza da modificare.
+   *
+   * @name editExperienceCustomPoints
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+   $scope.editExperienceCustomPoints = [];
+
+  if($routeParams.hasOwnProperty("experienceId")){
+    $scope.editMode = true;
+    $scope.editExperienceId = $routeParams.experienceId;
+    ExperienceService.getExperienceDetails($scope.editExperienceId, function(ok, exp){
+      if(ok){
+        $scope.expName = exp.name;
+        exp.tracks.forEach(function(t){
+          t.checkMarkers = [];
+          ExperienceService.getTrackDetails(exp.id, t.id, function(ok, checkpoints){
+            checkpoints.forEach(function(c){
+              t.checkMarkers.push(Map.createEditableCheckpointFromPosition(c.lat, c.lng));
+            });
+            $scope.tracks.push(t);
+          });
+        });
+        $scope.perimeter = exp.perimeter;
+        $scope.editExperiencePoi = exp.poi;
+        $scope.editExperienceCustomPoints = exp.userpoints;
+      }
+    });
+   }
+
+  /**
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
@@ -182,7 +260,13 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   var afterInsertName= function(){
     $scope.showMap = true;
     $scope.map = Map.initMap($scope.mapTagId);
-    $scope.rectangle = Map.drawPerimeter($scope.map);
+    if ($scope.editMode){
+      $scope.rectangle = Map.drawPerimeterFromBounds($scope.map,
+        $scope.perimeter.ne, $scope.perimeter.sw);
+    } else {
+      $scope.rectangle = Map.drawPerimeter($scope.map);
+    }
+    $scope.showEditPerimeter = true;
   };
   /**
    * Funzione da eseguire dopo il completamento dello step di definizione del
@@ -195,6 +279,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var afterPerimeterChoose = function(){
+    $scope.showEditPerimeter = false;
     $scope.perimeter = Map.closePerimeter($scope.map, $scope.rectangle);
     SerleenaDataService.getPaths($scope.perimeter.ne, $scope.perimeter.sw,
       function(ok, paths){
@@ -205,6 +290,41 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
         }
       });
     $scope.showTracks = true;
+  };
+  /**
+   * Funzione che compara tue punti d'interesse e ne verifica l'uguaglianza.
+   *
+   * @function comparePOI
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Object} p1 - Primo punto da valutare.
+   * @param {Object} p2 - Secondo punto da valutare.
+   * @returns {Boolean} - true se sono uguali, altrimenti false.
+   * @private
+   */
+  var comparePOI = function(p1, p2){
+    return p1.id == p2.id;
+  };
+  /**
+   * Funzione che, dato un array di punti d'interesse e un punto p, verifica se
+   * p è un elemento dell'array.
+   *
+   * @function hasPOI
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Array} poiArray - Array di punti d'interesse.
+   * @param {Object} p - Punto d'interesse.
+   * @returns {Boolean} - true se p è contenuto in poiArray, altrimenti false.
+   * @private
+   */
+  var hasPOI = function(poiArray, p){
+    var result = false;
+    poiArray.forEach(function(point){
+      if(comparePOI(point, p)){
+        result = true;
+      }
+    });
+    return result;
   };
   /**
    * Funzione da eseguire dopo il completamento dello step di creazione dei
@@ -228,7 +348,11 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       if(ok){
         $scope.poi = poi;
         $scope.poi.forEach(function(p){
-          p.selected = false;
+          if($scope.editMode){
+              p.selected = hasPOI($scope.editExperiencePoi, p);
+          } else {
+            p.selected = false;
+          }
           p.marker = Map.drawPOI($scope.map, p.lat, p.lng, p.name);
         });
       }
@@ -250,6 +374,28 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       Map.removePOIFromMap(p.marker);
     });
     $scope.showCustomPointSelection = true;
+    if ($scope.editMode){
+      $scope.editExperienceCustomPoints.forEach(function(p){
+        var o = {};
+        o.marker = Map.drawEditableCustomPointFromPosition($scope.map, p.lat, p.lng);
+        $scope.customPoints.push(o);
+      });
+    }
+  };
+  /**
+   * Funzione invocata dalla vista per disabilitare la modalità di modifica
+   * esperienza a partire dal perimetro, cancellare eventuali dati precaricati
+   * e continuare il wizard come se fosse in atto la creazione di una nuova
+   * esperienza.
+   *
+   * @function disableEditMode
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.disableEditMode = function(){
+    Map.enablePerimeterEditing($scope.rectangle);
+    $scope.tracks = [];
+    $scope.editMode = false;
   };
   /**
    * Funzione invocata dalla vista per aggiungere un nuovo percorso all'array
@@ -304,8 +450,10 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.editTrack = function(index){
     $scope.currentTrackIndex = index;
-    if($scope.previousTrackIndex != -1){
-      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+    if($scope.previousTrackIndex != -1 || $scope.editMode){
+      if (!$scope.editMode){
+        Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+      }
       $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
         Map.drawCheckpointFromObject($scope.map, m);
       });
