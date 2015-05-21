@@ -25,11 +25,13 @@ angular.module('experience').controller('ExperienceWizardController',
   * dal database del backend.
   * @param {Service} ExperienceService - Servizio per comunicare al backend
   * operazioni da svolgere relativamente alla gestione delle esperienze.
+  * @param {Service} $routeParams - Servizio di AngularJS per ottenere parametri
+  * relativi alla route che ha attivato il controller.
   */
 
 
 function ExperienceWizardController($scope, Map, SerleenaDataService,
-    ExperienceService) {
+    ExperienceService, $routeParams) {
   /**
    * Flag per la visualizzazione del wizard.
    *
