@@ -400,6 +400,14 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       Map.removePOIFromMap(p.marker);
     });
     $scope.showCustomPointSelection = true;
+    if ($scope.editMode){
+      $scope.editExperienceCustomPoints.forEach(function(p){
+        var o = {};
+        o.marker = Map.drawEditableCustomPointFromPosition($scope.map, p.lat, p.lng);
+        $scope.customPoints.push(o);
+      });
+    }
+  };
   };
   /**
    * Funzione invocata dalla vista per aggiungere un nuovo percorso all'array
