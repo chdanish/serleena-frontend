@@ -275,6 +275,26 @@ function GoogleMapsService() {
     }, false);
   };
   /**
+   * Crea un checkpoint a partire da una posizione data, senza associarlo a una
+   * specifica mappa.
+   * @function createEditableCheckpointFromPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Number} lat - Latitudine del checkpoint.
+   * @param {Number} lng - Longitudine del checkpoint.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
+   * costituisce un checkpoint.
+   */
+  var createEditableCheckpointFromPosition = function(lat, lng){
+    return drawMarker(null, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'yellow',
+      strokeColor: 'yellow',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, true);
+  };
+  /**
    * Disegna un checkpoint di un percorso a partire da un oggetto
    * google.maps.Marker esistente.
    * @function drawCheckpointFromObject
@@ -476,6 +496,7 @@ function GoogleMapsService() {
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
     drawCheckpointFromPosition: drawCheckpointFromPosition,
+    createEditableCheckpointFromPosition: createEditableCheckpointFromPosition,
     drawCheckpointFromObject: drawCheckpointFromObject,
     drawCustomPoint: drawCustomPoint,
     drawCustomPointFromPosition: drawCustomPointFromPosition,
