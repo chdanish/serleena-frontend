@@ -305,6 +305,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var afterPerimeterChoose = function(){
+    $scope.showEditPerimeter = false;
     $scope.perimeter = Map.closePerimeter($scope.map, $scope.rectangle);
     SerleenaDataService.getPaths($scope.perimeter.ne, $scope.perimeter.sw,
       function(ok, paths){
