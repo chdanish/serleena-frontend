@@ -59,7 +59,9 @@ p#welcome-text {
 
 #panel-checkpoints .btn-group button,
 #panel-tracks .btn-group button,
-#exp-details-btn a {
+#exp-details-btn a
+#panel-details-tracks .btn-group button,
+#panel-details-tracks .btn-group a {
 	margin-left: 3px;
 	margin-right: 3px;
 }
