@@ -119,6 +119,52 @@ function GoogleMapsService() {
     });
   };
   /**
+   * Disegna sulla mappa un rettangolo non editabile a partire dalle coordinate
+   * dei punti a nord-est e sud-ovest di uno specifico perimetro.
+   * @function drawPerimeterFromBounds
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @param {Object} sw - Oggetto che rappresenta il punto a sud-ovest del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @returns {Object} rectangle - Rettangolo disegnato.
+   */
+  var drawPerimeterFromBounds = function(map, ne, sw){
+    return new google.maps.Rectangle({
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 1,
+      fillOpacity: 0,
+      map: map,
+      bounds: new google.maps.LatLngBounds(
+        new google.maps.LatLng(ne.lat, ne.lng),
+        new google.maps.LatLng(sw.lat, sw.lng)
+      ),
+      editable: false,
+      draggable: false,
+      geodesic: true
+    });
+  };
+  /**
+   * Abilita la modifica del perimetro.
+   * @function enablePerimeterEditing
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} rectangle - Rettangolo da rendere modificabile.
+   */
+  var enablePerimeterEditing = function(rectangle){
+    rectangle.setOptions({
+      editable: true,
+      draggable: true,
+      strokeColor: '#FF0000'
+    });
+  };
+  /**
    * Finalizza il perimetro rendendolo non più modificabile.
    * @function closePerimeter
    * @memberOf GoogleMapsService
@@ -303,6 +349,26 @@ function GoogleMapsService() {
     }, false);
   };
   /**
+   * Crea un checkpoint a partire da una posizione data, senza associarlo a una
+   * specifica mappa.
+   * @function createEditableCheckpointFromPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Number} lat - Latitudine del checkpoint.
+   * @param {Number} lng - Longitudine del checkpoint.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
+   * costituisce un checkpoint.
+   */
+  var createEditableCheckpointFromPosition = function(lat, lng){
+    return drawMarker(null, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'yellow',
+      strokeColor: 'yellow',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, true);
+  };
+  /**
    * Disegna un checkpoint di un percorso a partire da un oggetto
    * google.maps.Marker esistente.
    * @function drawCheckpointFromObject
@@ -351,6 +417,27 @@ function GoogleMapsService() {
       strokeOpacity: 0.7,
       scale: 3
     }, false);
+  };
+  /**
+   * Disegna un punto utente a partire da una coppia di coordinate, con la
+   * possibilità di modificarne la posizione
+   * @function drawEditableCustomPointFromPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Number} lat - Latitudine del punto utente.
+   * @param {Number} lng - Longitudine del punto utente.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
+   * punto d'interesse nella mappa.
+   */
+  var drawEditableCustomPointFromPosition = function(map, lat, lng){
+    return drawMarker(map, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      strokeColor: 'red',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, true);
   };
   /**
    * Ottiene la posizione di un marker generico.
@@ -499,14 +586,18 @@ function GoogleMapsService() {
     initMap: initMap,
     initMapFromPerimeter: initMapFromPerimeter,
     drawPerimeter: drawPerimeter,
+    drawPerimeterFromBounds: drawPerimeterFromBounds,
     closePerimeter: closePerimeter,
+    enablePerimeterEditing: enablePerimeterEditing,
     drawPath: drawPath,
     drawPOI: drawPOI,
     drawCheckpoint: drawCheckpoint,
     drawCheckpointFromPosition: drawCheckpointFromPosition,
+    createEditableCheckpointFromPosition: createEditableCheckpointFromPosition,
     drawCheckpointFromObject: drawCheckpointFromObject,
     drawCustomPoint: drawCustomPoint,
     drawCustomPointFromPosition: drawCustomPointFromPosition,
+    drawEditableCustomPointFromPosition: drawEditableCustomPointFromPosition,
     getCheckpointPosition: getCheckpointPosition,
     getCustomPointPosition: getCustomPointPosition,
     drawTrack: drawTrack,
