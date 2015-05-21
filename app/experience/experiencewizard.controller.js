@@ -196,6 +196,44 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.saveMsg = "";
   /**
+   * Flag che stabilisce se il controller sta creando una nuova esperienza o se
+   * ne sta modificando una esistente.
+   *
+   * @name editMode
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.editMode = false;
+  /**
+   * Codice identificativo di un'esperienza da modificare.
+   *
+   * @name editExperienceId
+   * @type Number
+   * @default -1
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+   $scope.editExperienceId = -1;
+   /**
+   * Punti d'interesse relativi all'esperienza da modificare.
+   *
+   * @name editExperiencePoi
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+   $scope.editExperiencePoi = [];
+   /**
+   * Punti utente relativi all'esperienza da modificare.
+   *
+   * @name editExperienceCustomPoints
+   * @type Array
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+   $scope.editExperienceCustomPoints = [];
    * Gestisce l'evento hhMapLink lanciato da MapDirective, in modo da poter
    * ottenere l'Id di quest'ultima.
    *
