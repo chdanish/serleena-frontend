@@ -173,12 +173,6 @@ app.get('/experiences/:id', function(req, res){
         name: "POI B",
         lat: 45.281597,
         lng: 11.653035
-      },
-      {
-        id: "!fkòlfkòdk",
-        name: "POI C",
-        lat: 45.276457,
-        lng: 11.653136
       }
     ],
     userpoints: [
