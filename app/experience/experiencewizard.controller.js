@@ -61,6 +61,16 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.mapTagId = "";
   /**
+   * Flag per la visualizzazione della schermata di gestione del percorso.
+   *
+   * @name showEditPerimeter
+   * @type Boolean
+   * @default false
+   * @memberOf ExperienceWizardController
+   * @instance
+   */
+  $scope.showEditPerimeter = false;
+  /**
    * Flag per la visualizzazione delle informazioni relativi ai percorsi.
    *
    * @name showTracks
