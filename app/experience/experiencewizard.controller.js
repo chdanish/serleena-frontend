@@ -290,6 +290,19 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.showTracks = true;
   };
   /**
+   * Funzione che compara tue punti d'interesse e ne verifica l'uguaglianza.
+   *
+   * @function comparePOI
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Object} p1 - Primo punto da valutare.
+   * @param {Object} p2 - Secondo punto da valutare.
+   * @returns {Boolean} - true se sono uguali, altrimenti false.
+   * @private
+   */
+  var comparePOI = function(p1, p2){
+    return p1.id == p2.id;
+  };
    * Funzione da eseguire dopo il completamento dello step di creazione dei
    * percorsi. Essa rimuove le informazioni sui percorsi dalla mappa, carica i
    * punti d'interesse compresi nel perimetro e li visualizza sulla mappa.
