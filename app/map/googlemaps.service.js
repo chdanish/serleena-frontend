@@ -91,6 +91,36 @@ function GoogleMapsService() {
     });
   };
   /**
+   * Disegna sulla mappa un rettangolo non editabile a partire dalle coordinate
+   * dei punti a nord-est e sud-ovest di uno specifico perimetro.
+   * @function drawPerimeterFromBounds
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @param {Object} sw - Oggetto che rappresenta il punto a sud-ovest del
+   * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
+   * e un attributo "lng" con la longitudine.
+   * @returns {Object} rectangle - Rettangolo disegnato.
+   */
+  var drawPerimeterFromBounds = function(map, ne, sw){
+    return new google.maps.Rectangle({
+      strokeColor: '#000000',
+      strokeOpacity: 0.8,
+      strokeWeight: 1,
+      fillOpacity: 0,
+      map: map,
+      bounds: new google.maps.LatLngBounds(
+        new google.maps.LatLng(ne.lat, ne.lng),
+        new google.maps.LatLng(sw.lat, sw.lng)
+      ),
+      editable: false,
+      draggable: false,
+      geodesic: true
+    });
+  };
    * Finalizza il perimetro rendendolo non più modificabile.
    * @function closePerimeter
    * @memberOf GoogleMapsService
@@ -512,6 +542,7 @@ function GoogleMapsService() {
     initMap: initMap,
     initMapFromPerimeter: initMapFromPerimeter,
     drawPerimeter: drawPerimeter,
+    drawPerimeterFromBounds: drawPerimeterFromBounds,
     closePerimeter: closePerimeter,
     drawPath: drawPath,
     drawPOI: drawPOI,
