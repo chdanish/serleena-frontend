@@ -303,6 +303,28 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   var comparePOI = function(p1, p2){
     return p1.id == p2.id;
   };
+  /**
+   * Funzione che, dato un array di punti d'interesse e un punto p, verifica se
+   * p è un elemento dell'array.
+   *
+   * @function hasPOI
+   * @memberOf ExperienceWizardController
+   * @instance
+   * @param {Array} poiArray - Array di punti d'interesse.
+   * @param {Object} p - Punto d'interesse.
+   * @returns {Boolean} - true se p è contenuto in poiArray, altrimenti false.
+   * @private
+   */
+  var hasPOI = function(poiArray, p){
+    var result = false;
+    poiArray.forEach(function(point){
+      if(comparePOI(point, p)){
+        result = true;
+      }
+    });
+    return result;
+  };
+  /**
    * Funzione da eseguire dopo il completamento dello step di creazione dei
    * percorsi. Essa rimuove le informazioni sui percorsi dalla mappa, carica i
    * punti d'interesse compresi nel perimetro e li visualizza sulla mappa.
