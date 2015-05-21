@@ -345,6 +345,27 @@ function GoogleMapsService() {
     }, false);
   };
   /**
+   * Disegna un punto utente a partire da una coppia di coordinate, con la
+   * possibilità di modificarne la posizione
+   * @function drawEditableCustomPointFromPosition
+   * @memberOf GoogleMapsService
+   * @instance
+   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {Number} lat - Latitudine del punto utente.
+   * @param {Number} lng - Longitudine del punto utente.
+   * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
+   * punto d'interesse nella mappa.
+   */
+  var drawEditableCustomPointFromPosition = function(map, lat, lng){
+    return drawMarker(map, new google.maps.LatLng(lat, lng), {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      strokeColor: 'red',
+      strokeOpacity: 0.7,
+      scale: 3
+    }, true);
+  };
+  /**
    * Ottiene la posizione di un marker generico.
    * @function getMarkerPosition
    * @memberOf GoogleMapsService
@@ -500,6 +521,7 @@ function GoogleMapsService() {
     drawCheckpointFromObject: drawCheckpointFromObject,
     drawCustomPoint: drawCustomPoint,
     drawCustomPointFromPosition: drawCustomPointFromPosition,
+    drawEditableCustomPointFromPosition: drawEditableCustomPointFromPosition,
     getCheckpointPosition: getCheckpointPosition,
     getCustomPointPosition: getCustomPointPosition,
     drawTrack: drawTrack,
