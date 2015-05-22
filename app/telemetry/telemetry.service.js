@@ -29,7 +29,7 @@
 /**
    * Name: TelemetryService
    * Package: Telemetry
-   * Author: Matteo 
+   * Author: Antonio Cavestro
    *
    * History:
    * Version      Programmer           Changes
@@ -43,7 +43,7 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   * Classe singleton che gestisce le chiamate al backend per ottenere i
   * tracciamenti relativi a una particolare esperienza.
   *
-  * @author Matteo Lisotto
+  * @author Antonio Cavestro
   * @version 0.1
   * @constructor
   */
