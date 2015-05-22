@@ -46,7 +46,13 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * XMLHttpRequest (Ajax)
+  * @param {Service} AuthService - Servizio di gestione dell'autenticazione
+  * utente, necessario per l'uso del token con cui firmare le richieste.
+  * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
+  * configurazione)
   */
 
-function TelemetryService() {
+function TelemetryService($http, AuthService, BACKEND_URL) {
 }
