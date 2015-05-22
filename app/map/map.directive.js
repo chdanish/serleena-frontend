@@ -17,6 +17,7 @@ angular.module('map').directive('hhMap', MapDirective);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @memberOf Map
   * @constructor
   */
 
