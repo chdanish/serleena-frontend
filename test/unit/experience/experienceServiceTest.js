@@ -52,7 +52,7 @@ describe('ExperienceService Test', function () {
 	expect(success).toBe(false);
 	expect(failure).toBe(false);
 	expect(dataReceived).toBe('');
-	experienceId = 1;
+	var experienceId = 1;
 
 	httpBackend.whenDELETE(BACKEND_URL + "/experiences/" + experienceId)
 	    .respond(201, 'deleted');
@@ -68,11 +68,154 @@ describe('ExperienceService Test', function () {
 	expect(success).toBe(false);
 	expect(failure).toBe(false);
 	expect(dataReceived).toBe('');
-	experienceId = 1;
+	var experienceId = 1;
 
 	httpBackend.whenDELETE(BACKEND_URL + "/experiences/" + experienceId)
 	    .respond(404, 'error');
 	experienceService.deleteExperience(experienceId, callback);
+	httpBackend.flush();
+
+	expect(success).toBe(false);
+	expect(failure).toBe(true);
+	expect(dataReceived).toBe('error');
+    });
+
+    it('Successfully getExperienceList', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+
+	httpBackend.whenGET(BACKEND_URL + "/experiences")
+	    .respond(201, {experiences: 'La banda!'}, '', '', '');
+	experienceService.getExperienceList(callback);
+	httpBackend.flush();
+
+	expect(success).toBe(true);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('La banda!');
+    });
+
+
+    it('Wrong getExperienceList', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+
+	httpBackend.whenGET(BACKEND_URL + "/experiences")
+	    .respond(404, 'error');
+	experienceService.getExperienceList(callback);
+	httpBackend.flush();
+
+	expect(success).toBe(false);
+	expect(failure).toBe(true);
+	expect(dataReceived).toBe('error');
+    });
+
+    it('Successfully saveExperience', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+
+	var name = 'BluesBrothers';
+	var tracks = 12;
+	var from = 'Chicago';
+	var to = 'Palace Hotel';
+
+	httpBackend.whenPOST(BACKEND_URL + "/experiences")
+	    .respond(201, 'Rawhide');
+	experienceService.saveExperience(name, tracks, from, to, '', '',
+					 callback);
+	httpBackend.flush();
+
+	expect(success).toBe(true);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('Rawhide');
+    });
+
+    it('Wrong saveExperience', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+
+	var name = 'BluesBrothers';
+	var tracks = 12;
+	var from = 'Chicago';
+	var to = 'Palace Hotel';
+
+	httpBackend.whenPOST(BACKEND_URL + "/experiences")
+	    .respond(404, 'error');
+	experienceService.saveExperience(name, tracks, from, to, '', '',
+					 callback);
+	httpBackend.flush();
+
+	expect(success).toBe(false);
+	expect(failure).toBe(true);
+	expect(dataReceived).toBe('error');
+    });
+
+    it('Successfully getExperienceDetails', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+	var experienceId = 1;
+
+	httpBackend.whenGET(BACKEND_URL + "/experiences/" + experienceId)
+	    .respond(201, 'concertForTheOrphanage');
+	experienceService.getExperienceDetails(experienceId, callback);
+	httpBackend.flush();
+
+	expect(success).toBe(true);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('concertForTheOrphanage');
+    });
+
+    it('Wrong getExperienceDetails', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+	var experienceId = 1;
+
+	httpBackend.whenGET(BACKEND_URL + "/experiences/" + experienceId)
+	    .respond(404, 'error');
+	experienceService.getExperienceDetails(experienceId, callback);
+	httpBackend.flush();
+
+	expect(success).toBe(false);
+	expect(failure).toBe(true);
+	expect(dataReceived).toBe('error');
+    });
+   
+    it('Successfully getTrackDetails', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+
+	var experienceId = 1;
+	var trackId = 2;
+
+	httpBackend.whenGET(BACKEND_URL + "/experiences/" + experienceId
+			     + "/tracks/" + trackId)
+	    .respond(201, 'BluesBrothers');
+	experienceService.getTrackDetails(experienceId, trackId, callback);
+	httpBackend.flush();
+
+	expect(success).toBe(true);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('BluesBrothers');
+    });
+
+    it('Wrong getTrackDetails', function () {
+	expect(success).toBe(false);
+	expect(failure).toBe(false);
+	expect(dataReceived).toBe('');
+
+	var experienceId = 1;
+	var trackId = 2;
+
+	httpBackend.whenGET(BACKEND_URL + "/experiences/" + experienceId
+			     + "/tracks/" + trackId)
+	    .respond(404, 'error');
+	experienceService.getTrackDetails(experienceId, trackId, callback);
 	httpBackend.flush();
 
 	expect(success).toBe(false);
