@@ -19,6 +19,7 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Telemetry
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
   * @param {Service} AuthService - Servizio di gestione dell'autenticazione
@@ -32,7 +33,7 @@ function TelemetryService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per ottenere la lista dei
    * tracciamenti di un'esperienza.
    * @function getTelemetryList
-   * @memberOf TelemetryService
+   * @memberOf Telemetry.TelemetryService
    * @instance
    * @param {Number} experienceId - Codice identificativo dell'esperienza.
    * @param {Number} trackId - Codice identificativo del percorso.
@@ -59,7 +60,7 @@ function TelemetryService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per ottenere tutte le
    * informazioni relative a un particolare tracciamento di un'esperienza.
    * @function getTelemetryDetails
-   * @memberOf TelemetryService
+   * @memberOf Telemetry.TelemetryService
    * @instance
    * @param {Number} experienceId - Codice identificativo dell'esperienza.
    * @param {Number} trackId - Codice identificativo del percorso.
