@@ -45,6 +45,7 @@ angular.module('map').service('GoogleMapsService', GoogleMapsService);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @memberOf Map
   * @constructor
   */
 
@@ -52,7 +53,7 @@ function GoogleMapsService() {
   /**
    * Inizializza la mappa.
    * @function initMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {String} mapId - ID della mappa nel DOM.
    * @returns {Object} map - Oggetto mappa di Google Maps.
@@ -69,7 +70,7 @@ function GoogleMapsService() {
   /**
    * Inizializza la mappa a partire dal perimetro dato.
    * @function initMapFromPerimeter
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {String} mapId - ID della mappa nel DOM.
    * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
@@ -97,7 +98,7 @@ function GoogleMapsService() {
    * Disegna sulla mappa un rettangolo editabile per selezionare il perimetro
    * dell'esperienza.
    * @function drawPerimeter
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @returns {Object} rectangle - Rettangolo disegnato.
@@ -122,7 +123,7 @@ function GoogleMapsService() {
    * Disegna sulla mappa un rettangolo non editabile a partire dalle coordinate
    * dei punti a nord-est e sud-ovest di uno specifico perimetro.
    * @function drawPerimeterFromBounds
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
@@ -152,7 +153,7 @@ function GoogleMapsService() {
   /**
    * Abilita la modifica del perimetro.
    * @function enablePerimeterEditing
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Object} rectangle - Rettangolo da rendere modificabile.
@@ -167,7 +168,7 @@ function GoogleMapsService() {
   /**
    * Finalizza il perimetro rendendolo non più modificabile.
    * @function closePerimeter
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Object} rectangle - Rettangolo da rendere non modificabile.
@@ -203,7 +204,7 @@ function GoogleMapsService() {
   /**
    * Disegna una linea.
    * @function drawLine
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @private
    * @param {Object} map - Oggetto mappa di Google Maps.
@@ -238,7 +239,7 @@ function GoogleMapsService() {
   /**
    * Disegna un sentiero.
    * @function drawPath
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {String} name - Nome del sentiero.
@@ -265,7 +266,7 @@ function GoogleMapsService() {
   /**
    * Disegna un marker
    * @function drawMarker
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @private
    * @param {Object} map - Oggetto mappa di Google Maps.
@@ -292,7 +293,7 @@ function GoogleMapsService() {
   /**
    * Disegna un punto d'interesse
    * @function drawPOI
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del punto.
@@ -313,7 +314,7 @@ function GoogleMapsService() {
   /**
    * Disegna un checkpoint di un percorso.
    * @function drawCheckpoint
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
@@ -331,7 +332,7 @@ function GoogleMapsService() {
   /**
    * Disegna un checkpoint a partire da una posizione data.
    * @function drawCheckpointFromPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del checkpoint.
@@ -352,7 +353,7 @@ function GoogleMapsService() {
    * Crea un checkpoint a partire da una posizione data, senza associarlo a una
    * specifica mappa.
    * @function createEditableCheckpointFromPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Number} lat - Latitudine del checkpoint.
    * @param {Number} lng - Longitudine del checkpoint.
@@ -372,7 +373,7 @@ function GoogleMapsService() {
    * Disegna un checkpoint di un percorso a partire da un oggetto
    * google.maps.Marker esistente.
    * @function drawCheckpointFromObject
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {google.maps.Marker} pointObj - Oggetto marker da disegnare.
@@ -383,7 +384,7 @@ function GoogleMapsService() {
   /**
    * Disegna un punto utente
    * @function drawCustomPoint
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
@@ -401,7 +402,7 @@ function GoogleMapsService() {
   /**
    * Disegna un punto utente a partire da una coppia di coordinate
    * @function drawCustomPointFromPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del punto utente.
@@ -422,7 +423,7 @@ function GoogleMapsService() {
    * Disegna un punto utente a partire da una coppia di coordinate, con la
    * possibilità di modificarne la posizione
    * @function drawEditableCustomPointFromPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del punto utente.
@@ -442,7 +443,7 @@ function GoogleMapsService() {
   /**
    * Ottiene la posizione di un marker generico.
    * @function getMarkerPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @private
    * @param {google.maps.Marker} marker - Oggetto marker di cui ottenere le
@@ -460,7 +461,7 @@ function GoogleMapsService() {
   /**
    * Ottiene la posizione di un checkpoint.
    * @function getCheckpointPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Marker} checkpoint - Oggetto marker che rappresenta il
    * checkpoint di cui ottenere la posizione.
@@ -473,7 +474,7 @@ function GoogleMapsService() {
   /**
    * Ottiene la posizione di un punto utente.
    * @function getCustomPointPosition
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Marker} customPoint - Oggetto marker che rappresenta il
    * punto utente di cui ottenere la posizione.
@@ -486,7 +487,7 @@ function GoogleMapsService() {
   /**
    * Disegna un percorso.
    * @function drawTrack
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
    * @param {Object} points - Array di oggetti che contengono un attributo "lat"
@@ -504,7 +505,7 @@ function GoogleMapsService() {
   /**
    * Rimuove un generico componente dalla mappa.
    * @function removeComponentFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @private
    * @param {google.maps.MVCObject} component - Oggetto che rappresenta il
@@ -516,7 +517,7 @@ function GoogleMapsService() {
   /**
    * Rimuove una linea dalla mappa.
    * @function removeLineFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @private
    * @param {google.maps.Polyline} line - Oggetto che rappresenta la
@@ -528,7 +529,7 @@ function GoogleMapsService() {
   /**
    * Rimuove un percorso dalla mappa.
    * @function removeTrackFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Polyline} track - Oggetto che rappresenta il percorso
    * da rimuovere.
@@ -539,7 +540,7 @@ function GoogleMapsService() {
   /**
    * Rimuove un marker dalla mappa.
    * @function removeMarkerFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @private
    * @param {google.maps.Marker} marker - Oggetto che rappresenta il
@@ -551,7 +552,7 @@ function GoogleMapsService() {
   /**
    * Rimuove un checkpoint dalla mappa.
    * @function removeCheckpointFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Marker} point - Oggetto che rappresenta il checkpoint
    * da rimuovere.
@@ -562,7 +563,7 @@ function GoogleMapsService() {
   /**
    * Rimuove un punto d'interesse dalla mappa.
    * @function removePOIFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Marker} point - Oggetto che rappresenta il punto
    * d'interesse da rimuovere.
@@ -573,7 +574,7 @@ function GoogleMapsService() {
   /**
    * Rimuove un punto utente dalla mappa.
    * @function removeCustomPointFromMap
-   * @memberOf GoogleMapsService
+   * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Marker} point - Oggetto che rappresenta il punto
    * utente da rimuovere.
