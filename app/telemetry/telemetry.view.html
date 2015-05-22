@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h1>Tracciamenti del percorso "{{trackName}}"</h1>
+			<p class="lead">Esperienza "{{expName}}"</p class="lead">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-default" id="panel-telemetries">
+				<div class="panel-heading">
+					<p class="panel-title">
+						Elenco tracciamenti
+					</p>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="t in telemetries">
+						{{t.date}}
+						<div class="btn-group">
+							<button class="btn btn-primary btn-xs"
+								ng-click="showTelemetry($index)">
+								Visualizza
+							</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<angularchart dataset="currentTelemetry"
+				options="heartChartOptions">
+			</angularchart>
+		</div>
+	</div>
+	<div class="row vspace" ng-show="currentTelemetryIndex != -1">
+		<div class="col-md-6">
+			<h2>Condividi esperienza</h2>
+			<button class="btn btn-primary" socialshare
+				socialshare-provider="facebook"
+				socialshare-text="Ho fatto una nuova escursione!">
+				Condividi su Facebook
+			</button>
+			<button class="btn btn-primary" socialshare
+				socialshare-provider="twitter"
+				socialshare-text="Ho fatto una nuova escursione!">
+				Condividi su Twitter
+			</button>
+		</div>
+		<div class="col-md-4">
+			<table class="table">
+				<tr>
+					<th>Checkpoint</th>
+					<th>Valore battito cardiaco</th>
+				</tr>
+				<tr ng-repeat="t in currentTelemetry">
+					<td>Checkpoint #{{$index}}</td>
+					<td>{{t.heart}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
