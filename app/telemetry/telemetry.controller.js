@@ -14,7 +14,9 @@ angular.module('telemetry').controller('TelemetryController',
 
 /**
   * Classe che gestisce la visualizzazione di un tracciamento di una determinata
-  * esperienza.
+  * esperienza. Nel costruttore recupera, attraverso i parametri presenti nella
+  * querystring e ottenuti via $routeParams, i dati relativi ai vari
+  * tracciamenti.
   *
   * @author Antonio Cavestro
   * @version 0.1
@@ -117,4 +119,24 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
       }
     },
   };
+
+  ExperienceService.getExperienceDetails($scope.experienceId, function(ok, exp){
+    if(ok){
+      $scope.expName = exp.name;
+      exp.tracks.forEach(function(t){
+        if(t.id == $scope.trackId){
+          $scope.trackName = t.name;
+          return;
+        }
+      });
+    }
+  });
+
+  TelemetryService.getTelemetryList($scope.experienceId, $scope.trackId,
+    function(ok, data){
+
+      if(ok){
+        $scope.telemetries = data;
+      }
+  });
 }
