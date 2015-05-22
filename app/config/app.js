@@ -36,16 +36,35 @@
  * 0.0.1      Antonio Cavestro 	2015-05-06  Crea file
  *
  */
+
+/**
+ * @namespace Authentication
+ */
 angular
         .module('authentication', ['ngCookies']);
+/**
+ * @namespace Experience
+ */
 angular
         .module('experience', ['wizard', 'map']);
+/**
+ * @namespace Map
+ */
 angular
         .module('map', []);
+/**
+ * @namespace Synchronization
+ */
 angular
         .module('synchronization', []);
+/**
+ * @namespace Telemetry
+ */
 angular
         .module('telemetry', ['angularChart', '720kb.socialshare']);
+/**
+ * @namespace Wizard
+ */
 angular
         .module('wizard', []);
 
