@@ -101,6 +101,10 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 				templateUrl: 'app/experience/deleteexperience.view.html',
 				controller: 'DeleteExperienceController'
 			})
+			.when("/dashboard/experiences/:experienceId/tracks/:trackId/telemetries", {
+				templateUrl: 'app/telemetry/telemetry.view.html',
+				controller: TelemetryController
+			})
 			.when("/dashboard/sync", {
 				templateUrl: 'app/synchronization/syncexperiences.view.html',
 				controller: 'SyncExperiencesController'

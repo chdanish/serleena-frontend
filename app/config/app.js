@@ -45,7 +45,7 @@ angular
 angular
         .module('synchronization', []);
 angular
-        .module('telemetry', []);
+        .module('telemetry', ['angularChart', '720kb.socialshare']);
 angular
         .module('wizard', []);
 
