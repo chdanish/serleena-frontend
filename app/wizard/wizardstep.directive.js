@@ -18,6 +18,7 @@ angular.module('wizard').directive('hhWizardStep', WizardStepDirective);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Wizard
   */
 
 function WizardStepDirective() {
