@@ -94,4 +94,14 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.trackName = "";
+  /**
+   * Array di tracciamenti caricati, relativi all'esperienza e al percorso
+   * selezionati.
+   *
+   * @name telemetries
+   * @type Array
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.telemetries = [];
 }
