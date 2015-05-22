@@ -282,6 +282,34 @@ app.get('/experiences/:eid/tracks/:tid/telemetries', function(req, res){
   ];
   res.send(JSON.stringify(t));
 });
+
+app.get('/experiences/:eid/tracks/:tid/telemetries/:telid', function(req, res){
+  var t = [
+    {
+      id: 1,
+      heart: 95
+    },
+    {
+      id: 2,
+      heart: 125
+    },
+    {
+      id: 3,
+      heart: 145
+    },
+    {
+      id: 4,
+      heart: 160
+    },
+    {
+      id: 5,
+      heart: 175
+    },
+  ];
+
+  res.send(JSON.stringify(t));
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
