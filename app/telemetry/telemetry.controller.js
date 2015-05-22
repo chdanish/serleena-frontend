@@ -57,4 +57,13 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.expName = "";
+  /**
+   * Nome del percorso di cui si stanno visualizzando i tracciamenti.
+   *
+   * @name trackpName
+   * @type String
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.trackName = "";
 }
