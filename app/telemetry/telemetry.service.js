@@ -27,4 +27,34 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   */
 
 function TelemetryService($http, AuthService, BACKEND_URL) {
+  /**
+   * Implementa la comunicazione con il server per ottenere la lista dei
+   * tracciamenti di un'esperienza.
+   * @function getTelemetryList
+   * @memberOf TelemetryService
+   * @instance
+   * @param {Number} experienceId - Codice identificativo dell'esperienza.
+   * @param {Number} trackId - Codice identificativo del percorso.
+   * @param {function} callback - Funzione da invocare al ritorno dei dati dal
+   * backend
+   */
+  var getTelemetryList = function(experienceId, trackId, callback){
+    AuthService.authRequest(function(token){
+      $http({
+        method: 'GET',
+        url: BACKEND_URL + "/experiences/" + experienceId + "/tracks/" +
+              trackId + "/telemetries",
+        headers: {
+          'X-AuthToken': token
+        }
+      }).success(function(data){
+        callback(true, data);
+      }).error(function(data){
+        callback(false, data);
+      });
+    });
+  };
+  return {
+    getTelemetryList: getTelemetryList,
+  };
 }
