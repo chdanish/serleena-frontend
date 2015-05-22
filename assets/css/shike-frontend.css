@@ -53,7 +53,8 @@ p#welcome-text {
 #panel-tracks .btn-group,
 #panel-checkpoints .btn-group,
 #panel-custompoints .btn-group,
-#panel-details-tracks .btn-group {
+#panel-details-tracks .btn-group,
+#panel-telemetries .btn-group {
 	float: right;
 }
 
