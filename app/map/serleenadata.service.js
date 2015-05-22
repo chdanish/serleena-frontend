@@ -47,6 +47,7 @@ angular.module('map').service('SerleenaDataService', SerleenaDataService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Map
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
@@ -58,7 +59,7 @@ function SerleenaDataService($http, BACKEND_URL) {
    * Metodo per ottenere la lista dei sentieri in un determinato perimetro.
    *
    * @function getPaths
-   * @memberOf SerleenaDataService
+   * @memberOf Map.SerleenaDataService
    * @instance
    * @param {Object} from - oggetto che rappresenta il punto a nord-est
    * dell'area di cui si vuole conoscere i sentieri, con un attributo "lat" per
@@ -85,7 +86,7 @@ function SerleenaDataService($http, BACKEND_URL) {
    * perimetro.
    *
    * @function getPOIs
-   * @memberOf SerleenaDataService
+   * @memberOf Map.SerleenaDataService
    * @instance
    * @param {Object} from - oggetto che rappresenta il punto a nord-est
    * dell'area di cui si vuole conoscere i punti d'interesse, con un attributo

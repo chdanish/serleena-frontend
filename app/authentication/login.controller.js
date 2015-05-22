@@ -37,16 +37,13 @@
  *
  */
 
-/**
- * @namespace Authentication
- */
-
 angular.module('authentication').controller('LoginController', LoginController);
 
 /**
  * Classe che gestisce il login al portale
  *
  * @constructor
+ * @memberOf Authentication
  * @param {Scope} $scope - L'oggetto ViewModel del controller.
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
@@ -59,7 +56,7 @@ function LoginController ($scope, $location, AuthService){
 	 *
 	 * @name email
 	 * @type String
-	 * @memberOf LoginController
+	 * @memberOf Authentication.LoginController
 	 * @instance
 	 */
 	$scope.email = "";
@@ -68,7 +65,7 @@ function LoginController ($scope, $location, AuthService){
 	 *
 	 * @name password
 	 * @type String
-	 * @memberOf LoginController
+	 * @memberOf Authentication.LoginController
 	 * @instance
 	 */
 	$scope.password = "";
@@ -76,7 +73,7 @@ function LoginController ($scope, $location, AuthService){
 	 /**
 	 * Effettua il login utente.
 	 * @function loginUser
-	 * @memberOf LoginController
+	 * @memberOf Authentication.LoginController
 	 * @instance
 	 */
 	$scope.loginUser = function(){

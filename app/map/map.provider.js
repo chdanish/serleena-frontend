@@ -45,6 +45,7 @@ angular.module('map').provider('Map', MapProvider);
   * dell’applicazione.
   *
   * @author Antonio Cavestro
+  * @memberOf Map
   * @version 0.1
   * @constructor
   */

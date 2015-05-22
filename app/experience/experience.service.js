@@ -51,6 +51,7 @@ angular.module('experience').service('ExperienceService', ExperienceService);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @memberOf Experience
   * @constructor
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
@@ -65,7 +66,7 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per ottenere la lista delle
    * esperienze dell'utente.
    * @function getExperienceList
-   * @memberOf ExperienceService
+   * @memberOf Experience.ExperienceService
    * @instance
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
    * backend
@@ -89,7 +90,7 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per il salvataggio di una nuova
    * esperienza
    * @function saveExperience
-   * @memberOf ExperienceService
+   * @memberOf Experience.ExperienceService
    * @instance
    * @param {String} name - Nome dell'esperienza
    * @param {Array} tracks - Array di percorsi
@@ -130,7 +131,7 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
   /**
    * Implementa la comunicazione con il server per cancellare un'esperienza.
    * @function deleteExperience
-   * @memberOf ExperienceService
+   * @memberOf Experience.ExperienceService
    * @instance
    * @param {Number} experienceId - Id dell'esperienza da cancellare.
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
@@ -155,7 +156,7 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per ottenere le informazioni
    * relative a una specifica esperienza.
    * @function getExperienceDetails
-   * @memberOf ExperienceService
+   * @memberOf Experience.ExperienceService
    * @instance
    * @param {Number} experienceId - Id dell'esperienza di cui ottenere
    * informazioni.
@@ -181,7 +182,7 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per ottenere le informazioni
    * relative a uno specifico percorso.
    * @function getTrackDetails
-   * @memberOf ExperienceService
+   * @memberOf Experience.ExperienceService
    * @instance
    * @param {Number} experienceId - Id dell'esperienza a cui appartiene il
    * percorso di cui ottenere informazioni.

@@ -50,6 +50,7 @@ angular.module('experience').controller('ExperienceListController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Experience
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} ExperienceService - Servizio di comunicazione con il
   * backend per la gestione delle esperienze
@@ -65,7 +66,7 @@ function ExperienceListController($scope, ExperienceService) {
        *
        * @name experiences
        * @type Array
-       * @memberOf ExperienceListController
+       * @memberOf Experience.ExperienceListController
        * @instance
        */
       $scope.experiences = data;
@@ -74,7 +75,7 @@ function ExperienceListController($scope, ExperienceService) {
        *
        * @name numExperiences
        * @type Number
-       * @memberOf ExperienceListController
+       * @memberOf Experience.ExperienceListController
        * @instance
        */
       $scope.numExperiences = $scope.experiences.length;
@@ -83,7 +84,7 @@ function ExperienceListController($scope, ExperienceService) {
        *
        * @name noExperiences
        * @type Boolean
-       * @memberOf ExperienceListController
+       * @memberOf Experience.ExperienceListController
        * @instance
        */
       $scope.noExperiences = $scope.numExperiences === 0;
@@ -94,7 +95,7 @@ function ExperienceListController($scope, ExperienceService) {
        *
        * @name error
        * @type Boolean
-       * @memberOf ExperienceListController
+       * @memberOf Experience.ExperienceListController
        * @instance
        */
       $scope.error = true;
@@ -103,7 +104,7 @@ function ExperienceListController($scope, ExperienceService) {
        *
        * @name errorMsg
        * @type String
-       * @memberOf ExperienceListController
+       * @memberOf Experience.ExperienceListController
        * @instance
        */
       $scope.errorMsg = "Errore di comunicazione con il server :(";
@@ -113,7 +114,7 @@ function ExperienceListController($scope, ExperienceService) {
      *
      * @name showAlert
      * @type Boolean
-     * @memberOf ExperienceListController
+     * @memberOf Experience.ExperienceListController
      * @instance
      */
     $scope.showAlert = $scope.noExperiences || $scope.error;

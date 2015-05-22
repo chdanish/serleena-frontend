@@ -45,6 +45,7 @@ angular.module('wizard').controller('WizardDirectiveController', WizardDirective
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Wizard
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   */
 
@@ -54,7 +55,7 @@ function WizardDirectiveController($scope) {
    *
    * @name steps
    * @type Array
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    */
   $scope.steps = [];
@@ -63,7 +64,7 @@ function WizardDirectiveController($scope) {
    *
    * @name currentStepIndex
    * @type Number
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    */
   $scope.currentStepIndex = 0;
@@ -71,7 +72,7 @@ function WizardDirectiveController($scope) {
    * Passa ad un altro step.
    *
    * @function toggleStep
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    * @private
    * @param {Number} index - Indice dello step a cui deve passare.
@@ -85,7 +86,7 @@ function WizardDirectiveController($scope) {
    * Inserisce uno step nell'array di step.
    *
    * @function registerStep
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    * @param {Scope} step - Step da aggiungere.
    */
@@ -96,7 +97,7 @@ function WizardDirectiveController($scope) {
    * Verifica che esista uno step successivo a quello corrente.
    *
    * @function hasNext
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    * @returns Boolean
    */
@@ -107,7 +108,7 @@ function WizardDirectiveController($scope) {
    * Verifica che esista uno step precedente a quello corrente.
    *
    * @function hasPrevious
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    * @returns Boolean
    */
@@ -118,7 +119,7 @@ function WizardDirectiveController($scope) {
    * Verifica che lo step corrente sia l'ultimo del wizard.
    *
    * @function hasNext
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    * @returns Boolean
    */
@@ -130,7 +131,7 @@ function WizardDirectiveController($scope) {
    * gerarchia.
    *
    * @function nextStep
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    */
   $scope.nextStep = function(){
@@ -145,7 +146,7 @@ function WizardDirectiveController($scope) {
    * gerarchia.
    *
    * @function previousStep
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    */
   $scope.previousStep = function(){
@@ -159,7 +160,7 @@ function WizardDirectiveController($scope) {
    * superiore nella gerarchia.
    *
    * @function completeWizard
-   * @memberOf WizardDirectiveController
+   * @memberOf Wizard.WizardDirectiveController
    * @instance
    */
   $scope.completeWizard = function(){

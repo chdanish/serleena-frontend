@@ -45,6 +45,7 @@ angular.module('wizard').directive('hhWizard', WizardDirective);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Wizard
   */
 
 function WizardDirective() {

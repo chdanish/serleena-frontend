@@ -37,10 +37,6 @@
    *
    */
 
-/**
- * @namespace Authentication
- */
-
 angular.module('authentication').controller('PasswordRecoveryController',
 					    PasswordRecoveryController);
 
@@ -50,6 +46,7 @@ angular.module('authentication').controller('PasswordRecoveryController',
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
+  * @memberOf Authentication
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} UserService - Oggetto che gestisce la comunicazione con
   * il backend per quanto riguarda le informazioni utente.
@@ -61,7 +58,7 @@ function PasswordRecoveryController($scope, UserService) {
    *
    * @name email
    * @type String
-   * @memberOf PasswordRecoveryController
+   * @memberOf Authentication.PasswordRecoveryController
    * @instance
    */
   $scope.email = "";
@@ -70,7 +67,7 @@ function PasswordRecoveryController($scope, UserService) {
    *
    * @name done
    * @type Boolean
-   * @memberOf PasswordRecoveryController
+   * @memberOf Authentication.PasswordRecoveryController
    * @default false
    * @instance
    */
@@ -80,7 +77,7 @@ function PasswordRecoveryController($scope, UserService) {
    *
    * @name msgType
    * @type String
-   * @memberOf PasswordRecoveryController
+   * @memberOf Authentication.PasswordRecoveryController
    * @instance
    */
   $scope.msgType = "";
@@ -89,14 +86,14 @@ function PasswordRecoveryController($scope, UserService) {
    *
    * @name msgText
    * @type String
-   * @memberOf PasswordRecoveryController
+   * @memberOf Authentication.PasswordRecoveryController
    * @instance
    */
   $scope.msgText = "";
   /**
    * Innesca la chiamata al backend per il recupero della password utente.
    * @function recoverPassword
-   * @memberOf PasswordRecoveryController
+   * @memberOf Authentication.PasswordRecoveryController
    * @instance
    */
   $scope.recoverPassword = function(){

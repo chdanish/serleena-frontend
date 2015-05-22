@@ -40,10 +40,6 @@
    *
    */
 
-/**
- * @namespace Authentication
- */
-
 angular.module('authentication').controller('RegisterController', RegisterController);
 
 /**
@@ -52,6 +48,7 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Authentication
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} UserService - Servizio che gestisce le informazioni utente.
   * @param {Service} AuthService - Servizio che gestisce l'autenticazione utente.
@@ -63,7 +60,7 @@ function RegisterController($scope, UserService, AuthService) {
    *
    * @name email
    * @type String
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.email = "";
@@ -72,7 +69,7 @@ function RegisterController($scope, UserService, AuthService) {
    *
    * @name password
    * @type String
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.password = "";
@@ -82,7 +79,7 @@ function RegisterController($scope, UserService, AuthService) {
    * @name done
    * @type Boolean
    * @default false
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.done = false;
@@ -92,7 +89,7 @@ function RegisterController($scope, UserService, AuthService) {
    * @name enableNext
    * @type Boolean
    * @default false
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.enableNext = false;
@@ -101,7 +98,7 @@ function RegisterController($scope, UserService, AuthService) {
    *
    * @name msgType
    * @type String
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.msgType = "";
@@ -110,7 +107,7 @@ function RegisterController($scope, UserService, AuthService) {
    *
    * @name msgText
    * @type String
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.msgText = "";
@@ -118,7 +115,7 @@ function RegisterController($scope, UserService, AuthService) {
   /**
    * Effettua registrazione utente.
    * @function registerUser
-   * @memberOf RegisterController
+   * @memberOf Authentication.RegisterController
    * @instance
    */
   $scope.registerUser = function(){
