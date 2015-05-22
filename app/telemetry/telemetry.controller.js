@@ -76,4 +76,24 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.telemetries = [];
+  /**
+   * Indice dell'esperienza di cui si stanno attualmente visualizzando i
+   * dettagli.
+   *
+   * @name currentTelemetryIndex
+   * @type Number
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.currentTelemetryIndex = -1;
+  /**
+   * Array di informazioni relative al tracciamento che si sta attualmente
+   * visualizzando.
+   *
+   * @name currentTelemetry
+   * @type Array
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.currentTelemetry = [];
 }
