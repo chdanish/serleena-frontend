@@ -38,7 +38,7 @@
   */
 
 describe('ExperienceWizardController Test', function () {
-    var $scope, map, serleenaDataService, experienceService;
+    var $scope, map, serleenaDataService, experienceService, routeParams;
     
 
     function createMap() {
@@ -88,12 +88,15 @@ describe('ExperienceWizardController Test', function () {
 		    callback(false, '');
 		}
 	    });
-	
+
+	routeParams = {};
+
 	$controller('ExperienceWizardController', {
 	    $scope: $scope,
 	    Map: map,
 	    SerleenaDataService: serleenaDataService,
-	    ExperienceService: experienceService
+	    ExperienceService: experienceService,
+	    $routeParams:  routeParams
 	});
     }));
 
