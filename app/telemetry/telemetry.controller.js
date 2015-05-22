@@ -76,4 +76,13 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.trackId = $routeParams.trackId;
+  /**
+   * Nome dell'esperienza di cui si stanno visualizzando i tracciamenti.
+   *
+   * @name expName
+   * @type String
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.expName = "";
 }
