@@ -50,6 +50,7 @@ angular.module('telemetry').controller('TelemetryController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Telemetry
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} ExperienceService - Servizio di comunicazione con il
   * backend per la gestione delle esperienze.
@@ -66,7 +67,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name experienceId
    * @type Number
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.experienceId = $routeParams.experienceId;
@@ -75,7 +76,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name trackId
    * @type Number
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.trackId = $routeParams.trackId;
@@ -84,7 +85,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name expName
    * @type String
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.expName = "";
@@ -93,7 +94,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name trackpName
    * @type String
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.trackName = "";
@@ -103,7 +104,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name telemetries
    * @type Array
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.telemetries = [];
@@ -113,7 +114,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name currentTelemetryIndex
    * @type Number
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.currentTelemetryIndex = -1;
@@ -123,7 +124,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name currentTelemetry
    * @type Array
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.currentTelemetry = [];
@@ -132,7 +133,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    *
    * @name heartChartOptions
    * @type Object
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.heartChartOptions = {
@@ -173,7 +174,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * particolare tracciamento.
    *
    * @function showTelemetry
-   * @memberOf TelemetryController
+   * @memberOf Telemetry.TelemetryController
    * @instance
    */
   $scope.showTelemetry = function(index){
