@@ -47,6 +47,7 @@ angular.module("experience").controller("DeleteExperienceController",
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Experience
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} $routeParams - Service che gestisce il recupero dei
   * parametri passati via url.
@@ -60,7 +61,7 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
      *
      * @name experienceId
      * @type Number
-     * @memberOf DeleteExperienceController
+     * @memberOf Experience.DeleteExperienceController
      * @instance
      */
 	$scope.experienceId = $routeParams.experienceId;
@@ -70,7 +71,7 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
      * @name deleteRequested
      * @type Boolean
      * @default false
-     * @memberOf DeleteExperienceController
+     * @memberOf Experience.DeleteExperienceController
      * @instance
      */
 	$scope.deleteRequested = false;
@@ -79,7 +80,7 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
      *
      * @name responseType
      * @type String
-     * @memberOf DeleteExperienceController
+     * @memberOf Experience.DeleteExperienceController
      * @instance
      */
 	$scope.responseType = "";
@@ -88,7 +89,7 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
      *
      * @name responseType
      * @type String
-     * @memberOf DeleteExperienceController
+     * @memberOf Experience.DeleteExperienceController
      * @instance
      */
 	$scope.responseMsg = "";
@@ -97,7 +98,7 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
 	 * dell'esperienza.
 	 *
 	 * @function deleteExperience
-	 * @memberOf DeleteExperienceController
+	 * @memberOf Experience.DeleteExperienceController
 	 * @instance
 	 */
 	$scope.deleteExperience = function(){
