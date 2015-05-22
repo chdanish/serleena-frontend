@@ -18,6 +18,7 @@ angular.module('synchronization').controller('PairingController', PairingControl
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Synchronization
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} PairingService - Servizio che gestisce la comunicazione con
   * il backend relativa alla gestione dell'accoppiamento con serleena.
@@ -31,7 +32,7 @@ function PairingController($scope, PairingService, $route) {
    *
    * @name tempToken
    * @type String
-   * @memberOf PairingController
+   * @memberOf Synchronization.PairingController
    * @instance
    */
   $scope.tempToken = "";
@@ -41,7 +42,7 @@ function PairingController($scope, PairingService, $route) {
    * @name showSuccess
    * @type Boolean
    * @default false
-   * @memberOf PairingController
+   * @memberOf Synchronization.PairingController
    * @instance
    */
   $scope.showSuccess = false;
@@ -51,7 +52,7 @@ function PairingController($scope, PairingService, $route) {
    * @name showError
    * @type Boolean
    * @default false
-   * @memberOf PairingController
+   * @memberOf Synchronization.PairingController
    * @instance
    */
   $scope.showError = false;
@@ -61,7 +62,7 @@ function PairingController($scope, PairingService, $route) {
    *
    * @name errorMsg
    * @type String
-   * @memberOf PairingController
+   * @memberOf Synchronization.PairingController
    * @instance
    */
   $scope.errorMsg = "";
@@ -69,7 +70,7 @@ function PairingController($scope, PairingService, $route) {
    * Metodo invocato dalla vista per eseguire l'accoppiamento.
    *
    * @function pairDevice
-   * @memberOf PairingController
+   * @memberOf Synchronization.PairingController
    * @instance
    */
   $scope.pairDevice = function(){
@@ -86,7 +87,7 @@ function PairingController($scope, PairingService, $route) {
    * Metodo invocato dalla vista per ricominciare la procedura di accoppiamento.
    *
    * @function retry
-   * @memberOf PairingController
+   * @memberOf Synchronization.PairingController
    * @instance
    */
   $scope.retry = function(){

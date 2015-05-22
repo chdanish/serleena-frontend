@@ -18,6 +18,7 @@ angular.module('synchronization').service('PairingService', PairingService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Synchronization
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
@@ -30,7 +31,7 @@ function PairingService($http, BACKEND_URL, AuthService) {
   /**
    * Implementa la chiamata al backend per il pair del dispositivo.
    * @function pairDevice
-   * @memberOf PairingService
+   * @memberOf Synchronization.PairingService
    * @instance
    * @param {String} tempToken - Token temporaneo proveniente dall'applicazione
    * serleena.
