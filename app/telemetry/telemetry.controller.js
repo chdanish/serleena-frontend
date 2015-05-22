@@ -96,4 +96,25 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.currentTelemetry = [];
+  /**
+   * Impostazioni riguardanti il grafico generato da Angular Charts.
+   *
+   * @name heartChartOptions
+   * @type Object
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.heartChartOptions = {
+    rows: [{
+      key: 'heart',
+      type: 'line',
+      name: 'Battito cardiaco'
+    }],
+    xAxis: {
+      key: 'id',
+      displayFormat: function(x){
+        return "Checkpoint #" + x;
+      }
+    },
+  };
 }
