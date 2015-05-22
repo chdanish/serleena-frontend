@@ -47,6 +47,7 @@ angular.module('authentication').service('UserService', UserService);
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Authentication
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
@@ -58,7 +59,7 @@ function UserService($http, BACKEND_URL) {
    * Implementa la comunicazione con il server per effetturare la registrazione
    * utente.
    * @function registerUser
-   * @memberOf UserService
+   * @memberOf Authentication.UserService
    * @instance
    * @param {String} email
    * @param {String} password
@@ -83,7 +84,7 @@ function UserService($http, BACKEND_URL) {
    * Implementa la comunicazione con il server per effetturare il recupero della
    * password utente.
    * @function recoverUser
-   * @memberOf UserService
+   * @memberOf Authentication.UserService
    * @instance
    * @param {String} email
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
