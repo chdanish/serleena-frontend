@@ -47,8 +47,15 @@ angular.module('telemetry').controller('TelemetryController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
-  * @param{scope} model che contiene i dati dell'applicazione.
+  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Service} ExperienceService - Servizio di comunicazione con il
+  * backend per la gestione delle esperienze.
+  * @param {Service} TelemetryService - Servizio di comunicazione con il
+  * backend per la gestione dei tracciamenti.
+  * @param {Service} $routeParams - Servizio di AngularJS per ottenere parametri
+  * relativi alla route che ha attivato il controller.
   */
 
-function TelemetryController($scope) {
+function TelemetryController($scope, ExperienceService, TelemetryService,
+  $routeParams) {
 }
