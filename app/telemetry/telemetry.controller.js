@@ -58,4 +58,22 @@ angular.module('telemetry').controller('TelemetryController',
 
 function TelemetryController($scope, ExperienceService, TelemetryService,
   $routeParams) {
+  /**
+   * Codice identificativo dell'esperienza.
+   *
+   * @name experienceId
+   * @type Number
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.experienceId = $routeParams.experienceId;
+  /**
+   * Codice identificativo del percorso.
+   *
+   * @name trackId
+   * @type Number
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.trackId = $routeParams.trackId;
 }
