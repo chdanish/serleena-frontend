@@ -22,6 +22,7 @@ angular.module('experience').controller('ExperienceWizardController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Experience
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Provider} Map - Provider che fornisce l'instanza del gestore della
   * mappa.
@@ -42,7 +43,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name showWizard
    * @type Boolean
    * @default true
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.showWizard = true;
@@ -51,7 +52,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name expName
    * @type String
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.expName = "";
@@ -60,7 +61,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name mapTagId
    * @type String
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.mapTagId = "";
@@ -70,7 +71,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name showEditPerimeter
    * @type Boolean
    * @default false
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.showEditPerimeter = false;
@@ -80,7 +81,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name showTracks
    * @type Boolean
    * @default false
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.showTracks = false;
@@ -91,7 +92,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name showPOISelection
    * @type Boolean
    * @default false
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.showPOISelection = false;
@@ -102,7 +103,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name showCustomPointSelection
    * @type Boolean
    * @default false
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.showCustomPointSelection = false;
@@ -111,7 +112,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name tracks
    * @type Array
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.tracks = [];
@@ -120,7 +121,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name currentTrackIndex
    * @type Number
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @default -1
    */
@@ -130,7 +131,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name previousTrackIndex
    * @type Number
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @default -1
    */
@@ -140,7 +141,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name poi
    * @type Array
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.poi = [];
@@ -149,7 +150,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name customPoints
    * @type Array
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.customPoints = [];
@@ -158,7 +159,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name saveType
    * @type String
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.saveType = "";
@@ -167,7 +168,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name saveMsg
    * @type String
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.saveMsg = "";
@@ -178,7 +179,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name editMode
    * @type Boolean
    * @default false
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.editMode = false;
@@ -188,7 +189,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name editExperienceId
    * @type Number
    * @default -1
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
    $scope.editExperienceId = -1;
@@ -197,7 +198,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name editExperiencePoi
    * @type Array
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
    $scope.editExperiencePoi = [];
@@ -206,7 +207,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    *
    * @name editExperienceCustomPoints
    * @type Array
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
    $scope.editExperienceCustomPoints = [];
@@ -238,7 +239,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * ottenere l'Id di quest'ultima.
    *
    * @function linkMap
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @private
    * @param {Object} event - Evento che è stato lanciato (hhMapLink)
@@ -253,7 +254,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * selezionare il perimetro.
    *
    * @function afterInsertName
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @private
    */
@@ -274,7 +275,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * caricati dal backend.
    *
    * @function afterPerimeterChoose
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @private
    */
@@ -295,7 +296,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * Funzione che compara tue punti d'interesse e ne verifica l'uguaglianza.
    *
    * @function comparePOI
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Object} p1 - Primo punto da valutare.
    * @param {Object} p2 - Secondo punto da valutare.
@@ -310,7 +311,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * p è un elemento dell'array.
    *
    * @function hasPOI
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Array} poiArray - Array di punti d'interesse.
    * @param {Object} p - Punto d'interesse.
@@ -332,7 +333,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * punti d'interesse compresi nel perimetro e li visualizza sulla mappa.
    *
    * @function afterTracksCreation
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @private
    */
@@ -364,7 +365,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * abilita la visualizzazione dell'interfaccia di creazione dei punti utente.
    *
    * @function afterPOISelection
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @private
    */
@@ -389,7 +390,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * esperienza.
    *
    * @function disableEditMode
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.disableEditMode = function(){
@@ -402,7 +403,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * dedicato.
    *
    * @function addNewTrack
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.addNewTrack = function(){
@@ -418,7 +419,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * dell'interfaccia per rinominare un percorso.
    *
    * @function showTrackRename
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del percorso a cui abilitare il cambio
    * del nome.
@@ -431,7 +432,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * dell'interfaccia per rinominare un percorso.
    *
    * @function closeTrackRename
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del percorso a cui disabilitare il cambio
    * del nome.
@@ -444,7 +445,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * relativi a un percorso, impostando quest'ultimo come percorso corrente.
    *
    * @function editTrack
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del percorso di cui gestire i checkpoint.
    */
@@ -464,7 +465,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * dedicato.
    *
    * @function deleteTrack
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del percorso da eliminare.
    */
@@ -482,7 +483,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * percorso corrente.
    *
    * @function addNewCheckpoint
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.addNewCheckpoint = function(){
@@ -495,7 +496,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * percorso corrente.
    *
    * @function deleteCheckpoint
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del checkpoint da eliminare.
    */
@@ -509,7 +510,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * corrente ed uscire dalla gestione di quest'ultimo.
    *
    * @function saveCheckpoints
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del checkpoint da eliminare.
    */
@@ -529,7 +530,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * Funzione invocata dalla vista per aggiungere un nuovo punto utente
    *
    * @function addNewCustomPoint
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   $scope.addNewCustomPoint = function(){
@@ -541,7 +542,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * Funzione invocata dalla vista per cancellare uno specifico punto utente.
    *
    * @function deleteCustomPoint
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Number} index - Indice del punto utente da eliminare.
    */
@@ -555,7 +556,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @name steps
    * @type Array
    * @private
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   var steps = [
@@ -569,7 +570,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * all'evento "hhWizardNextStep".
    *
    * @function onWizardNextStep
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    * @param {Object} event - Evento che provoca l'invocazione della funzione
    * (hhWizardNextStep).
@@ -584,7 +585,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * ExperienceService.
    *
    * @function onWizardCompleted
-   * @memberOf ExperienceWizardController
+   * @memberOf Experience.ExperienceWizardController
    * @instance
    */
   var onWizardCompleted = function(){

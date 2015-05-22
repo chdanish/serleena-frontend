@@ -10,10 +10,6 @@
    *
    */
 
-/**
- * @namespace Authentication
- */
-
 angular.module('authentication').controller('LogoutController', LogoutController);
 
 /**
@@ -22,6 +18,7 @@ angular.module('authentication').controller('LogoutController', LogoutController
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor
+  * @memberOf Authentication
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Provider} $location - Facade di AngularJS con il quale interagire
   * per gestire la history del browser e gli indirizzi.
@@ -31,7 +28,7 @@ function LogoutController($scope, $location, AuthService) {
   /**
    * Effettua logout utente.
    * @function logoutUser
-   * @memberOf LogoutController
+   * @memberOf Authentication.LogoutController
    * @instance
    */
   $scope.logoutUser = function(){

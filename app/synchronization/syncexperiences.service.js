@@ -17,6 +17,7 @@ angular.module('synchronization').service('SyncExperiencesService', SyncExperien
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @memberOf Synchronization
   * @constructor
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
@@ -31,7 +32,7 @@ function SyncExperiencesService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per ottenere la lista delle
    * esperienze da sincronizzare.
    * @function getSyncList
-   * @memberOf SyncExperiencesService
+   * @memberOf Synchronization.SyncExperiencesService
    * @instance
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
    * backend
@@ -55,7 +56,7 @@ function SyncExperiencesService($http, AuthService, BACKEND_URL) {
    * Implementa la comunicazione con il server per salvare la lista di
    * sincronizzazione aggiornata.
    * @function setSyncList
-   * @memberOf SyncExperiencesService
+   * @memberOf Synchronization.SyncExperiencesService
    * @instance
    * @param {Array} newList - Lista di sincronizzazione aggiornata.
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal

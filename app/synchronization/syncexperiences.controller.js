@@ -20,6 +20,7 @@ angular.module('synchronization').controller('SyncExperiencesController',
   * @author Antonio Cavestro
   * @version 0.1
   * @constructor
+  * @memberOf Synchronization
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} SyncExperiencesService - Service che implementa la
   * comunicazione con backend per quanto riguarda la gestione della lista di
@@ -33,7 +34,7 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    *
    * @name experiences
    * @type Array
-   * @memberOf SyncExperiencesController
+   * @memberOf Synchronization.SyncExperiencesController
    * @instance
    */
   $scope.experiences = [];
@@ -43,7 +44,7 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    * @name showMsg
    * @type Boolean
    * @default false
-   * @memberOf SyncExperiencesController
+   * @memberOf Synchronization.SyncExperiencesController
    * @instance
    */
   $scope.showMsg = false;
@@ -53,7 +54,7 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    *
    * @name msgType
    * @type String
-   * @memberOf SyncExperiencesController
+   * @memberOf Synchronization.SyncExperiencesController
    * @instance
    */
   $scope.msgType = "";
@@ -63,7 +64,7 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    *
    * @name msgText
    * @type String
-   * @memberOf SyncExperiencesController
+   * @memberOf Synchronization.SyncExperiencesController
    * @instance
    */
   $scope.msgText = "";
@@ -81,7 +82,7 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    * Funzione invocata dalla vista per eseguire l'aggiornamento della lista di
    * sincronizzazione.
    * @function saveList
-   * @memberOf SyncExperiencesController
+   * @memberOf Synchronization.SyncExperiencesController
    * @instance
    */
   $scope.saveList = function(){
