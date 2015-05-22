@@ -21,6 +21,7 @@ angular.module('experience').controller('ExperienceDetailsController',
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @memberOf Experience
   * @constructor
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} $routeParams - Service che gestisce il recupero dei
@@ -38,7 +39,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    *
    * @name experienceId
    * @type Number
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    */
   $scope.experienceId = $routeParams.experienceId;
@@ -47,7 +48,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    *
    * @name experience
    * @type Object
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    */
   $scope.experience = {};
@@ -56,7 +57,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    *
    * @name maps
    * @type Object
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    */
   $scope.maps = {};
@@ -66,7 +67,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    * @name currentTrackIndex
    * @type Number
    * @default -1
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    */
   $scope.currentTrackIndex = -1;
@@ -75,7 +76,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    *
    * @name currentTrackDraw
    * @type Object
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    */
   $scope.currentTrackDraw = null;
@@ -85,7 +86,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    *
    * @name currentCheckpoints
    * @type Array
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    */
   $scope.currentCheckpoints = [];
@@ -116,7 +117,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    * Funzione invocata dalla vista per visualizzare le informazioni relative a
    * uno specifico percorso.
    * @function showTrack
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @instance
    * @param {Number} index - Indice del percorso da visualizzare.
    */
@@ -142,7 +143,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    * suddette, in modo che possano essere inizializzate all'ottenimento dei dati
    * dell'esperienza provenienti dal backend.
    * @function linkMaps
-   * @memberOf ExperienceDetailsController
+   * @memberOf Experience.ExperienceDetailsController
    * @private
    * @instance
    * @param {Object} event - Evento che è stato lanciato (hhMapLink)
