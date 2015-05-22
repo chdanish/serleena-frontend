@@ -139,4 +139,27 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
         $scope.telemetries = data;
       }
   });
+  /**
+   * Funzione invocata dalla lista per visualizzare i dettagli relativi a un
+   * particolare tracciamento.
+   *
+   * @function showTelemetry
+   * @memberOf TelemetryController
+   * @instance
+   */
+  $scope.showTelemetry = function(index){
+    if (typeof $scope.telemetries[index].data == 'undefined'){
+      TelemetryService.getTelemetryDetails($scope.experienceId, $scope.trackId,
+        index, function(ok, data){
+          if(ok){
+            $scope.telemetries[index].data = data;
+            $scope.currentTelemetry = $scope.telemetries[index].data;
+            $scope.currentTelemetryIndex = index;
+          }
+        });
+    } else {
+      $scope.currentTelemetry = $scope.telemetries[index].data;
+      $scope.currentTelemetryIndex = index;
+    }
+  };
 }
