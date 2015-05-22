@@ -10,10 +10,6 @@
    *
    */
 
-/**
- * @namespace Authentication
- */
-
 angular.module('authentication').service('AuthService', AuthService);
 
 /**
@@ -22,6 +18,7 @@ angular.module('authentication').service('AuthService', AuthService);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @memberOf Authentication
   * @constructor
   * @param {Provider} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
@@ -37,7 +34,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
   /**
    * Implementa la comunicazione con il server per effetturare il login utente.
    * @function loginUser
-   * @memberOf AuthService
+   * @memberOf Authentication.AuthService
    * @instance
    * @param {String} email
    * @param {String} password
@@ -63,7 +60,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
   /**
    * Effettua il logout dell'utente.
    * @function logoutUser
-   * @memberOf AuthService
+   * @memberOf Authentication.AuthService
    * @instance
    * @param {function} callback - Funzione da invocare dopo aver effettuato il
    * logout
@@ -78,7 +75,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
   /**
    * Verifica se l'utente è autenticato.
    * @function isLogged
-   * @memberOf AuthService
+   * @memberOf Authentication.AuthService
    * @instance
    * @returns {Boolean}
    */
@@ -93,7 +90,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
    * dell'utente, permettendo a chi la invoca di effettuare richieste
    * autenticate al backend.
    * @function authRequest
-   * @memberOf AuthService
+   * @memberOf Authentication.AuthService
    * @instance
    * @param {function} callback - Funzione da invocare e a cui passare il valore
    * del token di autenticazione.
