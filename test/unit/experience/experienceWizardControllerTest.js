@@ -73,6 +73,7 @@ describe('ExperienceWizardController Test', function () {
 					   'drawCustomPoint', 'drawPOI',
 					   'drawPerimeter', 'closePerimeter',
 					   'removeCustomPointFromMap',
+					   'enablePerimeterEditing',
 					   'drawCheckpointFromObject']);
 	createMap();
 	serleenaDataService = jasmine.createSpyObj('SerleenaDataService',
@@ -558,4 +559,14 @@ describe('ExperienceWizardController Test', function () {
 	expect($scope.saveType).toBe('danger');
 	expect($scope.saveMsg).toBe("Errore nel salvataggio dell'esperienza :(");
     });
+
+    it('Successfully disableEditMode', function () {
+	$scope.editMode = true;
+	$scope.addNewTrack();
+
+	$scope.disableEditMode();
+
+	expect($scope.editMode).toBe(false);
+	expect($scope.tracks).toEqual([]);
+    });	
 });
