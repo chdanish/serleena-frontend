@@ -14,10 +14,6 @@
  */
 
 /**
- * @namespace App
- */
-
-/**
  * Classe che contiene la configurazione dell'applicazione.
  *
  * @constructor
