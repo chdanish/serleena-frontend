@@ -38,7 +38,8 @@
   */
 describe('ExperienceDetailsController', function () {
     var $scope, routeParams, map, experienceService;
-
+    var firstCall = true;
+    
     beforeEach(module('experience'));
 
     beforeEach(inject(function($controller, $rootScope) {
@@ -53,6 +54,20 @@ describe('ExperienceDetailsController', function () {
 	experienceService = jasmine.createSpyObj('ExperienceService',
 						 ['getExperienceDetails',
 						 ]);
+	experienceService.getExperienceDetails.and.callFake(
+	    function(id, callback) {
+		var data = {
+		    poi: [],
+		    userpoints: [],
+		    tracks: [],
+		};
+		if (firstCall) {
+		    firstCall = false;
+		    callback(true, data);
+		} else {
+		    callback(false, data);
+		}
+	    });
 
 	$controller('ExperienceDetailsController', {
 	    $scope: $scope,
@@ -62,6 +77,10 @@ describe('ExperienceDetailsController', function () {
 	});
     }));
 
+    it('With Experience', function () {
+	expect($scope.experience).toBeDefined();
+    });
+    
     it('Successfully showTrack', function () {
 	expect($scope.experienceId).toBe(8);
 	expect($scope.experience).toBeDefined();
