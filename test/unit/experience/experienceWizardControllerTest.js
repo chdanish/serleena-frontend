@@ -60,6 +60,29 @@ describe('ExperienceWizardController Test', function () {
 	map.closePerimeter.and.callFake(function(map, rectangle) {
 	    return "Doc's House";
 	});
+
+	map.drawPOI.and.callFake(function(map, lat, lng, name) {
+	    return 'Drawed';
+	});
+    }
+
+    function createSerleena() {
+	serleenaDataService.getPaths.and.callFake(function(ne, sw, callback) {
+	    var paths = [{
+		name: 'path',
+		points: 3,
+	    }];
+	    callback(true, paths);
+	});
+
+	serleenaDataService.getPOIs.and.callFake(function(from, to, callback) {
+	    var poi = [{
+		name: 'onlyOne',
+		lat: '',
+		lng: '',
+	    }];
+	    callback(true, poi);
+	});
     }
 
     beforeEach(module('experience'));
@@ -69,15 +92,17 @@ describe('ExperienceWizardController Test', function () {
 	map = jasmine.createSpyObj('Map', ['initMap', 'removeTrackFromMap',
 					   'drawCheckpoint', 'drawTrack',
 					   'removeCheckpointFromMap',
-					   'getCheckpointPosition',
+					   'getCheckpointPosition', 'drawPath',
 					   'drawCustomPoint', 'drawPOI',
 					   'drawPerimeter', 'closePerimeter',
 					   'removeCustomPointFromMap',
 					   'enablePerimeterEditing',
+					   'removePOIFromMap',
 					   'drawCheckpointFromObject']);
 	createMap();
 	serleenaDataService = jasmine.createSpyObj('SerleenaDataService',
 						['getPaths', 'getPOIs']);
+	createSerleena();
 
 	experienceService = jasmine.createSpyObj('ExperienceService',
 						 ['saveExperience']);
@@ -494,9 +519,16 @@ describe('ExperienceWizardController Test', function () {
 	    ne: '',
 	    sw: '',
 	};
-	
+	$scope.editMode = true;
+	$scope.editExperiencePoi = [{
+		name: 'onlyOne',
+		lat: '',
+		lng: '',
+	}];
+
 	$scope.$broadcast('hhWizardNextStep', 3);
 
+	expect($scope.poi[0].selected).toBe(true);
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(true);
 
