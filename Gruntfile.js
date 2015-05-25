@@ -1,10 +1,10 @@
 module.exports = function(grunt){
 
     var serleenafrontend_files = [
-	        './app/config/app.js',
+	        './app/app/app.js',
 	        './app/map/map.provider.js',
-	        './app/config/appconfiguration.js',
-	        './app/config/appinit.js',
+	        './app/app/appconfiguration.js',
+	        './app/app/appinit.js',
 	        './app/authentication/*.js',
 	        './app/map/map.directive.js',
 	        './app/map/googlemaps.service.js',
