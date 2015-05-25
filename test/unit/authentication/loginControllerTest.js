@@ -51,12 +51,11 @@ describe('LoginController Test', function () {
 	location = jasmine.createSpyObj('location', ['path']);
 
 	authService = jasmine.createSpyObj('AuthService', ['loginUser']);
-	authService.loginUser.and.callFake(function (email, pwd) {
-	    if (email == "test@test.it" && pwd == "pwd")
-		location.path("/dashboard");
-	    else {
-		$scope.errorMessage = "Accesso fallito :(";
-		$scope.showError = true;
+	authService.loginUser.and.callFake(function (email, pwd, callback) {
+	    if (email == "test@test.it" && pwd == "pwd") {
+		callback(true, '');
+	    } else {
+		callback(false, '');
 	    }
 	});
 	
@@ -67,7 +66,6 @@ describe('LoginController Test', function () {
 	});
     }));
 
-    
     it('Successfully login', function () {
 	$scope.email = "test@test.it";
 	$scope.password = "pwd";
