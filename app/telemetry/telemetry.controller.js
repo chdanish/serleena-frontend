@@ -64,7 +64,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
   /**
    * Nome del percorso di cui si stanno visualizzando i tracciamenti.
    *
-   * @name trackpName
+   * @name trackName
    * @type String
    * @memberOf Telemetry.TelemetryController
    * @instance
