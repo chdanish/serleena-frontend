@@ -38,6 +38,10 @@
  */
 
 /**
+ * @namespace App
+ */
+
+/**
  * @namespace Authentication
  */
 angular
