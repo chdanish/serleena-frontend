@@ -21,14 +21,12 @@ describe('PasswordRecoveryController test', function () {
 	$scope = {};
 
 	userService = jasmine.createSpyObj('UserService', ['recoverUser']);
-	userService.recoverUser.and.callFake(function(email) {
+	userService.recoverUser.and.callFake(function(email, callback) {
 	    $scope.done = true;
 	    if(email == 'test@test.it') {
-		$scope.msgType = 'primary';
-		$scope.msgText = 'Richiesta di recupero password inoltrata';
+		callback(true, '');
 	    } else {
-		$scope.msgType = 'danger';
-		$scope.msgText = 'Errore nella richiesta :(';
+		callback(false, '');
 	    }
 	});
 
@@ -48,7 +46,7 @@ describe('PasswordRecoveryController test', function () {
 
 	expect($scope.done).toBe(true);
 	expect($scope.msgType).toBe('primary');
-	expect($scope.msgText).toBe('Richiesta di recupero password inoltrata');
+	expect($scope.msgText).toBe('Richiesta di recupero password inoltrata!');
     });
 
     it('Wrong recoverPassoword', function () {
