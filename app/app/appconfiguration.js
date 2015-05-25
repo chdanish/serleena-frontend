@@ -14,7 +14,7 @@
  */
 
 /**
- * @namespace Configuration
+ * @namespace App
  */
 
 /**
@@ -22,6 +22,7 @@
  *
  * @constructor
  * @param {Provider} $routeProvider - Il gestore delle route di AngularJS
+ * @memberOf App
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.2
@@ -32,7 +33,7 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 	 * Configura le route dell'applicazione.
 	 * @private
 	 * @function setRoutes
-	 * @memberOf AppConfiguration
+	 * @memberOf App.AppConfiguration
 	 * @instance
 	 */
 	var setRoutes = function(){
@@ -90,7 +91,7 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 	 * Configura il gestore delle mappe.
 	 * @private
 	 * @function setMapType
-	 * @memberOf AppConfiguration
+	 * @memberOf App.AppConfiguration
 	 * @instance
 	 */
 	var setMapType = function(){
@@ -101,7 +102,7 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 	 * Configura l'indirizzo del backend.
 	 * @private
 	 * @function setBackendURL
-	 * @memberOf AppConfiguration
+	 * @memberOf App.AppConfiguration
 	 * @instance
 	 */
 	var setBackendURL = function(){
