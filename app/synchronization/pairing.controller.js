@@ -50,7 +50,7 @@ angular.module('synchronization').controller('PairingController', PairingControl
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} PairingService - Servizio che gestisce la comunicazione con
   * il backend relativa alla gestione dell'accoppiamento con serleena.
-  * @param {Provider} $route - Provider di AngularJS per agire sulla route
+  * @param {Service} $route - Provider di AngularJS per agire sulla route
   * corrente.
   */
 
