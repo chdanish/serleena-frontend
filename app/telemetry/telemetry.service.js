@@ -20,7 +20,7 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   * @version 0.1
   * @constructor
   * @memberOf Telemetry
-  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * @param {Service} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
   * @param {Service} AuthService - Servizio di gestione dell'autenticazione
   * utente, necessario per l'uso del token con cui firmare le richieste.
