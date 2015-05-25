@@ -20,9 +20,9 @@ angular.module('authentication').service('AuthService', AuthService);
   * @version 0.1
   * @memberOf Authentication
   * @constructor
-  * @param {Provider} $http - Facade di AngularJS per la comunicazione via
+  * @param {Service} $http - Facade di AngularJS per la comunicazione via
   * XMLHttpRequest (Ajax)
-  * @param {Provider} $cookies - Facade di AngularJS per la gestione dei
+  * @param {Service} $cookies - Facade di AngularJS per la gestione dei
   * cookie
   * @param {Scope} $rootScope - ViewModel globale per salvare se l'utente è
   * autenticato o meno.
