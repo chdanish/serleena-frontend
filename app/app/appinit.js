@@ -8,7 +8,7 @@
  * @param {Provider} $location - Facade di AngularJS con il quale interagire
  * per gestire la history del browser e gli indirizzi.
  * @param {Service} AuthService - Gestore dell'autenticazione.
- *
+ * @memberOf App
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.1
  */
@@ -17,7 +17,7 @@ function AppInit($rootScope, $location, AuthService){
 	/**
 	 * Gestisce il controllo degli accessi nell'applicazione.
 	 * @function accessManager
-	 * @memberOf AppInit
+	 * @memberOf App.AppInit
 	 * @instance
 	 */
 	var accessManager = function(){
