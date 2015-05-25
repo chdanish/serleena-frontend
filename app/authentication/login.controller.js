@@ -45,6 +45,9 @@ angular.module('authentication').controller('LoginController', LoginController);
  * @constructor
  * @memberOf Authentication
  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+ * @param {Service} $location - Facade di AngularJS con il quale interagire
+ * per gestire la history del browser e gli indirizzi.
+ * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
  * @version 0.1
