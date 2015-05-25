@@ -16,6 +16,6 @@ for package in $packages
 					touch xml-js/$package/$class.xml
 				fi
 				echo "xml-js/$package/$class.xml";
-				node node_modules/jsdoc/jsdoc.js -p app/$package/$class app/config/app.js -d console -t templates/haruki -q format=xml > xml-js/$package/$class.xml
+				node node_modules/jsdoc/jsdoc.js -p app/$package/$class app/app/app.js -d console -t templates/haruki -q format=xml > xml-js/$package/$class.xml
 			done
 	done
