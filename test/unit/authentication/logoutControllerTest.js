@@ -50,8 +50,8 @@ describe ('LogoutController Test', function () {
 	location = jasmine.createSpyObj('location', ['path']);
 
 	authService = jasmine.createSpyObj('AuthService', ['logoutUser']);
-	authService.logoutUser.and.callFake(function () {
-	    location.path('/');
+	authService.logoutUser.and.callFake(function (callback) {
+	    callback();
 	});
 
 	$controller('LogoutController', {
