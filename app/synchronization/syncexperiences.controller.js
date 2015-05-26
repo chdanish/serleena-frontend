@@ -47,7 +47,7 @@ angular.module('synchronization').controller('SyncExperiencesController',
   *
   * @author Antonio Cavestro
   * @version 0.1
-  * @use L’applicativo è configurato tramite App.AppConfiguration per invocare
+  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di impostazione della
   * lista di esperienze da sincronizzare. Carica la lista salvata nel backend
   * invocando SyncExperiencesService. Quando l’utente ha eseguito le modifiche,

@@ -46,7 +46,7 @@ angular.module('synchronization').service('SyncExperiencesService', SyncExperien
   * @author Antonio Cavestro
   * @version 0.1
   * @memberOf Synchronization
-  * @use Quando l’utente accede alle impostazioni di sincronizzazione,
+  * @example Quando l’utente accede alle impostazioni di sincronizzazione,
   * SyncExperiencesController interroga questo componente per ottenere la lista
   * corrente. Una volta inviate le modifiche, il controller citato in precedenza
   * richiama SyncExperiencesService per l’aggiornamento della lista remota.
