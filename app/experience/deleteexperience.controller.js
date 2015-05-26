@@ -59,7 +59,7 @@ function DeleteExperienceController($scope, $routeParams, ExperienceService){
 	/**
      * Variabile che contiene il messaggio ottenuto dal backend.
      *
-     * @name responseType
+     * @name responseMsg
      * @type String
      * @memberOf Experience.DeleteExperienceController
      * @instance
