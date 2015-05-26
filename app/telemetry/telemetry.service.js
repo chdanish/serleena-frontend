@@ -46,7 +46,7 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   *
   * @author Antonio Cavestro
   * @version 0.1
-  * @use Quando l’utente accede alla visualizzazione del tracciamento di
+  * @example Quando l’utente accede alla visualizzazione del tracciamento di
   * un’esperienza, TelemetryController interroga questo componente per ottenerne
   * le informazioni. Comunica con Authentication.AuthService per ottenere il
   * token di autenticazione da allegare alle richieste.
