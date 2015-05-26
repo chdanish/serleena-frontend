@@ -21,6 +21,15 @@ angular.module('experience').controller('ExperienceWizardController',
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example L’applicativo è configurato tramite App::AppConfiguration per invocare
+  * questo controller quando il browser richiede la pagina di creazione e
+  * modifica di un’esperienza. Istanzia un oggetto mappa tramite un riferimento
+  * a MapDirective e a MapProvider, ascolta gli eventi sul cambiamento di step
+  * da parte di WizardDirective e in base a questi controlla la mappa
+  * interagendo con l’utente e il MapProvider. Al termine del wizard spedisce il
+  * risultato al backend tramite ExperienceService. Se la procedura guidata è di
+  * modifica, carica i dati dell’esperienza da modificare tramite l’ultimo
+  * servizio citato.
   * @constructor
   * @memberOf Experience
   * @param {Scope} $scope - L'oggetto ViewModel del controller.

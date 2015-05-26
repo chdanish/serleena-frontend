@@ -16,6 +16,10 @@ angular.module('wizard').directive('hhWizard', WizardDirective);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example Viene utilizzato per rappresentare graficamente la procedura di
+  * creazione e modifica di un’esperienza. Viene creata all’interno di
+  * Experience.ExperienceWizardView e contiene molte istanze di
+  * WizardStepDirective.
   * @constructor
   * @memberOf Wizard
   */

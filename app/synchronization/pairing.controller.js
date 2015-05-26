@@ -17,6 +17,12 @@ angular.module('synchronization').controller('PairingController', PairingControl
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
+  * questo controller quando il browser richiede la pagina di pairing. Con i
+  * dati ricevuti da PairingView, effettua una richiesta al backend tramite
+  * PairingService. Successivamente aggiorna la vista con l’esito
+  * dell’operazione.
+  *
   * @constructor
   * @memberOf Synchronization
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
