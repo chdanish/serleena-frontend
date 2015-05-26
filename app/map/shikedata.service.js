@@ -18,7 +18,7 @@ angular.module('map').service('SerleenaDataService', SerleenaDataService);
   *
   * @author Antonio Cavestro
   * @version 0.1
-  * @use Viene usato da Experience.ExperienceWizardController per ottenere
+  * @example Viene usato da Experience.ExperienceWizardController per ottenere
   * informazioni geografiche da disegnare sulla mappa tramite MapProvider.
   * @constructor
   * @memberOf Map
