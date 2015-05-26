@@ -15,6 +15,10 @@ angular.module('authentication').controller('PasswordRecoveryController',
 /**
   * Controller che gestisce la procedura di recupero della password utente.
   *
+  * @example L’applicativo è configurato tramite App.AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di recupero
+  * password utente. Con l’indirizzo email inserito, contatta il backend tramite
+  * UserService per l’inoltro della richiesta.
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor

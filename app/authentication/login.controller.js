@@ -14,6 +14,13 @@ angular.module('authentication').controller('LoginController', LoginController);
 /**
  * Classe che gestisce il login al portale
  *
+ * @example L’applicativo è configurato tramite App.AppConfiguration per
+ * invocare questo controller quando il browser richiede la pagina di login.
+ * Effettua la richiesta al backend tramite AuthService. Da LoginView riceve
+ * l’indirizzo email e la password. Se la richiesta ha esito positivo, chiede al
+ * service di generare un cookie con il token ricevuto dal backend e rimanda
+ * l’utente alla pagina principale. Altrimenti, spedisce alla vista il messaggio
+ * di errore.
  * @constructor
  * @memberOf Authentication
  * @param {Scope} $scope - L'oggetto ViewModel del controller.

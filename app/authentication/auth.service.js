@@ -18,6 +18,9 @@ angular.module('authentication').service('AuthService', AuthService);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example Espone dei metodi tramite i quali LoginController e
+  * LogoutController possono interagire con il backend per la gestione
+  * dell’autenticazione.
   * @memberOf Authentication
   * @constructor
   * @param {Service} $http - Facade di AngularJS per la comunicazione via
