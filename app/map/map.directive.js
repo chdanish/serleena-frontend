@@ -46,7 +46,7 @@ angular.module('map').directive('hhMap', MapDirective);
   * @author Antonio Cavestro
   * @version 0.1
   * @memberOf Map
-  * @use Al momento della creazione, all’interno di
+  * @example Al momento della creazione, all’interno di
   * Experience.ExperienceWizardView, essa registra il proprio attributo id
   * presso Frontend::Experience::ExperienceWizardController, il quale provvede,
   * tramite MapProvider, a iniettare nella directive il codice fornito dal
