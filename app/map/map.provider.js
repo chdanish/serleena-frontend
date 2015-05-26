@@ -19,6 +19,12 @@ angular.module('map').provider('Map', MapProvider);
   * @author Antonio Cavestro
   * @memberOf Map
   * @version 0.1
+  * @use Viene utilizzato da Experience.ExperienceWizardController, il quale gli
+  * comunica l’attributo id di MapDirective. Esso, a seconda della
+  * configurazione dell’applicativo, stabilita App.AppConfiguration, istanzia un
+  * service concreto, ad esempio GoogleMapsService, e lo ritorna a
+  * Experience.ExperienceWizardController. È dunque un’implementazione del
+  * design pattern Factory Method.
   * @constructor
   */
 
