@@ -462,7 +462,7 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @param {Object} map - Oggetto mappa di Google Maps.
-   * @param {Object} points - Array di oggetti che contengono un attributo "lat"
+   * @param {Array} points - Array di oggetti che contengono un attributo "lat"
    * con la latitudine e un attributo "lng" con la longitudine.
    * @returns {google.maps.Polyline} - Oggetto rappresentante il percorso
    * disegnato.
