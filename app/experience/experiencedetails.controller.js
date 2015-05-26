@@ -50,6 +50,11 @@ angular.module('experience').controller('ExperienceDetailsController',
   * @author Antonio Cavestro
   * @version 0.1
   * @memberOf Experience
+  * @use L’applicativo è configurato tramite App.AppConfiguration per invocare
+  * questo controller quando il browser richiede la pagina di visualizzazione
+  * dei dettagli di un’esperienza. Alla creazione ottiene tali dettagli tramite
+  * ExperienceService e gestisce gli eventi utenti avvenuti tramite
+  * ExperienceDetailsView.
   * @constructor
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
   * @param {Service} $routeParams - Service che gestisce il recupero dei
