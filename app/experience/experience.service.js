@@ -24,7 +24,7 @@ angular.module('experience').service('ExperienceService', ExperienceService);
   * @author Antonio Cavestro
   * @version 0.1
   * @memberOf Experience
-  * @use Espone dei metodi tramite i quali ExperienceListController e
+  * @example Espone dei metodi tramite i quali ExperienceListController e
   * ExperienceWizardController possono interagire con il backend per la gestione
   * delle esperienze. Comunica con Authentication.AuthService per ottenere il
   * token di autenticazione da allegare alle richieste.
