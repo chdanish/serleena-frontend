@@ -49,7 +49,7 @@ angular.module('experience').controller('ExperienceWizardController',
   *
   * @author Antonio Cavestro
   * @version 0.1
-  * @use L’applicativo è configurato tramite App::AppConfiguration per invocare
+  * @example L’applicativo è configurato tramite App::AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di creazione e
   * modifica di un’esperienza. Istanzia un oggetto mappa tramite un riferimento
   * a MapDirective e a MapProvider, ascolta gli eventi sul cambiamento di step

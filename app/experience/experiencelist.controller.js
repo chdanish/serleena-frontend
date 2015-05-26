@@ -49,7 +49,7 @@ angular.module('experience').controller('ExperienceListController',
   *
   * @author Antonio Cavestro
   * @version 0.1
-  * @use L’applicativo è configurato tramite App.AppConfiguration per invocare
+  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di visualizzazione
   * della lista delle esperienze. A questo punto, carica i dati corrispondenti
   * tramite ExperienceService e popola la vista. Da questa può ricevere
