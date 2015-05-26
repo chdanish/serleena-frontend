@@ -45,6 +45,9 @@ angular.module('wizard').directive('hhWizardStep', WizardStepDirective);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @use Viene utilizzato per rappresentare graficamente dei passaggi nella
+  * creazione e modifica di un’esperienza. Al momento della creazione si
+  * registra a WizardDirectiveController.
   * @constructor
   * @memberOf Wizard
   */
