@@ -310,6 +310,10 @@ app.get('/experiences/:eid/tracks/:tid/telemetries/:telid', function(req, res){
   res.send(JSON.stringify(t));
 });
 
+app.put('/experiences/:id', function(req, res){
+  res.sendStatus(200);
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
