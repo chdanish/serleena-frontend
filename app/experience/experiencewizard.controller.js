@@ -600,6 +600,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @function onWizardNextStep
    * @memberOf Experience.ExperienceWizardController
    * @instance
+   * @private
    * @param {Object} event - Evento che provoca l'invocazione della funzione
    * (hhWizardNextStep).
    * @param {Number} step - Indice dello step successivo.
@@ -615,6 +616,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @function onWizardCompleted
    * @memberOf Experience.ExperienceWizardController
    * @instance
+   * @private
    */
   var onWizardCompleted = function(){
     var from = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
