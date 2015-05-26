@@ -51,10 +51,54 @@ angular.module('map').directive('hhMap', MapDirective);
 
 function MapDirective() {
   var directive = {
+    /**
+     * Variabile che permette di limitare l'uso della directive in un
+     * particolare tipo di entità del DOM, a scelta tra attributo, elemento o
+     * classe.
+     *
+     * @name restrict
+     * @type String
+     * @default E
+     * @memberOf Map.MapDirective
+     * @instance
+     */
     restrict: 'E',
+    /**
+     * Scope isolato della directive, separato da quello del controller che la
+     * gestisce.
+     *
+     * @name scope
+     * @type Scope
+     * @memberOf Map.MapDirective
+     * @instance
+     */
     scope: {},
     replace: true,
+    /**
+     * Codice HTML che rimpiazza il codice della directive. Dato che in questo
+     * caso si tratta di qualche carattere, si è preferito inserire il codice
+     * direttamente all'interno (inline) della definizione di MapDirective.
+     *
+     * @name template
+     * @type String
+     * @memberOf Map.MapDirective
+     * @instance
+     */
     template: '<div></div>',
+      /**
+       * Funzione invocata da AngularJS per inizializzare la directive. Essa,
+       * in questo caso, emette un evento 'hhMapLink' che permette al controller
+       * che la gestisce di rintracciarne l'id e inizializzarne il contenuto
+       * tramite MapProvider.
+       *
+       * @function link
+       * @memberOf Map.MapDirective
+       * @instance
+       * @param {Scope} scope - Scope accessibile dalla directive. In questo
+       * caso (scope isolato), si tratta del proprio.
+       * @param {DOMElement} element - Oggetto che rappresenta la directive
+       * all'interno del DOM della pagina.
+      */
     link: function(scope, element){
       scope.$emit('hhMapLink', element[0].id);
     }
