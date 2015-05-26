@@ -16,7 +16,7 @@ angular.module('wizard').controller('WizardDirectiveController', WizardDirective
   *
   * @author Antonio Cavestro
   * @version 0.1
-  * @use Mantiene un elenco di WizardStepDirective e gestisce il passaggio tra
+  * @example Mantiene un elenco di WizardStepDirective e gestisce il passaggio tra
   * essi in base alle interazioni dell’utente, che notifica a
   * Experience.ExperienceWizardController tramite il gestore degli eventi
   * implementato in AngularJS.
