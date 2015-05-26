@@ -45,6 +45,10 @@ angular.module('synchronization').service('PairingService', PairingService);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example Espone metodi utilizzati da PairingController per effettuare il
+  * pairing. Comunica con Authentication.AuthService per ottenere il token di
+  * autenticazione da allegare alle richieste.
+  *
   * @constructor
   * @memberOf Synchronization
   * @param {Service} $http - Facade di AngularJS per la comunicazione via

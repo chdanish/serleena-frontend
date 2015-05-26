@@ -46,6 +46,9 @@ angular.module('authentication').service('UserService', UserService);
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example Espone dei metodi tramite i quali RegisterController, e
+  * PasswordRecoveryController possono interagire con il backend per la gestione
+  * dell’utente.
   * @constructor
   * @memberOf Authentication
   * @param {Service} $http - Facade di AngularJS per la comunicazione via

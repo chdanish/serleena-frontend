@@ -46,6 +46,9 @@ angular.module('map').service('GoogleMapsService', GoogleMapsService);
   * @author Antonio Cavestro
   * @version 0.1
   * @memberOf Map
+  * @example Supporto alle interazioni dell’utente nella mappa di creazione e
+  * modifica di un’esperienza, oltre che nella visualizzazione dei dettagli
+  * esperienza.
   * @constructor
   */
 

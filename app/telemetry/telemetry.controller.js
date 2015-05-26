@@ -49,6 +49,12 @@ angular.module('telemetry').controller('TelemetryController',
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example L’applicativo è configurato tramite la classe App.AppConfiguration per
+  * invocare questo controller quando il browser punta all’indirizzo della
+  * pagina di visualizzazione dei tracciamenti. Carica i dati invocando
+  * TelemetryService, passandogli come parametro il codice identificativo
+  * dell’esperienza e del tracciamento.
+  *
   * @constructor
   * @memberOf Telemetry
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
