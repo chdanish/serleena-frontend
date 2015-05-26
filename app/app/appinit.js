@@ -2,6 +2,9 @@
  * Classe che contiene l'inizializzazione dell'applicazione, in particolare lo
  * stato di autenticazione e il gestore degli accessi nelle varie aree.
  *
+ * @example Si occupa di inizializzare l'applicazione, in particolar modo la
+ * gestione degli accessi, che impedisce agli utenti non autenticati l'accesso
+ * all'area riservata.
  * @constructor
  * @param {Provider} $rootScope - ViewModel globale di AngularJS, usato per
  * impostare globalmente se l'utente è autenticato o meno.

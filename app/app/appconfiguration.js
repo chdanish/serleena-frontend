@@ -16,6 +16,10 @@
 /**
  * Classe che contiene la configurazione dell'applicazione.
  *
+ * @example Si occupa di iniettare dipendenze e configurazioni all’interno dei
+ * componenti, ad esempio il servizio mappe da caricare e le sue impostazioni.
+ * Inoltre, attraverso l’oggetto $routeProvider di AngularJS5, specifica per
+ * ogni indirizzo previsto quale controller bisogna invocare e la vista associata.
  * @constructor
  * @param {Provider} $routeProvider - Il gestore delle route di AngularJS
  * @memberOf App
