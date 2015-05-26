@@ -43,6 +43,10 @@ angular.module('authentication').controller('LogoutController', LogoutController
 /**
   * Classe per la gestione della disconnessione di un utente.
   *
+  * @example L’applicativo è configurato tramite App.AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di logout.
+  * Tramite AuthService cancella il cookie creato al momento dell’autenticazione
+  * e notifica LogoutView dell’esito della richiesta.
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
   * @version 0.1
   * @constructor

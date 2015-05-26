@@ -47,6 +47,11 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   *
   * @author Antonio Cavestro
   * @version 0.1
+  * @example L’applicativo è configurato tramite Frontend::App::AppConfiguration
+  * per invocare questo controller quando il browser richiede la pagina di
+  * registrazione. Una volta che l’utente inserisce e conferma i dati, esso
+  * procede alla validazione e, in caso positivo, effettua la richiesta di
+  * registrazione al backend tramite UserService.
   * @constructor
   * @memberOf Authentication
   * @param {Scope} $scope - L'oggetto ViewModel del controller.
