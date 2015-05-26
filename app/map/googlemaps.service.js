@@ -28,7 +28,7 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @param {String} mapId - ID della mappa nel DOM.
-   * @returns {Object} map - Oggetto mappa di Google Maps.
+   * @returns {google.maps.Map} map - Oggetto mappa di Google Maps.
    */
   var initMap = function(mapId){
     return new google.maps.Map( document.getElementById(mapId),{
@@ -51,7 +51,7 @@ function GoogleMapsService() {
    * @param {Object} sw - Oggetto che rappresenta il punto a sud-ovest del
    * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
    * e un attributo "lng" con la longitudine.
-   * @returns {Object} map - Oggetto mappa di Google Maps.
+   * @returns {google.maps.Map} map - Oggetto mappa di Google Maps.
    */
   var initMapFromPerimeter = function(mapId, ne, sw){
     var perimeter = new google.maps.LatLngBounds(
@@ -72,8 +72,8 @@ function GoogleMapsService() {
    * @function drawPerimeter
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
-   * @returns {Object} rectangle - Rettangolo disegnato.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
+   * @returns {google.maps.Rectangle} rectangle - Rettangolo disegnato.
    */
   var drawPerimeter= function(map){
     return new google.maps.Rectangle({
@@ -97,14 +97,14 @@ function GoogleMapsService() {
    * @function drawPerimeterFromBounds
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Object} ne - Oggetto che rappresenta il punto a nord-est del
    * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
    * e un attributo "lng" con la longitudine.
    * @param {Object} sw - Oggetto che rappresenta il punto a sud-ovest del
    * perimetro dell'esperienza. Contiene un attributo "lat" con la latitudine
    * e un attributo "lng" con la longitudine.
-   * @returns {Object} rectangle - Rettangolo disegnato.
+   * @returns {google.maps.Rectangle} rectangle - Rettangolo disegnato.
    */
   var drawPerimeterFromBounds = function(map, ne, sw){
     return new google.maps.Rectangle({
@@ -127,8 +127,8 @@ function GoogleMapsService() {
    * @function enablePerimeterEditing
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
-   * @param {Object} rectangle - Rettangolo da rendere modificabile.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Rectangle} rectangle - Rettangolo da rendere modificabile.
    */
   var enablePerimeterEditing = function(rectangle){
     rectangle.setOptions({
@@ -142,8 +142,8 @@ function GoogleMapsService() {
    * @function closePerimeter
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
-   * @param {Object} rectangle - Rettangolo da rendere non modificabile.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Rectangle} rectangle - Rettangolo da rendere non modificabile.
    * @returns {Object} recBound - Oggetto contenente le coordinate nord-est e
    * sud-ovest del perimetro. Esso è organizzato con due attributi, "ne" per il
    * punto a nord-est e "sw" per il punto a sud-ovest, entrambi oggetti che
@@ -179,7 +179,7 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @private
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Array} path - Array di oggetti google.maps.LatLng che rappresenta
    * l'insieme dei punti che costituiscono la linea.
    * @param {String} color - Colore della linea in formato esadecimale.
@@ -213,7 +213,7 @@ function GoogleMapsService() {
    * @function drawPath
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {String} name - Nome del sentiero.
    * @param {Array} points - Array di oggetti punti, entrambi costituiti da
    * un attributo "lat" per la latitudine, e un attributo "lng" per la
@@ -241,8 +241,8 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @private
-   * @param {Object} map - Oggetto mappa di Google Maps.
-   * @param {Object} position - Oggetto google.maps.LatLng che rappresenta la
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.LatLng} position - Oggetto che rappresenta la
    * posizione del marker
    * @param {Object} icon - Oggetto che rappresenta l'icona del marker.
    * La documentazione di Gooogle Maps API v3 specifica che esso può essere di
@@ -267,7 +267,7 @@ function GoogleMapsService() {
    * @function drawPOI
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del punto.
    * @param {Number} lng - Longitudine del punto.
    * @param {String} name - Nome del punto d'interesse.
@@ -288,7 +288,7 @@ function GoogleMapsService() {
    * @function drawCheckpoint
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
    * costituisce un checkpoint.
    */
@@ -306,7 +306,7 @@ function GoogleMapsService() {
    * @function drawCheckpointFromPosition
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del checkpoint.
    * @param {Number} lng - Longitudine del checkpoint.
    * @returns {google.maps.Marker} - Riferimento all'oggetto marker che
@@ -347,7 +347,7 @@ function GoogleMapsService() {
    * @function drawCheckpointFromObject
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {google.maps.Marker} pointObj - Oggetto marker da disegnare.
    */
   var drawCheckpointFromObject = function(map, pointObj){
@@ -358,7 +358,7 @@ function GoogleMapsService() {
    * @function drawCustomPoint
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
    * punto d'interesse nella mappa.
    */
@@ -376,7 +376,7 @@ function GoogleMapsService() {
    * @function drawCustomPointFromPosition
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del punto utente.
    * @param {Number} lng - Longitudine del punto utente.
    * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
@@ -397,7 +397,7 @@ function GoogleMapsService() {
    * @function drawEditableCustomPointFromPosition
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Number} lat - Latitudine del punto utente.
    * @param {Number} lng - Longitudine del punto utente.
    * @returns {google.maps.Marker} - Riferimento all'oggetto che rappresenta un
@@ -461,7 +461,7 @@ function GoogleMapsService() {
    * @function drawTrack
    * @memberOf Map.GoogleMapsService
    * @instance
-   * @param {Object} map - Oggetto mappa di Google Maps.
+   * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {Array} points - Array di oggetti che contengono un attributo "lat"
    * con la latitudine e un attributo "lng" con la longitudine.
    * @returns {google.maps.Polyline} - Oggetto rappresentante il percorso
