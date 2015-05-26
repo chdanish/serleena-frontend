@@ -90,7 +90,7 @@ function WizardDirectiveController($scope) {
   /**
    * Verifica che lo step corrente sia l'ultimo del wizard.
    *
-   * @function hasNext
+   * @function isFinal
    * @memberOf Wizard.WizardDirectiveController
    * @instance
    * @returns Boolean
