@@ -637,10 +637,26 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       selectedCustomPoints.push(Map.getCustomPointPosition(p.marker));
     });
 
-    ExperienceService.saveExperience($scope.name, cleanTracks, from, to,
-      selectedPOIs, selectedCustomPoints, function(ok, data){
-
-      $scope.showWizard = false;
+    if($scope.editMode){
+      ExperienceService.editExperience($scope.experienceId, $scope.name,
+        cleanTracks, from, to, selectedPOIs, selectedCustomPoints,
+        experienceSavingCallback);
+    } else {
+      ExperienceService.saveExperience($scope.name, cleanTracks, from, to,
+      selectedPOIs, selectedCustomPoints, experienceSavingCallback);
+    }
+  };
+  /**
+   * Funzione che gestisce la risposta dal server alla creazione e alla modifica
+   * di un'esperienza.
+   *
+   * @function experienceSavingCallback
+   * @memberOf Experience.ExperienceWizardController
+   * @instance
+   * @private
+   */
+  var experienceSavingCallback = function(ok, data){
+    $scope.showWizard = false;
 
       if(ok){
         $scope.saveType = "success";
@@ -649,7 +665,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
         $scope.saveType = "danger";
         $scope.saveMsg = "Errore nel salvataggio dell'esperienza :(";
       }
-    });
   };
 
   $scope.$on('hhMapLink', linkMap);
