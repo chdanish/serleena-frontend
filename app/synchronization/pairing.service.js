@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa metodo pairDevice
+   * 1.0.0        Antonio Cavestro     Implementa metodo pairDevice
    *
    */
 
@@ -44,7 +44,7 @@ angular.module('synchronization').service('PairingService', PairingService);
   * Classe singleton che gestisce le chiamate al backend relative al pairing.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Espone metodi utilizzati da PairingController per effettuare il
   * pairing. Comunica con Authentication.AuthService per ottenere il token di
   * autenticazione da allegare alle richieste.

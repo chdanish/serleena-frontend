@@ -35,7 +35,7 @@
    * Version      Programmer          Changes
    * 0.0.1        Matteo Lisotto      Create file
    * 0.0.2        Antonio Cavestro    Implementa creazione esperienza
-   * 0.0.3        Antonio Cavestro    Implementa modifica esperienza
+   * 1.0.0        Antonio Cavestro    Implementa modifica esperienza
    *
    */
 
@@ -48,7 +48,7 @@ angular.module('experience').controller('ExperienceWizardController',
   * suoi attributi.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite App::AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di creazione e
   * modifica di un’esperienza. Istanzia un oggetto mappa tramite un riferimento

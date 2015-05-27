@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer          Changes
    * 0.0.1        Matteo Lisotto      Create file
-   * 0.0.2        Antonio Cavestro    Implementa controller
+   * 1.0.0        Antonio Cavestro    Implementa controller
    *
    */
 
@@ -46,7 +46,7 @@ angular.module('synchronization').controller('SyncExperiencesController',
   * esperienze che viene visualizzato nella vista.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di impostazione della
   * lista di esperienze da sincronizzare. Carica la lista salvata nel backend

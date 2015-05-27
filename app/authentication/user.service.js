@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Crea file
-   * 0.0.2        Antonio Cavestro     Prima implementazione metodi
+   * 1.0.0        Antonio Cavestro     Prima implementazione metodi
    *
    */
 
@@ -45,7 +45,7 @@ angular.module('authentication').service('UserService', UserService);
   * richieste relative alla gestione utente.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Espone dei metodi tramite i quali RegisterController, e
   * PasswordRecoveryController possono interagire con il backend per la gestione
   * dell’utente.

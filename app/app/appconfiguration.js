@@ -37,7 +37,7 @@
  * 0.0.2      Matteo Lisotto	Aggiungi moduli e aggiorna dipendenze di
  *								serleenaFrontend
  * 0.0.3	  Antonio Cavestro 	Aggiungi configurazione mappe
- * 0.0.4	  Antonio Cavestro  Migliora gestione url backend
+ * 1.0.0	  Antonio Cavestro  Migliora gestione url backend
  *
  */
 
@@ -53,7 +53,7 @@
  * @memberOf App
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
- * @version 0.2
+ * @version 1.0
  */
 function AppConfiguration($routeProvider, MapProvider, DEBUG,
 	PRODUCTION_BACKEND_URL, DEVELOP_BACKEND_URL, $httpProvider, $provide){

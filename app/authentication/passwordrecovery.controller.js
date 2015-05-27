@@ -33,7 +33,7 @@
    *
    * History:
    * Version      Programmer          Changes
-   * 0.0.1        Matteo Lisotto      Create file
+   * 1.0.0        Matteo Lisotto      Create file
    *
    */
 
@@ -48,7 +48,7 @@ angular.module('authentication').controller('PasswordRecoveryController',
   * password utente. Con l’indirizzo email inserito, contatta il backend tramite
   * UserService per l’inoltro della richiesta.
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
-  * @version 0.1
+  * @version 1.0
   * @constructor
   * @memberOf Authentication
   * @param {Scope} $scope - L'oggetto ViewModel del controller.

@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa controller secondo DP
+   * 1.0.0        Antonio Cavestro     Implementa controller secondo DP
    *
    */
 
@@ -48,7 +48,7 @@ angular.module('experience').controller('ExperienceDetailsController',
   * loro tipologia.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @memberOf Experience
   * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di visualizzazione

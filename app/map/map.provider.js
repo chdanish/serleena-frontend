@@ -33,7 +33,7 @@
    *
    * History:
    * Version      Programmer       Changes
-   * 0.0.1        Matteo Lisotto   Create file
+   * 1.0.0        Matteo Lisotto   Create file
    *
    */
 
@@ -46,7 +46,7 @@ angular.module('map').provider('Map', MapProvider);
   *
   * @author Antonio Cavestro
   * @memberOf Map
-  * @version 0.1
+  * @version 1.0
   * @example Viene utilizzato da Experience.ExperienceWizardController, il quale gli
   * comunica l’attributo id di MapDirective. Esso, a seconda della
   * configurazione dell’applicativo, stabilita App.AppConfiguration, istanzia un

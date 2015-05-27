@@ -35,7 +35,7 @@
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Crea file
    * 0.0.2        Antonio Cavestro     Aggiungi metodo di registrazione
-   * 0.0.3        Antonio Cavestro     Aggiungi login automatico dopo
+   * 1.0.0        Antonio Cavestro     Aggiungi login automatico dopo
    *                                   registrazione
    *
    */
@@ -46,7 +46,7 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * Controller che gestisce la registrazione dell'utente
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite Frontend::App::AppConfiguration
   * per invocare questo controller quando il browser richiede la pagina di
   * registrazione. Una volta che l’utente inserisce e conferma i dati, esso

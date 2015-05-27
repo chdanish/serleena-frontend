@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa directive secondo DP
+   * 1.0.0        Antonio Cavestro     Implementa directive secondo DP
    *
    */
 
@@ -44,7 +44,7 @@ angular.module('map').directive('hhMap', MapDirective);
   * Classe che realizza il componente grafico di una generica mappa.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @memberOf Map
   * @example Al momento della creazione, all’interno di
   * Experience.ExperienceWizardView, essa registra il proprio attributo id

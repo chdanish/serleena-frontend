@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer          Changes
    * 0.0.1        Antonio Cavestro    Create file
-   * 0.0.2		  Antonio Cavestro	  Implementa classe
+   * 1.0.0		  Antonio Cavestro	  Implementa classe
    *
    */
 
@@ -45,7 +45,7 @@ angular.module("experience").controller("DeleteExperienceController",
   * Classe che gestisce la cancellazione di un'esperienza.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di conferma della
   * cancellazione di un’esperienza. Gestisce gli eventi utente avvenuti tramite

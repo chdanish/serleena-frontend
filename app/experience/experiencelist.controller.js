@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer       Changes
    * 0.0.1        Matteo Lisotto   Create file
-   * 0.0.2        Antonio Cavestro Inserito codice per il recupero delle
+   * 1.0.0        Antonio Cavestro Inserito codice per il recupero delle
    *                               esperienze e il popolamento della vista
    *
    */
@@ -48,7 +48,7 @@ angular.module('experience').controller('ExperienceListController',
   * vista.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di visualizzazione
   * della lista delle esperienze. A questo punto, carica i dati corrispondenti

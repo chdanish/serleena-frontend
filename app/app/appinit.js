@@ -41,7 +41,7 @@
  * @param {Service} AuthService - Gestore dell'autenticazione.
  * @memberOf App
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
- * @version 0.1
+ * @version 1.0
  */
 function AppInit($rootScope, $location, AuthService){
 	$rootScope.userLogged = AuthService.isLogged();

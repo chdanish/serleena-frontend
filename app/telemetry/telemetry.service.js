@@ -34,7 +34,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa service secondo DP
+   * 1.0.0        Antonio Cavestro     Implementa service secondo DP
    *
    */
 
@@ -45,7 +45,7 @@ angular.module('telemetry').service('TelemetryService', TelemetryService);
   * tracciamenti relativi a una particolare esperienza.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Quando l’utente accede alla visualizzazione del tracciamento di
   * un’esperienza, TelemetryController interroga questo componente per ottenerne
   * le informazioni. Comunica con Authentication.AuthService per ottenere il
