@@ -27,6 +27,17 @@
 
 
 /**
+ * Name: appinit.js
+ * Package: App
+ * Author: Antonio Cavestro
+ *
+ * History:
+ * Version    Programmer  		Changes
+ * 1.0.0      Antonio Cavestro 	Crea file
+ *
+ */
+
+/**
  * Classe che contiene l'inizializzazione dell'applicazione, in particolare lo
  * stato di autenticazione e il gestore degli accessi nelle varie aree.
  *
