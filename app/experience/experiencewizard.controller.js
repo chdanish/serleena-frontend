@@ -60,7 +60,9 @@ angular.module('experience').controller('ExperienceWizardController',
   * servizio citato.
   * @constructor
   * @memberOf Experience
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Provider} Map - Provider che fornisce l'instanza del gestore della
   * mappa.
   * @param {Service} SerleenaDataService - Servizio per ottenere dati geografici

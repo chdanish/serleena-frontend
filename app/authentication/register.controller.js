@@ -54,7 +54,9 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * registrazione al backend tramite UserService.
   * @constructor
   * @memberOf Authentication
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} UserService - Servizio che gestisce le informazioni utente.
   * @param {Service} AuthService - Servizio che gestisce l'autenticazione utente.
   */

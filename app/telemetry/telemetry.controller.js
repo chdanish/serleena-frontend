@@ -57,7 +57,9 @@ angular.module('telemetry').controller('TelemetryController',
   *
   * @constructor
   * @memberOf Telemetry
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} ExperienceService - Servizio di comunicazione con il
   * backend per la gestione delle esperienze.
   * @param {Service} TelemetryService - Servizio di comunicazione con il

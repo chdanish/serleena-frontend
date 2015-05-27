@@ -56,7 +56,9 @@ angular.module('synchronization').controller('SyncExperiencesController',
   *
   * @constructor
   * @memberOf Synchronization
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} SyncExperiencesService - Service che implementa la
   * comunicazione con backend per quanto riguarda la gestione della lista di
   * esperienze da sincronizzare.
