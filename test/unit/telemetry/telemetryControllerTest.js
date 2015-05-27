@@ -168,7 +168,7 @@ describe('TelemetryController Test', function () {
 	    .toBe('Checkpoint #3');
     });
 
-    it('TelemetryController whith getTelemetryList', function () {
+    it('TelemetryController with getTelemetryList', function () {
 	expect($scope.experienceId).toBe(1);
 	expect($scope.trackId).toBe(44);
 	expect($scope.expName).toBe('');
