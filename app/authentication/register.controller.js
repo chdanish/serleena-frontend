@@ -12,7 +12,8 @@
    *
    */
 
-angular.module('authentication').controller('RegisterController', RegisterController);
+angular.module('authentication').controller('RegisterController',
+  RegisterController);
 
 /**
   * Controller che gestisce la registrazione dell'utente
@@ -30,7 +31,8 @@ angular.module('authentication').controller('RegisterController', RegisterContro
   * controller (il model) ed in cui vengono valutate le espressioni utilizzate
   * nella view.
   * @param {Service} UserService - Servizio che gestisce le informazioni utente.
-  * @param {Service} AuthService - Servizio che gestisce l'autenticazione utente.
+  * @param {Service} AuthService - Servizio che gestisce l'autenticazione
+  * utente.
   */
 
 function RegisterController($scope, UserService, AuthService) {
@@ -107,13 +109,14 @@ function RegisterController($scope, UserService, AuthService) {
             $scope.done = true;
             $scope.enableNext = true;
             // jshint multistr:true
-            $scope.msgText = "Registrazione effettuata! Prosegui abbinando il tuo \
-                                dispositivo a serleena Cloud";
+            $scope.msgText = "Registrazione effettuata! Prosegui abbinando il \
+                                tuo dispositivo a serleena Cloud";
             $scope.msgType = "success";
           } else {
             $scope.done = true;
             $scope.msgText = "Registrazione avvenuta ma non è stato possibile \
-                              autenticare l'utente. Contattare un amminsitratore :(";
+                              autenticare l'utente. Contattare un \
+                              amministratore :(";
             $scope.msgType = "danger";
           }
         });
