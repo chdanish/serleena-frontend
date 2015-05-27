@@ -45,7 +45,7 @@
  * gestione degli accessi, che impedisce agli utenti non autenticati l'accesso
  * all'area riservata.
  * @constructor
- * @param {Provider} $rootScope - ViewModel globale di AngularJS, usato per
+ * @param {Provider} $rootScope - Contesto globale dell'applicazione, usato per
  * impostare globalmente se l'utente è autenticato o meno.
  * @param {Provider} $location - Facade di AngularJS con il quale interagire
  * per gestire la history del browser e gli indirizzi.
