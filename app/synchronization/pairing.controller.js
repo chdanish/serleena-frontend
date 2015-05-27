@@ -10,22 +10,25 @@
    *
    */
 
-angular.module('synchronization').controller('PairingController', PairingController);
+angular.module('synchronization').controller('PairingController',
+  PairingController);
 
 /**
   * Classe che gestisce la procedura di pairing.
   *
   * @author Antonio Cavestro
   * @version 1.0
-  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
-  * questo controller quando il browser richiede la pagina di pairing. Con i
-  * dati ricevuti da PairingView, effettua una richiesta al backend tramite
-  * PairingService. Successivamente aggiorna la vista con l’esito
+  * @example L’applicativo è configurato tramite App.AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di pairing.
+  * Con i dati ricevuti da PairingView, effettua una richiesta al backend
+  * tramite PairingService. Successivamente aggiorna la vista con l’esito
   * dell’operazione.
   *
   * @constructor
   * @memberOf Synchronization
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} PairingService - Servizio che gestisce la comunicazione con
   * il backend relativa alla gestione dell'accoppiamento con serleena.
   * @param {Service} $route - Provider di AngularJS per agire sulla route

@@ -62,8 +62,8 @@ describe('registerController Test', function () {
 	expect($scope.enableNext).toBe(true);
 	expect($scope.email).toBe('test@test.it');
 	expect($scope.password).toBe('pwd');
-	expect($scope.msgText).toBe('Registrazione effettuata! Prosegui abbinando il tuo \
-                                dispositivo a serleena Cloud');
+	expect($scope.msgText).toBe('Registrazione effettuata! Prosegui abbinando il \
+                                tuo dispositivo a serleena Cloud');
 	expect($scope.msgType).toBe('success');
     });
 
@@ -84,7 +84,8 @@ describe('registerController Test', function () {
 	expect($scope.email).toBe('test@test.it');
 	expect($scope.password).toBe('notLogged');
 	expect($scope.msgText).toBe("Registrazione avvenuta ma non è stato possibile \
-                              autenticare l'utente. Contattare un amminsitratore :(");
+                              autenticare l'utente. Contattare un \
+                              amministratore :(");
 	expect($scope.msgType).toBe('danger');
     });
 

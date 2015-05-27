@@ -23,7 +23,9 @@ angular.module('authentication').controller('LoginController', LoginController);
  * di errore.
  * @constructor
  * @memberOf Authentication
- * @param {Scope} $scope - L'oggetto ViewModel del controller.
+ * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+ * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+ * nella view.
  * @param {Service} $location - Facade di AngularJS con il quale interagire
  * per gestire la history del browser e gli indirizzi.
  * @param {Service} AuthService - Servizio che gestisce autenticazione utente.

@@ -23,7 +23,9 @@ angular.module('authentication').controller('PasswordRecoveryController',
   * @version 1.0
   * @constructor
   * @memberOf Authentication
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} UserService - Oggetto che gestisce la comunicazione con
   * il backend per quanto riguarda le informazioni utente.
   */

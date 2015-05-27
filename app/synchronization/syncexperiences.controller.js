@@ -19,16 +19,18 @@ angular.module('synchronization').controller('SyncExperiencesController',
   *
   * @author Antonio Cavestro
   * @version 1.0
-  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
-  * questo controller quando il browser richiede la pagina di impostazione della
-  * lista di esperienze da sincronizzare. Carica la lista salvata nel backend
-  * invocando SyncExperiencesService. Quando l’utente ha eseguito le modifiche,
-  * viene notificato da SyncExperiencesView e provvede a chiamare il service per
-  * l’aggiornamento remoto.
+  * @example L’applicativo è configurato tramite App.AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di
+  * impostazione della lista di esperienze da sincronizzare. Carica la lista
+  * salvata nel backend invocando SyncExperiencesService. Quando l’utente ha
+  * eseguito le modifiche, viene notificato da SyncExperiencesView e provvede a
+  * chiamare il service per l’aggiornamento remoto.
   *
   * @constructor
   * @memberOf Synchronization
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} SyncExperiencesService - Service che implementa la
   * comunicazione con backend per quanto riguarda la gestione della lista di
   * esperienze da sincronizzare.
