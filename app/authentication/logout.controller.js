@@ -38,7 +38,8 @@
    *
    */
 
-angular.module('authentication').controller('LogoutController', LogoutController);
+angular.module('authentication').controller('LogoutController',
+  LogoutController);
 
 /**
   * Classe per la gestione della disconnessione di un utente.
