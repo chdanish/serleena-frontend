@@ -49,18 +49,20 @@ angular.module('experience').controller('ExperienceWizardController',
   *
   * @author Antonio Cavestro
   * @version 1.0
-  * @example L’applicativo è configurato tramite App::AppConfiguration per invocare
-  * questo controller quando il browser richiede la pagina di creazione e
-  * modifica di un’esperienza. Istanzia un oggetto mappa tramite un riferimento
-  * a MapDirective e a MapProvider, ascolta gli eventi sul cambiamento di step
-  * da parte di WizardDirective e in base a questi controlla la mappa
-  * interagendo con l’utente e il MapProvider. Al termine del wizard spedisce il
-  * risultato al backend tramite ExperienceService. Se la procedura guidata è di
-  * modifica, carica i dati dell’esperienza da modificare tramite l’ultimo
-  * servizio citato.
+  * @example L’applicativo è configurato tramite App::AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di creazione
+  * e modifica di un’esperienza. Istanzia un oggetto mappa tramite un
+  * riferimento a MapDirective e a MapProvider, ascolta gli eventi sul
+  * cambiamento di step da parte di WizardDirective e in base a questi controlla
+  * la mappa interagendo con l’utente e il MapProvider. Al termine del wizard
+  * spedisce il risultato al backend tramite ExperienceService. Se la procedura
+  * guidata è di modifica, carica i dati dell’esperienza da modificare tramite
+  * l’ultimo servizio citato.
   * @constructor
   * @memberOf Experience
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Provider} Map - Provider che fornisce l'instanza del gestore della
   * mappa.
   * @param {Service} SerleenaDataService - Servizio per ottenere dati geografici
@@ -252,14 +254,17 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   if($routeParams.hasOwnProperty("experienceId")){
     $scope.editMode = true;
     $scope.editExperienceId = $routeParams.experienceId;
-    ExperienceService.getExperienceDetails($scope.editExperienceId, function(ok, exp){
+    ExperienceService.getExperienceDetails($scope.editExperienceId,
+      function(ok, exp){
       if(ok){
         $scope.expName = exp.name;
         exp.tracks.forEach(function(t){
           t.checkMarkers = [];
-          ExperienceService.getTrackDetails(exp.id, t.id, function(ok, checkpoints){
+          ExperienceService.getTrackDetails(exp.id, t.id,
+            function(ok, checkpoints){
             checkpoints.forEach(function(c){
-              t.checkMarkers.push(Map.createEditableCheckpointFromPosition(c.lat, c.lng));
+              t.checkMarkers
+               .push(Map.createEditableCheckpointFromPosition(c.lat, c.lng));
             });
             $scope.tracks.push(t);
           });
@@ -378,7 +383,8 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.showTracks = false;
     $scope.showPOISelection = true;
     if($scope.previousTrackIndex != -1){
-      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+      Map.
+         removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
     }
     var poiFrom = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
     var poiTo = $scope.perimeter.sw.lat + ";" + $scope.perimeter.sw.lng;
@@ -415,7 +421,8 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     if ($scope.editMode){
       $scope.editExperienceCustomPoints.forEach(function(p){
         var o = {};
-        o.marker = Map.drawEditableCustomPointFromPosition($scope.map, p.lat, p.lng);
+        o.marker = Map.
+                  drawEditableCustomPointFromPosition($scope.map, p.lat, p.lng);
         $scope.customPoints.push(o);
       });
     }
@@ -490,7 +497,8 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.currentTrackIndex = index;
     if($scope.previousTrackIndex != -1 || $scope.editMode){
       if (!$scope.editMode){
-        Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+        Map.
+        removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
       }
       $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
         Map.drawCheckpointFromObject($scope.map, m);
@@ -508,7 +516,8 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.deleteTrack = function(index){
     if($scope.previousTrackIndex == index){
-      Map.removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+      Map.
+      removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
     }
     $scope.tracks.splice(index, 1);
     if(index < $scope.previousTrackIndex){
@@ -554,11 +563,13 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
   $scope.saveCheckpoints = function(){
     $scope.tracks[$scope.currentTrackIndex].checkpoints = [];
     $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
-      $scope.tracks[$scope.currentTrackIndex].checkpoints.push(Map.getCheckpointPosition(m));
+      $scope.tracks[$scope.currentTrackIndex].checkpoints
+                                            .push(Map.getCheckpointPosition(m));
       Map.removeCheckpointFromMap(m);
     });
 
-    $scope.tracks[$scope.currentTrackIndex].trackDraw = Map.drawTrack($scope.map,
+    $scope.tracks[$scope.currentTrackIndex].trackDraw = Map
+                                                        .drawTrack($scope.map,
       $scope.tracks[$scope.currentTrackIndex].checkpoints);
     $scope.previousTrackIndex = $scope.currentTrackIndex;
     $scope.currentTrackIndex = -1;

@@ -37,20 +37,23 @@
    *
    */
 
-angular.module('wizard').controller('WizardDirectiveController', WizardDirectiveController);
+angular.module('wizard').controller('WizardDirectiveController',
+  WizardDirectiveController);
 
 /**
   * Classe che gestisce una generica procedura guidata.
   *
   * @author Antonio Cavestro
   * @version 1.0
-  * @example Mantiene un elenco di WizardStepDirective e gestisce il passaggio tra
-  * essi in base alle interazioni dell’utente, che notifica a
+  * @example Mantiene un elenco di WizardStepDirective e gestisce il passaggio
+  * tra essi in base alle interazioni dell’utente, che notifica a
   * Experience.ExperienceWizardController tramite il gestore degli eventi
   * implementato in AngularJS.
   * @constructor
   * @memberOf Wizard
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   */
 
 function WizardDirectiveController($scope) {

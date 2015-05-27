@@ -38,7 +38,8 @@
    *
    */
 
-angular.module('authentication').controller('LogoutController', LogoutController);
+angular.module('authentication').controller('LogoutController',
+  LogoutController);
 
 /**
   * Classe per la gestione della disconnessione di un utente.
@@ -51,7 +52,9 @@ angular.module('authentication').controller('LogoutController', LogoutController
   * @version 1.0
   * @constructor
   * @memberOf Authentication
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} $location - Facade di AngularJS con il quale interagire
   * per gestire la history del browser e gli indirizzi.
   * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
