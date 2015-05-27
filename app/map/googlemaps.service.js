@@ -131,7 +131,8 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
-   * @param {google.maps.Rectangle} rectangle - Rettangolo da rendere modificabile.
+   * @param {google.maps.Rectangle} rectangle - Rettangolo da rendere
+   * modificabile.
    */
   var enablePerimeterEditing = function(rectangle){
     rectangle.setOptions({
@@ -146,7 +147,8 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
-   * @param {google.maps.Rectangle} rectangle - Rettangolo da rendere non modificabile.
+   * @param {google.maps.Rectangle} rectangle - Rettangolo da rendere non
+   * modificabile.
    * @returns {Object} recBound - Oggetto contenente le coordinate nord-est e
    * sud-ovest del perimetro. Esso è organizzato con due attributi, "ne" per il
    * punto a nord-est e "sw" per il punto a sud-ovest, entrambi oggetti che
