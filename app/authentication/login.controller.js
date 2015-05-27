@@ -5,7 +5,7 @@
  *
  * History:
  * Version    Programmer  	        Changes
- * 0.0.1      Antonio Cavestro 		Crea file
+ * 1.0.0      Antonio Cavestro 		Crea file
  *
  */
 
@@ -29,7 +29,7 @@ angular.module('authentication').controller('LoginController', LoginController);
  * @param {Service} AuthService - Servizio che gestisce autenticazione utente.
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
- * @version 0.1
+ * @version 1.0
  */
 function LoginController ($scope, $location, AuthService){
 

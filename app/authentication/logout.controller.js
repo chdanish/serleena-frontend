@@ -6,7 +6,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Crea file
-   * 0.0.2        Antonio Cavestro     Aggiungi funzione di logout
+   * 1.0.0        Antonio Cavestro     Aggiungi funzione di logout
    *
    */
 
@@ -20,7 +20,7 @@ angular.module('authentication').controller('LogoutController', LogoutController
   * Tramite AuthService cancella il cookie creato al momento dell’autenticazione
   * e notifica LogoutView dell’esito della richiesta.
   * @author Antonio Cavestro <antonio.cavestro@gmail.com>
-  * @version 0.1
+  * @version 1.0
   * @constructor
   * @memberOf Authentication
   * @param {Scope} $scope - L'oggetto ViewModel del controller.

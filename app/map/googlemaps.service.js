@@ -6,7 +6,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa file secondo DP
+   * 1.0.0        Antonio Cavestro     Implementa file secondo DP
    *
    */
 
@@ -16,7 +16,7 @@ angular.module('map').service('GoogleMapsService', GoogleMapsService);
   * Classe singleton che implementa la comunicazione con le API di Google Maps.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @memberOf Map
   * @example Supporto alle interazioni dell’utente nella mappa di creazione e
   * modifica di un’esperienza, oltre che nella visualizzazione dei dettagli

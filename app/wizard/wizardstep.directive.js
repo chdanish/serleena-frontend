@@ -5,7 +5,7 @@
    *
    * History:
    * Version      Programmer           Changes
-   * 0.0.1        Matteo Lisotto       Create file
+   * 1.0.0        Matteo Lisotto       Create file
    *
    */
 
@@ -16,7 +16,7 @@ angular.module('wizard').directive('hhWizardStep', WizardStepDirective);
   * procedura guidata.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Viene utilizzato per rappresentare graficamente dei passaggi nella
   * creazione e modifica di un’esperienza. Al momento della creazione si
   * registra a WizardDirectiveController.

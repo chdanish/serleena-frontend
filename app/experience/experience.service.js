@@ -10,7 +10,7 @@
    *                               esperienze
    * 0.0.3        Antonio Cavestro Aggiunto metodo per salvare un'esperienza.
    * 0.0.4        Antonio Cavestro Aggiunto metodo per cancellare un'esperienza.
-   * 0.0.5        Antonio Cavestro Aggiunto metodo per ottenere info esperienza
+   * 1.0.0        Antonio Cavestro Aggiunto metodo per ottenere info esperienza
    *                               e info percorso.
    *
    */
@@ -22,7 +22,7 @@ angular.module('experience').service('ExperienceService', ExperienceService);
   * richieste relative alle esperienze.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @memberOf Experience
   * @example Espone dei metodi tramite i quali ExperienceListController e
   * ExperienceWizardController possono interagire con il backend per la gestione

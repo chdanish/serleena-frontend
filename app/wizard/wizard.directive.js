@@ -5,7 +5,7 @@
    *
    * History:
    * Version      Programmer           Changes
-   * 0.0.1        Matteo Lisotto       Create file
+   * 1.0.0        Matteo Lisotto       Create file
    *
    */
 
@@ -15,7 +15,7 @@ angular.module('wizard').directive('hhWizard', WizardDirective);
   * Classe che realizza il componente grafico di una generica procedura guidata.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Viene utilizzato per rappresentare graficamente la procedura di
   * creazione e modifica di un’esperienza. Viene creata all’interno di
   * Experience.ExperienceWizardView e contiene molte istanze di

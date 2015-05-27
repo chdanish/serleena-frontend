@@ -6,7 +6,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa controller
+   * 1.0.0        Antonio Cavestro     Implementa controller
    *
    */
 
@@ -16,7 +16,7 @@ angular.module('synchronization').controller('PairingController', PairingControl
   * Classe che gestisce la procedura di pairing.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
   * questo controller quando il browser richiede la pagina di pairing. Con i
   * dati ricevuti da PairingView, effettua una richiesta al backend tramite

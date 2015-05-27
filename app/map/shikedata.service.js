@@ -5,7 +5,7 @@
    *
    * History:
    * Version      Programmer           Changes
-   * 0.0.1        Matteo Lisotto       Create file
+   * 1.0.0        Matteo Lisotto       Create file
    *
    */
 
@@ -17,7 +17,7 @@ angular.module('map').service('SerleenaDataService', SerleenaDataService);
   * d’interesse).
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Viene usato da Experience.ExperienceWizardController per ottenere
   * informazioni geografiche da disegnare sulla mappa tramite MapProvider.
   * @constructor

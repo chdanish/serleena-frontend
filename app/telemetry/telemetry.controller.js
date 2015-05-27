@@ -6,7 +6,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa controller secondo DP
+   * 1.0.0        Antonio Cavestro     Implementa controller secondo DP
    *
    */
 
@@ -20,7 +20,7 @@ angular.module('telemetry').controller('TelemetryController',
   * tracciamenti.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example L’applicativo è configurato tramite la classe App.AppConfiguration per
   * invocare questo controller quando il browser punta all’indirizzo della
   * pagina di visualizzazione dei tracciamenti. Carica i dati invocando

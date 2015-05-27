@@ -6,7 +6,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Create file
-   * 0.0.2        Antonio Cavestro     Implementa service
+   * 1.0.0        Antonio Cavestro     Implementa service
    *
    */
 angular.module('synchronization').service('SyncExperiencesService', SyncExperiencesService);
@@ -16,7 +16,7 @@ angular.module('synchronization').service('SyncExperiencesService', SyncExperien
   * della lista delle esperienze da sincronizzare.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @memberOf Synchronization
   * @example Quando l’utente accede alle impostazioni di sincronizzazione,
   * SyncExperiencesController interroga questo componente per ottenere la lista

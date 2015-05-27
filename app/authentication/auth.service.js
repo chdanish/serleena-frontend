@@ -6,7 +6,7 @@
    * History:
    * Version      Programmer           Changes
    * 0.0.1        Matteo Lisotto       Crea file
-   * 0.0.2        Antonio Cavestro     Prima implementazione metodi
+   * 1.0.0        Antonio Cavestro     Prima implementazione metodi
    *
    */
 
@@ -17,7 +17,7 @@ angular.module('authentication').service('AuthService', AuthService);
   * richieste relative all’autenticazione.
   *
   * @author Antonio Cavestro
-  * @version 0.1
+  * @version 1.0
   * @example Espone dei metodi tramite i quali LoginController e
   * LogoutController possono interagire con il backend per la gestione
   * dell’autenticazione.
