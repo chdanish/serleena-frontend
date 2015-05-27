@@ -27,8 +27,8 @@ angular.module('authentication').service('AuthService', AuthService);
   * XMLHttpRequest (Ajax)
   * @param {Service} $cookies - Facade di AngularJS per la gestione dei
   * cookie
-  * @param {Scope} $rootScope - ViewModel globale per salvare se l'utente è
-  * autenticato o meno.
+  * @param {Scope} $rootScope - Contesto globale dell'applicazione, usato per
+  * salvare se l'utente è autenticato o meno.
   * @param {String} BACKEND_URL - Indirizzo del backend (iniettato in fase di
   * configurazione)
   */
