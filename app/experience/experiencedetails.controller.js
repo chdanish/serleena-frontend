@@ -50,11 +50,11 @@ angular.module('experience').controller('ExperienceDetailsController',
   * @author Antonio Cavestro
   * @version 1.0
   * @memberOf Experience
-  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
-  * questo controller quando il browser richiede la pagina di visualizzazione
-  * dei dettagli di un’esperienza. Alla creazione ottiene tali dettagli tramite
-  * ExperienceService e gestisce gli eventi utenti avvenuti tramite
-  * ExperienceDetailsView.
+  * @example L’applicativo è configurato tramite App.AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di
+  * visualizzazione dei dettagli di un’esperienza. Alla creazione ottiene tali
+  * dettagli tramite ExperienceService e gestisce gli eventi utenti avvenuti
+  * tramite ExperienceDetailsView.
   * @constructor
   * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
   * controller (il model) ed in cui vengono valutate le espressioni utilizzate
@@ -126,7 +126,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
    */
   $scope.currentCheckpoints = [];
 
-  ExperienceService.getExperienceDetails($scope.experienceId, function(ok, data){
+  ExperienceService.getExperienceDetails($scope.experienceId,
+    function(ok, data){
     if(ok){
       $scope.experience = data;
       for (var m in $scope.maps){
@@ -140,7 +141,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
         Map.drawCustomPointFromPosition($scope.maps.points.map, p.lat, p.lng);
       });
       $scope.experience.tracks.forEach(function(t){
-        ExperienceService.getTrackDetails($scope.experienceId, t.id, function(ok, data){
+        ExperienceService.getTrackDetails($scope.experienceId, t.id,
+          function(ok, data){
           if (ok){
             t.checkpoints = data;
           }
@@ -167,7 +169,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
     $scope.currentTrackIndex = index;
     $scope.currentTrackDraw = Map.drawTrack($scope.maps.tracks.map,
       $scope.experience.tracks[index].checkpoints);
-    $scope.experience.tracks[$scope.currentTrackIndex].checkpoints.forEach(function(c){
+    $scope.experience.tracks[$scope.currentTrackIndex].checkpoints.forEach(
+      function(c){
       $scope.currentCheckpoints.push(
         Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.lat, c.lng));
     });
