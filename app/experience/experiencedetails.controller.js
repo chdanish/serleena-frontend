@@ -28,7 +28,9 @@ angular.module('experience').controller('ExperienceDetailsController',
   * ExperienceService e gestisce gli eventi utenti avvenuti tramite
   * ExperienceDetailsView.
   * @constructor
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} $routeParams - Service che gestisce il recupero dei
   * parametri passati via url.
   * @param {Service} ExperienceService - Service che gestisce la comunicazione

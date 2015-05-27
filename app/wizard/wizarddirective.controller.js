@@ -22,7 +22,9 @@ angular.module('wizard').controller('WizardDirectiveController', WizardDirective
   * implementato in AngularJS.
   * @constructor
   * @memberOf Wizard
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   */
 
 function WizardDirectiveController($scope) {

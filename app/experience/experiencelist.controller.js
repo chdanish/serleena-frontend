@@ -29,7 +29,9 @@ angular.module('experience').controller('ExperienceListController',
   * l’utente alla pagina dedicata (DeleteExperienceView).
   * @constructor
   * @memberOf Experience
-  * @param {Scope} $scope - L'oggetto ViewModel del controller.
+  * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
+  * controller (il model) ed in cui vengono valutate le espressioni utilizzate
+  * nella view.
   * @param {Service} ExperienceService - Servizio di comunicazione con il
   * backend per la gestione delle esperienze
   */
