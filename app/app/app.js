@@ -33,7 +33,7 @@
  *
  * History:
  * Version    Programmer  		Changes
- * 1.0.0      Antonio Cavestro 	2015-05-06  Crea file
+ * 1.0.0      Antonio Cavestro 	Crea file
  *
  */
 
