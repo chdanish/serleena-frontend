@@ -9,7 +9,8 @@
    * 1.0.0        Antonio Cavestro     Implementa service
    *
    */
-angular.module('synchronization').service('SyncExperiencesService', SyncExperiencesService);
+angular.module('synchronization').service('SyncExperiencesService',
+  SyncExperiencesService);
 
 /**
   * Classe singleton che gestisce le chiamate al backend relative alla gestione
