@@ -81,7 +81,8 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
    * @param {function} callback - Funzione da invocare al ritorno dei dati dal
    * backend
    */
-  var saveExperience = function(name, tracks, from, to, POI, customPoints, callback){
+  var saveExperience = function(name, tracks, from, to, POI, customPoints,
+    callback){
     AuthService.authRequest(function(token){
       $http({
         method: 'POST',
@@ -215,7 +216,8 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
     AuthService.authRequest(function(token){
       $http({
         method: 'GET',
-        url: BACKEND_URL + "/experiences/" + experienceId + "/tracks/" + trackId,
+        url: BACKEND_URL + "/experiences/" + experienceId + "/tracks/" +
+             trackId,
         headers: {
           'X-AuthToken': token
         }

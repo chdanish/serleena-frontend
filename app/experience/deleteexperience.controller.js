@@ -18,10 +18,10 @@ angular.module("experience").controller("DeleteExperienceController",
   *
   * @author Antonio Cavestro
   * @version 1.0
-  * @example L’applicativo è configurato tramite App.AppConfiguration per invocare
-  * questo controller quando il browser richiede la pagina di conferma della
-  * cancellazione di un’esperienza. Gestisce gli eventi utente avvenuti tramite
-  * DeleteExperienceView.
+  * @example L’applicativo è configurato tramite App.AppConfiguration per
+  * invocare questo controller quando il browser richiede la pagina di conferma
+  * della cancellazione di un’esperienza. Gestisce gli eventi utente avvenuti
+  * tramite DeleteExperienceView.
   * @constructor
   * @memberOf Experience
   * @param {Scope} $scope - Contesto in cui vengono salvati i dati del
