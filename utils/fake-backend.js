@@ -270,15 +270,15 @@ app.get('/experiences/:eid/tracks/:tid', function(req, res){
 app.get('/experiences/:eid/tracks/:tid/telemetries', function(req, res){
   var t = [
     {
-      id: 43534,
+      id: 1,
       date: "23/01/2015 15:54"
     },
     {
-      id: 12454,
+      id: 2,
       date: "24/01/2015 08:54"
     },
     {
-      id: 45355,
+      id: 3,
       date: "25/01/2015 15:54"
     }
   ];
@@ -286,28 +286,78 @@ app.get('/experiences/:eid/tracks/:tid/telemetries', function(req, res){
 });
 
 app.get('/experiences/:eid/tracks/:tid/telemetries/:telid', function(req, res){
-  var t = [
-    {
-      id: 1,
-      heart: 95
-    },
-    {
-      id: 2,
-      heart: 125
-    },
-    {
-      id: 3,
-      heart: 145
-    },
-    {
-      id: 4,
-      heart: 160
-    },
-    {
-      id: 5,
-      heart: 175
-    },
-  ];
+  var t = [];
+  var telid = req.params.telid;
+  if (telid == 1){
+     t = [
+      {
+        id: 1,
+        heart: 95
+      },
+      {
+        id: 2,
+        heart: 145
+      },
+      {
+        id: 3,
+        heart: 185
+      },
+      {
+        id: 4,
+        heart: 160
+      },
+      {
+        id: 5,
+        heart: 145
+      },
+    ];
+  } else if (telid == 2){
+    t = [
+      {
+        id: 1,
+        heart: 95
+      },
+      {
+        id: 2,
+        heart: 125
+      },
+      {
+        id: 3,
+        heart: 165
+      },
+      {
+        id: 4,
+        heart: 140
+      },
+      {
+        id: 5,
+        heart: 125
+      },
+    ];
+  } else {
+    t = [
+      {
+        id: 1,
+        heart: 95
+      },
+      {
+        id: 2,
+        heart: 125
+      },
+      {
+        id: 3,
+        heart: 145
+      },
+      {
+        id: 4,
+        heart: 120
+      },
+      {
+        id: 5,
+        heart: 110
+      },
+    ];
+  }
 
   res.send(JSON.stringify(t));
 });
