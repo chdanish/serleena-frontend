@@ -557,7 +557,7 @@ describe('ExperienceWizardController Test', function () {
 	    ne: '',
 	    sw: '',
 	};
-	$scope.name = 'BackToFuture';
+	$scope.expName = 'BackToFuture';
 
 	$scope.$broadcast('hhWizardCompleted');
 
@@ -584,7 +584,7 @@ describe('ExperienceWizardController Test', function () {
 	    ne: '',
 	    sw: '',
 	};
-	$scope.name = 'BackToFuture101';
+	$scope.expName = 'BackToFuture101';
 
 	$scope.$broadcast('hhWizardCompleted');
 
