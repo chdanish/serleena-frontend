@@ -27,7 +27,10 @@
 
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
+
+app.use(bodyParser.json());
 
 // Serve a disabilitare il CORS
 app.all('*', function(req, res, next) {
@@ -56,26 +59,23 @@ app.put('/user/recovery', function (req, res) {
   res.send("ACK");
 });
 
+var createExp = {};
+
 app.get('/experiences', function (req, res) {
-  console.log(req);
-  //var exp = {experiences: []};
-  var exp = {
-    experiences: [
-      {
-        id: 1,
-        name: "Esperienza 1"
-      },
-      {
-        id: 2,
-        name: "Esperienza 2"
-      },
-      {
-        id: 3,
-        name: "Esperienza 3"
-      }
-    ]
+  var ret = {
+    experiences: []
   };
-  res.send(JSON.stringify(exp));
+  if (Object.keys(createExp).length != 0){
+    ret.experiences.push({
+      id: 1,
+      name: createExp.name
+    });
+    ret.experiences.push({
+      id: 2,
+      name: "Esperienza di test"
+    });
+  }
+  res.send(JSON.stringify(ret));
 });
 
 app.get('/paths/:from/:to', function (req, res){
@@ -144,6 +144,8 @@ app.get('/poi/:from/:to', function (req, res){
 });
 
 app.post('/experiences', function(req, res){
+  console.log(req.body);
+  createExp = req.body;
   res.sendStatus(200);
 });
 
@@ -184,7 +186,7 @@ app.put('/users/pair', function(req, res){
 
 app.get('/experiences/:id', function(req, res){
   var exp = {
-    name: "Esperienza XYZ",
+    name: "Esperienza di test",
     perimeter: {
       ne: {
         lat: 45.284005,
