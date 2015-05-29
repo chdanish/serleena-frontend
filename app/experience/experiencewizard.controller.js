@@ -660,11 +660,11 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     });
 
     if($scope.editMode){
-      ExperienceService.editExperience($scope.experienceId, $scope.name,
+      ExperienceService.editExperience($scope.experienceId, $scope.expName,
         cleanTracks, from, to, selectedPOIs, selectedCustomPoints,
         experienceSavingCallback);
     } else {
-      ExperienceService.saveExperience($scope.name, cleanTracks, from, to,
+      ExperienceService.saveExperience($scope.expName, cleanTracks, from, to,
       selectedPOIs, selectedCustomPoints, experienceSavingCallback);
     }
   };
