@@ -96,6 +96,16 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.expName = "";
   /**
+   * Contenitore dei dati ottenuti dal form di inserimento nome
+   * esperienza.
+   *
+   * @name nameForm
+   * @type Object
+   * @memberOf Experience.ExperienceWizardController
+   * @instance
+   */
+  $scope.nameForm = {};
+  /**
    * Id del tag html di MapDirective
    *
    * @name mapTagId
@@ -301,6 +311,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var afterInsertName= function(){
+    $scope.expName = $scope.nameForm.text;
     $scope.showMap = true;
     $scope.map = Map.initMap($scope.mapTagId);
     if ($scope.editMode){

@@ -37,8 +37,10 @@
 	</div>
 	<div class="row" ng-hide="showMap">
 		<div class="col-md-5 col-md-offset-3">
-			<input type="text" class="form-control" placeholder="Esperienza"
-				ng-model="expName"/>
+			<form>
+				<input type="text" class="form-control" placeholder="Esperienza"
+				ng-model="nameForm.text"/>
+			</form>
 		</div>
 	</div>
 	<div class="row" ng-show="showMap">

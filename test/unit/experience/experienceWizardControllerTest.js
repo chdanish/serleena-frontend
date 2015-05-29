@@ -132,7 +132,7 @@ describe('ExperienceWizardController Test', function () {
 
     it('Successfully linkMap', function () {
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -147,7 +147,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.$broadcast('hhMapLink', 1);
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe(1);
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -162,7 +162,7 @@ describe('ExperienceWizardController Test', function () {
 
     it('Successfully addNewTrack', function () {
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -177,7 +177,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.addNewTrack();
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -203,7 +203,7 @@ describe('ExperienceWizardController Test', function () {
 	    checkpoints: [],
 	});
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -223,7 +223,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.showTrackRename(0);
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -249,7 +249,7 @@ describe('ExperienceWizardController Test', function () {
 	    checkpoints: [],
 	});
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -269,7 +269,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.closeTrackRename(0);
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -295,7 +295,7 @@ describe('ExperienceWizardController Test', function () {
 	    checkpoints: [],
 	});
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -309,7 +309,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.editTrack(0);
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -326,7 +326,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.previousTrackIndex = 0;
 	
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -362,7 +362,7 @@ describe('ExperienceWizardController Test', function () {
 	var currentTrackIndex = 0;
 	
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -388,7 +388,7 @@ describe('ExperienceWizardController Test', function () {
 	var currentTrackIndex = 0;
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -420,7 +420,7 @@ describe('ExperienceWizardController Test', function () {
 	var currentTrackIndex = 0;
 
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -445,7 +445,7 @@ describe('ExperienceWizardController Test', function () {
 
     it('Successfully addNewCustomPoint', function () {
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -470,7 +470,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.addNewCustomPoint();
 	
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -492,7 +492,7 @@ describe('ExperienceWizardController Test', function () {
     it('Successfully onWizardNextStep', function () {
 	$scope.mapTagId = '1985';
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('1985');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -541,7 +541,7 @@ describe('ExperienceWizardController Test', function () {
     it('Successfully onWizardCompleted', function () {
 	$scope.mapTagId = '1985';
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('1985');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
@@ -568,7 +568,7 @@ describe('ExperienceWizardController Test', function () {
     it('Wrong onWizardCompleted', function () {
 	$scope.mapTagId = '1985';
 	expect($scope.showWizard).toBe(true);
-	expect($scope.expName).toBe('');
+	//expect($scope.expName).toBe('');
 	expect($scope.mapTagId).toBe('1985');
 	expect($scope.showTracks).toBe(false);
 	expect($scope.showPOISelection).toBe(false);
