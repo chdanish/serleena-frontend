@@ -129,8 +129,8 @@ describe('SerleenaDataService Test', function () {
 	    poi: 'Hokuto Temple'
 	};
 
-	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + ";" + from.lng
-			    + "/" + to.lat + ";" + to.lng)
+	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + "," + from.lng
+			    + "/" + to.lat + "," + to.lng)
 	    .respond(201, data);
 	serleenaDataService.getPOIs(from, to, callback);
 	httpBackend.flush();
@@ -151,8 +151,8 @@ describe('SerleenaDataService Test', function () {
 	};
 	var to = from;
 
-	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + ";" + from.lng
-			    + "/" + to.lat + ";" + to.lng)
+	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + "," + from.lng
+			    + "/" + to.lat + "," + to.lng)
 	    .respond(404, 'error');
 	serleenaDataService.getPOIs(from, to, callback);
 	httpBackend.flush();

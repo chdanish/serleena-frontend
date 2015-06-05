@@ -101,8 +101,8 @@ function SerleenaDataService($http, BACKEND_URL) {
    */
   var getPOIs = function(from, to, callback){
     $http({
-      url: BACKEND_URL + "/poi/" + from.lat + ";" + from.lng + "/" + to.lat +
-                                                                  ";" + to.lng,
+      url: BACKEND_URL + "/poi/" + from.lat + "," + from.lng + "/" + to.lat +
+                                                                  "," + to.lng,
       method: 'GET'
     }).success(function(data){
       callback(true, data.poi);
