@@ -74,7 +74,7 @@ function UserService($http, BACKEND_URL) {
       url: BACKEND_URL + "/user",
       method: 'POST',
       data: {
-        email: email,
+        username: email,
         password: password
       }
     }).success(function(data, status, headers, config){
