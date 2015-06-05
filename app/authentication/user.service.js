@@ -71,7 +71,7 @@ function UserService($http, BACKEND_URL) {
    */
   var registerUser = function(email, password, callback){
     $http({
-      url: BACKEND_URL + "/user",
+      url: BACKEND_URL + "/users",
       method: 'POST',
       data: {
         username: email,
