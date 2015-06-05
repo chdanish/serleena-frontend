@@ -408,7 +408,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
           } else {
             p.selected = false;
           }
-          p.marker = Map.drawPOI($scope.map, p.lat, p.lng, p.name);
+          p.marker = Map.drawPOI($scope.map, p.latitude, p.longitude, p.name);
         });
       }
     });
