@@ -82,7 +82,7 @@ module.exports = function(grunt){
 		},
 		watch: {
 			angular: {
-				files: serleenafrontend_files,
+				files: [serleenafrontend_files, 'test/**/*.js'],
 				tasks: ['concat:angular', 'jshint:angular', 'shell:docs',
 					'karma:unit:run', 'notify:concat'],
 				options: {
