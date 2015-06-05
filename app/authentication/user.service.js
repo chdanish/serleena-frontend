@@ -73,10 +73,13 @@ function UserService($http, BACKEND_URL) {
     $http({
       url: BACKEND_URL + "/users",
       method: 'POST',
-      data: JSON.stringify({
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: {
         username: email,
         password: password
-      })
+      }
     }).success(function(data, status, headers, config){
       callback(true, data);
     }).error(function(data, status, headers, config){
