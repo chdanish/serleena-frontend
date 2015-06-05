@@ -79,6 +79,9 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
       headers: {
         'X-AuthData': email + "::" + password
       },
+      transformResponse: function(data){
+        return data;
+      }
     }).success(function(data, status, headers, config){
       $cookies.serleena_user = email;
       $cookies.serleena_token = data;
