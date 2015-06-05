@@ -73,9 +73,6 @@ function UserService($http, BACKEND_URL) {
     $http({
       url: BACKEND_URL + "/users",
       method: 'POST',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
       data: {
         username: email,
         password: password

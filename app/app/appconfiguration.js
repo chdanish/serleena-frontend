@@ -38,6 +38,7 @@
  *								serleenaFrontend
  * 0.0.3	  Antonio Cavestro 	Aggiungi configurazione mappe
  * 1.0.0	  Antonio Cavestro  Migliora gestione url backend
+ * 1.0.1	  Antonio Cavestro	Configura header per corretto utilizzo backend
  *
  */
 
@@ -141,6 +142,26 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 			$provide.value("BACKEND_URL", PRODUCTION_BACKEND_URL);
 		}
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+		$httpProvider.defaults.headers.post['Content-Type'] =
+			'application/x-www-form-urlencoded';
+		$httpProvider.defaults.headers.put['Content-Type'] =
+			'application/x-www-form-urlencoded';
+
+		$httpProvider.defaults.transformRequest = function(data){
+			if (data === undefined){
+				return data;
+			}
+
+			var str = [];
+			for(var p in data) {
+				str.push(encodeURIComponent(p) + "=" +
+					encodeURIComponent(data[p]));
+			}
+
+			return str.join("&");
+
+		};
 	}();
 
 }
