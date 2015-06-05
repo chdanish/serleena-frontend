@@ -357,7 +357,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var comparePOI = function(p1, p2){
-    return p1.id == p2.id;
+    return p1.name == p2.name;
   };
   /**
    * Funzione che, dato un array di punti d'interesse e un punto p, verifica se
