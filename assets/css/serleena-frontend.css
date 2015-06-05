@@ -71,3 +71,8 @@ p#welcome-text {
 #map-details-points {
 	height: 200px;
 }
+
+#table-poi img {
+	width: 16px;
+	height: 16px;
+}
