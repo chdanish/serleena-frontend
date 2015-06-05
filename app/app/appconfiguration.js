@@ -137,10 +137,10 @@ function AppConfiguration($routeProvider, MapProvider, DEBUG,
 	var setBackendURL = function(){
 		if(DEBUG){
 			$provide.value("BACKEND_URL", DEVELOP_BACKEND_URL);
-			delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		} else {
 			$provide.value("BACKEND_URL", PRODUCTION_BACKEND_URL);
 		}
+		delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	}();
 
 }
