@@ -74,18 +74,21 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
    */
   var loginUser = function(email, password, callback){
     $http({
-      url: BACKEND_URL + "/user/token",
+      url: BACKEND_URL + "/users/token",
       method: 'GET',
       headers: {
-        'X-AuthData': email + "+" + password
+        'X-AuthData': email + "::" + password
       },
-    }).success(function(data, status, headers, config){
+      transformResponse: function(data){
+        return data;
+      }
+    }).success(function(data){
       $cookies.serleena_user = email;
       $cookies.serleena_token = data;
       $rootScope.userLogged = true;
       callback(true, null);
-    }).error(function(data, status, headers, config){
-      callback(false, data);
+    }).error(function(data){
+      callback(false, JSON.parse(data));
     });
   };
   /**

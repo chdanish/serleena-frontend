@@ -95,8 +95,14 @@ function LoginController ($scope, $location, AuthService){
 				// alla dashboard
 				$location.path("/dashboard");
 			} else {
-				$scope.errorMessage = "Accesso fallito :(";
 				$scope.showError = true;
+
+				if (data.status == 401){
+					$scope.errorMessage = "Credenziali non valide. Riprova.";
+				} else {
+					$scope.errorMessage = "Accesso fallito :(";
+				}
+
 			}
 		});
 	};

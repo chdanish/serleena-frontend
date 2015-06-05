@@ -85,7 +85,7 @@ describe('AuthService Test', function () {
 	expect(cookies.serleena_token).not.toBeDefined();
 	expect(scope.userLogged).not.toBeDefined();
 
-	httpBackend.whenGET(BACKEND_URL + "/user/token").respond(
+	httpBackend.whenGET(BACKEND_URL + "/users/token").respond(
 	    201, 'authenticated', '', '', '');
 	authService.loginUser(email, password, callback);
 	httpBackend.flush();
@@ -106,12 +106,12 @@ describe('AuthService Test', function () {
 	expect(cookies.serleena_token).not.toBeDefined();
 	expect(scope.userLogged).not.toBeDefined();
 
-	httpBackend.whenGET(BACKEND_URL + "/user/token").respond(
-	    404, 'error', '', '', '');
+	httpBackend.whenGET(BACKEND_URL + "/users/token").respond(
+	    401, '{"status":401}', '', '', '');
 	authService.loginUser(email, password, callback);
 	httpBackend.flush();
 	
-	expect(dataReceived).toBe('error');
+	expect(dataReceived.status).toBe(401);
 	expect(success).toBe(false);
 	expect(failure).toBe(true);
 	expect(cookies.serleena_user).not.toBeDefined();
