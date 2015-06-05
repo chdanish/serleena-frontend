@@ -357,7 +357,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var comparePOI = function(p1, p2){
-    return p1.id == p2.id;
+    return p1.name == p2.name;
   };
   /**
    * Funzione che, dato un array di punti d'interesse e un punto p, verifica se
@@ -408,7 +408,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
           } else {
             p.selected = false;
           }
-          p.marker = Map.drawPOI($scope.map, p.lat, p.lng, p.name);
+          p.marker = Map.drawPOI($scope.map, p.latitude, p.longitude, p.name);
         });
       }
     });
@@ -662,7 +662,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     var selectedPOIs = [];
     $scope.poi.forEach(function(p){
       if(p.selected){
-        selectedPOIs.push(p.id);
+        selectedPOIs.push(p.name);
       }
     });
     var selectedCustomPoints = [];

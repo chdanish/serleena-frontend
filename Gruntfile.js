@@ -82,7 +82,7 @@ module.exports = function(grunt){
 		},
 		watch: {
 			angular: {
-				files: serleenafrontend_files,
+				files: [serleenafrontend_files, 'test/**/*.js'],
 				tasks: ['concat:angular', 'jshint:angular', 'shell:docs',
 					'karma:unit:run', 'notify:concat'],
 				options: {
@@ -144,7 +144,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['karma:unit:start', 'watch']);
     grunt.registerTask('build', ['concat:angular', 'jshint:angular']);
     grunt.registerTask('test', ['karma:continuous']);
     grunt.registerTask('deploy', ['zip:deploy']);

@@ -124,22 +124,26 @@ app.get('/paths/:from/:to', function (req, res){
 });
 
 app.get('/poi/:from/:to', function (req, res){
-  var poi = {
-    poi: [
-      {
-        id: "sfklsdfjklsdf",
-        name: "POI A",
-        lat: 45.280063,
-        lng: 11.654495
-      },
-      {
-        id: "!vjkldfjghksdlfjvsdlk",
-        name: "POI B",
-        lat: 45.281597,
-        lng: 11.653035
-      }
-    ]
-  };
+  var poi = [
+    {
+      "latitude": 45.280063,
+      "longitude": 11.654495,
+      "name": "POI1",
+      "type": "INFO"
+    },
+    {
+      "latitude": 45.280063,
+      "longitude": 11.654495,
+      "name": "POI1",
+      "type": "WARNING"
+    },
+    {
+      "latitude": 45.280063,
+      "longitude": 11.654495,
+      "name": "POI1",
+      "type": "FOOD"
+    }
+  ];
   res.send(JSON.stringify(poi));
 });
 
