@@ -79,7 +79,7 @@ describe('UserServiceTest', function() {
 	expect(failure).toBe(false);
 	expect(dataReceived).toBe('');
 	//Set the respond for /user
-	httpBackend.whenPOST(BACKEND_URL + "/user")
+	httpBackend.whenPOST(BACKEND_URL + "/users")
 	    .respond(201, 'registered', '', '', '');
 	userService.registerUser(email, password, callback);
 	httpBackend.flush();
@@ -94,7 +94,7 @@ describe('UserServiceTest', function() {
 	expect(failure).toBe(false);
 	expect(dataReceived).toBe('');
 	//Set the respond for /user
-	httpBackend.whenPOST(BACKEND_URL + "/user")
+	httpBackend.whenPOST(BACKEND_URL + "/users")
 	    .respond(404, 'error', '', '', '');
 	userService.registerUser(email, password, callback);
 	httpBackend.flush();
