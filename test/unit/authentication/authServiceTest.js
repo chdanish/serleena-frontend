@@ -107,11 +107,11 @@ describe('AuthService Test', function () {
 	expect(scope.userLogged).not.toBeDefined();
 
 	httpBackend.whenGET(BACKEND_URL + "/users/token").respond(
-	    404, 'error', '', '', '');
+	    401, '{"status":401}', '', '', '');
 	authService.loginUser(email, password, callback);
 	httpBackend.flush();
 	
-	expect(dataReceived).toBe('error');
+	expect(dataReceived.status).toBe(401);
 	expect(success).toBe(false);
 	expect(failure).toBe(true);
 	expect(cookies.serleena_user).not.toBeDefined();

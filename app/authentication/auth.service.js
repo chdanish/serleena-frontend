@@ -82,13 +82,13 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
       transformResponse: function(data){
         return data;
       }
-    }).success(function(data, status, headers, config){
+    }).success(function(data){
       $cookies.serleena_user = email;
       $cookies.serleena_token = data;
       $rootScope.userLogged = true;
       callback(true, null);
-    }).error(function(data, status, headers, config){
-      callback(false, data);
+    }).error(function(data){
+      callback(false, JSON.parse(data));
     });
   };
   /**
