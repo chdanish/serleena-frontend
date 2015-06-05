@@ -74,7 +74,7 @@ function AuthService($http, $cookies, $rootScope, BACKEND_URL) {
    */
   var loginUser = function(email, password, callback){
     $http({
-      url: BACKEND_URL + "/user/token",
+      url: BACKEND_URL + "/users/token",
       method: 'GET',
       headers: {
         'X-AuthData': email + "+" + password
