@@ -105,7 +105,7 @@ function SerleenaDataService($http, BACKEND_URL) {
                                                                   "," + to.lng,
       method: 'GET'
     }).success(function(data){
-      callback(true, data.poi);
+      callback(true, data);
     }).error(function(data){
       callback(false, data);
     });

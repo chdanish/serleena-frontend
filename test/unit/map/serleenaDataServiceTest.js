@@ -125,9 +125,9 @@ describe('SerleenaDataService Test', function () {
 	    lng: 33,
 	};
 	var to = from;
-	var data = {
-	    poi: 'Hokuto Temple'
-	};
+	var data = [{
+	    name: 'Hokuto Temple'
+	}];
 
 	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + "," + from.lng
 			    + "/" + to.lat + "," + to.lng)
@@ -135,7 +135,7 @@ describe('SerleenaDataService Test', function () {
 	serleenaDataService.getPOIs(from, to, callback);
 	httpBackend.flush();
 
-	expect(dataReceived).toBe('Hokuto Temple');
+	expect(dataReceived[0].name).toBe('Hokuto Temple');
 	expect(success).toBe(true);
 	expect(failure).toBe(false);
     });
