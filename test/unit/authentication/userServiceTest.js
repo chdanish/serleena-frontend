@@ -109,7 +109,7 @@ describe('UserServiceTest', function() {
 	expect(failure).toBe(false);
 	expect(dataReceived).toBe('');
 	//Set the respond for /user/recovery
-	httpBackend.whenPUT(BACKEND_URL + "/user/recovery")
+	httpBackend.whenPUT(BACKEND_URL + "/users/recovery")
 	    .respond(201, 'recovered', '', '', '');
 	userService.recoverUser(email, callback);
 	httpBackend.flush();
@@ -124,7 +124,7 @@ describe('UserServiceTest', function() {
 	expect(failure).toBe(false);
 	expect(dataReceived).toBe('');
 	//Set the respond for /user/recovery
-	httpBackend.whenPUT(BACKEND_URL + "/user/recovery")
+	httpBackend.whenPUT(BACKEND_URL + "/users/recovery")
 	.respond(404,'error','','','');
 	userService.recoverUser(email, callback);
 	httpBackend.flush();
