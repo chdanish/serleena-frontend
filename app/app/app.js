@@ -86,10 +86,10 @@ angular.module('serleenaFrontend')
 	.constant("DEBUG", false);
 
 angular.module('serleenaFrontend')
-	.constant("PRODUCTION_BACKEND_URL", 'http://api.hitchhikers.info');
+	.constant("PRODUCTION_BACKEND_URL", 'http://marvin.hitchhikers.info');
 
 angular.module('serleenaFrontend')
-	.constant('DEVELOP_BACKEND_URL', "http://localhost:3000");
+	.constant('DEVELOP_BACKEND_URL', "http://localhost:4242");
 
 angular.module('serleenaFrontend')
 	.value('BACKEND_URL', "");
