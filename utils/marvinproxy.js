@@ -149,6 +149,10 @@ app.put('/users/recovery', function (req, res){
   proxyRequest('put', '/users/recovery', [], req, res);
 });
 
+app.get('/experiences', function (req,res) {
+  proxyRequest('get', '/experiences', ['X-AuthToken'], req, res);
+});
+
 var server = app.listen(4242, function () {
 
   var host = server.address().address;

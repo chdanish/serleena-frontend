@@ -83,8 +83,8 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
         headers: {
           'X-AuthToken': token
         }
-      }).success(function(data, status, headers, config){
-        callback(true, data.experiences);
+      }).success(function(data){
+        callback(true, data);
       }).error(function(data){
         callback(false, data);
       });

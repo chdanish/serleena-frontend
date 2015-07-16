@@ -114,13 +114,13 @@ describe('ExperienceService Test', function () {
 	expect(dataReceived).toBe('');
 
 	httpBackend.whenGET(BACKEND_URL + "/experiences")
-	    .respond(201, {experiences: 'La banda!'}, '', '', '');
+	    .respond(201, ['La banda!'], '', '', '');
 	experienceService.getExperienceList(callback);
 	httpBackend.flush();
 
 	expect(success).toBe(true);
 	expect(failure).toBe(false);
-	expect(dataReceived).toBe('La banda!');
+	expect(dataReceived[0]).toBe('La banda!');
     });
 
 
