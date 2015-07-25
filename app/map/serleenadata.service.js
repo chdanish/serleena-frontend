@@ -73,12 +73,13 @@ function SerleenaDataService($http, BACKEND_URL) {
    * risposta dal backend e a cui passare i dati ricevuti.
    */
   var getPaths = function(from, to, callback){
+    var p = formatLatLngForBackend(from, to);
     $http({
-      url: BACKEND_URL + "/paths/" + from.lat + ";" + from.lng + "/" + to.lat +
-                                                                  ";" + to.lng,
+      url: BACKEND_URL + "/paths/" + p.nw.lat + "," + p.nw.lng + "/" +
+                                              p.se.lat + "," + p.se.lng + "/",
       method: 'GET'
     }).success(function(data){
-      callback(true, data.paths);
+      callback(true, data);
     }).error(function(data){
       callback(false, data);
     });
