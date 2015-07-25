@@ -74,21 +74,32 @@ describe('SerleenaDataService Test', function () {
 	expect(failure).toBe(false);
 
 	var from = {
-	    lat: 21,
-	    lng: 33,
+	    lat: 21.21,
+	    lng: 33.33
 	};
 	var to = from;
-	var data = {
-	    paths: 'Hokuto Road'
+
+	var nw = {
+		lat: (parseFloat(from.lat).toFixed(1))+1,
+		lng: (parseFloat(to.lng).toFixed(2))-1
 	};
 
-	httpBackend.whenGET(BACKEND_URL + "/paths/" + from.lat + ";" + from.lng
-			    + "/" + to.lat + ";" + to.lng)
+	var se = {
+		lat: (parseFloat(to.lat).toFixed(2))-1,
+		lng: (parseFloat(from.lng).toFixed(1))+1
+	};
+
+	var data = [
+	    'Hokuto Road'
+	];
+
+	httpBackend.whenGET(BACKEND_URL + "/paths/" + nw.lat + "," + nw.lng +
+				"/" + se.lat + "," + se.lng + "/")
 	    .respond(201, data);
 	serleenaDataService.getPaths(from, to, callback);
 	httpBackend.flush();
 
-	expect(dataReceived).toBe('Hokuto Road');
+	expect(dataReceived[0]).toBe('Hokuto Road');
 	expect(success).toBe(true);
 	expect(failure).toBe(false);
     });
@@ -99,13 +110,23 @@ describe('SerleenaDataService Test', function () {
 	expect(failure).toBe(false);
 
 	var from = {
-	    lat: 21,
-	    lng: 33,
+	    lat: 21.21,
+	    lng: 33.33
 	};
 	var to = from;
 
-	httpBackend.whenGET(BACKEND_URL + "/paths/" + from.lat + ";" + from.lng
-			    + "/" + to.lat + ";" + to.lng)
+	var nw = {
+		lat: (parseFloat(from.lat).toFixed(1))+1,
+		lng: (parseFloat(to.lng).toFixed(2))-1
+	};
+
+	var se = {
+		lat: (parseFloat(to.lat).toFixed(2))-1,
+		lng: (parseFloat(from.lng).toFixed(1))+1
+	};
+
+	httpBackend.whenGET(BACKEND_URL + "/paths/" + nw.lat + "," + nw.lng +
+		"/" + se.lat + "," + se.lng + "/")
 	    .respond(404, 'error');
 	serleenaDataService.getPaths(from, to, callback);
 	httpBackend.flush();

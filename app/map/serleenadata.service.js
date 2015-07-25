@@ -73,12 +73,13 @@ function SerleenaDataService($http, BACKEND_URL) {
    * risposta dal backend e a cui passare i dati ricevuti.
    */
   var getPaths = function(from, to, callback){
+    var p = formatLatLngForBackend(from, to);
     $http({
-      url: BACKEND_URL + "/paths/" + from.lat + ";" + from.lng + "/" + to.lat +
-                                                                  ";" + to.lng,
+      url: BACKEND_URL + "/paths/" + p.nw.lat + "," + p.nw.lng + "/" +
+                                              p.se.lat + "," + p.se.lng + "/",
       method: 'GET'
     }).success(function(data){
-      callback(true, data.paths);
+      callback(true, data);
     }).error(function(data){
       callback(false, data);
     });
@@ -109,6 +110,37 @@ function SerleenaDataService($http, BACKEND_URL) {
     }).error(function(data){
       callback(false, data);
     });
+  };
+
+  /**
+   * Trasforma le coordinate di un perimetro in un formato comprensibile dal
+   * servizio di backend.
+   *
+   * @function formatLatLngForBackend
+   * @memberOf Map.SerleenaDataService
+   * @param {Object} ne - oggetto che rappresenta il punto a nord-est
+   * dell'area, con un attributo "lat" per la latitudine e un attributo "lng"
+   * per la longitudine.
+   * @param {Object} sw - oggetto che rappresenta il punto a sud-ovest
+   * dell'area, con un attributo "lat" per la latitudine e un attributo "lng"
+   * per la longitudine.
+   * @instance
+   * @private
+   */
+  var formatLatLngForBackend = function(ne, sw){
+    var nw = {
+      lat: (parseFloat(ne.lat).toFixed(1))+1,
+      lng: (parseFloat(sw.lng).toFixed(2))-1
+    };
+
+    var se = {
+      lat: (parseFloat(sw.lat).toFixed(2))-1,
+      lng: (parseFloat(ne.lng).toFixed(1))+1
+    };
+    return {
+      nw: nw,
+      se: se
+    };
   };
 
   return {
