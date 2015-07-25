@@ -647,8 +647,14 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var onWizardCompleted = function(){
-    var from = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
-    var to = $scope.perimeter.sw.lat + ";" + $scope.perimeter.sw.lng;
+    var from = {
+        latitude: $scope.perimeter.ne.lat,
+        longitude: $scope.perimeter.sw.lng
+    };
+    var to = {
+        latitude: $scope.perimeter.sw.lat,
+        longitude: $scope.perimeter.ne.lng
+    };
     var cleanTracks = [];
     $scope.tracks.forEach(function(t){
       cleanTracks.push({
