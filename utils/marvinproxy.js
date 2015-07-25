@@ -183,6 +183,10 @@ app.get('/poi/:from/:to', function (req, res) {
   proxyRequest('get', '/poi', [], req, res);
 });
 
+app.post('/experiences', function (req, res) {
+  proxyRequest('post', '/experiences', ['X-AuthToken'], req, res);
+});
+
 app.delete('/experiences/:experienceId', function (req, res) {
   proxyRequest('delete', '/experiences', ['X-AuthToken'], req, res);
 });
