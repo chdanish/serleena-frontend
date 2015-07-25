@@ -159,6 +159,9 @@ app.get('/experiences', function (req,res) {
   proxyRequest('get', '/experiences', ['X-AuthToken'], req, res);
 });
 
+app.get('/paths/:from/:to', function (req, res) {
+  proxyRequest('get', '/paths', [], req, res);
+});
 var server = app.listen(4242, function () {
 
   var host = server.address().address;
