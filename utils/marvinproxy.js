@@ -162,6 +162,11 @@ app.get('/experiences', function (req,res) {
 app.get('/paths/:from/:to', function (req, res) {
   proxyRequest('get', '/paths', [], req, res);
 });
+
+app.get('/poi/:from/:to', function (req, res) {
+  proxyRequest('get', '/poi', [], req, res);
+});
+
 var server = app.listen(4242, function () {
 
   var host = server.address().address;
