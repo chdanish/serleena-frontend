@@ -672,7 +672,11 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     var selectedPOIs = [];
     $scope.poi.forEach(function(p){
       if(p.selected){
-        selectedPOIs.push(p.name);
+        selectedPOIs.push({
+          name: p.name,
+          latitude: p.latitude,
+          longitude: p.longitude
+        });
       }
     });
     var selectedCustomPoints = [];
