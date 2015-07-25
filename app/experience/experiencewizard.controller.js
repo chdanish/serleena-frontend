@@ -397,9 +397,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       Map.
          removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
     }
-    var poiFrom = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
-    var poiTo = $scope.perimeter.sw.lat + ";" + $scope.perimeter.sw.lng;
-    SerleenaDataService.getPOIs(poiFrom, poiTo, function(ok, poi){
+    SerleenaDataService.getPOIs($scope.perimeter.ne, $scope.perimeter.sw, function(ok, poi){
       if(ok){
         $scope.poi = poi;
         $scope.poi.forEach(function(p){
