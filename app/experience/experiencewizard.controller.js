@@ -681,7 +681,12 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     });
     var selectedCustomPoints = [];
     $scope.customPoints.forEach(function(p){
-      selectedCustomPoints.push(Map.getCustomPointPosition(p.marker));
+      var c = Map.getCustomPointPosition(p.marker);
+      selectedCustomPoints.push({
+        name: "Punto personalizzato #" + $scope.customPoints.indexOf(p),
+        latitude: c.lat,
+        longitude: c.lng
+      });
     });
 
     if($scope.editMode){
