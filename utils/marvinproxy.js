@@ -122,13 +122,21 @@ var proxyRequest = function(  method,
   proxy.set('Content-Type', 'application/x-www-form-urlencoded');
 
   if (method == "get"){
+    console.log("ORIGINAL QUERY");
+    console.log(originalRequest.body);
     proxy.query(originalRequest.body);
-  } else if (method == "post" || method == "put")
-    proxy.send(transformRequestData(originalRequest.body));
+  } else if (method == "post" || method == "put") {
+    var newBody = transformRequestData(originalRequest.body);
+    console.log("NEW BODY");
+    console.log(newBody);
+    proxy.send(newBody);
+  }
 
   proxy.end(function(err, backendResponse){
       console.log("RESPONSE BODY");
       console.log(backendResponse.text);
+      console.log("RESPONSE STATUS");
+      console.log(backendResponse.status);
       console.log("=== END ROUTE ===");
       originalResponse.status(backendResponse.status).send(backendResponse.text);
     });
