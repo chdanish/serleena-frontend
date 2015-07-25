@@ -657,9 +657,16 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     };
     var cleanTracks = [];
     $scope.tracks.forEach(function(t){
+      var checkpoints = [];
+      t.checkpoints.forEach( function (c) {
+        checkpoints.push({
+          latitude: c.lat,
+          longitude: c.lng
+        });
+      });
       cleanTracks.push({
         name: t.name,
-        checkpoints: t.checkpoints
+        checkPoints: checkpoints
       });
     });
     var selectedPOIs = [];
