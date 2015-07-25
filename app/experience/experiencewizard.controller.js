@@ -567,7 +567,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @function saveCheckpoints
    * @memberOf Experience.ExperienceWizardController
    * @instance
-   * @param {Number} index - Indice del checkpoint da eliminare.
    */
   $scope.saveCheckpoints = function(){
     $scope.tracks[$scope.currentTrackIndex].checkpoints = [];
