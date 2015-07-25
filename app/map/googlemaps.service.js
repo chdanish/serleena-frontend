@@ -249,8 +249,8 @@ function GoogleMapsService() {
    * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
    * @param {String} name - Nome del sentiero.
    * @param {Array} points - Array di oggetti punti, entrambi costituiti da
-   * un attributo "lat" per la latitudine, e un attributo "lng" per la
-   * longitudine.
+   * un attributo "latitude" per la latitudine, e un attributo "longitude" per
+   * la longitudine.
    */
   var drawPath = function(map, name, points){
     var lineSymbol = {
@@ -260,7 +260,7 @@ function GoogleMapsService() {
     };
     var gmapPoints = [];
     points.forEach(function(p){
-      gmapPoints.push(new google.maps.LatLng(p.lat, p.lng));
+      gmapPoints.push(new google.maps.LatLng(p.latitude, p.longitude));
     });
     drawLine(map, gmapPoints, '#994C00', 0, [{
       icon: lineSymbol,
