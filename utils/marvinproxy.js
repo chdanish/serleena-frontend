@@ -38,8 +38,13 @@ app.use(bodyParser.json());
 var transformRequestData = function(data){
   var str = [];
   for(var p in data) {
-    str.push(encodeURIComponent(p) + "=" +
-      encodeURIComponent(data[p]));
+    var dataToSend = "";
+    if (typeof data[p] == 'object'){
+      dataToSend = encodeURIComponent(JSON.stringify(data[p]));
+    } else {
+      dataToSend = encodeURIComponent(data[p]);
+    }
+    str.push(encodeURIComponent(p) + "=" + dataToSend);
   }
   return str.join("&");
 };
