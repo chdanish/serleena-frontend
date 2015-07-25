@@ -83,8 +83,14 @@ var proxyRequest = function(  method,
 
   console.log("=== ROUTE ===");
   console.log(method + " " + proxyRoute);
+  console.log("PARAM");
+  console.log(originalRequest.params);
   console.log("ORIGINAL BODY");
   console.log(originalRequest.body);
+
+  Object.keys(originalRequest.params).forEach(function (paramName) {
+    proxyRoute = proxyRoute + '/' + originalRequest.params[paramName] + '/';
+  });
 
   switch(method){
     case "get":
