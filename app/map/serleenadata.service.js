@@ -111,6 +111,37 @@ function SerleenaDataService($http, BACKEND_URL) {
     });
   };
 
+  /**
+   * Trasforma le coordinate di un perimetro in un formato comprensibile dal
+   * servizio di backend.
+   *
+   * @function formatLatLngForBackend
+   * @memberOf Map.SerleenaDataService
+   * @param {Object} ne - oggetto che rappresenta il punto a nord-est
+   * dell'area, con un attributo "lat" per la latitudine e un attributo "lng"
+   * per la longitudine.
+   * @param {Object} sw - oggetto che rappresenta il punto a sud-ovest
+   * dell'area, con un attributo "lat" per la latitudine e un attributo "lng"
+   * per la longitudine.
+   * @instance
+   * @private
+   */
+  var formatLatLngForBackend = function(ne, sw){
+    var nw = {
+      lat: (parseFloat(ne.lat).toFixed(1))+1,
+      lng: (parseFloat(sw.lng).toFixed(2))-1
+    };
+
+    var se = {
+      lat: (parseFloat(sw.lat).toFixed(2))-1,
+      lng: (parseFloat(ne.lng).toFixed(1))+1
+    };
+    return {
+      nw: nw,
+      se: se
+    };
+  };
+
   return {
     getPaths: getPaths,
     getPOIs: getPOIs
