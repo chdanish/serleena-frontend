@@ -150,8 +150,18 @@ describe('SerleenaDataService Test', function () {
 	    name: 'Hokuto Temple'
 	}];
 
-	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + "," + from.lng
-			    + "/" + to.lat + "," + to.lng)
+	var nw = {
+		lat: (parseFloat(from.lat).toFixed(1))+1,
+		lng: (parseFloat(to.lng).toFixed(2))-1
+	};
+
+	var se = {
+		lat: (parseFloat(to.lat).toFixed(2))-1,
+		lng: (parseFloat(from.lng).toFixed(1))+1
+	};
+
+	httpBackend.whenGET(BACKEND_URL + "/poi/" + nw.lat + "," + nw.lng
+			    + "/" + se.lat + "," + se.lng + "/")
 	    .respond(201, data);
 	serleenaDataService.getPOIs(from, to, callback);
 	httpBackend.flush();
@@ -172,8 +182,18 @@ describe('SerleenaDataService Test', function () {
 	};
 	var to = from;
 
-	httpBackend.whenGET(BACKEND_URL + "/poi/" + from.lat + "," + from.lng
-			    + "/" + to.lat + "," + to.lng)
+	var nw = {
+		lat: (parseFloat(from.lat).toFixed(1))+1,
+		lng: (parseFloat(to.lng).toFixed(2))-1
+	};
+
+	var se = {
+		lat: (parseFloat(to.lat).toFixed(2))-1,
+		lng: (parseFloat(from.lng).toFixed(1))+1
+	};
+
+	httpBackend.whenGET(BACKEND_URL + "/poi/" + nw.lat + "," + nw.lng
+			    + "/" + se.lat + "," + se.lng + "/")
 	    .respond(404, 'error');
 	serleenaDataService.getPOIs(from, to, callback);
 	httpBackend.flush();
