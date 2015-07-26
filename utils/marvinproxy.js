@@ -102,6 +102,9 @@ var proxyRequest = function(  method,
     case "put":
       proxy = superagent.put(proxyRoute);
       break;
+    case "delete":
+      proxy = superagent.del(proxyRoute);
+      break;
   }
 
   console.log("HEADERS");
@@ -165,6 +168,10 @@ app.get('/paths/:from/:to', function (req, res) {
 
 app.get('/poi/:from/:to', function (req, res) {
   proxyRequest('get', '/poi', [], req, res);
+});
+
+app.delete('/experiences/:experienceId', function (req, res) {
+  proxyRequest('delete', '/experiences', ['X-AuthToken'], req, res);
 });
 
 var server = app.listen(4242, function () {
