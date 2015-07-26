@@ -98,10 +98,12 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
    * @instance
    * @param {String} name - Nome dell'esperienza
    * @param {Array} tracks - Array di percorsi
-   * @param {String} from - Coordinata del punto a nord-est del perimetro
-   * dell'esperienza, espressa nella forma "latitudine;longitudine".
-   * @param {String} to - Coordinata del punto a sud-ovest del perimetro
-   * dell'esperienza, espressa nella forma "latitudine;longitudine".
+   * @param {String} from - Coordinata del punto a nord-ovest del perimetro
+   * dell'esperienza, espressa in un oggetto che contiene un attributo
+   * "latitude" per la latitudine e "longitude" per la longitudine.
+   * @param {String} to - Coordinata del punto a sud-est del perimetro
+   * dell'esperienza, espressa in un oggetto che contiene un attributo
+   * "latitude" per la latitudine e "longitude" per la longitudine.
    * @param {Array} POI - Array dei punti d'interesse selezionati per
    * l'esperienza.
    * @param {Array} customPoints - Array dei punti utente creati per

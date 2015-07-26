@@ -567,7 +567,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @function saveCheckpoints
    * @memberOf Experience.ExperienceWizardController
    * @instance
-   * @param {Number} index - Indice del checkpoint da eliminare.
    */
   $scope.saveCheckpoints = function(){
     $scope.tracks[$scope.currentTrackIndex].checkpoints = [];
@@ -648,24 +647,46 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @private
    */
   var onWizardCompleted = function(){
-    var from = $scope.perimeter.ne.lat + ";" + $scope.perimeter.ne.lng;
-    var to = $scope.perimeter.sw.lat + ";" + $scope.perimeter.sw.lng;
+    var from = {
+        latitude: $scope.perimeter.ne.lat,
+        longitude: $scope.perimeter.sw.lng
+    };
+    var to = {
+        latitude: $scope.perimeter.sw.lat,
+        longitude: $scope.perimeter.ne.lng
+    };
     var cleanTracks = [];
     $scope.tracks.forEach(function(t){
+      var checkpoints = [];
+      t.checkpoints.forEach( function (c) {
+        checkpoints.push({
+          latitude: c.lat,
+          longitude: c.lng
+        });
+      });
       cleanTracks.push({
         name: t.name,
-        checkpoints: t.checkpoints
+        checkPoints: checkpoints
       });
     });
     var selectedPOIs = [];
     $scope.poi.forEach(function(p){
       if(p.selected){
-        selectedPOIs.push(p.name);
+        selectedPOIs.push({
+          name: p.name,
+          latitude: p.latitude,
+          longitude: p.longitude
+        });
       }
     });
     var selectedCustomPoints = [];
     $scope.customPoints.forEach(function(p){
-      selectedCustomPoints.push(Map.getCustomPointPosition(p.marker));
+      var c = Map.getCustomPointPosition(p.marker);
+      selectedCustomPoints.push({
+        name: "Punto personalizzato #" + $scope.customPoints.indexOf(p),
+        latitude: c.lat,
+        longitude: c.lng
+      });
     });
 
     if($scope.editMode){
