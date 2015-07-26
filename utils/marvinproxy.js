@@ -102,6 +102,9 @@ var proxyRequest = function(  method,
     case "put":
       proxy = superagent.put(proxyRoute);
       break;
+    case "delete":
+      proxy = superagent.del(proxyRoute);
+      break;
   }
 
   console.log("HEADERS");
