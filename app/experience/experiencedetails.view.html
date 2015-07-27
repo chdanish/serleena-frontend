@@ -23,7 +23,10 @@
 		<div class="col-md-5">
 			<div class="panel panel-default">
 				<ul class="list-group">
-					<li ng-repeat="p in experience.poi" class="list-group-item">
+					<li ng-repeat="p in experience.points_of_interest"
+						class="list-group-item">
+						<img ng-src="assets/icons/poi/{{p.type}}.png" width="16"
+								height="16" />
 						{{p.name}}
 					</li>
 				</ul>

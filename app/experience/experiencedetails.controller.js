@@ -135,8 +135,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
           $scope.experience.boundingRect.topLeft,
           $scope.experience.boundingRect.bottomRight);
       }
-      $scope.experience.poi.forEach(function(p){
-        Map.drawPOI($scope.maps.poi.map, p.lat, p.lng, p.name);
+      $scope.experience.points_of_interest.forEach(function(p){
+        Map.drawPOI($scope.maps.poi.map, p.latitude, p.longitude, p.name);
       });
       $scope.experience.userpoints.forEach(function(p){
         Map.drawCustomPointFromPosition($scope.maps.points.map, p.lat, p.lng);

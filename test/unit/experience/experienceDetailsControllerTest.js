@@ -57,9 +57,9 @@ describe('ExperienceDetailsController', function () {
 	experienceService.getExperienceDetails.and.callFake(
 	    function(id, callback) {
 		var data = {
-		    poi: [],
 		    userpoints: [],
 		    tracks: [],
+		    points_of_interest: [],
 		};
 		if (firstCall) {
 		    firstCall = false;
