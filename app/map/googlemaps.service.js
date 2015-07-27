@@ -85,9 +85,16 @@ function GoogleMapsService() {
    * @returns {google.maps.Map} map - Oggetto mappa di Google Maps.
    */
   var initMapFromPerimeter = function(mapId, ne, sw){
-    var perimeter = new google.maps.LatLngBounds(
+    var perimeter = {};
+    if (ne.hasOwnProperty('lat')) {
+      perimeter = new google.maps.LatLngBounds(
         new google.maps.LatLng(ne.lat, ne.lng),
         new google.maps.LatLng(sw.lat, sw.lng));
+    } else {
+      perimeter = new google.maps.LatLngBounds(
+        new google.maps.LatLng(ne.latitude, ne.longitude),
+        new google.maps.LatLng(sw.latitude, sw.longitude));
+    }
     var map = new google.maps.Map( document.getElementById(mapId),{
       center: perimeter.getCenter(),
       mapTypeId: google.maps.MapTypeId.TERRAIN,
