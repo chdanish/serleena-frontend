@@ -132,7 +132,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
       $scope.experience = data;
       for (var m in $scope.maps){
         $scope.maps[m].map = Map.initMapFromPerimeter($scope.maps[m].id,
-          $scope.experience.perimeter.ne, $scope.experience.perimeter.sw);
+          $scope.experience.boundingRect.topLeft,
+          $scope.experience.boundingRect.bottomRight);
       }
       $scope.experience.poi.forEach(function(p){
         Map.drawPOI($scope.maps.poi.map, p.lat, p.lng, p.name);
