@@ -58,8 +58,9 @@ module.exports = function(config){
         outputFile: 'test-results.xml'
       },
       coverageReporter: {
-        type : 'html',
-        dir : 'coverage/'
+        type : 'cobertura',
+        dir : 'coverage/',
+        file: 'coverage.xml'
       },
 
       preprocessors: {
