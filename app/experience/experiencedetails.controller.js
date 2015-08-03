@@ -143,7 +143,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
           p.longitude);
       });
       $scope.experience.tracks.forEach(function(t){
-        ExperienceService.getTrackDetails($scope.experienceId, t.id,
+        ExperienceService.getTrackDetails($scope.experienceId, t.name,
           function(ok, data){
           if (ok){
             t.checkpoints = data;
