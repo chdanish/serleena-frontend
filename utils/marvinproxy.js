@@ -90,11 +90,7 @@ var proxyRequest = function(  method,
   var paramNames = Object.keys(originalRequest.params);
   var endpoint = "";
 
-  /*.forEach(function (paramName) {
-    endpoint = endpoint + '/' + originalRequest.params[paramName] + '/';
-  });*/
-
-  if (paramNames.length > 0) {
+  if (routeParts.length > 1) {
     for (var i = 0; i < paramNames.length; i++) {
       endpoint = endpoint + routeParts[i] + "/" +
         originalRequest.params[paramNames[i]];
@@ -102,7 +98,10 @@ var proxyRequest = function(  method,
     if (endpoint.substr(endpoint.length - 1) !== "/")
       endpoint = endpoint + "/";
   } else {
-    endpoint = route;
+    proxyRoute = proxyRoute + route;
+    paramNames.forEach(function (paramName) {
+      endpoint = endpoint + '/' + originalRequest.params[paramName] + '/';
+    });
   }
 
   proxyRoute = proxyRoute + endpoint;
