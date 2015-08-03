@@ -34,14 +34,14 @@
 				</tr>
 				<tr ng-repeat="exp in experiences">
 					<td>
-						<a ng-href="#dashboard/experiences/{{exp}}">
-							{{exp}}
+						<a ng-href="#dashboard/experiences/{{exp[0]}}">
+							{{exp[1]}}
 						</a>
 					</td>
 					<td align="right">
-						<a ng-href="#dashboard/experiences/{{exp}}/edit"
+						<a ng-href="#dashboard/experiences/{{exp[0]}}/edit"
 							class="btn btn-warning">Modifica</a>
-						<a ng-href="#dashboard/experiences/{{exp}}/delete"
+						<a ng-href="#dashboard/experiences/{{exp[0]}}/delete"
 							class="btn btn-danger">Elimina</a>
 					</td>
 				</tr>
