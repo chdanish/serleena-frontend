@@ -170,8 +170,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
     }
     $scope.currentTrackIndex = index;
     $scope.currentTrackDraw = Map.drawTrack($scope.maps.tracks.map,
-      $scope.experience.tracks[index].checkpoints);
-    $scope.experience.tracks[$scope.currentTrackIndex].checkpoints.forEach(
+      $scope.experience.tracks[index].checkPoints);
+    $scope.experience.tracks[$scope.currentTrackIndex].checkPoints.forEach(
       function(c){
       $scope.currentCheckpoints.push(
         Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.lat, c.lng));

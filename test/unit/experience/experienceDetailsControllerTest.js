@@ -97,8 +97,8 @@ describe('ExperienceDetailsController', function () {
 	$scope.experience.tracks = [];
 	
 	$scope.experience.tracks.push({
-	    checkpoints: [''],
-	    maps: 'Hill Valley',
+			checkPoints: [''],
+	    maps: 'Hill Valley'
 	});
 	$scope.showTrack(0);
 
