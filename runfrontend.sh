@@ -5,5 +5,5 @@ then
     kill -9 $(cat lastpid)
 fi
 
-node utils/marvinproxy.js >> /opt/serleena-frontend/log 2>&1 &
+node /opt/serleena-frontend/www/utils/marvinproxy.js >> /opt/serleena-frontend/marvinproxy.log 2>&1 &
 echo $! > lastpid
