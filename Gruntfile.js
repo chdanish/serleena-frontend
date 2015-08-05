@@ -108,7 +108,8 @@ module.exports = function(grunt){
 					'assets/**',
 					'dist/serleenafrontend.js',
 					'index.html',
-					'utils/marvinproxy.js'
+					'utils/marvinproxy.js',
+					'runfrontend.sh'
 				],
 				dest: './serleena-frontend.zip'
 			},
