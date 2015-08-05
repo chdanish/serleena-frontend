@@ -86,7 +86,7 @@ angular.module('serleenaFrontend')
 	.constant("DEBUG", false);
 
 angular.module('serleenaFrontend')
-	.constant("PRODUCTION_BACKEND_URL", 'http://marvin.hitchhikers.info');
+	.constant("PRODUCTION_BACKEND_URL", "http://localhost:4242");
 
 angular.module('serleenaFrontend')
 	.constant('DEVELOP_BACKEND_URL', "http://localhost:4242");
