@@ -103,6 +103,7 @@ module.exports = function(grunt){
 					'bower_components/c3/c3.js',
 					'bower_components/angular-chart/angular-chart.js',
 					'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
+					'node_modules/**',
 					'app/**',
 					'assets/**',
 					'dist/serleenafrontend.js',
