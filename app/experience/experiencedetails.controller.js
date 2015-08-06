@@ -174,7 +174,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
     $scope.experience.tracks[$scope.currentTrackIndex].checkPoints.forEach(
       function(c){
       $scope.currentCheckpoints.push(
-        Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.lat, c.lng));
+        Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.latitude,
+          c.longitude));
     });
   };
   /**
