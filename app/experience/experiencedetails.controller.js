@@ -132,13 +132,15 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
       $scope.experience = data;
       for (var m in $scope.maps){
         $scope.maps[m].map = Map.initMapFromPerimeter($scope.maps[m].id,
-          $scope.experience.perimeter.ne, $scope.experience.perimeter.sw);
+          $scope.experience.boundingRect.topLeft,
+          $scope.experience.boundingRect.bottomRight);
       }
-      $scope.experience.poi.forEach(function(p){
-        Map.drawPOI($scope.maps.poi.map, p.lat, p.lng, p.name);
+      $scope.experience.points_of_interest.forEach(function(p){
+        Map.drawPOI($scope.maps.poi.map, p.latitude, p.longitude, p.name);
       });
-      $scope.experience.userpoints.forEach(function(p){
-        Map.drawCustomPointFromPosition($scope.maps.points.map, p.lat, p.lng);
+      $scope.experience.user_points.forEach(function(p){
+        Map.drawCustomPointFromPosition($scope.maps.points.map, p.latitude,
+          p.longitude);
       });
       $scope.experience.tracks.forEach(function(t){
         ExperienceService.getTrackDetails($scope.experienceId, t.id,
