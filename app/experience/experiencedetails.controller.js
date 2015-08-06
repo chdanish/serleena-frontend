@@ -143,7 +143,7 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
           p.longitude);
       });
       $scope.experience.tracks.forEach(function(t){
-        ExperienceService.getTrackDetails($scope.experienceId, t.id,
+        ExperienceService.getTrackDetails($scope.experienceId, t.name,
           function(ok, data){
           if (ok){
             t.checkpoints = data;
@@ -174,7 +174,8 @@ function ExperienceDetailsController($scope, $routeParams, ExperienceService,
     $scope.experience.tracks[$scope.currentTrackIndex].checkpoints.forEach(
       function(c){
       $scope.currentCheckpoints.push(
-        Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.lat, c.lng));
+        Map.drawCheckpointFromPosition($scope.maps.tracks.map, c.latitude,
+          c.longitude));
     });
   };
   /**

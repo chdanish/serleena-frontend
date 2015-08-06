@@ -502,17 +502,26 @@ function GoogleMapsService() {
    * @memberOf Map.GoogleMapsService
    * @instance
    * @param {google.maps.Map} map - Oggetto mappa di Google Maps.
-   * @param {Array} points - Array di oggetti che contengono un attributo "lat"
-   * con la latitudine e un attributo "lng" con la longitudine.
+   * @param {Array} points - Array di oggetti che contengono un attributo
+   * "latitude" o "lat" con la latitudine e un attributo "longitude" o "lng" con
+   * la longitudine.
    * @returns {google.maps.Polyline} - Oggetto rappresentante il percorso
    * disegnato.
    */
   var drawTrack = function(map, points){
     var latlngs = [];
-    points.forEach(function(p){
-      latlngs.push(new google.maps.LatLng(p.lat, p.lng));
-    });
-    return drawLine(map, points, 'yellow', 0.7, null);
+    if (points.length > 0 && points[0].hasOwnProperty('latitude')) {
+      points.forEach(function (p) {
+        latlngs.push(new google.maps.LatLng(p.latitude, p.longitude));
+      });
+    } else {
+      points.forEach(function (p) {
+        latlngs.push(new google.maps.LatLng(p.lat, p.lng));
+      });
+    }
+
+    return drawLine(map, latlngs, 'yellow', 0.7, null);
+
   };
   /**
    * Rimuove un generico componente dalla mappa.

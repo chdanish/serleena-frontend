@@ -223,12 +223,13 @@ describe('ExperienceService Test', function () {
 
 	httpBackend.whenGET(BACKEND_URL + "/experiences/" + experienceId
 			     + "/tracks/" + trackId)
-	    .respond(201, 'BluesBrothers');
+	    .respond(201, {checkPoints:'BluesBrothers'});
 	experienceService.getTrackDetails(experienceId, trackId, callback);
 	httpBackend.flush();
 
 	expect(success).toBe(true);
 	expect(failure).toBe(false);
+
 	expect(dataReceived).toBe('BluesBrothers');
     });
 

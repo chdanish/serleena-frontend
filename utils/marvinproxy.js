@@ -84,7 +84,27 @@ var proxyRequest = function(  method,
     return originalResponse.status(401);
 
   var proxy = {};
-  var proxyRoute = backend + route;
+  var proxyRoute = backend; // + route;
+
+  var routeParts = route.split("+");
+  var paramNames = Object.keys(originalRequest.params);
+  var endpoint = "";
+
+  if (routeParts.length > 1) {
+    for (var i = 0; i < paramNames.length; i++) {
+      endpoint = endpoint + routeParts[i] + "/" +
+        originalRequest.params[paramNames[i]];
+    }
+    if (endpoint.substr(endpoint.length - 1) !== "/")
+      endpoint = endpoint + "/";
+  } else {
+    proxyRoute = proxyRoute + route;
+    paramNames.forEach(function (paramName) {
+      endpoint = endpoint + '/' + originalRequest.params[paramName] + '/';
+    });
+  }
+
+  proxyRoute = proxyRoute + endpoint;
 
   console.log("=== ROUTE ===");
   console.log(method + " " + proxyRoute);
@@ -93,9 +113,6 @@ var proxyRequest = function(  method,
   console.log("ORIGINAL BODY");
   console.log(originalRequest.body);
 
-  Object.keys(originalRequest.params).forEach(function (paramName) {
-    proxyRoute = proxyRoute + '/' + originalRequest.params[paramName] + '/';
-  });
 
   switch(method){
     case "get":
@@ -193,6 +210,10 @@ app.delete('/experiences/:experienceId', function (req, res) {
 
 app.get('/experiences/:experienceId', function (req, res) {
   proxyRequest('get', '/experiences', ['X-AuthToken'], req, res);
+});
+
+app.get('/experiences/:experienceId/tracks/:trackId', function (req, res) {
+  proxyRequest('get', '/experiences+/tracks', ['X-AuthToken'], req, res);
 });
 
 var server = app.listen(4242, function () {
