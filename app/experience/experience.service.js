@@ -252,7 +252,7 @@ function ExperienceService($http, AuthService, BACKEND_URL) {
           'X-AuthToken': token
         }
       }).success(function(data){
-        callback(true, data);
+        callback(true, data.checkPoints);
       }).error(function(data){
         callback(false, data);
       });
