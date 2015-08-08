@@ -456,7 +456,8 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
       $scope.editExperienceCustomPoints.forEach(function(p){
         var o = {};
         o.marker = Map.
-                  drawEditableCustomPointFromPosition($scope.map, p.lat, p.lng);
+                  drawEditableCustomPointFromPosition($scope.map, p.latitude,
+          p.longitude);
         $scope.customPoints.push(o);
       });
     }
