@@ -716,7 +716,10 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     });
 
     if($scope.editMode){
-      ExperienceService.editExperience($scope.experienceId, $scope.expName,
+      var fromLat = from.latitude;
+      from.latitude = to.latitude;
+      to.latitude = fromLat;
+      ExperienceService.editExperience($scope.editExperienceId, $scope.expName,
         cleanTracks, from, to, selectedPOIs, selectedCustomPoints,
         experienceSavingCallback);
     } else {
