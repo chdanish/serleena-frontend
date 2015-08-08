@@ -216,6 +216,10 @@ app.get('/experiences/:experienceId/tracks/:trackId', function (req, res) {
   proxyRequest('get', '/experiences+/tracks', ['X-AuthToken'], req, res);
 });
 
+app.put('/experiences/:experienceId', function (req, res) {
+  proxyRequest('put', '/experiences', ['X-AuthToken'], req, res);
+});
+
 var server = app.listen(4242, function () {
 
   var host = server.address().address;
