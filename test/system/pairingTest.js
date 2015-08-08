@@ -26,21 +26,13 @@
  *****************************************************************************/
 
 
-describe('La pagina di registrazione', function () {
+describe('La pagina di pairing', function () {
+  it('dovrebbe permettere che il pairing vada a buon fine', function () {
+    element(by.model('tempToken')).sendKeys(browser.params.pair.token);
+    element(by.buttonText('Esegui')).click();
 
-  it('dovrebbe far registrare un nuovo utente', function () {
-    browser.get('#/register');
-
-    element(by.model('email')).sendKeys(browser.params.login.email);
-    element(by.model('password')).sendKeys(browser.params.login.password);
-    element(by.buttonText('Registrati')).click();
-
-    element(by.css('.alert-success')).isDisplayed().then( function (isReally) {
+    element(by.css('.panel-success')).isDisplayed().then( function (isReally) {
       expect(isReally).toBe(true);
     });
-  });
-
-  it ('dovrebbe proseguire con il pairing', function () {
-    element(by.css('a.btn-primary')).click();
   });
 });
