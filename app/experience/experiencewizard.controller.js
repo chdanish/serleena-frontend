@@ -267,21 +267,46 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     ExperienceService.getExperienceDetails($scope.editExperienceId,
       function(ok, exp){
       if(ok){
-        $scope.expName = exp.name;
+        $scope.expName = $scope.nameForm.text = exp.name;
         exp.tracks.forEach(function(t){
-          t.checkMarkers = [];
+          var track = {
+            name: t.name
+          };
+          track.checkMarkers = [];
           ExperienceService.getTrackDetails(exp.id, t.id,
             function(ok, checkpoints){
-            checkpoints.forEach(function(c){
-              t.checkMarkers
-               .push(Map.createEditableCheckpointFromPosition(c.lat, c.lng));
-            });
-            $scope.tracks.push(t);
+              if (typeof checkpoints !== 'undefined'){
+                checkpoints.forEach(function(c){
+                  track.checkMarkers
+                   .push(Map.createEditableCheckpointFromPosition(c.latitude,
+                      c.longitude));
+                });
+              }
+            $scope.tracks.push(track);
+          });
+
+        });
+        $scope.perimeter = {
+          ne: {
+            lat: exp.boundingRect.topLeft.latitude,
+            lng: exp.boundingRect.topLeft.longitude
+          },
+          sw: {
+            lat: exp.boundingRect.bottomRight.latitude,
+            lng: exp.boundingRect.bottomRight.longitude
+          }
+        };
+        $scope.editExperiencePoi = [];
+        exp.points_of_interest.forEach( function (p) {
+          $scope.editExperiencePoi.push({
+            name: p.name,
+            type: p.type,
+            lat: p.latitude,
+            lng: p.longitude
           });
         });
-        $scope.perimeter = exp.perimeter;
-        $scope.editExperiencePoi = exp.poi;
-        $scope.editExperienceCustomPoints = exp.userpoints;
+
+        $scope.editExperienceCustomPoints = exp.user_points;
       }
     });
    }
