@@ -80,7 +80,7 @@ function SyncExperiencesService($http, AuthService, BACKEND_URL) {
           'X-AuthToken': token
         }
       }).success(function(data){
-        callback(true, data.experiences);
+        callback(true, data);
       }).error(function(data){
         callback(false, data);
       });

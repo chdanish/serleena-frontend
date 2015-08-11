@@ -89,7 +89,7 @@ describe('SyncExperiencesService Test', function () {
 
 	expect(success).toBe(true);
 	expect(failure).toBe(false);
-	expect(dataReceived).toEqual(['never', 'cross', 'the', 'stream']);
+	expect(dataReceived.experiences).toEqual(['never', 'cross', 'the', 'stream']);
     });
 
     it('Wrong getSyncList', function () {
