@@ -64,7 +64,8 @@ angular.module('synchronization').controller('SyncExperiencesController',
   * esperienze da sincronizzare.
   */
 
-function SyncExperiencesController($scope, SyncExperiencesService) {
+function SyncExperiencesController($scope, SyncExperiencesService,
+                                   ExperienceService) {
   /**
    * Array contenente le esperienze con le informazioni relative all'effettiva
    * o meno abilitazione alla sincronizzazione.
@@ -106,9 +107,31 @@ function SyncExperiencesController($scope, SyncExperiencesService) {
    */
   $scope.msgText = "";
 
-  SyncExperiencesService.getSyncList(function(ok, data){
-    if(ok){
-      $scope.experiences = data;
+  ExperienceService.getExperienceList(function (ok, expData) {
+    if (ok) {
+      SyncExperiencesService.getSyncList(function(ok, data){
+        if(ok){
+          var selected = false;
+          expData.forEach (function (e) {
+            selected = false;
+            data.forEach( function (d) {
+              if (e[0] === d) {
+                selected = true;
+                return;
+              }
+            });
+            $scope.experiences.push({
+              name: e[1],
+              selected: selected
+            });
+          });
+        } else {
+          $scope.showMsg = true;
+          $scope.msgType = "danger";
+          $scope.msgText = "Impossibile caricare la lista di " +
+            "sincronizzazione :(";
+        }
+      });
     } else {
       $scope.showMsg = true;
       $scope.msgType = "danger";

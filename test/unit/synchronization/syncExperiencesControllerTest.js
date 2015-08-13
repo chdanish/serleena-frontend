@@ -38,16 +38,27 @@
   */
 
 describe ('SyncExperiencesController Test', function () {
-    var $scope, syncExperiencesService, successGetSyncList, experiencesSaved;
+    var $scope, syncExperiencesService, successGetSyncList, experiencesSaved,
+			experienceService;
     var successSetSyncList;
 
     successSetSyncList = false;
     successGetSyncList = false;
 
     beforeEach(module('synchronization'));
+		beforeEach(module('experience'));
 
     beforeEach(inject(function ($controller) {
 	$scope = {};
+
+			experienceService = jasmine.createSpyObj('ExperienceService', [
+				'getExperienceList'
+			]);
+
+			experienceService.getExperienceList.and.callFake(function (callback) {
+				callback(false, [['never', 'never'], ['cross', 'cross'],
+					['the', 'the'], ['stream', 'stream']]);
+			});
 
 	syncExperiencesService = jasmine.createSpyObj('SyncExperiencesService',
 						      ['getSyncList',
@@ -55,7 +66,7 @@ describe ('SyncExperiencesController Test', function () {
 	if(successGetSyncList == false) {
 	    successGetSyncList = true;
 	    syncExperiencesService.getSyncList.and.callFake(function(callback) {
-		callback(false, '');
+		callback(false, []);
 	    });
 	} else {
 	    syncExperiencesService.getSyncList.and.callFake(function(callback) {
@@ -77,7 +88,8 @@ describe ('SyncExperiencesController Test', function () {
 
 	$controller('SyncExperiencesController', {
 	    $scope: $scope,
-	    SyncExperiencesService: syncExperiencesService
+	    SyncExperiencesService: syncExperiencesService,
+			ExperienceService: experienceService
 	});
 
     }));
@@ -94,14 +106,17 @@ describe ('SyncExperiencesController Test', function () {
     });
 
     it('Successfully GetSyncList', function () {
-	expect($scope.experiences).toEqual(['never', 'cross', 'the', 'stream']);
-	expect($scope.showMsg).toBe(false);
-	expect($scope.msgType).toBe('');
-	expect($scope.msgText).toBe('');
+			setTimeout(function () {
+				expect($scope.experiences.length).toEqual(4);
+				expect($scope.showMsg).toBe(false);
+				expect($scope.msgType).toBe('');
+				expect($scope.msgText).toBe('');
+			}, 1000)
     });
 
     it('Wrong saveList', function () {
-	expect($scope.experiences).toEqual(['never', 'cross', 'the', 'stream']);
+			setTimeout( function () {
+	expect($scope.experiences.length).toEqual(4);
 	expect($scope.showMsg).toBe(false);
 	expect($scope.msgType).toBe('');
 	expect($scope.msgText).toBe('');
@@ -111,10 +126,12 @@ describe ('SyncExperiencesController Test', function () {
 	expect($scope.showMsg).toBe(true);
 	expect($scope.msgType).toBe('danger');
 	expect($scope.msgText).toBe("Errore nell'aggiornamento della lista :(");
+			}, 1000);
     });
 
     it('Successfully saveList', function () {
-	expect($scope.experiences).toEqual(['never', 'cross', 'the', 'stream']);
+			setTimeout( function () {
+	expect($scope.experiences.length).toEqual(4);
 	expect($scope.showMsg).toBe(false);
 	expect($scope.msgType).toBe('');
 	expect($scope.msgText).toBe('');
@@ -126,6 +143,7 @@ describe ('SyncExperiencesController Test', function () {
 	expect($scope.msgType).toBe('success');
 	expect($scope.msgText).toBe('Lista aggiornata!');
 	expect(experiencesSaved).toEqual(['never', 'cross', 'the', 'stream']);
+				}, 1000);
     });
 
 });
