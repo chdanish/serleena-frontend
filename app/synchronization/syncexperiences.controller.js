@@ -121,6 +121,7 @@ function SyncExperiencesController($scope, SyncExperiencesService,
               }
             });
             $scope.experiences.push({
+              id: e[0],
               name: e[1],
               selected: selected
             });
@@ -146,7 +147,13 @@ function SyncExperiencesController($scope, SyncExperiencesService,
    * @instance
    */
   $scope.saveList = function(){
-    SyncExperiencesService.setSyncList($scope.experiences, function(ok, data){
+    var expToSave = [];
+    $scope.experiences.forEach( function (e) {
+      if (e.selected) {
+        expToSave.push(e.id);
+      }
+    });
+    SyncExperiencesService.setSyncList(expToSave, function(ok, data){
       $scope.showMsg = true;
       if(ok){
         $scope.msgType = "success";

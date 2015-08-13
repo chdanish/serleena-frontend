@@ -224,6 +224,10 @@ app.get('/data/sync', function (req, res) {
   proxyRequest('get', '/data/sync', ['X-AuthToken'], req, res);
 });
 
+app.put('/data/sync', function (req, res) {
+  proxyRequest('put', '/data/sync', ['X-AuthToken'], req, res);
+});
+
 var server = app.listen(4242, function () {
 
   var host = server.address().address;
