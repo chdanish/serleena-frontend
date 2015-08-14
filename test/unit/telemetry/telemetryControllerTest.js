@@ -52,7 +52,7 @@ describe('TelemetryController Test', function () {
 	$scope = {};
 	routeParams = {};
 	routeParams.experienceId = 1;
-	routeParams.trackId = 44;
+	routeParams.trackId = 'Jupiter';
 
 	experienceService = jasmine.createSpyObj('Experienceservice',
 						 ['getExperienceDetails']);
@@ -64,7 +64,7 @@ describe('TelemetryController Test', function () {
 		    exp = {
 			name: 'Exp101',
 			tracks: [{
-			    id: 44,
+			    id: 'Jupiter',
 			    name: 'Jupiter'
 			}]
 		    };
@@ -116,7 +116,7 @@ describe('TelemetryController Test', function () {
 
     it('TelemetryController with expName and trackName', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('Exp101');
 	expect($scope.trackName).toBe('Jupiter');
 	expect($scope.telemetries).toEqual([]);
@@ -134,7 +134,7 @@ describe('TelemetryController Test', function () {
 
     it('TelemetryController with expName', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('Exp101');
 	expect($scope.trackName).toBe('');
 	expect($scope.telemetries).toEqual([]);
@@ -152,7 +152,7 @@ describe('TelemetryController Test', function () {
 
     it('TelemetryController', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('');
 	expect($scope.trackName).toBe('');
 	expect($scope.telemetries).toEqual([]);
@@ -170,7 +170,7 @@ describe('TelemetryController Test', function () {
 
     it('TelemetryController with getTelemetryList', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('');
 	expect($scope.trackName).toBe('');
 	expect($scope.telemetries).toEqual([88, 42]);
@@ -188,7 +188,7 @@ describe('TelemetryController Test', function () {
 
     it('Successfully showTelemetry undefined', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('');
 	expect($scope.trackName).toBe('');
 	expect($scope.telemetries).toEqual([]);
@@ -213,7 +213,7 @@ describe('TelemetryController Test', function () {
 
     it('Successfully showTelemetry undefined failed', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('');
 	expect($scope.trackName).toBe('');
 	expect($scope.telemetries).toEqual([]);
@@ -238,7 +238,7 @@ describe('TelemetryController Test', function () {
 
     it('Successfully showTelemetry not undefined', function () {
 	expect($scope.experienceId).toBe(1);
-	expect($scope.trackId).toBe(44);
+	expect($scope.trackId).toBe('Jupiter');
 	expect($scope.expName).toBe('');
 	expect($scope.trackName).toBe('');
 	expect($scope.telemetries).toEqual([]);
