@@ -91,9 +91,9 @@ var proxyRequest = function(  method,
   var endpoint = "";
 
   if (routeParts.length > 1) {
-    for (var i = 0; i < paramNames.length; i++) {
+    for (var i = 0; i < routeParts.length; i++) {
       endpoint = endpoint + routeParts[i] + "/" +
-        originalRequest.params[paramNames[i]];
+        (originalRequest.params[paramNames[i]] || '');
     }
     if (endpoint.substr(endpoint.length - 1) !== "/")
       endpoint = endpoint + "/";
