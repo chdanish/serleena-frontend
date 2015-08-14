@@ -162,7 +162,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
     if(ok){
       $scope.expName = exp.name;
       exp.tracks.forEach(function(t){
-        if(t.id == $scope.trackId){
+        if(t.name == $scope.trackId){
           $scope.trackName = t.name;
           return;
         }
