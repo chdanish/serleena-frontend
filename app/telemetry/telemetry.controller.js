@@ -188,7 +188,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
   $scope.showTelemetry = function(index){
     if (typeof $scope.telemetries[index].data == 'undefined'){
       TelemetryService.getTelemetryDetails($scope.experienceId, $scope.trackId,
-        index, function(ok, data){
+        $scope.telemetries[index].id, function(ok, data){
           if(ok){
             $scope.telemetries[index].data = data;
             $scope.currentTelemetry = $scope.telemetries[index].data;
