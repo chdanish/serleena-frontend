@@ -91,9 +91,9 @@ var proxyRequest = function(  method,
   var endpoint = "";
 
   if (routeParts.length > 1) {
-    for (var i = 0; i < paramNames.length; i++) {
+    for (var i = 0; i < routeParts.length; i++) {
       endpoint = endpoint + routeParts[i] + "/" +
-        originalRequest.params[paramNames[i]];
+        (originalRequest.params[paramNames[i]] || '');
     }
     if (endpoint.substr(endpoint.length - 1) !== "/")
       endpoint = endpoint + "/";
@@ -226,6 +226,10 @@ app.get('/data/sync', function (req, res) {
 
 app.put('/data/sync', function (req, res) {
   proxyRequest('put', '/data/sync', ['X-AuthToken'], req, res);
+});
+
+app.get('/experiences/:eid/tracks/:tid/telemetries', function (req, res) {
+  proxyRequest('get', '/experiences+/tracks+/telemetries', ['X-AuthToken'], req, res);
 });
 
 var server = app.listen(4242, function () {
