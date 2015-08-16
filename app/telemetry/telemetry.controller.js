@@ -139,24 +139,35 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
   /**
    * Impostazioni riguardanti il grafico generato da Angular Charts.
    *
-   * @name heartChartOptions
+   * @name chartOptions
    * @type Object
    * @memberOf Telemetry.TelemetryController
    * @instance
    */
-  $scope.heartChartOptions = {
-    rows: [{
-      key: 'heart',
-      type: 'line',
-      name: 'Battito cardiaco'
-    }],
+  $scope.chartOptions = {
+    rows: [
+      {
+        key: 'timelapse',
+        type: 'line',
+        name: 'Tempo'
+      }
+    ],
     xAxis: {
       key: 'id',
       displayFormat: function(x){
         return "Checkpoint #" + x;
       }
-    },
+    }
   };
+  /**
+   * Riferimento ai dati visualizzati correntemente nel grafico
+   *
+   * @name currentChartData
+   * @type Object
+   * @memberOf Telemetry.TelemetryController
+   * @instance
+   */
+  $scope.currentChartData = [];
 
   ExperienceService.getExperienceDetails($scope.experienceId, function(ok, exp){
     if(ok){
@@ -190,14 +201,34 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
       TelemetryService.getTelemetryDetails($scope.experienceId, $scope.trackId,
         $scope.telemetries[index].id, function(ok, data){
           if(ok){
+            var chartdata = [];
+            chartdata.push({
+              id: 1,
+              timelapse: 0
+            });
+            var timelapse = [];
+            timelapse.push(0);
+            for (var i = 1; i < data.events.length; i++){
+              // in minuti
+              timelapse.push(((data.events[i]-data.events[i-1])/60000).toFixed(2));
+              chartdata.push({
+                id: i+1,
+                timelapse: parseFloat(timelapse[i])
+              });
+            }
+            $scope.telemetries[index].timelapse = timelapse;
+            $scope.telemetries[index].chartdata = chartdata;
             $scope.telemetries[index].data = data;
-            $scope.currentTelemetry = $scope.telemetries[index].data;
+
+            $scope.currentTelemetry = $scope.telemetries[index];
             $scope.currentTelemetryIndex = index;
+            $scope.currentChartData = $scope.telemetries[index].chartdata;
           }
         });
     } else {
-      $scope.currentTelemetry = $scope.telemetries[index].data;
+      $scope.currentTelemetry = $scope.telemetries[index];
       $scope.currentTelemetryIndex = index;
+      $scope.currentChartData = $scope.telemetries[index].chartdata;
     }
   };
 }
