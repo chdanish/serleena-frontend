@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div class="row vspace" ng-show="currentTelemetryIndex != -1">
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<h2>Condividi esperienza</h2>
 			<button class="btn btn-primary" socialshare
 				socialshare-provider="facebook"
@@ -46,15 +46,19 @@
 				Condividi su Twitter
 			</button>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<table class="table">
 				<tr>
 					<th>Checkpoint</th>
-					<th>Valore battito cardiaco</th>
+					<th>Raggiungimento</th>
+					<th>Tempo dal checkpoint precedente</th>
 				</tr>
-				<tr ng-repeat="t in currentTelemetry">
-					<td>Checkpoint #{{$index}}</td>
-					<td>{{t.heart}}</td>
+				<tr ng-repeat="t in currentTelemetry.data.events">
+					<td>Checkpoint #{{$index+1}}</td>
+					<td>{{t | date:'HH:mm:ss - dd/MM/yyyy' }}</td>
+					<td>
+						{{currentTelemetry.timelapse[$index]}} minuti
+					</td>
 				</tr>
 			</table>
 		</div>
