@@ -232,6 +232,11 @@ app.get('/experiences/:eid/tracks/:tid/telemetries', function (req, res) {
   proxyRequest('get', '/experiences+/tracks+/telemetries', ['X-AuthToken'], req, res);
 });
 
+app.get('/experiences/:eid/tracks/:trid/telemetries/:teid', function (req, res) {
+  proxyRequest('get', '/experiences+/tracks+/telemetries', ['X-AuthToken'],
+    req, res);
+});
+
 var server = app.listen(4242, function () {
 
   var host = server.address().address;
