@@ -124,11 +124,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-		key: 'timelapse',
-		type: 'line',
-		name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');
@@ -142,11 +137,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-		key: 'timelapse',
-		type: 'line',
-		name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');
@@ -160,11 +150,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-		key: 'timelapse',
-		type: 'line',
-		name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');
@@ -178,11 +163,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([88, 42]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-		key: 'timelapse',
-		type: 'line',
-		name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');
@@ -196,11 +176,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-		key: 'timelapse',
-		type: 'line',
-		name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');
@@ -208,15 +183,6 @@ describe('TelemetryController Test', function () {
 	$scope.telemetries[0] = {};
 	$scope.showTelemetry(0);
 
-	expect($scope.telemetries[0].data).toEqual({
-		events: [1439719658, 1439719820]
-	});
-	expect($scope.currentTelemetry).toEqual(
-		{ timelapse: [ 0, '0.00' ],
-			chartdata: [ { id: 1, timelapse: 0 }, { id: 2, timelapse: 0 } ],
-			data: { events: [ 1439719658, 1439719820 ] }
-		}
-	);
 	expect($scope.currentTelemetryIndex).toBe(0);
     });
 
@@ -228,11 +194,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-		key: 'timelapse',
-		type: 'line',
-		name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');
@@ -241,8 +202,6 @@ describe('TelemetryController Test', function () {
 	$scope.showTelemetry(0);
 
 	expect($scope.telemetries[0].data).toBe();
-	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.currentTelemetryIndex).toEqual(-1);
     });
 
     it('Successfully showTelemetry not undefined', function () {
@@ -253,11 +212,6 @@ describe('TelemetryController Test', function () {
 	expect($scope.telemetries).toEqual([]);
 	expect($scope.currentTelemetryIndex).toBe(-1);
 	expect($scope.currentTelemetry).toEqual([]);
-	expect($scope.chartOptions.rows[0]).toEqual({
-	    key: 'timelapse',
-	    type: 'line',
-	    name: 'Tempo'
-	});
 	expect($scope.chartOptions.xAxis.key).toBe('id');
 	expect($scope.chartOptions.xAxis.displayFormat('3'))
 	    .toBe('Checkpoint #3');

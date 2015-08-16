@@ -145,13 +145,7 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.chartOptions = {
-    rows: [
-      {
-        key: 'timelapse',
-        type: 'line',
-        name: 'Tempo'
-      }
-    ],
+    rows: [],
     xAxis: {
       key: 'id',
       displayFormat: function(x){
@@ -160,14 +154,32 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
     }
   };
   /**
-   * Riferimento ai dati visualizzati correntemente nel grafico
+   * Dati visualizzati nel grafico
    *
-   * @name currentChartData
+   * @name chartData
    * @type Object
    * @memberOf Telemetry.TelemetryController
    * @instance
    */
-  $scope.currentChartData = [];
+  $scope.chartData = [];
+
+  /**
+   * Funzione che genera un colore casuale da assegnare a un tracciamento nel
+   * grafico.
+   *
+   * @function getRandomColor
+   * @memberOf Telemetry.TelemetryController
+   * @instance
+   * @private
+   */
+  var getRandomColor = function () {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var j = 0; j < 6; j++ ) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
 
   ExperienceService.getExperienceDetails($scope.experienceId, function(ok, exp){
     if(ok){
@@ -186,6 +198,49 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
 
       if(ok){
         $scope.telemetries = data;
+
+        $scope.telemetries.forEach( function (t) {
+          TelemetryService.getTelemetryDetails($scope.experienceId, $scope.trackId,
+            t.id, function(ok, data){
+              if(ok){
+
+                $scope.chartOptions.rows.push({
+                  key: 'timelapse_' + t.id,
+                  type: 'line',
+                  name: 'Tracciamento ' + t.id,
+                  color: getRandomColor()
+                });
+
+                if (typeof $scope.chartData[0] == 'undefined'){
+                  $scope.chartData[0] = {};
+                }
+                $scope.chartData[0]['timelapse_' + t.id] = 0;
+
+                var timelapse = [];
+                timelapse.push(0);
+
+                for (var i = 1; i < data.events.length; i++){
+                  // in minuti
+                  timelapse.push(
+                    ((data.events[i]-data.events[i-1])/60000).toFixed(2)
+                  );
+
+                  if (typeof $scope.chartData[i] == 'undefined') {
+                    $scope.chartData[i] = {};
+                  }
+                  $scope.chartData[i]['timelapse_' + t.id] = timelapse[i];
+                }
+
+                for(var k = 0; k < $scope.chartData.length; k++){
+                  $scope.chartData[k].id = k+1;
+                }
+
+                t.timelapse = timelapse;
+                t.data = data;
+              }
+            });
+        });
+
       }
   });
   /**
@@ -197,38 +252,9 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
    * @instance
    */
   $scope.showTelemetry = function(index){
-    if (typeof $scope.telemetries[index].data == 'undefined'){
-      TelemetryService.getTelemetryDetails($scope.experienceId, $scope.trackId,
-        $scope.telemetries[index].id, function(ok, data){
-          if(ok){
-            var chartdata = [];
-            chartdata.push({
-              id: 1,
-              timelapse: 0
-            });
-            var timelapse = [];
-            timelapse.push(0);
-            for (var i = 1; i < data.events.length; i++){
-              // in minuti
-              timelapse.push(((data.events[i]-data.events[i-1])/60000).toFixed(2));
-              chartdata.push({
-                id: i+1,
-                timelapse: parseFloat(timelapse[i])
-              });
-            }
-            $scope.telemetries[index].timelapse = timelapse;
-            $scope.telemetries[index].chartdata = chartdata;
-            $scope.telemetries[index].data = data;
-
-            $scope.currentTelemetry = $scope.telemetries[index];
-            $scope.currentTelemetryIndex = index;
-            $scope.currentChartData = $scope.telemetries[index].chartdata;
-          }
-        });
-    } else {
-      $scope.currentTelemetry = $scope.telemetries[index];
-      $scope.currentTelemetryIndex = index;
-      $scope.currentChartData = $scope.telemetries[index].chartdata;
-    }
+    $scope.currentTelemetry = $scope.telemetries[index];
+    $scope.currentTelemetryIndex = index;
+    //$scope.currentChartData = $scope.telemetries[index].chartdata;
   };
+
 }
