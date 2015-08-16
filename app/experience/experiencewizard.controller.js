@@ -270,10 +270,11 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
         $scope.expName = $scope.nameForm.text = exp.name;
         exp.tracks.forEach(function(t){
           var track = {
-            name: t.name
+            name: t.name,
+            id: t.id
           };
           track.checkMarkers = [];
-          ExperienceService.getTrackDetails(exp.id, t.name,
+          ExperienceService.getTrackDetails(exp.id, t.id,
             function(ok, checkpoints){
               if (typeof checkpoints !== 'undefined'){
                 checkpoints.forEach(function(c){
@@ -691,6 +692,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
         });
       });
       cleanTracks.push({
+        id: t.id,
         name: t.name,
         checkPoints: checkpoints
       });
