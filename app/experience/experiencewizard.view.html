@@ -39,7 +39,7 @@
 		<div class="col-md-5 col-md-offset-3">
 			<form>
 				<input type="text" class="form-control" placeholder="Esperienza"
-				ng-model="nameForm.text"/>
+				ng-model="nameForm.text" id="experience-name-input"/>
 			</form>
 		</div>
 	</div>
@@ -135,7 +135,8 @@
 						</tr>
 						<tr ng-repeat="p in poi">
 							<td>
-								<input type="checkbox" ng-model="p.selected" />
+								<input type="checkbox" ng-model="p.selected"
+										class="poi-checkbox"/>
 							</td>
 							<td><img ng-src="assets/icons/poi/{{p.type}}.png"
 									/></td>
