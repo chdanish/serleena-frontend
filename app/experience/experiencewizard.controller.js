@@ -420,8 +420,11 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.showTracks = false;
     $scope.showPOISelection = true;
     if($scope.previousTrackIndex != -1){
-      Map.
-         removeTrackFromMap($scope.tracks[$scope.previousTrackIndex].trackDraw);
+      if (typeof $scope.tracks[$scope.previousTrackIndex] !== 'undefined') {
+        Map.removeTrackFromMap(
+          $scope.tracks[$scope.previousTrackIndex].trackDraw
+        );
+      }
     }
     SerleenaDataService.getPOIs($scope.perimeter.ne, $scope.perimeter.sw, function(ok, poi){
       if(ok){
