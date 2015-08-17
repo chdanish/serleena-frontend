@@ -100,9 +100,9 @@ describe('La pagina di creazione nuova esperienza', function () {
 
   it('dovrebbe permettere di aggiungere punti d\'interesse', function () {
 
-    element.all(by.css('input[type=checkbox')).get(1).click();
+    element.all(by.css('input[type=checkbox]')).get(1).click();
 
-    element.all(by.css('input[type=checkbox')).get(1).isSelected().then(
+    element.all(by.css('input[type=checkbox]')).get(1).isSelected().then(
       function (selected) {
         expect(selected).toBe(true);
       }
