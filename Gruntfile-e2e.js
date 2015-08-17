@@ -29,6 +29,14 @@
 module.exports = function (grunt) {
 
   grunt.initConfig({
+    http: {
+      serleena_backend: {
+        options: {
+          url: 'http://api.hitchhikers.info/tokens/protractor_token'
+        },
+        dest: 'PROTRACTOR_TOKEN'
+      }
+    },
     clean: {
       coverageE2E: 'e2e/'
     },
@@ -81,8 +89,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-istanbul');
   grunt.loadNpmTasks('grunt-protractor-coverage');
+  grunt.loadNpmTasks('grunt-http');
 
   grunt.registerTask('default', [
+    'http',
     'clean:coverageE2E',
     'copy:coverageE2E',
     'instrument',
