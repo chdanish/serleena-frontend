@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: RegistrationTest
+ * Package: Authentication
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina di registrazione', function () {
 
   it('dovrebbe far registrare un nuovo utente', function () {
