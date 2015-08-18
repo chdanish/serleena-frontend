@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: SyncListTest
+ * Package: Synchronization
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina della lista di sincronizzazione', function () {
 
   it('dovrebbe visualizzare l\'esperienza creata', function () {
