@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: NewExperienceTest
+ * Package: Experience
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina di creazione nuova esperienza', function () {
 
   it('dovrebbe permettere inserire un nome per l\'esperienza', function () {
