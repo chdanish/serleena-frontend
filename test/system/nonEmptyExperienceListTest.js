@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: NonEmptyExperienceListTest
+ * Package: Experience
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina della lista di esperienze, quando ce ne sono', function () {
 
   it('dovrebbe visualizzare le esperienze create', function () {
