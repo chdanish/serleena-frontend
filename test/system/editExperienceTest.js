@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: EditExperienceTest
+ * Package: Experience
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina di modifica di una esperienza', function () {
 
   it('dovrebbe aprirsi correttamente', function () {
