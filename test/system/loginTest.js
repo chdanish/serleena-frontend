@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: LoginTest
+ * Package: Authentication
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina di login', function () {
 
   it('dovrebbe permettere al visitatore di fare login', function () {

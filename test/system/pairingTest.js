@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: PairingTest
+ * Package: Synchronization
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La pagina di pairing', function () {
   it('dovrebbe permettere che il pairing vada a buon fine', function () {
     element(by.model('tempToken')).sendKeys(browser.params.pair.token);

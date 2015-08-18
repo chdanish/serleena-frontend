@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: DeleteExperienceTest
+ * Package: Experience
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe('La cancellazione di un\'esperienza esistente', function () {
 
   it('dovrebbe cancellarla correttamente', function () {
