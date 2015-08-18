@@ -688,12 +688,13 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     var cleanTracks = [];
     $scope.tracks.forEach(function(t){
       var checkpoints = [];
-      t.checkpoints.forEach( function (c) {
+      for (var i = 0; i < t.checkpoints.length; i++) {
         checkpoints.push({
-          latitude: c.lat,
-          longitude: c.lng
+          id: i,
+          latitude: t.checkpoints[i].lat,
+          longitude: t.checkpoints[i].lng
         });
-      });
+      }
       cleanTracks.push({
         id: t.id,
         name: t.name,
