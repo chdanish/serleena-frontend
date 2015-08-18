@@ -26,6 +26,17 @@
  *****************************************************************************/
 
 
+/**
+ * Name: LogoutTest
+ * Package: Authentication
+ * Author: Antonio Cavestro <antonio.cavestro@gmail.com>
+ *
+ * History
+ * Version    Programmer        Changes
+ * 1.0.0      Antonio Cavestro    Crea file e test
+ *
+ */
+
 describe("La pagina di logout", function () {
   it("dovrebbe gestire correttamente il logout utente", function () {
     browser.get('#logout');
