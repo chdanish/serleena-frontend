@@ -273,6 +273,10 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
             name: t.name,
             id: t.id
           };
+          track.checkpoints = [];
+          t.checkPoints.forEach( function (c) {
+            track.checkpoints.push({lat: c.latitude, lng: c.longitude});
+          });
           track.checkMarkers = [];
           ExperienceService.getTrackDetails(exp.id, t.id,
             function(ok, checkpoints){
