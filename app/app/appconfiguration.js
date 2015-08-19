@@ -52,6 +52,18 @@
  * associata.
  * @constructor
  * @param {Provider} $routeProvider - Il gestore delle route di AngularJS
+ * @param {Provider} MapProvider - Factory parametrica che inizializza un
+ * gestore di mappe
+ * @param {Boolean} DEBUG - Flag che indica se il frontend è in esecuzione in
+ * modalità debug
+ * @param {String} PRODUCTION_BACKEND_URL - URL del backend in ambiente di
+ * produzione
+ * @param {String} DEVELOP_BACKEND_URL - URL del backend in ambiente di
+ * sviluppo e test
+ * @param {Provider} $httpProvider - Oggetto di AngularJS che gestisce la
+ * configurazione del servizio $http.
+ * @param {Provider} $provide - Provider di AngularJS per ottenere qualsiasi
+ * parametro registrato nell'applicazione.
  * @memberOf App
  *
  * @author Antonio Cavestro <antonio.cavestro@gmail.com>
