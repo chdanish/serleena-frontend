@@ -138,7 +138,7 @@
 								<input type="checkbox" ng-model="p.selected"
 										class="poi-checkbox"/>
 							</td>
-							<td><img ng-src="assets/icons/poi/{{p.type}}.png"
+							<td><img ng-src="assets/icons/poi/{{p.type | lowercase}}.png"
 									/></td>
 							<td>{{p.name}}</td>
 						</tr>
