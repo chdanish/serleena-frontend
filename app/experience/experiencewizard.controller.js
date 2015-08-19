@@ -603,6 +603,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @instance
    */
   $scope.saveCheckpoints = function(){
+    var oldCheckpoints = $scope.tracks[$scope.currentTrackIndex].checkpoints;
     $scope.tracks[$scope.currentTrackIndex].checkpoints = [];
     $scope.tracks[$scope.currentTrackIndex].checkMarkers.forEach(function(m){
       $scope.tracks[$scope.currentTrackIndex].checkpoints
@@ -613,6 +614,25 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.tracks[$scope.currentTrackIndex].trackDraw = Map
                                                         .drawTrack($scope.map,
       $scope.tracks[$scope.currentTrackIndex].checkpoints);
+
+    if ($scope.editMode){
+      var newCheckpoints = $scope.tracks[$scope.currentTrackIndex].checkpoints;
+      var edited = false;
+      if (oldCheckpoints.length !== newCheckpoints.length) {
+        edited = true;
+      } else {
+        for (var i = 0; i < oldCheckpoints.length && !edited; i++) {
+          if (oldCheckpoints[i].lat !== newCheckpoints[i].lat ||
+                oldCheckpoints[i].lng !== newCheckpoints[i].lng) {
+            edited = true;
+          }
+        }
+      }
+      if (edited) {
+        delete $scope.tracks[$scope.currentTrackIndex].id;
+      }
+    }
+
     $scope.previousTrackIndex = $scope.currentTrackIndex;
     $scope.currentTrackIndex = -1;
   };
