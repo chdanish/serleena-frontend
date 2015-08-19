@@ -162,14 +162,19 @@
 				<div class="panel-body">
 					<ul class="list-group">
 						<li ng-repeat="point in customPoints"
-							class="list-group-item">
-							Punto personalizzato #{{$index}}
+							class="list-group-item"
+							ng-dblclick="showCustomPointRename($index)">
+							{{point.name}}
 							<div class="btn-group">
 								<button class="btn btn-danger btn-xs"
 									ng-click="deleteCustomPoint($index)">
 									Cancella
 								</button>
 							</div>
+							<form ng-submit="closeCustomPointRename($index)"
+								  ng-show="point.showRename">
+								<input type="text" ng-model="point.name" />
+							</form>
 						</li>
 					</ul>
 				</div>
