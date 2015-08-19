@@ -64,10 +64,13 @@ function AppInit($rootScope, $location, AuthService){
 	 */
 	var accessManager = function(){
 		var userLoggedRedirectRoutes = {
-			'/': '/dashboard'
+			'/': '/dashboard',
+			'/register': '/dashboard',
+			'/recoverpassword': '/dashboard'
 		};
 		var userForbiddenRoutes = {
-			'/dashboard': '/'
+			'/dashboard': '/',
+			'/logout': '/'
 		};
 		var nextPath = $location.path();
 		var redirect;
