@@ -150,7 +150,11 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
       key: 'id',
       displayFormat: function(x){
         return "Checkpoint #" + x;
-      }
+      },
+      label: 'Checkpoint'
+    },
+    yAxis: {
+      label: 'Minuti'
     }
   };
   /**
