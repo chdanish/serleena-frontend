@@ -739,7 +739,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.customPoints.forEach(function(p){
       var c = Map.getCustomPointPosition(p.marker);
       selectedCustomPoints.push({
-        name: "Punto personalizzato #" + $scope.customPoints.indexOf(p),
         latitude: c.lat,
         longitude: c.lng
       });
