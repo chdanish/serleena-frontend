@@ -462,14 +462,10 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.showCustomPointSelection = true;
     if ($scope.editMode){
       $scope.editExperienceCustomPoints.forEach(function(p){
-        var o = {
-          name: p.name,
-          marker: Map.drawEditableCustomPointFromPosition(
-            $scope.map,
-            p.latitude,
-            p.longitude
-          )
-        };
+        var o = {};
+        o.marker = Map.
+                  drawEditableCustomPointFromPosition($scope.map, p.latitude,
+          p.longitude);
         $scope.customPoints.push(o);
       });
     }
@@ -530,32 +526,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.closeTrackRename = function(index){
     $scope.tracks[index].showRename = false;
-  };
-  /**
-   * Funzione invocata dalla vista per abilitare la visualizzazione
-   * dell'interfaccia per rinominare un punto personalizzato.
-   *
-   * @function showCustomPointRename
-   * @memberOf Experience.ExperienceWizardController
-   * @instance
-   * @param {Number} index - Indice del punto personalizzato a cui abilitare il
-   * cambio del nome.
-   */
-  $scope.showCustomPointRename = function(index){
-    $scope.customPoints[index].showRename = true;
-  };
-  /**
-   * Funzione invocata dalla vista per disabilitare la visualizzazione
-   * dell'interfaccia per rinominare un punto personalizzato.
-   *
-   * @function closeCustomPointRename
-   * @memberOf Experience.ExperienceWizardController
-   * @instance
-   * @param {Number} index - Indice del percorso a cui disabilitare il cambio
-   * del nome.
-   */
-  $scope.closeCustomPointRename = function(index){
-    $scope.customPoints[index].showRename = false;
   };
   /**
    * Funzione invocata dalla vista per abilitare la gestione dei checkpoint
@@ -675,9 +645,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    */
   $scope.addNewCustomPoint = function(){
     $scope.customPoints.push({
-      name: 'Punto personalizzato #' + $scope.customPoints.length,
-      marker: Map.drawCustomPoint($scope.map),
-      showRename: true
+      marker: Map.drawCustomPoint($scope.map)
     });
   };
   /**
@@ -771,7 +739,7 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
     $scope.customPoints.forEach(function(p){
       var c = Map.getCustomPointPosition(p.marker);
       selectedCustomPoints.push({
-        name: p.name,
+        name: "Punto personalizzato #" + $scope.customPoints.indexOf(p),
         latitude: c.lat,
         longitude: c.lng
       });

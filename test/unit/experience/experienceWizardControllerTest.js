@@ -461,9 +461,7 @@ describe('ExperienceWizardController Test', function () {
 	$scope.addNewCustomPoint();
 
 	expect($scope.customPoints).toEqual([{
-			name: 'Punto personalizzato #0',
-	    marker: 'Hill Valley.point',
-			showRename: true
+	    marker: 'Hill Valley.point'
 	}]);
     });
 
@@ -481,9 +479,7 @@ describe('ExperienceWizardController Test', function () {
 	expect($scope.previousTrackIndex).toBe(-1);
 	expect($scope.poi).toEqual([]);
 	expect($scope.customPoints).toEqual([{
-			name: 'Punto personalizzato #0',
-	    marker: 'Hill Valley.point',
-			showRename: true
+	    marker: 'Hill Valley.point'
 	}]);
 	expect($scope.saveType).toBe('');
 	expect($scope.saveMsg).toBe('');
