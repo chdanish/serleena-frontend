@@ -258,7 +258,6 @@ function TelemetryController($scope, ExperienceService, TelemetryService,
   $scope.showTelemetry = function(index){
     $scope.currentTelemetry = $scope.telemetries[index];
     $scope.currentTelemetryIndex = index;
-    //$scope.currentChartData = $scope.telemetries[index].chartdata;
   };
 
 }
