@@ -95,15 +95,6 @@ function ExperienceWizardController($scope, Map, SerleenaDataService,
    * @instance
    */
   $scope.expName = "";
-  /**
-   * Contenitore dei dati ottenuti dal form di inserimento nome
-   * esperienza.
-   *
-   * @name nameForm
-   * @type Object
-   * @memberOf Experience.ExperienceWizardController
-   * @instance
-   */
   $scope.nameForm = {};
   /**
    * Id del tag html di MapDirective
